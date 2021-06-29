@@ -39,6 +39,13 @@ namespace MoreMountains.TopDownEngine
         protected bool _poolInitialized = false;
         protected Transform _projectileSpawnTransform;
 
+
+        //추가 변수
+        //초기값 -1에서 변경되지 않으면 기본 SpawnProjectile() 실행
+        //-1에서 변경되면(총알 데미지가 따로 지정되면) overload 한 SpawnProjectile() 실행
+        public int projectileDamage = -1;   
+
+
         [MMInspectorButton("TestShoot")]
         /// a button to test the shoot method
 		public bool TestShootButton;
@@ -101,14 +108,22 @@ namespace MoreMountains.TopDownEngine
 
             for (int i = 0; i < ProjectilesPerShot; i++)
             {
-                SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, true);
+                if (projectileDamage == -1)     //초기값 그대로면 (따로 총알 데미지가 지정되지 않았으면)
+                {
+                    SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, true);
+                }
+                else
+                {
+                    SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, projectileDamage, true);
+                }
+                
             }
         }
 
         /// <summary>
         /// Spawns a new object and positions/resizes it
         /// </summary>
-        public virtual GameObject SpawnProjectile(Vector3 spawnPosition, int projectileIndex, int totalProjectiles, bool triggerObjectActivation = true)
+        public virtual GameObject SpawnProjectile(Vector3 spawnPosition, int projectileIndex, int totalProjectiles,  bool triggerObjectActivation = true)
         {
             /// we get the next object in the pool and make sure it's not null
             GameObject nextGameObject = ObjectPooler.GetPooledGameObject();
@@ -126,7 +141,7 @@ namespace MoreMountains.TopDownEngine
                 nextGameObject.transform.position = _projectileSpawnTransform.position;
             }
             // we set its direction
-
+            
             Projectile projectile = nextGameObject.GetComponent<Projectile>();
             if (projectile != null)
             {
@@ -201,6 +216,16 @@ namespace MoreMountains.TopDownEngine
                 }
             }
             return (nextGameObject);
+        }
+
+        //총알 데미지를 수정해야하는 경우 Overload
+        public virtual GameObject SpawnProjectile(Vector3 spawnPosition, int projectileIndex, int totalProjectiles, int projectileDamage, bool triggerObjectActivation = true)
+        {
+            GameObject tempObject = SpawnProjectile(spawnPosition, projectileIndex, totalProjectiles, triggerObjectActivation);
+            Projectile tempProjectile = tempObject.GetComponent<Projectile>();
+            tempProjectile.SetDamage(projectileDamage);
+
+            return (tempObject);
         }
 
         /// <summary>
