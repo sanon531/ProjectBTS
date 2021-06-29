@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 880724030733370436, guid: 7e9320972f26569419c5c85a45668a74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aba7b5c63d9ec304b89edc574d32d4bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 7994623077430727228}
   - component: {fileID: 7994623077430727227}
   m_Layer: 13
-  m_Name: TestEnemy
+  m_Name: Enemy_Prototype
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7994623077430727225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.07, y: 6.49, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7994623075777397129}
@@ -456,9 +456,12 @@ GameObject:
   - component: {fileID: 7994623077528261695}
   - component: {fileID: 7994623077528261694}
   - component: {fileID: 7994623077528261666}
-  - component: {fileID: 7994623077528261665}
   - component: {fileID: 7994623077528261664}
-  - component: {fileID: 7994623077528261667}
+  - component: {fileID: 7994623077528261665}
+  - component: {fileID: 4572283452247733000}
+  - component: {fileID: 3913001978886852777}
+  - component: {fileID: 6163221879143627280}
+  - component: {fileID: 3195818028809675970}
   m_Layer: 13
   m_Name: AIBrain
   m_TagString: Untagged
@@ -507,7 +510,46 @@ MonoBehaviour:
       array:
       - {fileID: 7994623077528261664}
     Transitions:
-      array: []
+      array:
+      - Decision: {fileID: 7994623077528261665}
+        TrueState: 
+        FalseState: Idle
+      - Decision: {fileID: 4572283452247733000}
+        TrueState: Attack
+        FalseState: 
+      - Decision: {fileID: 3913001978886852777}
+        TrueState: 
+        FalseState: Idle
+      - Decision: {fileID: 6163221879143627280}
+        TrueState: Knockback
+        FalseState: 
+  - StateName: Knockback
+    Actions:
+      array:
+      - {fileID: 7994623077528261666}
+    Transitions:
+      array:
+      - Decision: {fileID: 3195818028809675970}
+        TrueState: Move
+        FalseState: 
+  - StateName: Attack
+    Actions:
+      array:
+      - {fileID: 7994623077528261666}
+    Transitions:
+      array:
+      - Decision: {fileID: 6163221879143627280}
+        TrueState: Knockback
+        FalseState: 
+      - Decision: {fileID: 3913001978886852777}
+        TrueState: 
+        FalseState: Idle
+      - Decision: {fileID: 4572283452247733000}
+        TrueState: 
+        FalseState: Move
+      - Decision: {fileID: 7994623077528261665}
+        TrueState: 
+        FalseState: Idle
   BrainActive: 1
   TimeInThisState: 0
   Target: {fileID: 0}
@@ -527,28 +569,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: Idle
---- !u!114 &7994623077528261665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7994623077528261693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a946a428cb16e1409d657b9041c69be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Label: PlayerDetect
-  Radius: 5
-  DetectionOriginOffset: {x: 0, y: 0, z: 0}
-  TargetLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  ObstacleDetection: 0
-  ObstacleMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!114 &7994623077528261664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: MoveToPlayer
   MinimumDistance: 0.1
---- !u!114 &7994623077528261667
+--- !u!114 &7994623077528261665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -572,9 +592,80 @@ MonoBehaviour:
   m_GameObject: {fileID: 7994623077528261693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 206825d6db9c84741810b9da915cfb9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a946a428cb16e1409d657b9041c69be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Label: CheckPlayerDistance
-  ComparisonMode: 1
-  Distance: 0.1
+  Label: DetectArea
+  Radius: 5
+  DetectionOriginOffset: {x: 0, y: 0, z: 0}
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  ObstacleDetection: 1
+  ObstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &4572283452247733000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7994623077528261693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a946a428cb16e1409d657b9041c69be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: AttackArea
+  Radius: 1
+  DetectionOriginOffset: {x: 0, y: 0, z: 0}
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  ObstacleDetection: 1
+  ObstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &3913001978886852777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7994623077528261693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f21b170839d044b8b9bf160d1be05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: IsPlayerAlive
+--- !u!114 &6163221879143627280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7994623077528261693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cecd41409ea0af54481893fe71065025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: IsHit
+  NumberOfHits: 1
+--- !u!114 &3195818028809675970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7994623077528261693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21818f4def5bf646bec3d25770336cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: KnockbackTime
+  AfterTimeMin: 2
+  AfterTimeMax: 2
