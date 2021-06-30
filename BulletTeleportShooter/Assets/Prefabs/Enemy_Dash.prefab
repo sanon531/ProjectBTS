@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 1904423647928715492}
   - component: {fileID: 1904423647928715493}
   - component: {fileID: 1904423647928715513}
-  - component: {fileID: 1904423647928715515}
+  - component: {fileID: 1290222634860602909}
   - component: {fileID: 7142260664516618467}
   - component: {fileID: 1904423647928715514}
   - component: {fileID: 5470545270402723795}
@@ -428,7 +428,7 @@ MonoBehaviour:
   - StateName: Move
     Actions:
       array:
-      - {fileID: 1904423647928715515}
+      - {fileID: 1290222634860602909}
     Transitions:
       array:
       - Decision: {fileID: 1904423647928715514}
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: Idle
---- !u!114 &1904423647928715515
+--- !u!114 &1290222634860602909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -495,10 +495,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1904423647928715494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47557c9dd44293a41bc6710b083332de, type: 3}
+  m_Script: {fileID: 11500000, guid: 405564293ffa2e74ca66426b560a97aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Label: MoveToPlayer
+  Label: Move
   MinimumDistance: 0.1
 --- !u!114 &7142260664516618467
 MonoBehaviour:
@@ -531,7 +531,7 @@ MonoBehaviour:
   TargetLayer:
     serializedVersion: 2
     m_Bits: 1024
-  ObstacleDetection: 1
+  ObstacleDetection: 0
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256

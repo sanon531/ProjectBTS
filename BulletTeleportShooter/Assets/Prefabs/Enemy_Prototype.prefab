@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 7994623077528261695}
   - component: {fileID: 7994623077528261694}
   - component: {fileID: 7994623077528261666}
-  - component: {fileID: 7994623077528261664}
+  - component: {fileID: 6835421538122504938}
   - component: {fileID: 7994623077528261665}
   - component: {fileID: 4572283452247733000}
   - component: {fileID: 3913001978886852777}
@@ -508,7 +508,7 @@ MonoBehaviour:
   - StateName: Move
     Actions:
       array:
-      - {fileID: 7994623077528261664}
+      - {fileID: 6835421538122504938}
     Transitions:
       array:
       - Decision: {fileID: 7994623077528261665}
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: Idle
---- !u!114 &7994623077528261664
+--- !u!114 &6835421538122504938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -578,10 +578,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7994623077528261693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47557c9dd44293a41bc6710b083332de, type: 3}
+  m_Script: {fileID: 11500000, guid: 405564293ffa2e74ca66426b560a97aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Label: MoveToPlayer
+  Label: Move
   MinimumDistance: 0.1
 --- !u!114 &7994623077528261665
 MonoBehaviour:
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: DetectArea
-  Radius: 5
+  Radius: 8
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayer:
     serializedVersion: 2
