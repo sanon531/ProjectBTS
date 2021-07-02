@@ -326,7 +326,7 @@ namespace MoreMountains.TopDownEngine
             if ((_colliderTopDownController != null) && (DamageCausedKnockbackForce != Vector3.zero) && (!_colliderHealth.Invulnerable) && (!_colliderHealth.ImmuneToKnockback))
             {
                 _knockbackForce = DamageCausedKnockbackForce;
-
+                
                 if (_twoD) // if we're in 2D
                 {
                     if (DamageCausedKnockbackDirection == KnockbackDirections.BasedOnSpeed)

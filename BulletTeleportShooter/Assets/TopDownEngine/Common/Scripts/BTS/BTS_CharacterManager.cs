@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
-using MoreMountains.Tools;
-using MoreMountains.Feedbacks;
+
 
 namespace MoreMountains.TopDownEngine
 { 
-    public class BTS_ChracterManager : MonoBehaviour
+    public class BTS_CharacterManager : MonoBehaviour
     {
         public Weapon initialWeapon;
         private CharacterHandleWeapon _characterHandleWeapon;
@@ -30,7 +28,7 @@ namespace MoreMountains.TopDownEngine
         public int flashDMG;        //점멸 데미지(new)
         public int flashRange;      //점멸 범위(new)
 
-
+        
 
         void Awake()
         {

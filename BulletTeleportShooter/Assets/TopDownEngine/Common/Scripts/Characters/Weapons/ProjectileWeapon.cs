@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using MoreMountains.Tools;
+using System.Collections.Generic;
 using System;
 
 namespace MoreMountains.TopDownEngine
@@ -40,10 +41,12 @@ namespace MoreMountains.TopDownEngine
         protected Transform _projectileSpawnTransform;
 
 
-        //추가 변수
+        /// 추가 변수
         //초기값 -1에서 변경되지 않으면 기본 SpawnProjectile() 실행
         //-1에서 변경되면(총알 데미지가 따로 지정되면) overload 한 SpawnProjectile() 실행
-        public int projectileDamage = -1;   
+        public int projectileDamage = -1;
+        private BulletTeleportManager _bulletTeleportManager;
+        public LinkedList<GameObject> bulletStack;
 
 
         [MMInspectorButton("TestShoot")]
@@ -72,6 +75,9 @@ namespace MoreMountains.TopDownEngine
 		{
 			base.Initialization();            
 			_weaponAim = GetComponent<WeaponAim> ();
+            _bulletTeleportManager = GameObject.Find("TeleportManager").GetComponent<BulletTeleportManager>();
+            bulletStack = _bulletTeleportManager.BulletStack;
+            
 
             if (!_poolInitialized)
             {
@@ -108,13 +114,14 @@ namespace MoreMountains.TopDownEngine
 
             for (int i = 0; i < ProjectilesPerShot; i++)
             {
-                if (projectileDamage == -1)     //초기값 그대로면 (따로 총알 데미지가 지정되지 않았으면)
+                //총알 생성 및 스택에 Vector 저장
+                if (projectileDamage == -1)     //초기값 그대로면 (따로 총알 데미지가 지정되지 않았으면) 
                 {
-                    SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, true);
+                    bulletStack.AddLast(SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, true));
                 }
                 else
                 {
-                    SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, projectileDamage, true);
+                    bulletStack.AddLast(SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, projectileDamage, true));
                 }
                 
             }
