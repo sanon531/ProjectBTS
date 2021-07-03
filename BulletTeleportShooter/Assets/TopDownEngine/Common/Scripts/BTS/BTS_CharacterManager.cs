@@ -24,6 +24,9 @@ namespace MoreMountains.TopDownEngine
         private CharacterMovement _characterMovement;
         public float walkSpeed;         //기본 : 6f
 
+
+        public Explosion _explosion;
+
         public int MaxOverload;     //과부하 최대치(new)
         public int flashDMG;        //점멸 데미지(new)
         public int flashRange;      //점멸 범위(new)
@@ -39,7 +42,10 @@ namespace MoreMountains.TopDownEngine
             _projectileWeapon = initialWeapon.GetComponent<ProjectileWeapon>();
             _weapon = initialWeapon.GetComponent<Weapon>();
             _characterMovement = GetComponent<CharacterMovement>();
-            
+            _explosion = GetComponent<Explosion>();
+
+
+
             //기존 스크립트와 스텟 연결
             _health.InitialHealth = health;
             _health.MaximumHealth = health;
@@ -47,6 +53,8 @@ namespace MoreMountains.TopDownEngine
             _weapon.TimeBetweenUses = shootDelay;
             _weapon.TimeBetweenUsesReleaseInterruption = false;
             _characterMovement.WalkSpeed = walkSpeed;
+            _explosion.radius = flashRange;
+
         }
 
        

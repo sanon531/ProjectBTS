@@ -1,6 +1,7 @@
 ﻿using MoreMountains.Tools;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -11,7 +12,11 @@ namespace MoreMountains.TopDownEngine
         private GameObject TargetBullet;
 
         public float InvulnerTime;
-      
+
+        [Tooltip("the feedback to play when Teleport")]
+        public MMFeedbacks TeleportFeedback;
+        public MMObjectPooler ObjectPooler;
+
 
         protected override void PreInitialization()
         {
@@ -47,9 +52,10 @@ namespace MoreMountains.TopDownEngine
                 transform.position = TargetBullet.transform.position;
                 
                 _health.Invulnerable = true;        //점멸 후 플레이어 잠시 무적
+                TeleportFeedback?.PlayFeedbacks(this.transform.position);
                 
                 GetComponent<Explosion>().explode();
-
+                SpawnCrack();
                 Invoke("InvulnerDelay", InvulnerTime);       //데미지 입힌 후 1.5초 뒤 무적 해제
             }
         }
@@ -66,5 +72,24 @@ namespace MoreMountains.TopDownEngine
             TargetBullet.SetActive(false);
             //RigidBody 없애는 방식은 이후에 오류 발생 시킴
         }
+
+        private void SpawnCrack()
+        {
+            GameObject nextGameObject = ObjectPooler.GetPooledGameObject();
+
+            // mandatory checks
+            if (nextGameObject == null) { return; }
+
+            nextGameObject.GetComponent<ParticleSystem>().Play();
+
+            // we position the object
+            nextGameObject.transform.position = transform.position;
+
+            // we activate the object
+            nextGameObject.gameObject.SetActive(true);
+
+        }
+      
+
     }
 }
