@@ -14680,7 +14680,8 @@ MonoBehaviour:
   ModifyMovementWhileAttacking: 1
   MovementMultiplier: 0.5
   PreventAllMovementWhileInUse: 0
-  RecoilForce: 500
+  PreventAllAimWhileInUse: 0
+  RecoilForce: 0
   Animators:
   - {fileID: 95598217650214546}
   WeaponAnimationID: 0
@@ -14746,7 +14747,7 @@ MonoBehaviour:
   WeaponRotationSpeed: 0
   MinimumAngle: -180
   MaximumAngle: 180
-  MinimumMagnitude: 0.2
+  MinimumMagnitude: 0
   ReticleType: 2
   Reticle: {fileID: 1373789777524232, guid: f31b518c2b50cc2479370c46d4485485, type: 3}
   ReticleDistance: 5
@@ -14754,7 +14755,7 @@ MonoBehaviour:
   ReticleAtMousePosition: 1
   RotateReticle: 0
   ReplaceMousePointer: 1
-  MouseDeadZoneRadius: 0.5
+  MouseDeadZoneRadius: 0
   DisplayReticle: 1
   MoveCameraTargetTowardsReticle: 1
   CameraTargetOffset: 0.3
@@ -19839,7 +19840,33 @@ MonoBehaviour:
   - {fileID: 8918150851981488976}
   InitializationMode: 2
   SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
   AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  DurationMultiplier: 1
+  DisplayFullDurationDetails: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRevert:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
   DebugActive: 0
 --- !u!114 &8918150851981488976
 MonoBehaviour:
@@ -19863,6 +19890,12 @@ MonoBehaviour:
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
     Sequence: {fileID: 0}
     TrackID: 0
     Quantized: 0
@@ -19937,7 +19970,33 @@ MonoBehaviour:
   - {fileID: 1235152355}
   InitializationMode: 2
   SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
   AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  DurationMultiplier: 1
+  DisplayFullDurationDetails: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRevert:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
   DebugActive: 0
 --- !u!114 &2685163391474975218
 MonoBehaviour:
@@ -19961,6 +20020,12 @@ MonoBehaviour:
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
     Sequence: {fileID: 0}
     TrackID: 0
     Quantized: 0
@@ -19991,6 +20056,12 @@ MonoBehaviour:
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
     Sequence: {fileID: 0}
     TrackID: 0
     Quantized: 0
@@ -20093,6 +20164,12 @@ MonoBehaviour:
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
     Sequence: {fileID: 0}
     TrackID: 0
     Quantized: 0
@@ -20125,6 +20202,12 @@ MonoBehaviour:
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
     Sequence: {fileID: 0}
     TrackID: 0
     Quantized: 0
@@ -20136,6 +20219,9 @@ MonoBehaviour:
     Duration: 0.1
     Amplitude: 0.2
     Frequency: 40
+    AmplitudeX: 0
+    AmplitudeY: 0
+    AmplitudeZ: 0
 --- !u!114 &1235152354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20158,6 +20244,12 @@ MonoBehaviour:
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
     Sequence: {fileID: 0}
     TrackID: 0
     Quantized: 0
@@ -20226,6 +20318,12 @@ MonoBehaviour:
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
     Sequence: {fileID: 0}
     TrackID: 0
     Quantized: 0
@@ -20290,7 +20388,33 @@ MonoBehaviour:
   - {fileID: 4829783168276121428}
   InitializationMode: 2
   SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
   AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  DurationMultiplier: 1
+  DisplayFullDurationDetails: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRevert:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
   DebugActive: 0
 --- !u!114 &4829783168276121428
 MonoBehaviour:
@@ -20314,6 +20438,12 @@ MonoBehaviour:
     NumberOfRepeats: 0
     RepeatForever: 0
     DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
     Sequence: {fileID: 0}
     TrackID: 0
     Quantized: 0

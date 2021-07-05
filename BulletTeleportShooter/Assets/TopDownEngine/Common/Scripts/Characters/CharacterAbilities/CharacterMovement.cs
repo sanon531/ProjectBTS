@@ -20,7 +20,7 @@ namespace MoreMountains.TopDownEngine
         public bool MovementForbidden { get; set; }
 
         [Header("Direction")]
-
+        
         /// whether the character can move freely, in 2D only, in 4 or 8 cardinal directions
         [Tooltip("whether the character can move freely, in 2D only, in 4 or 8 cardinal directions")]
         public Movements Movement = Movements.Free;
