@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using MoreMountains.Tools;
+using System.Collections.Generic;
 
 namespace MoreMountains.TopDownEngine
 {	
@@ -63,6 +64,9 @@ namespace MoreMountains.TopDownEngine
 		protected Health _health;
         protected bool _spawnerIsFacingRight;
 
+		protected BulletTeleportManager _bulletTeleportManager;
+		protected LinkedList<GameObject> bulletStack;
+
         /// <summary>
         /// On awake, we store the initial speed of the object 
         /// </summary>
@@ -80,6 +84,9 @@ namespace MoreMountains.TopDownEngine
 			_initialInvulnerabilityDurationWFS = new WaitForSeconds (InitialInvulnerabilityDuration);
 			if (_spriteRenderer != null) {	_initialFlipX = _spriteRenderer.flipX ;		}
 			_initialLocalScale = transform.localScale;
+
+			_bulletTeleportManager = GameObject.Find("TeleportManager").GetComponent<BulletTeleportManager>();
+			bulletStack = _bulletTeleportManager.BulletStack;
 		}
 
 		/// <summary>
@@ -300,7 +307,14 @@ namespace MoreMountains.TopDownEngine
 			if (_health != null)
 			{
 				_health.OnDeath -= OnDeath;
-			}			
+			}
+
+			//추가 : 비활성화될 때, BulletStack에서 빼줌
+			if (bulletStack.Contains(this.gameObject))
+			{
+				bulletStack.Remove(this.gameObject);
+			}
+
 		}
 	}	
 }
