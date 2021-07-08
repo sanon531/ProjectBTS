@@ -5046,8 +5046,9 @@ GameObject:
   - component: {fileID: 160851960533860299}
   - component: {fileID: 160347031314267407}
   - component: {fileID: 160735756857834461}
+  - component: {fileID: 8796143037880317390}
   m_Layer: 13
-  m_Name: Enemy_Default
+  m_Name: Enemy_Track
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5565,6 +5566,28 @@ MonoBehaviour:
   DisplayDurationOnHit: 1
   HideBarAtZero: 1
   HideBarAtZeroDelay: 0
+--- !u!114 &8796143037880317390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263819155384378971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd53f212f2ebded4f81846d762387250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 160851960533860299}
+  damageOnTouch: {fileID: 160347031314267407}
+  movement: {fileID: 160766214113533083}
+  run: {fileID: 160880032914778283}
+  defaultHP: 10
+  defaultAttack: 1
+  defaultSpeed: 5
+  maxHP: 0
+  attack: 0
+  speed: 0
 --- !u!1 &264164652564010179
 GameObject:
   m_ObjectHideFlags: 0
@@ -10814,12 +10837,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: DetectArea
-  Radius: 8
+  Radius: 15
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayer:
     serializedVersion: 2
     m_Bits: 1024
-  ObstacleDetection: 1
+  ObstacleDetection: 0
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256

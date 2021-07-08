@@ -31,6 +31,7 @@ public class PathManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Debug.DrawRay(Vector3.zero, Vector3.forward, Color.green, 50);
         mapData = MakeMapData();
     }
 
@@ -47,7 +48,8 @@ public class PathManager : MonoBehaviour
             for(int y = 0; y < mapSize.y; ++y)
             {
                 Vector2 cellPos = new Vector2(leftDownPos.x + cellSize.x * x, leftDownPos.y + cellSize.y * y);
-                RaycastHit2D[] hit2D = Physics2D.RaycastAll(new Vector2(cellPos.x + cellSize.x * .5f, cellPos.y + cellSize.y * .5f), Vector2.zero);
+                //RaycastHit2D[] hit2D = Physics2D.RaycastAll(new Vector2(cellPos.x + cellSize.x * .5f, cellPos.y + cellSize.y * .5f), Vector2.zero);
+                RaycastHit2D[] hit2D = Physics2D.BoxCastAll(new Vector2(cellPos.x + cellSize.x * .5f, cellPos.y + cellSize.y * .5f), new Vector2(0.95f, 0.95f), 0, Vector2.zero);
                 Node newNode = new Node();
                 newNode.pos = cellPos;
                 newNode.isWalkable = true;
@@ -59,6 +61,7 @@ public class PathManager : MonoBehaviour
                         break;
                     }
                 }
+                Debug.DrawRay(new Vector3(cellPos.x + cellSize.x * .5f, cellPos.y + cellSize.y * .5f), new Vector3(0.2f, 0.2f, 0), (newNode.isWalkable ? Color.blue : Color.red), 50);
                 newMapData.Add(cellPos, newNode);
             }
         }
