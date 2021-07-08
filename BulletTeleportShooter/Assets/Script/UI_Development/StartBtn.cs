@@ -7,7 +7,7 @@ public class StartBtn : MonoBehaviour
 {
     public void OnClickBtn()
     {
-        SceneManager.LoadScene("Character");
+        SceneManager.LoadScene("UIScene");
         
         Debug.Log("다음화면");
     }
