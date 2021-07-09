@@ -43,8 +43,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    [Header("- Current Status")]
-    [SerializeField] private int maxHP;
     public int CurrentHP
     {
         get
@@ -63,11 +61,10 @@ public class Enemy : MonoBehaviour
     {
         get
         {
-            return maxHP;
+            return health.MaximumHealth;
         }
         set
         {
-            maxHP = value;
             try
             {
                 float hpRatio = (float)health.CurrentHealth / health.MaximumHealth;
@@ -84,16 +81,14 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    [SerializeField] private int attack;
     public int Attack
     {
         get
         {
-            return attack;
+            return damageOnTouch.DamageCaused;
         }
         set
         {
-            attack = value;
             try
             {
                 damageOnTouch.DamageCaused = value;
@@ -104,16 +99,14 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    [SerializeField] private float speed;
     public float Speed
     {
         get
         {
-            return speed;
+            return movement.MovementSpeed;
         }
         set
         {
-            speed = value;
             try
             {
                 movement.MovementSpeed = value;
@@ -138,5 +131,10 @@ public class Enemy : MonoBehaviour
         IsInit = true;
 
         return this;
+    }
+
+    public void Kill()
+    {
+        health.Kill();
     }
 }

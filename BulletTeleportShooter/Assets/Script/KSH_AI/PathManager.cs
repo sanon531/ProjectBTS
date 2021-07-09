@@ -61,7 +61,10 @@ public class PathManager : MonoBehaviour
                         break;
                     }
                 }
-                Debug.DrawRay(new Vector3(cellPos.x + cellSize.x * .5f, cellPos.y + cellSize.y * .5f), new Vector3(0.2f, 0.2f, 0), (newNode.isWalkable ? Color.blue : Color.red), 50);
+                Debug.DrawRay(new Vector3(cellPos.x + cellSize.x * .5f, cellPos.y + cellSize.y * .5f), new Vector3(0.1f, 0.1f, 0), (newNode.isWalkable ? Color.blue : Color.red), 50);
+                Debug.DrawRay(new Vector3(cellPos.x + cellSize.x * .5f, cellPos.y + cellSize.y * .5f), new Vector3(-0.1f, -0.1f, 0), (newNode.isWalkable ? Color.blue : Color.red), 50);
+                Debug.DrawRay(new Vector3(cellPos.x + cellSize.x * .5f, cellPos.y + cellSize.y * .5f), new Vector3(0.1f, -0.1f, 0), (newNode.isWalkable ? Color.blue : Color.red), 50);
+                Debug.DrawRay(new Vector3(cellPos.x + cellSize.x * .5f, cellPos.y + cellSize.y * .5f), new Vector3(-0.1f, 0.1f, 0), (newNode.isWalkable ? Color.blue : Color.red), 50);
                 newMapData.Add(cellPos, newNode);
             }
         }
@@ -137,10 +140,11 @@ public class PathManager : MonoBehaviour
         path.Add(new Vector3(startNode.pos.x + grid.cellSize.x * .5f, startNode.pos.y + grid.cellSize.y * .5f));
         path.Reverse();
 
+        /*
         for(int i = 0; i < path.Count; ++i)
         {
             Debug.Log(path[i]);
-        }
+        }*/
 
         foreach (KeyValuePair<Vector2, Node> kv in mapData)
         {

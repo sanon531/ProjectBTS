@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7378868711809492352}
   - component: {fileID: 608745975391954853}
   m_Layer: 13
-  m_Name: DashArea
+  m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10586,9 +10586,6 @@ MonoBehaviour:
   defaultHP: 5
   defaultAttack: 1
   defaultSpeed: 4
-  maxHP: 0
-  attack: 0
-  speed: 0
 --- !u!1 &8333414538552665192
 GameObject:
   m_ObjectHideFlags: 0
@@ -10777,7 +10774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: DetectArea
-  Radius: 30
+  Radius: 50
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayer:
     serializedVersion: 2

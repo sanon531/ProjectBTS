@@ -5585,9 +5585,6 @@ MonoBehaviour:
   defaultHP: 10
   defaultAttack: 1
   defaultSpeed: 5
-  maxHP: 0
-  attack: 0
-  speed: 0
 --- !u!1 &264164652564010179
 GameObject:
   m_ObjectHideFlags: 0
@@ -10837,7 +10834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: DetectArea
-  Radius: 15
+  Radius: 50
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayer:
     serializedVersion: 2

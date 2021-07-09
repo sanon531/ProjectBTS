@@ -17,7 +17,6 @@ public class Enemy_Dash : Enemy
         }
         return base.Init();
     }
-
     private void Start()
     {
         if (IsInit == false)

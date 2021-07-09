@@ -9,7 +9,7 @@ public class AIActionPathfinderToTarget2D : AIAction
     [Tooltip("각 위치에 도달하는 것을 판정하는 최소 거리")]
     public float MinimumDistance = .1f;
 
-    private static float UPDATE_PATH_DELAY = 1f;
+    private static float UPDATE_PATH_DELAY = .1f;
 
     protected Collider2D _collider;
     protected CharacterMovement _characterMovement;
