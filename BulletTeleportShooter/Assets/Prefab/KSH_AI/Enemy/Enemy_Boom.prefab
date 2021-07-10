@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 4421347633280940396}
   - component: {fileID: 5256422517648715553}
   - component: {fileID: 7425035626262707252}
+  - component: {fileID: 7949304776529514630}
   m_Layer: 13
   m_Name: Boom
   m_TagString: Untagged
@@ -151,15 +152,47 @@ MonoBehaviour:
   DamageCausedKnockbackDirection: 0
   DamageCausedKnockbackForce: {x: 1000, y: 1000, z: 0}
   InvincibilityDuration: 0.5
-  DamageTakenEveryTime: 0
-  DamageTakenDamageable: 0
-  DamageTakenNonDamageable: 0
+  DamageTakenEveryTime: 1
+  DamageTakenDamageable: 1
+  DamageTakenNonDamageable: 1
   DamageTakenKnockbackType: 0
   DamageTakenKnockbackForce: {x: 0, y: 0, z: 0}
-  DamageTakenInvincibilityDuration: 0.5
+  DamageTakenInvincibilityDuration: 0
   HitDamageableFeedback: {fileID: 0}
   HitNonDamageableFeedback: {fileID: 0}
   Owner: {fileID: 0}
+--- !u!114 &7949304776529514630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372411618382922274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01754710d9f92ec4d9a21b81f5682667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Model: {fileID: 5372411618382922274}
+  CurrentHealth: 0
+  Invulnerable: 0
+  InitialHealth: 1
+  MaximumHealth: 1
+  ImmuneToKnockback: 0
+  DamageMMFeedbacks: {fileID: 0}
+  DestroyOnDeath: 1
+  DelayBeforeDestruction: 0
+  PointsWhenDestroyed: 0
+  RespawnAtInitialLocation: 0
+  DisableControllerOnDeath: 1
+  DisableModelOnDeath: 1
+  DisableCollisionsOnDeath: 1
+  DisableChildCollisionsOnDeath: 0
+  ChangeLayerOnDeath: 0
+  ChangeLayersRecursivelyOnDeath: 0
+  LayerOnDeath:
+    _layerIndex: 0
+  DeathMMFeedbacks: {fileID: 0}
 --- !u!1 &6044140078704165315
 GameObject:
   m_ObjectHideFlags: 0

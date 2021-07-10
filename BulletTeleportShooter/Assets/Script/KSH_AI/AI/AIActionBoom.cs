@@ -18,14 +18,14 @@ public class AIActionBoom : AIAction
 
     public override void OnEnterState()
     {
-        enemy.Kill();
         boom.DamageCaused = enemy.BoomDamage;
         boom.gameObject.SetActive(true);
         StartCoroutine(_Routine());
+        enemy.Kill();
         IEnumerator _Routine()
         {
             yield return new WaitForSeconds(0.1f);
-            boom.gameObject.SetActive(false);
+            boom.GetComponent<Health>().Kill();
         }
     }
     public override void PerformAction()
