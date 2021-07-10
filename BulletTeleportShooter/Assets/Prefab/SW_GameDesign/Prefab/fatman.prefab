@@ -9879,7 +9879,7 @@ GameObject:
   - component: {fileID: 1530849377221911690}
   - component: {fileID: 7198923050348876859}
   m_Layer: 10
-  m_Name: fatmanChar
+  m_Name: fatman
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10389,7 +10389,7 @@ MonoBehaviour:
     type: 3}
   health: 12
   attackDMG: 3
-  shootDelay: 1
+  shootDelay: 0.75
   walkSpeed: 2
   MaxOverload: 70
   flashDMG: 6
@@ -10415,6 +10415,11 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   InvulnerTime: 1.5
+  OverloadDownDelay: 0.1
+  OneTimeOverloadUP: 20
+  OneTimeOverloadDown: 1
+  TeleportFeedback: {fileID: 0}
+  ObjectPooler: {fileID: 0}
 --- !u!114 &7198923050348876859
 MonoBehaviour:
   m_ObjectHideFlags: 0
