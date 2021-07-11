@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
+using System.Collections;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -10,8 +11,19 @@ namespace MoreMountains.TopDownEngine
         private BulletTeleportManager _bulletTeleportManager;
         private LinkedList<GameObject> bulletStack;
         private GameObject TargetBullet;
+        private BTS_CharacterManager _characterManager;
 
         public float InvulnerTime;
+
+        public float OverloadDownDelay = 0.1f;
+        public int OneTimeOverloadUP = 20;
+        public int OneTimeOverloadDown = 1;
+
+        private int nowOverload = 0;
+        private bool TeleportEnable = true;
+        private int MaxOverload;
+        private bool coroutineIsRunning = false;
+        
 
         [Tooltip("the feedback to play when Teleport")]
         public MMFeedbacks TeleportFeedback;
@@ -23,7 +35,9 @@ namespace MoreMountains.TopDownEngine
             base.PreInitialization();
             _bulletTeleportManager = GameObject.Find("TeleportManager").GetComponent<BulletTeleportManager>();
             bulletStack = _bulletTeleportManager.BulletStack;
+            _characterManager = GetComponent<BTS_CharacterManager>();
             _health = GetComponent<Health>();
+            MaxOverload = _characterManager.MaxOverload;
         }
 
         protected override void HandleInput()     //점멸 조작키 설정
@@ -36,7 +50,10 @@ namespace MoreMountains.TopDownEngine
             }
             if (_inputManager.SecondaryShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
             {
-                TeleportStart();
+                if (TeleportEnable)
+                {
+                    TeleportStart();
+                }
             }
         }
 
@@ -48,14 +65,25 @@ namespace MoreMountains.TopDownEngine
             }
             else
             {
+                OverloadUP();
+                if (!coroutineIsRunning)
+                {
+                    StartCoroutine("OverloadDown", OverloadDownDelay);
+                }
+
                 RemoveBullet();
                 transform.position = TargetBullet.transform.position;
-                
+
                 _health.Invulnerable = true;        //점멸 후 플레이어 잠시 무적
                 TeleportFeedback?.PlayFeedbacks(this.transform.position);
-                
+
                 GetComponent<Explosion>().explode();
-                SpawnCrack();
+                
+                if (ObjectPooler != null) 
+                {
+                    SpawnCrack();
+                }
+                
                 Invoke("InvulnerDelay", InvulnerTime);       //데미지 입힌 후 1.5초 뒤 무적 해제
             }
         }
@@ -71,6 +99,39 @@ namespace MoreMountains.TopDownEngine
             bulletStack.RemoveLast();
             TargetBullet.SetActive(false);
             //RigidBody 없애는 방식은 이후에 오류 발생 시킴
+        }
+        
+        private void OverloadUP()
+        {
+            nowOverload += OneTimeOverloadUP;
+            if (nowOverload > MaxOverload - OneTimeOverloadUP)
+            {
+                TeleportEnable = false;
+            }
+        }
+
+        IEnumerator OverloadDown()
+        {
+            coroutineIsRunning = true;
+            nowOverload -= OneTimeOverloadDown;
+            if (nowOverload <= MaxOverload - OneTimeOverloadUP) 
+            { 
+                TeleportEnable = true; 
+            }
+            else
+            {
+                TeleportEnable = false;
+            }
+
+            Debug.Log(nowOverload);         //테스트 용 출력
+
+            yield return new WaitForSeconds(OverloadDownDelay);
+
+            coroutineIsRunning = false;
+            if (nowOverload > 0)
+            {
+                StartCoroutine("OverloadDown");
+            }
         }
 
         private void SpawnCrack()
@@ -89,7 +150,11 @@ namespace MoreMountains.TopDownEngine
             nextGameObject.gameObject.SetActive(true);
 
         }
-      
 
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            StopAllCoroutines();
+        }
     }
 }

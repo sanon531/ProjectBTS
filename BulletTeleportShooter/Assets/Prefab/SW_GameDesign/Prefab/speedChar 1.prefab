@@ -11022,7 +11022,7 @@ GameObject:
   - component: {fileID: 1797312938177843847}
   - component: {fileID: 1521449679269632563}
   m_Layer: 10
-  m_Name: speedChar
+  m_Name: speedChar 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11532,7 +11532,7 @@ MonoBehaviour:
     type: 3}
   health: 3
   attackDMG: 1
-  shootDelay: 0.2
+  shootDelay: 0.1
   walkSpeed: 12
   MaxOverload: 130
   flashDMG: 1
@@ -11558,6 +11558,11 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   InvulnerTime: 1.5
+  OverloadDownDelay: 0.1
+  OneTimeOverloadUP: 20
+  OneTimeOverloadDown: 1
+  TeleportFeedback: {fileID: 0}
+  ObjectPooler: {fileID: 0}
 --- !u!114 &1521449679269632563
 MonoBehaviour:
   m_ObjectHideFlags: 0
