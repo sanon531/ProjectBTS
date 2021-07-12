@@ -33,7 +33,8 @@ namespace MoreMountains.TopDownEngine
         protected override void PreInitialization()
         {
             base.PreInitialization();
-            _bulletTeleportManager = GameObject.Find("TeleportManager").GetComponent<BulletTeleportManager>();
+            _bulletTeleportManager = BulletTeleportManager.Instance;
+
             bulletStack = _bulletTeleportManager.BulletStack;
             _characterManager = GetComponent<BTS_CharacterManager>();
             _health = GetComponent<Health>();
@@ -123,7 +124,7 @@ namespace MoreMountains.TopDownEngine
                 TeleportEnable = false;
             }
 
-            Debug.Log(nowOverload);         //테스트 용 출력
+            //Debug.Log(nowOverload);         //테스트 용 출력
 
             yield return new WaitForSeconds(OverloadDownDelay);
 
