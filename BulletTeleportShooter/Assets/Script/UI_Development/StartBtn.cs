@@ -12,3 +12,5 @@ public class StartBtn : MonoBehaviour
         Debug.Log("다음화면");
     }
 }
+//4개의 맵 구분만 1,2,3,4 uitextpannel
+//1번 맵을 1
