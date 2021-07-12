@@ -10,11 +10,17 @@ public class UI_Char : MonoBehaviour
 
 
     public RectTransform rectTransform;
+    public Vector2 OriginPos;
     public Image image;
     public Tween tween;
 
-   
 
+    private void Start()
+    {
+        image.DOFade(0f, 0f);
+        OriginPos = rectTransform.anchoredPosition;
+        Debug.Log(OriginPos);
+    }
 
 
 
@@ -24,12 +30,7 @@ public class UI_Char : MonoBehaviour
       
         rectTransform.DOScale(1.4f,1); //1.4배 1초
         rectTransform.DOAnchorPos(new Vector2(0, 0), 1, false);    // (0,0)으로 이동
-        tween = image.DOFade(1f, 2f);
-        
-        
-
-
-
+        tween = image.DOFade(1f, 1f);
     }
 
     
@@ -37,8 +38,8 @@ public class UI_Char : MonoBehaviour
     public void OffClick() //되돌리기
     {
         rectTransform.DOScale(0.5f, 1); //0.5배 1초
-        rectTransform.DOAnchorPos(new Vector2(-730f, -403f), 1, false);    // (-730,-403)으로 이동
-
+        rectTransform.DOAnchorPos(OriginPos, 1, false);    // (-730,-403)으로 이동
+        tween = image.DOFade(0f, 1f);
 
     }
 }
