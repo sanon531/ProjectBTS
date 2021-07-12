@@ -15016,6 +15016,61 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -100
       objectReference: {fileID: 0}
+    - target: {fileID: 114342343417139432, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 706372522}
+    - target: {fileID: 114342343417139432, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114342343417139432, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BTS_OnClickBotton
+      objectReference: {fileID: 0}
+    - target: {fileID: 114642533414620800, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114642533414620800, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BTS_OnClickBotton
+      objectReference: {fileID: 0}
+    - target: {fileID: 114742274801932784, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114742274801932784, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114742274801932784, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114954360595572784, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 706372522}
+    - target: {fileID: 114954360595572784, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114954360595572784, guid: d73aa2d3898a69541852a65f3a8e14e0,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BTS_OnClickBotton
+      objectReference: {fileID: 0}
     - target: {fileID: 199525803886270006, guid: d73aa2d3898a69541852a65f3a8e14e0,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -15935,7 +15990,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnOffBlockList: []
   animator: {fileID: 0}
-  timer: 0
   spike_timer: 0
   spike_speed: 1
 --- !u!483693784 &1975470728

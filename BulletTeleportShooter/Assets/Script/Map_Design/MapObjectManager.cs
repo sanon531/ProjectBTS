@@ -28,7 +28,6 @@ public class MapObjectManager : MonoBehaviour
         SpikeList.Add(data);
     }
 
-    public float timer = 0f;
 
     public float spike_timer = 0f;
     public float spike_speed = 1f;
@@ -39,7 +38,7 @@ public class MapObjectManager : MonoBehaviour
     {
         spike_timer += Time.deltaTime;
         
-        if (spike_timer > 5f)
+        if (spike_timer > 30f)
         {
 
             spike_speed++;
@@ -49,6 +48,7 @@ public class MapObjectManager : MonoBehaviour
             }
             spike_timer = 0f;
         }
+        
         
 
         //Timer Timer_GameTime = GameObject.Find("GameManager").GetComponent<Timer>();
