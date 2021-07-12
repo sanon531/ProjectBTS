@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_StageSelect : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class UI_StageSelect : MonoBehaviour
 
     public RectTransform rectTransform;
     public RectTransform[] node;
-    public int index = 2;
+    public int index = 0;
 
     Sequence animSequence;
 
@@ -66,6 +67,11 @@ public class UI_StageSelect : MonoBehaviour
         {
             BuildAnimation(index + 1);
         }
+    }
+
+    public void OnClick_Stn()
+    {
+        SceneManager.LoadScene(index+2);
     }
 
 
