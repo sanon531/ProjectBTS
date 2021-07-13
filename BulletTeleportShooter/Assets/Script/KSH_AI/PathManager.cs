@@ -31,7 +31,6 @@ public class PathManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        Debug.DrawRay(Vector3.zero, Vector3.forward, Color.green, 50);
         mapData = MakeMapData();
     }
 
