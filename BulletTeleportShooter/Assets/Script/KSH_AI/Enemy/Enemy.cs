@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int defaultAttack;
     [SerializeField] private float defaultSpeed;
 
+    public Action onDeath;
+
+
     public int DefaultHP
     {
         get
@@ -128,9 +131,17 @@ public class Enemy : MonoBehaviour
         Attack = defaultAttack;
         Speed = defaultSpeed;
 
+        health.OnDeath += OnDeath;
+
         IsInit = true;
 
         return this;
+    }
+
+    private void OnDeath()
+    {
+        onDeath?.Invoke();
+        health.OnDeath -= OnDeath;
     }
 
     public void Kill()
