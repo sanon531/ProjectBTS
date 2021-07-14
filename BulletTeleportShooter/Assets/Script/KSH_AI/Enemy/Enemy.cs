@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
             {
                 float hpRatio = (float)health.CurrentHealth / health.MaximumHealth;
                 health.MaximumHealth = value;
-                health.SetHealth((int)(health.CurrentHealth * hpRatio));
+                health.SetHealth((int)Mathf.Min(health.MaximumHealth * hpRatio, health.MaximumHealth));
             }
             catch (DivideByZeroException)
             {

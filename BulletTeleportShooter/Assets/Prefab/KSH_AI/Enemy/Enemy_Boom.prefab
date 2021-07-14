@@ -291,9 +291,10 @@ GameObject:
   - component: {fileID: 8186680970450256320}
   - component: {fileID: 8186680970450256323}
   - component: {fileID: 8186680970450256322}
-  - component: {fileID: 8186680970450256325}
   - component: {fileID: 8186680970450256324}
   - component: {fileID: 6363267487076045083}
+  - component: {fileID: 6648904442101731182}
+  - component: {fileID: 1058977483003460566}
   m_Layer: 13
   m_Name: AIBrain
   m_TagString: Untagged
@@ -352,6 +353,9 @@ MonoBehaviour:
       - Decision: {fileID: 8186680970450256322}
         TrueState: 
         FalseState: Idle
+      - Decision: {fileID: 6648904442101731182}
+        TrueState: Knockback
+        FalseState: 
   - StateName: Knockback
     Actions:
       array:
@@ -367,8 +371,8 @@ MonoBehaviour:
       - {fileID: 445890559542970823}
     Transitions:
       array:
-      - Decision: {fileID: 8186680970450256325}
-        TrueState: KnockBack
+      - Decision: {fileID: 1058977483003460566}
+        TrueState: Knockback
         FalseState: 
       - Decision: {fileID: 6363267487076045083}
         TrueState: Boom
@@ -425,8 +429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: BoomReady
-  dashArea: {fileID: 7232168947209240622}
-  dashReadyArea: {fileID: 6687068887101827723}
+  boomArea: {fileID: 7232168947209240622}
+  boomReadyArea: {fileID: 6687068887101827723}
   range: 5
   readyTime: 5
   checker: {fileID: 6363267487076045083}
@@ -501,20 +505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: IsPlayerAlive
---- !u!114 &8186680970450256325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8186680970450256326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cecd41409ea0af54481893fe71065025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Label: IsHit
-  NumberOfHits: 2
 --- !u!114 &8186680970450256324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,6 +534,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Label: ReadyCheck
   checker: 0
+--- !u!114 &6648904442101731182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8186680970450256326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275f296f375ac2a4ab7a9d6250fd6f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: IsHit
+  NumberOfHits: 1
+--- !u!114 &1058977483003460566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8186680970450256326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275f296f375ac2a4ab7a9d6250fd6f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: IsHitWhileBooming
+  NumberOfHits: 2
 --- !u!1 &8208937379573478636
 GameObject:
   m_ObjectHideFlags: 0

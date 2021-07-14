@@ -15,7 +15,6 @@ public class Enemy_Boom : Enemy
         BoomDelay = defaultBoomDelay;
         BoomDamage = defaultBoomDamage;
 
-
         return base.Init();
     }
 

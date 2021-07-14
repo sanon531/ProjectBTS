@@ -24,7 +24,7 @@ public class AIActionBoom : AIAction
         enemy.Kill();
         IEnumerator _Routine()
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
             boom.GetComponent<Health>().Kill();
         }
     }
