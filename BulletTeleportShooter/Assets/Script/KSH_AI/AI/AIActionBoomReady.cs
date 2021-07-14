@@ -8,9 +8,10 @@ using MoreMountains.TopDownEngine;
 public class AIActionBoomReady : AIAction
 {
     private Enemy_Boom enemy;
+    private Sequence readySequence;
     [Header("- Area")]
-    [SerializeField] private Transform dashArea;
-    [SerializeField] private Transform dashReadyArea;
+    [SerializeField] private Transform boomArea;
+    [SerializeField] private Transform boomReadyArea;
     [SerializeField] private float range;
     [Header("- Time")]
     [SerializeField] private float readyTime;
@@ -19,7 +20,14 @@ public class AIActionBoomReady : AIAction
 
     public override void PerformAction()
     {
-
+        if (enemy.CurrentHP <= 0)
+        {
+            if (readySequence.IsActive())
+            {
+                readySequence.Kill();
+                boomArea.gameObject.SetActive(false);
+            }
+        }
     }
 
     protected override void Initialization()
@@ -32,14 +40,14 @@ public class AIActionBoomReady : AIAction
         base.OnEnterState();
         readyTime = enemy.BoomDelay;
 
-        dashArea.gameObject.SetActive(true);
-        dashArea.localScale = new Vector3(range * 2, range * 2, 1);
-        dashReadyArea.localScale = new Vector3(0, 0, 1);
+        boomArea.gameObject.SetActive(true);
+        boomArea.localScale = new Vector3(range * 2, range * 2, 1);
+        boomReadyArea.localScale = new Vector3(0, 0, 1);
 
-        Sequence readySequence = DOTween.Sequence();
+        readySequence = DOTween.Sequence();
         readySequence.
-            Append(dashReadyArea.DOScaleX(1, readyTime)).
-            Join(dashReadyArea.DOScaleY(1, readyTime)).
+            Append(boomReadyArea.DOScaleX(1, readyTime)).
+            Join(boomReadyArea.DOScaleY(1, readyTime)).
             SetEase(Ease.Linear).
             OnComplete(() => checker.checker = true);
     }
@@ -47,6 +55,10 @@ public class AIActionBoomReady : AIAction
     public override void OnExitState()
     {
         base.OnExitState();
-        dashArea.gameObject.SetActive(false);
+        if (readySequence.IsActive())
+        {
+            readySequence.Kill();
+        }
+        boomArea.gameObject.SetActive(false);
     }
 }

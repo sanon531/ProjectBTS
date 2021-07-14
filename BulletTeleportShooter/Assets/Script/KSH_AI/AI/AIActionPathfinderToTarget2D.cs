@@ -47,21 +47,23 @@ public class AIActionPathfinderToTarget2D : AIAction
             else
             {
                 List<Vector3> pathData = PathManager.Instance.FindPath(this.transform.position, _brain.Target.position);
-
-                if (pathData.Count > 1)
+                if (pathData != null)
                 {
-                    // 백워킹 방지용 보정
-                    float firstPointLength = Vector3.SqrMagnitude(pathData[1] - pathData[0]);
-                    float nowPointLength = Vector3.SqrMagnitude(pathData[1] - this.transform.position);
-                    if (nowPointLength < firstPointLength)
+                    if (pathData.Count > 1)
                     {
-                        pathData.RemoveAt(0);
+                        // 백워킹 방지용 보정
+                        float firstPointLength = Vector3.SqrMagnitude(pathData[1] - pathData[0]);
+                        float nowPointLength = Vector3.SqrMagnitude(pathData[1] - this.transform.position);
+                        if (nowPointLength < firstPointLength)
+                        {
+                            pathData.RemoveAt(0);
+                        }
                     }
-                }
 
-                for (int i = 0; i < pathData.Count; ++i)
-                {
-                    _movePoint.Enqueue(pathData[i]);
+                    for (int i = 0; i < pathData.Count; ++i)
+                    {
+                        _movePoint.Enqueue(pathData[i]);
+                    }
                 }
             }
         }
