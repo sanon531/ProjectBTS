@@ -24,14 +24,13 @@ namespace MoreMountains.TopDownEngine
         private CharacterMovement _characterMovement;
         public float walkSpeed;         //기본 : 6f
 
+        private Explosion _explosion;
 
-        public Explosion _explosion;
+        public int MaxOverload;         //과부하 최대치(new)
+        public int flashDMG;            //점멸 데미지(new)
+        public int flashRange;          //점멸 범위(new)
 
-        public int MaxOverload;     //과부하 최대치(new)
-        public int flashDMG;        //점멸 데미지(new)
-        public int flashRange;      //점멸 범위(new)
 
-        
 
         void Awake()
         {
@@ -54,6 +53,7 @@ namespace MoreMountains.TopDownEngine
             _weapon.TimeBetweenUsesReleaseInterruption = false;
             _characterMovement.WalkSpeed = walkSpeed;
             _explosion.radius = flashRange;
+
 
         }
 
