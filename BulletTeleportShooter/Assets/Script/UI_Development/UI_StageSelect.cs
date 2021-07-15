@@ -50,7 +50,7 @@ public class UI_StageSelect : MonoBehaviour
 
         if (0 <= _index && _index < node.Length)
         {
-            node[_index].localScale = Vector3.one * 1.2f;
+            node[_index].localScale = Vector3.one * scaleVar;
             rectTransform.anchoredPosition = new Vector2(-node[_index].anchoredPosition.x, node[_index].anchoredPosition.y);
         }
     }
