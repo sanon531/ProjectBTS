@@ -22,14 +22,10 @@ public class UI_Char : MonoBehaviour
     public void OnClick()
     { 
       
-        rectTransform.DOScale(1.4f,1); //1.4배 1초
+        rectTransform.DOScale(2f,1); //1.4배 1초
         rectTransform.DOAnchorPos(new Vector2(0, 0), 1, false);    // (0,0)으로 이동
         tween = image.DOFade(1f, 2f);
         
-        
-
-
-
     }
 
     
