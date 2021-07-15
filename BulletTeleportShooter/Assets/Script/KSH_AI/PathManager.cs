@@ -31,7 +31,6 @@ public class PathManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        Debug.DrawRay(Vector3.zero, Vector3.forward, Color.green, 50);
         mapData = MakeMapData();
     }
 
@@ -71,7 +70,7 @@ public class PathManager : MonoBehaviour
         return newMapData;
     }
     /// <summary>
-    /// 길찾기를 한다. (도착불가 상황일때는 버그 발생 예정)
+    /// 길찾기를 한다.
     /// </summary>
     /// <param name="_currentPos">현재 위치</param>
     /// <param name="_desPos">갈 위치</param>
@@ -122,6 +121,12 @@ public class PathManager : MonoBehaviour
 
         while (current != startNode)
         {
+            if(current.parent == null)
+            {
+                // 경로가 존재하지 않음.
+                Debug.Log("경로 없음 " + closedSet.Count + "\n주의! 경로가 존재하지 않을 경우 <b><i>극심한</i></b> 성능 하락을 일으킵니다. 이런 경우를 없도록 하세요!");
+                return null;
+            }
             wayPoints.Add(current.pos);
             current = current.parent;
         }

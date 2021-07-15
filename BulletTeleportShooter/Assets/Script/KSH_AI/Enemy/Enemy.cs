@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int defaultAttack;
     [SerializeField] private float defaultSpeed;
 
+    public Action onDeath;
+
+
     public int DefaultHP
     {
         get
@@ -69,7 +72,7 @@ public class Enemy : MonoBehaviour
             {
                 float hpRatio = (float)health.CurrentHealth / health.MaximumHealth;
                 health.MaximumHealth = value;
-                health.SetHealth((int)(health.CurrentHealth * hpRatio));
+                health.SetHealth((int)Mathf.Min(health.MaximumHealth * hpRatio, health.MaximumHealth));
             }
             catch (DivideByZeroException)
             {
@@ -128,9 +131,17 @@ public class Enemy : MonoBehaviour
         Attack = defaultAttack;
         Speed = defaultSpeed;
 
+        health.OnDeath += OnDeath;
+
         IsInit = true;
 
         return this;
+    }
+
+    private void OnDeath()
+    {
+        onDeath?.Invoke();
+        health.OnDeath -= OnDeath;
     }
 
     public void Kill()

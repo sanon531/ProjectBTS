@@ -7,30 +7,37 @@ using UnityEngine.SceneManagement;
 
 public class UI_StageSelect : MonoBehaviour
 {
-    public float speed;
+    public float time = 0.5f;
     public float scaleVar;
     public float distance;
 
     public RectTransform rectTransform;
     public RectTransform[] node;
-    public int index = 0;
+    public int uiTargetedIndex = 0;
+    public int ImmediateIndex = 0;
+    public List<string> SceneList;
+
 
     Sequence animSequence;
+
+
 
     public void BuildAnimation(int _index)
     {
         if (0 <= _index && _index < node.Length)
         {
+            ImmediateIndex = _index;
             animSequence = DOTween.Sequence();
             animSequence.
-                Append(rectTransform.DOMoveX(distance * (index > _index ? 1 : -1), speed).SetRelative(true));
+                Append(
+                rectTransform.DOAnchorPosX(distance * (uiTargetedIndex > _index ? 1 : -1), time).SetRelative(true));
             if (0 <= _index - 1 && _index - 1 < node.Length) animSequence.
-                    Join(node[_index - 1].DOScale(Vector3.one, speed)); // 왼쪽의 노드 애니메이션 들어갈 부분
+                    Join(node[_index - 1].DOScale(Vector3.one, time)); // 왼쪽의 노드 애니메이션 들어갈 부분
             if (0 <= _index && _index < node.Length) animSequence.
-                    Join(node[_index].DOScale(Vector3.one * scaleVar, speed)); // 중앙의 노드 애니메이션 들어갈 부분
+                    Join(node[_index].DOScale(Vector3.one * scaleVar, time)); // 중앙의 노드 애니메이션 들어갈 부분
             if (0 <= _index + 1 && _index + 1 < node.Length) animSequence.
-                    Join(node[_index + 1].DOScale(Vector3.one, speed)); // 오른쪽의 노드 애니메이션 들어갈 부분
-            animSequence.OnComplete(() => index = _index);
+                    Join(node[_index + 1].DOScale(Vector3.one, time)); // 오른쪽의 노드 애니메이션 들어갈 부분
+            animSequence.OnComplete(() => uiTargetedIndex = _index);
         }
     }
 
@@ -38,7 +45,7 @@ public class UI_StageSelect : MonoBehaviour
     {
         for(int i = 0; i < node.Length; ++i)
         {
-            Debug.Log(node[i].anchoredPosition);
+            //Debug.Log(node[i].anchoredPosition);
         }
 
         if (0 <= _index && _index < node.Length)
@@ -50,14 +57,14 @@ public class UI_StageSelect : MonoBehaviour
 
     private void Start()
     {
-        Focus(index);
+        Focus(uiTargetedIndex);
     }
 
     public void OnClick_Left()
     {
         if (!animSequence.IsActive())
         {
-            BuildAnimation(index - 1);
+            BuildAnimation(uiTargetedIndex - 1);
         }
     }
 
@@ -65,13 +72,13 @@ public class UI_StageSelect : MonoBehaviour
     {
         if (!animSequence.IsActive())
         {
-            BuildAnimation(index + 1);
+            BuildAnimation(uiTargetedIndex + 1);
         }
     }
 
     public void OnClick_Stn()
     {
-        SceneManager.LoadScene(index+2);
+        SceneManager.LoadScene(SceneList[ImmediateIndex]);
     }
 
 
