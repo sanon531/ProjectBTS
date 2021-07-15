@@ -1,35 +1,43 @@
 ﻿using UnityEngine;
 
-
 namespace MoreMountains.TopDownEngine
-{ 
+{
     public class BTS_CharacterManager : MonoBehaviour
     {
         public Weapon initialWeapon;
         private CharacterHandleWeapon _characterHandleWeapon;
-
-        //Health.cs -> int Initial/Maximum Health
-        private Health _health;                     
-        public int health;
-
-        //ProjectileWeapon.cs -> int projectileDamage
-        private ProjectileWeapon _projectileWeapon;
-        public int attackDMG;           //-1이면, 기본 데미지로 적용 (Projectile.cs -> DamageCaused = 10)
-
-        //Weapon.cs -> float TimeBetweenUses 
-        private Weapon _weapon;                      
-        public float shootDelay;        //기본 : 1f (1초마다)
-
-        //CharacterMovement.cs -> float WalkSpeed
-        private CharacterMovement _characterMovement;
-        public float walkSpeed;         //기본 : 6f
-
         private Explosion _explosion;
+        private Health _health;
+        private ProjectileWeapon _projectileWeapon;
+        private Weapon _weapon;
+        private CharacterMovement _characterMovement;
 
-        public int MaxOverload;         //과부하 최대치(new)
-        public int flashDMG;            //점멸 데미지(new)
-        public int flashRange;          //점멸 범위(new)
+        [Header("Health")]
+        [Tooltip("캐릭터 최대 체력")]
+        public int MaximumHealth;
+        [Tooltip("캐릭터 시작 체력")]
+        public int InitialHealth;
 
+        [Header("Attack Stat")]
+        [Tooltip("캐릭터 무기 공격 데미지")]
+        //-1이면, 기본 데미지로 적용 (Projectile.cs -> DamageCaused = 10)
+        public int AttackDMG;             
+        [Tooltip("캐릭터 연사 딜레이 시간 (연사 속도)")]
+        //기본 : 1f (1초마다)
+        public float ShootDelay;
+
+        [Header("Movement")]
+        [Tooltip("캐릭터 이동 속도")]
+        //기본 : 6f
+        public float WalkSpeed;
+
+        [Header("Flash Stat")]
+        [Tooltip("과부하 최대치")]
+        public int MaxOverload;
+        [Tooltip("점멸 데미지")]
+        public int FlashDMG;
+        [Tooltip("과부하 범위")]
+        public int FlashRange;
 
 
         void Awake()
@@ -44,19 +52,14 @@ namespace MoreMountains.TopDownEngine
             _explosion = GetComponent<Explosion>();
 
 
-
             //기존 스크립트와 스텟 연결
-            _health.InitialHealth = health;
-            _health.MaximumHealth = health;
-            _projectileWeapon.projectileDamage = attackDMG;
-            _weapon.TimeBetweenUses = shootDelay;
+            _health.InitialHealth = InitialHealth;
+            _health.MaximumHealth = MaximumHealth;
+            _projectileWeapon.projectileDamage = AttackDMG;
+            _weapon.TimeBetweenUses = ShootDelay;
             _weapon.TimeBetweenUsesReleaseInterruption = false;
-            _characterMovement.WalkSpeed = walkSpeed;
-            _explosion.radius = flashRange;
-
-
-        }
-
-       
+            _characterMovement.WalkSpeed = WalkSpeed;
+            _explosion.Radius = FlashRange;
+        }     
     }
 }

@@ -1,14 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MoreMountains.TopDownEngine
 {
     public class Explosion : MonoBehaviour
     {
-        public int radius = 0;
-        public float force;
+        [Tooltip("폭발 범위 (반지름)")]
+        public int Radius = 0;
 
+        [Tooltip("폭발 시 주변 오브젝트를 미는 힘")]
+        public float Force;
+
+        [Tooltip("폭발 시 밀리는 대상 Layer")]
         public LayerMask LayerToHit;
 
         private Health _health;
@@ -21,8 +23,8 @@ namespace MoreMountains.TopDownEngine
 
         public void explode()
         {
-            radius = _characterManager.flashRange;
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, LayerToHit);
+            Radius = _characterManager.FlashRange;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, Radius, LayerToHit);
 
             foreach (Collider2D col in colliders)
             {
@@ -33,15 +35,15 @@ namespace MoreMountains.TopDownEngine
                 {
                     _health = col.gameObject.GetComponent<Health>();
 
-                    rb.AddForce(direction * force);                                                             //밀기
-                    _health.Damage(_characterManager.flashDMG, this.gameObject, 0.5f, 0.5f, Vector3.zero);      //데미지 입히기
+                    rb.AddForce(direction * Force);                                                             //밀기
+                    _health.Damage(_characterManager.FlashDMG, this.gameObject, 0.5f, 0.5f, Vector3.zero);      //데미지 입히기
                 }
             }
         }
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, radius);
+            Gizmos.DrawWireSphere(transform.position, Radius);
         }
     }
 }

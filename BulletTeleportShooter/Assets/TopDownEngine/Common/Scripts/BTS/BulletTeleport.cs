@@ -13,10 +13,16 @@ namespace MoreMountains.TopDownEngine
         private GameObject TargetBullet;
         private BTS_CharacterManager _characterManager;
 
+        [Header("Invulner Time")]
+        [Tooltip("텔레포트 후 무적시간")]
         public float InvulnerTime;
 
-        public float OverloadDownDelay = 0.1f;
+        [Header("Overload")]
+        [Tooltip("텔레포트 1회당 과부하 게이지 증가량")]
         public int OneTimeOverloadUP = 20;
+        [Tooltip("과부하 감소 시간 간격")]
+        public float OverloadDownDelay = 0.1f;
+        [Tooltip("1회 과부하 게이지 감소량")]
         public int OneTimeOverloadDown = 1;
 
         private int nowOverload = 0;
@@ -24,7 +30,7 @@ namespace MoreMountains.TopDownEngine
         private int MaxOverload;
         private bool coroutineIsRunning = false;
         
-
+        [Header("Teleport Effect")]
         [Tooltip("the feedback to play when Teleport")]
         public MMFeedbacks TeleportFeedback;
         public MMObjectPooler ObjectPooler;
@@ -33,7 +39,7 @@ namespace MoreMountains.TopDownEngine
         protected override void PreInitialization()
         {
             base.PreInitialization();
-            _bulletTeleportManager = GameObject.Find("TeleportManager").GetComponent<BulletTeleportManager>();
+            _bulletTeleportManager = BulletTeleportManager.Instance;
             bulletStack = _bulletTeleportManager.BulletStack;
             _characterManager = GetComponent<BTS_CharacterManager>();
             _health = GetComponent<Health>();
@@ -65,25 +71,25 @@ namespace MoreMountains.TopDownEngine
             }
             else
             {
-                OverloadUP();
+                OverloadUP(OneTimeOverloadUP);
                 if (!coroutineIsRunning)
                 {
-                    StartCoroutine("OverloadDown", OverloadDownDelay);
+                    StartCoroutine("OverloadDownCoroutine", OverloadDownDelay);
                 }
 
                 RemoveBullet();
                 transform.position = TargetBullet.transform.position;
 
-                _health.Invulnerable = true;        //점멸 후 플레이어 잠시 무적
+                _health.Invulnerable = true;                //점멸 후 플레이어 잠시 무적
                 TeleportFeedback?.PlayFeedbacks(this.transform.position);
 
                 GetComponent<Explosion>().explode();
-                
-                if (ObjectPooler != null) 
+
+                if (ObjectPooler != null)
                 {
                     SpawnCrack();
                 }
-                
+
                 Invoke("InvulnerDelay", InvulnerTime);       //데미지 입힌 후 1.5초 뒤 무적 해제
             }
         }
@@ -93,46 +99,65 @@ namespace MoreMountains.TopDownEngine
             _health.Invulnerable = false;
         }
 
-        private void RemoveBullet() 
+        private void RemoveBullet()
         {
             TargetBullet = bulletStack.Last.Value;
             bulletStack.RemoveLast();
             TargetBullet.SetActive(false);
-            //RigidBody 없애는 방식은 이후에 오류 발생 시킴
         }
-        
-        private void OverloadUP()
+
+        public void OverloadUP(int upAmount)
         {
-            nowOverload += OneTimeOverloadUP;
+            nowOverload += upAmount;
             if (nowOverload > MaxOverload - OneTimeOverloadUP)
             {
                 TeleportEnable = false;
             }
+
+            //테스트 용 출력  KoalaUICamera -> OverloadTextManager.cs -> OverloadCounter (Text)
+            OverloadTextManager.Instance.SetOverloadText(nowOverload);      
         }
 
-        IEnumerator OverloadDown()
+        public void OverloadDown(int downAmount)
         {
-            coroutineIsRunning = true;
-            nowOverload -= OneTimeOverloadDown;
-            if (nowOverload <= MaxOverload - OneTimeOverloadUP) 
-            { 
-                TeleportEnable = true; 
+            nowOverload -= downAmount;
+
+            if (nowOverload <= MaxOverload - OneTimeOverloadUP)
+            {
+                TeleportEnable = true;
             }
             else
             {
                 TeleportEnable = false;
             }
 
-            Debug.Log(nowOverload);         //테스트 용 출력
+            OverloadTextManager.Instance.SetOverloadText(nowOverload);      //테스트 용 출력
+        }
+
+        IEnumerator OverloadDownCoroutine()
+        {
+            coroutineIsRunning = true;
+            nowOverload -= OneTimeOverloadDown;
+            if (nowOverload <= MaxOverload - OneTimeOverloadUP)
+            {
+                TeleportEnable = true;
+            }
+            else
+            {
+                TeleportEnable = false;
+            }
+
+            OverloadTextManager.Instance.SetOverloadText(nowOverload);      //테스트 용 출력
 
             yield return new WaitForSeconds(OverloadDownDelay);
 
             coroutineIsRunning = false;
             if (nowOverload > 0)
             {
-                StartCoroutine("OverloadDown");
+                StartCoroutine("OverloadDownCoroutine");
             }
         }
+
 
         private void SpawnCrack()
         {
