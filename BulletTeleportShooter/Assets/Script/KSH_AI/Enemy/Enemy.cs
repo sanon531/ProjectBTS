@@ -138,6 +138,14 @@ public class Enemy : MonoBehaviour
         return this;
     }
 
+    private void Start()
+    {
+        if (IsInit == false)
+        {
+            Init();
+        }
+    }
+
     private void OnDeath()
     {
         onDeath?.Invoke();

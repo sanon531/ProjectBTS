@@ -1440,11 +1440,10 @@ MonoBehaviour:
   damageOnTouch: {fileID: 8333141663929872361}
   movement: {fileID: 8333848381844967037}
   run: {fileID: 8333736830786402893}
-  defaultHP: 3
+  defaultHP: 1
   defaultAttack: 1
-  defaultSpeed: 2
-  defaultBoomDelay: 5
-  defaultBoomDamage: 5
+  defaultSpeed: 4
+  defaultBoomDelay: 2
 --- !u!1 &8229717148664217887
 GameObject:
   m_ObjectHideFlags: 0

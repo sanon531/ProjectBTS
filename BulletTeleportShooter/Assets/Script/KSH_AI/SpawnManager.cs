@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -14,9 +15,25 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int MAX_ENEMY_COUNT;
     [SerializeField] private float minDistance;
     [SerializeField] private float maxDistance;
+    [Header("- Power Up Properties")]
+    [SerializeField] private float defaultTime;
+    [SerializeField] private float powerUpDelay;
+    [Header("- Power Up Values")]
+    [SerializeField] private int powerUpHP;
+    [SerializeField] private int powerUpATK;
+    [SerializeField] private float powerUpSPD;
+    [Header("- Power Up Priority")]
+    [SerializeField] private int priorityHP;
+    [SerializeField] private int priorityATK;
+    [SerializeField] private int prioritySPD;
+    [Header("- Current Power Up Status")]
+    [SerializeField] private int currentPowerUpHP;
+    [SerializeField] private int currentPowerUpATK;
+    [SerializeField] private float currentPowerUpSPD;
 
     private int spawnedEnemyCount;
     private Transform playerTransform;
+    private Sequence powerUpSequence;
 
     private void Awake()
     {
@@ -25,13 +42,52 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        Sequence waitSequence = DOTween.Sequence();
+        waitSequence.
+            AppendInterval(defaultTime).
+            AppendCallback(() =>
+            {
+                powerUpSequence = DOTween.Sequence();
+                powerUpSequence.AppendCallback(() =>
+                {
+                    int random = Random.Range(0, priorityATK + priorityHP + prioritySPD) + 1;
+                    if (1 <= random && random <= priorityATK)
+                    {
+                        priorityHP += 2;
+                        prioritySPD += 2;
+                        currentPowerUpATK += powerUpATK;
+                    }
+                    else if (priorityATK < random && random <= priorityATK + priorityHP)
+                    {
+                        priorityATK += 2;
+                        prioritySPD += 2;
+                        currentPowerUpHP += powerUpHP;
+                    }
+                    else if (priorityATK + priorityHP < random && random <= priorityATK + priorityHP + prioritySPD)
+                    {
+                        priorityATK += 2;
+                        priorityHP += 2;
+                        currentPowerUpSPD += powerUpSPD;
+                    }
+                }).
+                AppendInterval(powerUpDelay).
+                SetLoops(-1);
+            });
         StartCoroutine(SpawnRoutine());
     }
 
     IEnumerator SpawnRoutine()
     {
-        while(spawnedEnemyCount < MAX_ENEMY_COUNT)
+        while (playerTransform == null)
+        {
+            if (GameObject.FindGameObjectWithTag("Player") != null)
+            {
+                playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            }
+            yield return null;
+        }
+
+        while (spawnedEnemyCount < MAX_ENEMY_COUNT)
         {
             // 위치 기반 스폰 포인트 선별
             float min = minDistance * minDistance;
@@ -49,8 +105,8 @@ public class SpawnManager : MonoBehaviour
             if(spawnPos.Count > 0)
             {
                 // 몇 마리를 스폰할 지 랜덤으로 결정
-                int spawnCount = Random.Range(1, spawnPoints.Length);
-                if (spawnedEnemyCount + spawnCount >= MAX_ENEMY_COUNT) spawnCount = MAX_ENEMY_COUNT - spawnedEnemyCount;
+                int spawnCount = Random.Range(0, spawnPos.Count) + 1;
+                if (spawnedEnemyCount + spawnCount > MAX_ENEMY_COUNT) spawnCount = MAX_ENEMY_COUNT - spawnedEnemyCount;
 
                 // 어느 곳에 스폰할 지 랜덤으로 결정 (중복 불가)
                 int[] spawnPointIndex = new int[spawnPos.Count];
@@ -70,7 +126,10 @@ public class SpawnManager : MonoBehaviour
                 // 적을 스폰
                 for (int i = 0; i < spawnCount; ++i)
                 {
-                    Instantiate(spawnEnemies[spawnEnemyIndex[i]], spawnPos[spawnPointIndex[i]], Quaternion.identity).Init();
+                    Enemy newEnemy = Instantiate(spawnEnemies[spawnEnemyIndex[i]], spawnPos[spawnPointIndex[i]], Quaternion.identity, transform).Init();
+                    newEnemy.Attack += currentPowerUpATK;
+                    newEnemy.MaxHP += currentPowerUpHP;
+                    newEnemy.Speed += currentPowerUpSPD;
                 }
 
                 spawnedEnemyCount += spawnCount;

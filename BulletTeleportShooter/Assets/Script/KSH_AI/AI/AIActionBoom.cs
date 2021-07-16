@@ -18,7 +18,7 @@ public class AIActionBoom : AIAction
 
     public override void OnEnterState()
     {
-        boom.DamageCaused = enemy.BoomDamage;
+        boom.DamageCaused = enemy.Attack * 3;
         boom.gameObject.SetActive(true);
         StartCoroutine(_Routine());
         enemy.Kill();
