@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTS_Spikes_Data : MonoBehaviour
+public class BTSDestroyTile : MonoBehaviour
 {
-
-   public Animator animator;
-
-
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
-        SpikeObjectManager.Instance.AddSpike(this);
-
+        
     }
-    
-    
+
+    private float t = 0;
 
     // Update is called once per frame
     void Update()
     {
-        
+        t += Time.deltaTime;
+
+        if (t>=5f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

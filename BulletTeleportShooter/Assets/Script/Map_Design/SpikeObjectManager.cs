@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapObjectManager : MonoBehaviour
+public class SpikeObjectManager : MonoBehaviour
 {
 
     [SerializeField]
-    List <BTS_Object_Data> OnOffBlockList = new List <BTS_Object_Data> ();
+    List<BTS_Object_Data> OnOffBlockList = new List<BTS_Object_Data>();
+    [SerializeField]
     List<BTS_Spikes_Data> SpikeList = new List<BTS_Spikes_Data>();
 
-    public static MapObjectManager Instance;
+    public static SpikeObjectManager Instance;
     public Animator animator;
 
     // Start is called before the first frame update
@@ -28,7 +29,25 @@ public class MapObjectManager : MonoBehaviour
         SpikeList.Add(data);
     }
 
+    public void SpikeStop()
+    {
+        if (IsPuase)
+        {
+            for (int i = 0; i < SpikeList.Count; i += 2)
+            {
+                SpikeList[i].animator.speed = 0;
+            }
+        }
+        else 
+            {
+                for (int i = 0; i < SpikeList.Count; i += 2)
+                {
+                    SpikeList[i].animator.speed = 1;
+                }
+            }
+    }
 
+    private bool IsPuase = true;
     public float spike_timer = 0f;
     public float spike_speed = 1f;
 
@@ -36,6 +55,13 @@ public class MapObjectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (spike_timer >=1.5f)
+        {
+            IsPuase = false;
+        }
+        SpikeStop();
+        
         spike_timer += Time.deltaTime;
         
         if (spike_timer > 30f)

@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "RealFirst")
         {
             GameTime = 0;
-            GameObject.Find("SpikeObject").GetComponent<MapObjectManager>().spike_speed = 1f;
+            GameObject.Find("SpikeObject").GetComponent<SpikeObjectManager>().spike_speed = 1f;
         }
         
     }

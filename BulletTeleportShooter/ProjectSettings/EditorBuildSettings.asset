@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map_Design/RealFirst.unity
     guid: d703d0e99ae093a49b2dc67a11b886c3
+  - enabled: 1
+    path: Assets/Scenes/Map_Design/Second_OnlySpike.unity
+    guid: 9fa7964b6074bf54abeffb1137615613
+  - enabled: 1
+    path: Assets/Scenes/Map_Design/Third_Hole_and_Spike.unity
+    guid: e6a80d83e84131841b8759177758c639
   m_configObjects: {}
