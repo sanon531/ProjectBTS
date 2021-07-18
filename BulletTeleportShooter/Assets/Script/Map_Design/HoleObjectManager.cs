@@ -17,14 +17,17 @@ public class HoleObjectManager : MonoBehaviour
     {
         Instance = this;
     }
-
+    private void Start()
+    {
+        Destroy(BTS_HoleObjectContainer.FirstContainer.gameObject, 30f);
+        Destroy(BTS_HoleObjectContainer.SecondContainer.gameObject, 60f);
+        Destroy(BTS_HoleObjectContainer.ThirdContainer.gameObject, 90f);
+    }
     // Update is called once per frame
     void Update()
     {
 
-        Destroy(BTS_HoleObjectContainer.FirstContainer.gameObject, 30f);
-        Destroy(BTS_HoleObjectContainer.SecondContainer.gameObject, 60f);
-        Destroy(BTS_HoleObjectContainer.ThirdContainer.gameObject, 90f);
+        
 
 
 
