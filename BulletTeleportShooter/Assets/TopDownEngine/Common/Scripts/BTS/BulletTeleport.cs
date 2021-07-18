@@ -145,7 +145,7 @@ namespace MoreMountains.TopDownEngine
             nextGameObject.GetComponent<ParticleSystem>().Play();
 
             // we position the object
-            nextGameObject.transform.position = transform.position;
+            nextGameObject.transform.position = transform.position+ new Vector3(0,0,-3f);
 
             // we activate the object
             nextGameObject.gameObject.SetActive(true);
