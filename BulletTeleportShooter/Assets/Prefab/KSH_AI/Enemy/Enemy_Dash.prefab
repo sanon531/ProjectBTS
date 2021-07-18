@@ -10583,9 +10583,11 @@ MonoBehaviour:
   damageOnTouch: {fileID: 8187428227701967431}
   movement: {fileID: 8186722081899539411}
   run: {fileID: 8186897434689822691}
-  defaultHP: 5
+  defaultHP: 1
   defaultAttack: 1
   defaultSpeed: 4
+  defaultReadyTime: 1.5
+  defaultDashDelay: 0.7
 --- !u!1 &8333414538552665192
 GameObject:
   m_ObjectHideFlags: 0
@@ -10747,7 +10749,6 @@ MonoBehaviour:
   dashArea: {fileID: 7378868711809492352}
   dashReadyArea: {fileID: 6843201011916984101}
   range: 5
-  readyTime: 3
   checker: {fileID: 6517848552177628341}
   dash: {fileID: 8333414538552665199}
 --- !u!114 &8333414538552665199

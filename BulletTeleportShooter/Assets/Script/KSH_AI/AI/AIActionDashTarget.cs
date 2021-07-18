@@ -9,6 +9,7 @@ public class AIActionDashTarget : AIAction
 {
     public Vector3 destination;
 
+    private Enemy_Dash enemy;
     protected Character _character;
     protected CharacterDash2D _characterDamageDash2D; // 일단 DamageOnTouch가 구현되지 않았으므로 일반 Dash로 하자.
 
@@ -16,6 +17,7 @@ public class AIActionDashTarget : AIAction
 
     protected override void Initialization()
     {
+        enemy = GetComponentInParent<Enemy_Dash>();
         _character = GetComponentInParent<Character>();
         _characterDamageDash2D = _character?.FindAbility<CharacterDash2D>();
     }
@@ -26,7 +28,7 @@ public class AIActionDashTarget : AIAction
         _characterDamageDash2D.DashDirection = (destination - this.transform.position);
         _characterDamageDash2D.DashStart();
         Sequence aiSequence = DOTween.Sequence();
-        aiSequence.AppendInterval(1.5f).AppendCallback(() => checker.checker = true);
+        aiSequence.AppendInterval(enemy.DashDelay).AppendCallback(() => checker.checker = true);
     }
     public override void PerformAction()
     {

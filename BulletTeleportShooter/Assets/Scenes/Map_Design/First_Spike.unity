@@ -180,7 +180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &170290192
 Transform:
   m_ObjectHideFlags: 0
@@ -219,7 +219,18 @@ MonoBehaviour:
   spawnDelay: 5
   MAX_ENEMY_COUNT: 30
   minDistance: 0
-  maxDistance: 0
+  maxDistance: 10
+  defaultTime: 15
+  powerUpDelay: 10
+  powerUpHP: 1
+  powerUpATK: 1
+  powerUpSPD: 0.1
+  priorityHP: 1
+  priorityATK: 1
+  prioritySPD: 1
+  currentPowerUpHP: 0
+  currentPowerUpATK: 0
+  currentPowerUpSPD: 0
 --- !u!1 &250615922
 GameObject:
   m_ObjectHideFlags: 0

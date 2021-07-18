@@ -7,14 +7,12 @@ using MoreMountains.TopDownEngine;
 
 public class AIActionDashReady : AIAction
 {
-    private Enemy enemy;
+    private Enemy_Dash enemy;
     private Tweener dashTweener;
     [Header("- Area")]
     [SerializeField] private Transform dashArea;
     [SerializeField] private Transform dashReadyArea;
     [SerializeField] private float range;
-    [Header("- Time")]
-    [SerializeField] private float readyTime;
     [Header("- Checker")]
     [SerializeField] private AIDecisionCheck checker;
     [Header("- Dash AI")]
@@ -22,7 +20,7 @@ public class AIActionDashReady : AIAction
 
     protected override void Initialization()
     {
-        enemy = GetComponentInParent<Enemy>();
+        enemy = GetComponentInParent<Enemy_Dash>();
     }
 
     public override void PerformAction()
@@ -49,7 +47,7 @@ public class AIActionDashReady : AIAction
         dashReadyArea.localScale = new Vector3(0, 1, 1);
         dashTweener = 
         dashReadyArea.
-            DOScaleX(1, readyTime).
+            DOScaleX(1, enemy.DashReady).
             SetEase(Ease.Linear).
             OnComplete(() => checker.checker = true);
     }
