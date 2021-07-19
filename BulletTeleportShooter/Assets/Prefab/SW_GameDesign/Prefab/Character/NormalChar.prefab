@@ -14670,7 +14670,7 @@ GameObject:
   - component: {fileID: 1061372736230732227}
   - component: {fileID: 1059921064399868293}
   - component: {fileID: 1060516053291275765}
-  - component: {fileID: 1060398536405137919}
+  - component: {fileID: 637557025523312375}
   - component: {fileID: 1059503186371012555}
   - component: {fileID: 8435117288371552787}
   - component: {fileID: 548378012184792397}
@@ -15111,7 +15111,7 @@ MonoBehaviour:
   AutoPickItems: []
   AutoEquipWeaponOnStart: {fileID: 0}
   CharacterHandleWeapon: {fileID: 0}
---- !u!114 &1060398536405137919
+--- !u!114 &637557025523312375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15120,14 +15120,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091990951591210651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01754710d9f92ec4d9a21b81f5682667, type: 3}
+  m_Script: {fileID: 11500000, guid: c6bcbf1ad958afb4ab41d83332259273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 30
-  MaximumHealth: 30
+  InitialHealth: 10
+  MaximumHealth: 10
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 4927380924059679243}
   DestroyOnDeath: 0
@@ -15186,12 +15186,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialWeapon: {fileID: 7619283110440395837, guid: a2f3da7c64b552245a127c333cf515bd,
     type: 3}
-  MaximumHealth: 8
-  InitialHealth: 8
+  MaximumHealth: 6
+  InitialHealth: 6
   AttackDMG: 2
   ShootDelay: 0.35
   WalkSpeed: 6
-  MaxOverload: 100
+  MaxTeleportToken: 5
   FlashDMG: 3
   FlashRange: 1
 --- !u!114 &548378012184792397
@@ -15215,9 +15215,9 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   InvulnerTime: 1.5
-  OneTimeOverloadUP: 20
-  OverloadDownDelay: 0.1
-  OneTimeOverloadDown: 1
+  UseTokenAmount: 1
+  TokenRechargeDelay: 2
+  TokenRechargeAmount: 1
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
 --- !u!114 &8161973739256479228
@@ -15234,6 +15234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Radius: 1
   Force: 2000
+  PosY: 0.6
   LayerToHit:
     serializedVersion: 2
     m_Bits: 8192

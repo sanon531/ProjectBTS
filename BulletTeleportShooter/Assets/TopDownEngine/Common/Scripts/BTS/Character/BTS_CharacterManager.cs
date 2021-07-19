@@ -32,8 +32,8 @@ namespace MoreMountains.TopDownEngine
         public float WalkSpeed;
 
         [Header("Flash Stat")]
-        [Tooltip("과부하 최대치")]
-        public int MaxOverload;
+        [Tooltip("텔레포트 토큰 최대치")]
+        public int MaxTeleportToken;
         [Tooltip("점멸 데미지")]
         public int FlashDMG;
         [Tooltip("과부하 범위")]

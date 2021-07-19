@@ -17,19 +17,19 @@ namespace MoreMountains.TopDownEngine
         [Tooltip("텔레포트 후 무적시간")]
         public float InvulnerTime;
 
-        [Header("Overload")]
-        [Tooltip("텔레포트 1회당 과부하 게이지 증가량")]
-        public int OneTimeOverloadUP = 20;
-        [Tooltip("과부하 감소 시간 간격")]
-        public float OverloadDownDelay = 0.1f;
-        [Tooltip("1회 과부하 게이지 감소량")]
-        public int OneTimeOverloadDown = 1;
+        [Header("Teleport Token")]
+        [Tooltip("텔레포트 1회당 토큰 사용량")]
+        public int UseTokenAmount = 1;
+        [Tooltip("토큰 충전 시간 간격")]
+        public float TokenRechargeDelay = 2;
+        [Tooltip("1회 토큰 충전량")]
+        public int TokenRechargeAmount = 1;
 
-        private int nowOverload = 0;
-        private bool TeleportEnable = true;
-        private int MaxOverload;
-        private bool coroutineIsRunning = false;
-        
+        private int nowToken;
+        private int MaxTeleportToken;
+
+        private TeleportTokenBar teleportTokenBar;
+
         [Header("Teleport Effect")]
         [Tooltip("the feedback to play when Teleport")]
         public MMFeedbacks TeleportFeedback;
@@ -43,7 +43,9 @@ namespace MoreMountains.TopDownEngine
             bulletStack = _bulletTeleportManager.BulletStack;
             _characterManager = GetComponent<BTS_CharacterManager>();
             _health = GetComponent<Health>();
-            MaxOverload = _characterManager.MaxOverload;
+            MaxTeleportToken = _characterManager.MaxTeleportToken;
+            nowToken = MaxTeleportToken;
+            teleportTokenBar = GUIManager.Instance.TeleportTokenBar;
         }
 
         protected override void HandleInput()     //점멸 조작키 설정
@@ -56,7 +58,7 @@ namespace MoreMountains.TopDownEngine
             }
             if (_inputManager.SecondaryShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
             {
-                if (TeleportEnable)
+                if (isTeleportEnable())
                 {
                     TeleportStart();
                 }
@@ -71,16 +73,16 @@ namespace MoreMountains.TopDownEngine
             }
             else
             {
-                OverloadUP(OneTimeOverloadUP);
-                if (!coroutineIsRunning)
-                {
-                    StartCoroutine("OverloadDownCoroutine", OverloadDownDelay);
-                }
+                UseTeleportToken(UseTokenAmount);
+
+                StopCoroutine("TokenRechargeCoroutine");
+                StartCoroutine("TokenRechargeCoroutine");
+                
 
                 RemoveBullet();
                 transform.position = TargetBullet.transform.position;
 
-                _health.Invulnerable = true;                //점멸 후 플레이어 잠시 무적
+                _health.DamageDisabled();                //점멸 후 플레이어 잠시 무적
                 TeleportFeedback?.PlayFeedbacks(this.transform.position);
 
                 GetComponent<Explosion>().explode();
@@ -96,7 +98,7 @@ namespace MoreMountains.TopDownEngine
 
         private void InvulnerDelay()
         {
-            _health.Invulnerable = false;
+            _health.DamageEnabled();
         }
 
         private void RemoveBullet()
@@ -106,58 +108,54 @@ namespace MoreMountains.TopDownEngine
             TargetBullet.SetActive(false);
         }
 
-        public void OverloadUP(int upAmount)
+        public void UseTeleportToken(int useAmount)
         {
-            nowOverload += upAmount;
-            if (nowOverload > MaxOverload - OneTimeOverloadUP)
-            {
-                TeleportEnable = false;
-            }
+            nowToken -= useAmount;
 
-            //테스트 용 출력  KoalaUICamera -> OverloadTextManager.cs -> OverloadCounter (Text)
-            OverloadTextManager.Instance.SetOverloadText(nowOverload);      
+            teleportTokenBar.RemoveTokenBar(useAmount); 
         }
 
-        public void OverloadDown(int downAmount)
+        public void TeleportTokenCharge(int chargeAmount)
         {
-            nowOverload -= downAmount;
+            nowToken += chargeAmount;
 
-            if (nowOverload <= MaxOverload - OneTimeOverloadUP)
+            if (nowToken > MaxTeleportToken)
             {
-                TeleportEnable = true;
-            }
-            else
-            {
-                TeleportEnable = false;
+                nowToken = MaxTeleportToken;
             }
 
-            OverloadTextManager.Instance.SetOverloadText(nowOverload);      //테스트 용 출력
+
+            teleportTokenBar.MakeTokenBar(chargeAmount);
         }
 
-        IEnumerator OverloadDownCoroutine()
+        IEnumerator TokenRechargeCoroutine()
         {
-            coroutineIsRunning = true;
-            nowOverload -= OneTimeOverloadDown;
-            if (nowOverload <= MaxOverload - OneTimeOverloadUP)
+            yield return new WaitForSeconds(TokenRechargeDelay);
+
+            nowToken += TokenRechargeAmount;
+
+            if (nowToken > MaxTeleportToken)
             {
-                TeleportEnable = true;
-            }
-            else
-            {
-                TeleportEnable = false;
+                nowToken = MaxTeleportToken;
             }
 
-            OverloadTextManager.Instance.SetOverloadText(nowOverload);      //테스트 용 출력
+            teleportTokenBar.MakeTokenBar(TokenRechargeAmount);
 
-            yield return new WaitForSeconds(OverloadDownDelay);
-
-            coroutineIsRunning = false;
-            if (nowOverload > 0)
+            if (!isTokenMax())
             {
-                StartCoroutine("OverloadDownCoroutine");
+                StartCoroutine("TokenRechargeCoroutine");
             }
         }
 
+        private bool isTeleportEnable()
+        {
+            return nowToken >= UseTokenAmount;
+        }
+
+        private bool isTokenMax()
+        {
+            return nowToken >= MaxTeleportToken;
+        }
 
         private void SpawnCrack()
         {

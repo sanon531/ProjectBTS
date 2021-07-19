@@ -175,9 +175,9 @@ GameObject:
   - component: {fileID: 3058868231972885317}
   - component: {fileID: 3116278188813668441}
   - component: {fileID: 3116351609419417653}
-  - component: {fileID: 889633016480815713}
+  - component: {fileID: 5941786211014024610}
   m_Layer: 0
-  m_Name: OverloadDownItem
+  m_Name: TeleportTokenChargetem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   Quantity: 1
   PickableIfInventoryIsFull: 0
   DisableObjectWhenDepleted: 0
---- !u!114 &889633016480815713
+--- !u!114 &5941786211014024610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,10 +269,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3074839169812068973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52d54eb4d7375af49b33909f57c4955e, type: 3}
+  m_Script: {fileID: 11500000, guid: fa4bfbc390532c74d8a7cf0d108ce2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OverloadDownAmount: 30
+  TokenChargeAmount: 1
 --- !u!1 &3074890179660073517
 GameObject:
   m_ObjectHideFlags: 0
