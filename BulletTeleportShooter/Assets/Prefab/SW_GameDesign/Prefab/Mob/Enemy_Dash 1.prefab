@@ -10266,18 +10266,18 @@ MonoBehaviour:
   MaximumHealth: 30
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 4699081747714962823}
-  DestroyOnDeath: 0
-  DelayBeforeDestruction: 0
+  DestroyOnDeath: 1
+  DelayBeforeDestruction: 1.5
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 1
-  DisableChildCollisionsOnDeath: 0
-  ChangeLayerOnDeath: 0
+  DisableChildCollisionsOnDeath: 1
+  ChangeLayerOnDeath: 1
   ChangeLayersRecursivelyOnDeath: 0
   LayerOnDeath:
-    _layerIndex: 0
+    _layerIndex: 2
   DeathMMFeedbacks: {fileID: 6062399599875246186}
 --- !u!114 &8187428227701967431
 MonoBehaviour:

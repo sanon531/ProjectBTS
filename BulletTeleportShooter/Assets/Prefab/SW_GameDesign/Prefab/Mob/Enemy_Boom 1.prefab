@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 3772083122680840875}
   - component: {fileID: 8313510402440595366}
   m_Layer: 13
-  m_Name: Enemy_Boom
+  m_Name: Enemy_Boom 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1123,18 +1123,18 @@ MonoBehaviour:
   MaximumHealth: 30
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 4831429303536242729}
-  DestroyOnDeath: 0
-  DelayBeforeDestruction: 0
+  DestroyOnDeath: 1
+  DelayBeforeDestruction: 1.5
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 1
-  DisableChildCollisionsOnDeath: 0
-  ChangeLayerOnDeath: 0
+  DisableChildCollisionsOnDeath: 1
+  ChangeLayerOnDeath: 1
   ChangeLayersRecursivelyOnDeath: 0
   LayerOnDeath:
-    _layerIndex: 0
+    _layerIndex: 2
   DeathMMFeedbacks: {fileID: 6204600162861084100}
 --- !u!114 &8333141663929872361
 MonoBehaviour:
@@ -1444,6 +1444,10 @@ MonoBehaviour:
   defaultAttack: 1
   defaultSpeed: 4
   defaultBoomDelay: 2
+  currentMaxHP: 0
+  currentAttack: 0
+  currentSpeed: 0
+  currentBoomDelay: 0
 --- !u!1 &8229717148664217887
 GameObject:
   m_ObjectHideFlags: 0
