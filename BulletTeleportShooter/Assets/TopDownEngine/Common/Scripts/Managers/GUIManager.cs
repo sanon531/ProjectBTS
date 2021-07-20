@@ -49,8 +49,12 @@ namespace MoreMountains.TopDownEngine
         [Tooltip("the pattern to apply to format the display of points")]
         public string PointsTextPattern = "000000";
 
+		[Header("BTS Project")]
+		public HealthBar btsHealthBar;
+		public TeleportTokenBar TeleportTokenBar;
 
-        protected float _initialJoystickAlpha;
+
+		protected float _initialJoystickAlpha;
 		protected float _initialButtonsAlpha;
         protected bool _initialized = false;
 
