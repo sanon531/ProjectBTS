@@ -554,6 +554,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterUICameras
       objectReference: {fileID: 0}
+    - target: {fileID: 333195340180524202, guid: b322f0e98fa72a645a6a63e98c717a64,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 333195340180524202, guid: b322f0e98fa72a645a6a63e98c717a64,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -25.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 333195340180524202, guid: b322f0e98fa72a645a6a63e98c717a64,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 333195340180524202, guid: b322f0e98fa72a645a6a63e98c717a64,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 333195340180524202, guid: b322f0e98fa72a645a6a63e98c717a64,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 333195340180524202, guid: b322f0e98fa72a645a6a63e98c717a64,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 333195340180524202, guid: b322f0e98fa72a645a6a63e98c717a64,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 544982498775226024, guid: b322f0e98fa72a645a6a63e98c717a64,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4467,7 +4502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefabs:
-  - {fileID: 1061382757069794329, guid: 8e29a2421f1f74e40a7e88ff225ef593, type: 3}
+  - {fileID: 2125952537720262305, guid: 8b9e21a6a3bd1fd43960fe411b83cbf8, type: 3}
   AutoAttributePlayerIDs: 1
   SceneCharacters: []
   InitialSpawnPoint: {fileID: 1410044808}
