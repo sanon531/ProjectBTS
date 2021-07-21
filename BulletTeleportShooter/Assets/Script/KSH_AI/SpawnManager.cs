@@ -131,7 +131,7 @@ public class SpawnManager : MonoBehaviour
                         newEnemy.Attack += currentPowerUpATK;
                         newEnemy.MaxHP += currentPowerUpHP;
                         newEnemy.Speed += currentPowerUpSPD;
-                        newEnemy.onDeath += () => { spawnedEnemyCount--; Debug.Log(newEnemy.name + " DEAD"); };
+                        newEnemy.onDeath += () => { spawnedEnemyCount--; };
                     }
 
                     spawnedEnemyCount += spawnCount;

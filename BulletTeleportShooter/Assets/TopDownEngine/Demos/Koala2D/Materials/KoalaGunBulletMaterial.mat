@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: KoalaGunBulletMaterial
   m_Shader: {fileID: 4800000, guid: a0480ba495373eb4395df15c5c713ef8, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA PIXELSNAP_ON _ALPHAPREMULTIPLY_ON _GLOSSYREFLECTIONS_OFF
@@ -83,7 +84,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.899579, b: 0.5613208, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.7735849, g: 0.054734774, b: 0.054734774, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 1.9766746, g: 0.66234124, b: 0, a: 1}
