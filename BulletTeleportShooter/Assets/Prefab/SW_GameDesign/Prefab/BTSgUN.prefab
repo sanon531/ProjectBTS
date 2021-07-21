@@ -19928,8 +19928,8 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 0.1
-  TimeBetweenUsesReleaseInterruption: 1
+  TimeBetweenUses: 0.2
+  TimeBetweenUsesReleaseInterruption: 0
   MagazineBased: 0
   MagazineSize: 30
   AutoReload: 0
@@ -19956,7 +19956,7 @@ MonoBehaviour:
   IdleAnimationParameter: 
   StartAnimationParameter: 
   DelayBeforeUseAnimationParameter: 
-  SingleUseAnimationParameter: SingleUse
+  SingleUseAnimationParameter: SingleUseHeavyRecoil
   UseAnimationParameter: 
   DelayBetweenUsesAnimationParameter: 
   StopAnimationParameter: 
@@ -19979,7 +19979,7 @@ MonoBehaviour:
   RotateWeaponOnSpread: 1
   RandomSpread: 1
   SpawnPosition: {x: -5.199597, y: 4.3239875, z: 0}
-  projectileDamage: -1
+  projectileDamage: 2
   TestShootButton: 0
 --- !u!114 &7619665233687444759
 MonoBehaviour:
