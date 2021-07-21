@@ -14007,7 +14007,6 @@ GameObject:
   - component: {fileID: 6559732863306024520}
   - component: {fileID: 663154882078048836}
   - component: {fileID: 1482603179900287712}
-  - component: {fileID: 4506358369009184440}
   - component: {fileID: 5724992509404646159}
   m_Layer: 0
   m_Name: JoystickKnob
@@ -14084,38 +14083,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4506358369009184440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9055136287229937960}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f6a0577d46b80a4f929e57370c60650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetCamera: {fileID: 344212712715691644}
-  PressedOpacity: 0.5
-  HorizontalAxisEnabled: 1
-  VerticalAxisEnabled: 1
-  MaxRange: 1.5
-  JoystickValue:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 367237469760211458}
-        m_MethodName: SetSecondaryMovement
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _joystickValue: {x: 0, y: 0}
 --- !u!114 &5724992509404646159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14148,6 +14115,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _joystickValue: {x: 0, y: 0}
+  ShootAimJoyStickMod: 0
 --- !u!1001 &3689494169481233593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14727,6 +14695,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb21471dc2c92b34cba7d893294875c4, type: 3}
+--- !u!224 &7288282746357404717 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6203314779062276244, guid: eb21471dc2c92b34cba7d893294875c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3689494169481233593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5929116752533272347 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7024422603039044514, guid: eb21471dc2c92b34cba7d893294875c4,
@@ -14739,12 +14713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1ad4c5ab72fd54e85fc6c772f979a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &7288282746357404717 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6203314779062276244, guid: eb21471dc2c92b34cba7d893294875c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3689494169481233593}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6691027873896534423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15057,6 +15025,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a915fc05201f0b9498b548c173d44ee9, type: 3}
+--- !u!224 &60323264347409956 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6632959848626102195, guid: a915fc05201f0b9498b548c173d44ee9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6691027873896534423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5448840345186238872 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1676857530584895503, guid: a915fc05201f0b9498b548c173d44ee9,
@@ -15069,9 +15043,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e80fc3957be694187b15bfccd4db6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &60323264347409956 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6632959848626102195, guid: a915fc05201f0b9498b548c173d44ee9,
-    type: 3}
-  m_PrefabInstance: {fileID: 6691027873896534423}
-  m_PrefabAsset: {fileID: 0}
