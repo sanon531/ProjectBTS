@@ -51,7 +51,6 @@ public class SpikeObjectManager : MonoBehaviour
     public float spike_timer = 0f;
     public float spike_speed = 1f;
 
-    //float timer = 0f;
     // Update is called once per frame
     void Update()
     {
@@ -75,22 +74,6 @@ public class SpikeObjectManager : MonoBehaviour
             spike_timer = 0f;
         }
         
-        
-
-        //Timer Timer_GameTime = GameObject.Find("GameManager").GetComponent<Timer>();
-        //timer = Timer_GameTime.GameTime;
-
-        //timer += Time.deltaTime;
-
-        /*
-        if (timer > 5f)
-        {
-            for (int i = 0; i<OnOffBlockList.Count; i++)
-            {
-                OnOffBlockList[i].OnOff();
-            }
-            timer = 0f;
-        }
-        */
+       
     }
 }

@@ -12,7 +12,6 @@ public class BTS_Spikes_Data : MonoBehaviour
     private void Start()
     {
         SpikeObjectManager.Instance.AddSpike(this);
-
     }
     
     
