@@ -127,6 +127,12 @@ public class Enemy : MonoBehaviour
         if (movement == null) movement = GetComponent<CharacterMovement>();
         if (run == null) run = GetComponent<CharacterRun>();
 
+        if(health.CurrentHealth <= 0)
+        { 
+            health.Revive();
+            health.ResetHealthToMaxHealth();
+        }
+        
         MaxHP = defaultHP;
         Attack = defaultAttack;
         Speed = defaultSpeed;
@@ -148,6 +154,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath()
     {
+        GameManager.Instance.AddPoints(MaxHP * 10);
         onDeath?.Invoke();
         health.OnDeath -= OnDeath;
     }
@@ -155,5 +162,17 @@ public class Enemy : MonoBehaviour
     public void Kill()
     {
         health.Kill();
+    }
+
+    public Enemy SetActive(bool _state)
+    {
+        gameObject.SetActive(_state);
+        return this;
+    }
+
+    public Enemy SetPosition(Vector3 _pos)
+    {
+        transform.position = _pos;
+        return this;
     }
 }
