@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -13,6 +11,7 @@ namespace MoreMountains.TopDownEngine
         {
             if (collider.tag == "Player")
             {
+                ScoreUpAmount = ScoreCountManager.Instance.OneTimeScoreUpAmount * 10;
                 GameManager.Instance.AddPoints(ScoreUpAmount);
             }
         }

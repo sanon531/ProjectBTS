@@ -47,7 +47,7 @@ namespace MoreMountains.TopDownEngine
 
             _health = GetComponent<Health>();
             _projectileWeapon = initialWeapon.GetComponent<ProjectileWeapon>();
-            _weapon = initialWeapon.GetComponent<Weapon>();
+            _weapon = initialWeapon;
             _characterMovement = GetComponent<CharacterMovement>();
             _explosion = GetComponent<Explosion>();
 
