@@ -992,7 +992,7 @@ MonoBehaviour:
   SendStateChangeEvents: 1
   SendStateUpdateEvents: 1
   AdditionalAbilityNodes: []
-  CharacterBrain: {fileID: 0}
+  CharacterBrain: {fileID: 8186680970450256332}
   OptimizeForMobile: 1
 --- !u!114 &8333536324244022021
 MonoBehaviour:
@@ -1440,6 +1440,7 @@ MonoBehaviour:
   damageOnTouch: {fileID: 8333141663929872361}
   movement: {fileID: 8333848381844967037}
   run: {fileID: 8333736830786402893}
+  character: {fileID: 8333222989616544781}
   defaultHP: 1
   defaultAttack: 1
   defaultSpeed: 4

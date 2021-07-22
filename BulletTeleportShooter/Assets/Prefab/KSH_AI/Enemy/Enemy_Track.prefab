@@ -5582,6 +5582,7 @@ MonoBehaviour:
   damageOnTouch: {fileID: 160347031314267407}
   movement: {fileID: 160766214113533083}
   run: {fileID: 160880032914778283}
+  character: {fileID: 160265775427104491}
   defaultHP: 1
   defaultAttack: 1
   defaultSpeed: 4
