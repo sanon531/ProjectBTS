@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace MoreMountains.Tools
 {
-    public class ShootAimJoystick : MMTouchJoystick
+    public class ShootAimJoyStick : MMTouchJoystick
     {
 		public enum ShootAimJoystickModes { OnDrag, EndDrag }
 		
