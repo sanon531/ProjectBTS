@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class ButtonFunctions : MonoBehaviour
         pauseGame,
         unPauseGame,
         showMenu,
-        hideMenu
+        hideMenu,
+        Start
     }
     public BtnType function;
 
@@ -35,7 +37,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void Start()
     {
-        if(GetComponent<Button>()!=null)
+        if(GetComponent<Button>() != null)
             GetComponent<Button>().onClick.AddListener(() => OnClick());
     }
 
@@ -62,6 +64,10 @@ public class ButtonFunctions : MonoBehaviour
                 break;
             case BtnType.None:
                 break;
+            case BtnType.Start:
+                SceneManager.LoadScene("UIScene");
+                break;
+
         }
     }
 

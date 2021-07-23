@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class UI_StageSelect : MonoBehaviour
+
+public class UI_CharSelect : MonoBehaviour
 {
     public float time = 0.5f;
     public float scaleVar;
@@ -13,20 +13,16 @@ public class UI_StageSelect : MonoBehaviour
 
     public RectTransform rectTransform;
     public RectTransform[] node;
-    public int uiTargetedIndex = 0;
-    public int ImmediateIndex = 0;
-    public List<string> SceneList;
+    public int uiTargetedIndex = 1;
 
 
     Sequence animSequence;
-
-
 
     public void BuildAnimation(int _index)
     {
         if (0 <= _index && _index < node.Length)
         {
-            ImmediateIndex = _index;
+
             animSequence = DOTween.Sequence();
             animSequence.
                 Append(
@@ -41,9 +37,9 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
-    public void Focus(int _index)
+    /*public void Focus(int _index)
     {
-        for(int i = 0; i < node.Length; ++i)
+        for (int i = 0; i < node.Length; ++i)
         {
             //Debug.Log(node[i].anchoredPosition);
         }
@@ -51,13 +47,52 @@ public class UI_StageSelect : MonoBehaviour
         if (0 <= _index && _index < node.Length)
         {
             node[_index].localScale = Vector3.one * scaleVar;
-            rectTransform.anchoredPosition = new Vector2(-node[_index].anchoredPosition.x, rectTransform.anchoredPosition.y); //node[_index].anchoredPosition
+            rectTransform.anchoredPosition = new Vector2(0, 0); //node[_index].anchoredPosition
         }
     }
 
-    private void Start()
+    */
+    public void OnClick_SelectBack()
     {
-        Focus(uiTargetedIndex);
+        if (uiTargetedIndex == 1)
+        {
+            node[uiTargetedIndex + 1].gameObject.SetActive(false);
+            node[uiTargetedIndex - 1].gameObject.SetActive(false);
+        }
+
+        if (uiTargetedIndex == 0)
+        {
+            node[uiTargetedIndex + 1].gameObject.SetActive(false);
+            node[uiTargetedIndex + 2].gameObject.SetActive(false);
+        }
+        
+        if (uiTargetedIndex == 2)
+        {
+            node[uiTargetedIndex - 2].gameObject.SetActive(false);
+            node[uiTargetedIndex - 1].gameObject.SetActive(false);
+        }
+
+    }
+
+    public void OnClick_Select()
+    {
+        if (uiTargetedIndex == 1)
+        {
+            node[uiTargetedIndex + 1].gameObject.SetActive(true);
+            node[uiTargetedIndex - 1].gameObject.SetActive(true);
+        }
+
+        if (uiTargetedIndex == 0)
+        {
+            node[uiTargetedIndex + 1].gameObject.SetActive(true);
+            node[uiTargetedIndex + 2].gameObject.SetActive(true);
+        }
+
+        if (uiTargetedIndex == 2)
+        {
+            node[uiTargetedIndex - 2].gameObject.SetActive(true);
+            node[uiTargetedIndex - 1].gameObject.SetActive(true);
+        }
     }
 
     public void OnClick_Left()
@@ -75,12 +110,6 @@ public class UI_StageSelect : MonoBehaviour
             BuildAnimation(uiTargetedIndex + 1);
         }
     }
-
-    public void OnClick_Stn()
-    {
-        SceneManager.LoadScene(SceneList[ImmediateIndex]);
-    }
-
 
 
 }
