@@ -35,10 +35,13 @@ namespace MoreMountains.TopDownEngine
         public MMFeedbacks TeleportFeedback;
         public MMObjectPooler ObjectPooler;
 
+        [Tooltip("the feedback to play when Teleport Cannot Work")]
+        public MMFeedbacks CannotTeleportFeedback;
 
-        protected override void PreInitialization()
+
+        protected override void Initialization()
         {
-            base.PreInitialization();
+            base.Initialization();
             _bulletTeleportManager = BulletTeleportManager.Instance;
             bulletStack = _bulletTeleportManager.BulletStack;
             _characterManager = GetComponent<BTS_CharacterManager>();
@@ -46,6 +49,8 @@ namespace MoreMountains.TopDownEngine
             MaxTeleportToken = _characterManager.MaxTeleportToken;
             nowToken = MaxTeleportToken;
             teleportTokenBar = GUIManager.Instance.TeleportTokenBar;
+            CannotTeleportFeedback.GetComponent<MMFeedbackPosition>().AnimatePositionTarget = GUIManager.Instance.TeleportTokenBar.gameObject;
+            CannotTeleportFeedback.GetComponent<MMFeedbackCanvasGroup>().TargetCanvasGroup = GUIManager.Instance.TeleportTokenBar.GetComponent<CanvasGroup>();
         }
 
         protected override void HandleInput()     //점멸 조작키 설정
@@ -62,6 +67,13 @@ namespace MoreMountains.TopDownEngine
                 {
                     TeleportStart();
                 }
+
+                else
+                {
+                    
+                    CannotTeleportFeedback?.PlayFeedbacks();
+                    
+                }
             }
         }
 
@@ -77,7 +89,6 @@ namespace MoreMountains.TopDownEngine
 
                 StopCoroutine("TokenRechargeCoroutine");
                 StartCoroutine("TokenRechargeCoroutine");
-                
 
                 RemoveBullet();
                 transform.position = TargetBullet.transform.position;

@@ -10478,6 +10478,7 @@ Transform:
   - {fileID: 5811603453236802368}
   - {fileID: 3854176872846610220}
   - {fileID: 3207257171041431663}
+  - {fileID: 7200422682271016901}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10996,6 +10997,7 @@ MonoBehaviour:
   TokenRechargeAmount: 1
   TeleportFeedback: {fileID: 3899072224523561120}
   ObjectPooler: {fileID: 3207257171041431662}
+  CannotTeleportFeedback: {fileID: 4515788453166444332}
 --- !u!114 &6269532146126744441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16632,6 +16634,93 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7277539b95c0d45895792ecc99ce66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &7006979981063142297
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2983668073609223676}
+    m_Modifications:
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781932252399229870, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_Name
+      value: CannotTeleportMMFeedback
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4cd60d1466d83254eb7f575495dc632c, type: 3}
+--- !u!4 &7200422682271016901 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7006979981063142297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4515788453166444332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6887840595163829429, guid: 4cd60d1466d83254eb7f575495dc632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7006979981063142297}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841b72de2996c5c40bfb394f3d0e0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7622636765921854291

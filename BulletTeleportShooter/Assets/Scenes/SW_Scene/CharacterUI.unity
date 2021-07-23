@@ -589,6 +589,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 366774209528913360, guid: b322f0e98fa72a645a6a63e98c717a64,
+        type: 3}
+      propertyPath: SecondJoystick
+      value: 
+      objectReference: {fileID: 717162813}
+    - target: {fileID: 367237469760211458, guid: b322f0e98fa72a645a6a63e98c717a64,
+        type: 3}
+      propertyPath: InputForcedMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 544982498775226024, guid: b322f0e98fa72a645a6a63e98c717a64,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3029,6 +3039,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1027087836}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &372058845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5448840345186238887, guid: b322f0e98fa72a645a6a63e98c717a64,
+    type: 3}
+  m_PrefabInstance: {fileID: 99854808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!222 &372058850
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372058845}
+  m_CullTransparentMesh: 0
 --- !u!4 &386408896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4798570233257244, guid: 581ea2e7a3383fa4eac2d162354979b5,
@@ -4503,7 +4527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefabs:
-  - {fileID: 2125952537720262305, guid: 8b9e21a6a3bd1fd43960fe411b83cbf8, type: 3}
+  - {fileID: 1061382757069794329, guid: 8e29a2421f1f74e40a7e88ff225ef593, type: 3}
   AutoAttributePlayerIDs: 1
   SceneCharacters: []
   InitialSpawnPoint: {fileID: 1410044808}
@@ -4999,6 +5023,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4798570233257244, guid: 581ea2e7a3383fa4eac2d162354979b5,
     type: 3}
   m_PrefabInstance: {fileID: 519523513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &717162813 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7038591668671465950, guid: b322f0e98fa72a645a6a63e98c717a64,
+    type: 3}
+  m_PrefabInstance: {fileID: 99854808}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &718201459 stripped
 Transform:
