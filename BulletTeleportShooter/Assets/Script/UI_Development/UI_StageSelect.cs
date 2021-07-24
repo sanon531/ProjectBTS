@@ -76,7 +76,20 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
+    
     public void OnClick_Stn()
+    {
+        if(!animSequence.IsActive())
+        {
+            SceneLoad();
+        }
+    }
+    
+    
+    
+    
+    
+    public void SceneLoad()
     {
         SceneManager.LoadScene(SceneList[ImmediateIndex]);
     }

@@ -14,6 +14,7 @@ public class UI_CharSelect : MonoBehaviour
     public RectTransform rectTransform;
     public RectTransform[] node;
     public int uiTargetedIndex = 1;
+    public GameObject Stn, Selectbtn;
 
 
     Sequence animSequence;
@@ -54,62 +55,63 @@ public class UI_CharSelect : MonoBehaviour
     */
     public void OnClick_SelectBack()
     {
-        if (uiTargetedIndex == 1)
-        {
-            node[uiTargetedIndex + 1].gameObject.SetActive(false);
-            node[uiTargetedIndex - 1].gameObject.SetActive(false);
-        }
-
-        if (uiTargetedIndex == 0)
-        {
-            node[uiTargetedIndex + 1].gameObject.SetActive(false);
-            node[uiTargetedIndex + 2].gameObject.SetActive(false);
-        }
         
-        if (uiTargetedIndex == 2)
+        for (int i = 0 ;i < node.Length;++i)
         {
-            node[uiTargetedIndex - 2].gameObject.SetActive(false);
-            node[uiTargetedIndex - 1].gameObject.SetActive(false);
-        }
-
+            if (uiTargetedIndex != i)
+                node[i].gameObject.SetActive(false);
+        }     
+                
     }
 
     public void OnClick_Select()
     {
-        if (uiTargetedIndex == 1)
+        for (int i = 0; i < node.Length; ++i)
         {
-            node[uiTargetedIndex + 1].gameObject.SetActive(true);
-            node[uiTargetedIndex - 1].gameObject.SetActive(true);
-        }
-
-        if (uiTargetedIndex == 0)
-        {
-            node[uiTargetedIndex + 1].gameObject.SetActive(true);
-            node[uiTargetedIndex + 2].gameObject.SetActive(true);
-        }
-
-        if (uiTargetedIndex == 2)
-        {
-            node[uiTargetedIndex - 2].gameObject.SetActive(true);
-            node[uiTargetedIndex - 1].gameObject.SetActive(true);
-        }
+            if (uiTargetedIndex != i)
+                node[i].gameObject.SetActive(true);
+        }        
     }
 
     public void OnClick_Left()
     {
+        
         if (!animSequence.IsActive())
         {
             BuildAnimation(uiTargetedIndex - 1);
+            
+            Button btn1 = Stn.GetComponent<Button>();
+            Button btn2 = Selectbtn.GetComponent<Button>();
+
+            btn1.enabled = false;
+            btn2.enabled = false;
+            Invoke("OnInvoke", time + 0.1f);
+
         }
     }
 
     public void OnClick_Right()
     {
+        
         if (!animSequence.IsActive())
         {
             BuildAnimation(uiTargetedIndex + 1);
+            
+            Button btn1 = Stn.GetComponent<Button>();
+            Button btn2 = Selectbtn.GetComponent<Button>();
+
+            btn1.enabled = false;
+            btn2.enabled = false;
+            Invoke("OnInvoke", time + 0.1f);
         }
     }
 
-
+    void OnInvoke()
+    {
+        Button btn1 = Stn.GetComponent<Button>();
+        Button btn2 = Selectbtn.GetComponent<Button>();
+        
+        btn1.enabled = true;
+        btn2.enabled = true;
+    }
 }
