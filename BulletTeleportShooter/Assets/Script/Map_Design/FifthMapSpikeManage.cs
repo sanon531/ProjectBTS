@@ -33,20 +33,27 @@ public class FifthMapSpikeManage : MonoBehaviour
     public float spike_speed = 1f;
     public int c = 0;
 
+    public float t_1 = 0;
+    public float t_2 = 1.5f;
+
+    public int count_1 = 0;
+    public int count_2 = 0;
+
     // Update is called once per frame
     void Update()
     {
         
         spike_timer += Time.deltaTime;
-
-        if (spike_timer >1.5f && c == 0)
+        t_1 += Time.deltaTime;
+        t_2 += Time.deltaTime;
+        if (spike_timer >2.5f && c == 0)
         {
             c++;
             IsPuase = false;
         }
         Spike_Stop();
-
-        if (spike_timer > 3f)
+        
+        if (spike_timer > 30f)
         { 
             spike_speed++;
             for (int i = 0; i < FifthMapSpikeContainer.FirstContainer.Counting(); i++)
@@ -57,6 +64,8 @@ public class FifthMapSpikeManage : MonoBehaviour
             }
             spike_timer = 0f;
         }
+
+
         
     }
 

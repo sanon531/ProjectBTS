@@ -66,7 +66,7 @@ public class SpikeObjectManager : MonoBehaviour
         if (spike_timer > 30f)
         {
 
-            spike_speed++;
+            spike_speed += 0.5f;
             for (int i = 0; i < SpikeList.Count; i++)
             {
                 SpikeList[i].animator.SetFloat("spikeupd", spike_speed);
