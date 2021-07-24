@@ -209,13 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 1661418424}
-  - {fileID: 1561890841}
-  - {fileID: 511220113}
-  - {fileID: 1967612514}
   spawnEnemies:
   - {fileID: 8313510402440595366, guid: 1906a8036711d6b4e9509245201c344d, type: 3}
-  - {fileID: 903099011861520729, guid: 519211f4bf49f1346b8940ba82467bab, type: 3}
-  - {fileID: 8796143037880317390, guid: a0ac8d2a3a9c9824abb9c4c7adff80f4, type: 3}
   spawnDelay: 5
   MAX_ENEMY_COUNT: 5
   minDistance: 0
@@ -231,6 +226,7 @@ MonoBehaviour:
   currentPowerUpHP: 0
   currentPowerUpATK: 0
   currentPowerUpSPD: 0
+  spawnedEnemyCount: 0
 --- !u!1 &250615922
 GameObject:
   m_ObjectHideFlags: 0

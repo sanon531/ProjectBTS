@@ -5322,14 +5322,14 @@ MonoBehaviour:
   MaximumHealth: 30
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 3643484310993535695}
-  DestroyOnDeath: 1
-  DelayBeforeDestruction: 3
+  DestroyOnDeath: 0
+  DelayBeforeDestruction: 0
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
-  DisableControllerOnDeath: 1
+  DisableControllerOnDeath: 0
   DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 1
-  DisableChildCollisionsOnDeath: 0
+  DisableChildCollisionsOnDeath: 1
   ChangeLayerOnDeath: 0
   ChangeLayersRecursivelyOnDeath: 0
   LayerOnDeath:
@@ -5582,9 +5582,10 @@ MonoBehaviour:
   damageOnTouch: {fileID: 160347031314267407}
   movement: {fileID: 160766214113533083}
   run: {fileID: 160880032914778283}
+  character: {fileID: 160265775427104491}
   defaultHP: 1
   defaultAttack: 1
-  defaultSpeed: 1
+  defaultSpeed: 4
   currentMaxHP: 0
   currentAttack: 0
   currentSpeed: 0

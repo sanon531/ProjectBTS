@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.TopDownEngine;
+using MoreMountains.Tools;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected DamageOnTouch damageOnTouch;
     [SerializeField] protected CharacterMovement movement;
     [SerializeField] protected CharacterRun run;
+    [SerializeField] protected Character character;
 
     [Header("- Default Status")]
     [SerializeField] private int defaultHP;
@@ -20,7 +22,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float defaultSpeed;
 
     public Action onDeath;
-
 
     public int DefaultHP
     {
@@ -126,6 +127,12 @@ public class Enemy : MonoBehaviour
         if (damageOnTouch == null) damageOnTouch = GetComponent<DamageOnTouch>();
         if (movement == null) movement = GetComponent<CharacterMovement>();
         if (run == null) run = GetComponent<CharacterRun>();
+        if (character == null) character = GetComponent<Character>();
+       
+        if(character.ConditionState.CurrentState == CharacterStates.CharacterConditions.Dead)
+        {
+            character.RespawnAt(transform, Character.FacingDirections.East);
+        }
 
         MaxHP = defaultHP;
         Attack = defaultAttack;
@@ -148,12 +155,26 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath()
     {
+        GameManager.Instance.AddPoints(MaxHP * 10);
         onDeath?.Invoke();
+        onDeath = null;
         health.OnDeath -= OnDeath;
     }
 
     public void Kill()
     {
         health.Kill();
+    }
+
+    public Enemy SetActive(bool _state)
+    {
+        gameObject.SetActive(_state);
+        return this;
+    }
+
+    public Enemy SetPosition(Vector3 _pos)
+    {
+        transform.position = _pos;
+        return this;
     }
 }

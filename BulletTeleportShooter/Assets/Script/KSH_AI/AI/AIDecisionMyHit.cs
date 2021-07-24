@@ -11,17 +11,14 @@ public class AIDecisionMyHit : AIDecision
     protected int _hitCounter;
     protected Health _health;
 
-    protected bool IsInit = false;
-
     public override void Initialization()
     {
-        if (!IsInit)
+        if (_health == null)
         {
             _health = _brain.gameObject.GetComponentInParent<Health>();
             _health.OnHit += OnHit;
-            _hitCounter = 0;
-            IsInit = true;
         }
+        _hitCounter = 0;
     }
 
     public override bool Decide()

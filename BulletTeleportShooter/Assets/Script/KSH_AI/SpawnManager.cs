@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class SpawnManager : MonoBehaviour
 {
+    private static int MAX_OBJECT_COUNT = 5;
     public static SpawnManager Instance { get; private set; } = null;
     [Header("- Spawn Points")]
     [SerializeField] private Transform[] spawnPoints;
@@ -31,9 +32,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int currentPowerUpATK;
     [SerializeField] private float currentPowerUpSPD;
 
-    private int spawnedEnemyCount;
+    [SerializeField] private int spawnedEnemyCount;
     private Transform playerTransform;
     private Sequence powerUpSequence;
+    private List<Queue<Enemy>> objectPool;
+    private Dictionary<System.Type, int> objectIndex;
 
     private void Awake()
     {
@@ -42,6 +45,23 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        objectPool = new List<Queue<Enemy>>(spawnEnemies.Length);
+        objectIndex = new Dictionary<System.Type, int>(spawnEnemies.Length);
+        int objectCount = Mathf.Min(MAX_OBJECT_COUNT, (int)(MAX_ENEMY_COUNT * 1.5f));
+        for (int i = 0; i < spawnEnemies.Length; ++i)
+        {
+            objectIndex.Add(spawnEnemies[i].GetType(), i);
+            Queue<Enemy> newQueue = new Queue<Enemy>(objectCount);
+            for(int j = 0; j < objectCount; ++j)
+            {
+                newQueue.Enqueue(Instantiate(spawnEnemies[i], Vector3.zero, Quaternion.identity, transform).SetActive(false));
+            }
+            objectPool.Add(newQueue);
+        }
+
+        spawnedEnemyCount = 0;
+
+
         Sequence waitSequence = DOTween.Sequence();
         waitSequence.
             AppendInterval(defaultTime).
@@ -127,14 +147,21 @@ public class SpawnManager : MonoBehaviour
                     // 적을 스폰
                     for (int i = 0; i < spawnCount; ++i)
                     {
-                        Enemy newEnemy = Instantiate(spawnEnemies[spawnEnemyIndex[i]], spawnPos[spawnPointIndex[i]], Quaternion.identity, transform).Init();
+                        //Enemy newEnemy = Instantiate(spawnEnemies[spawnEnemyIndex[i]], spawnPos[spawnPointIndex[i]], Quaternion.identity, transform).Init();
+                        Enemy newEnemy = objectPool[spawnEnemyIndex[i]].Dequeue().SetActive(true).SetPosition(spawnPos[spawnPointIndex[i]]).Init();
                         newEnemy.Attack += currentPowerUpATK;
                         newEnemy.MaxHP += currentPowerUpHP;
                         newEnemy.Speed += currentPowerUpSPD;
-                        newEnemy.onDeath += () => { spawnedEnemyCount--; };
+                        newEnemy.onDeath += () => 
+                        { 
+                            spawnedEnemyCount--;
+                            objectPool[objectIndex[newEnemy.GetType()]].Enqueue(newEnemy.SetActive(false));
+                            Debug.Log(newEnemy.name + " DEAD"); 
+                        };
+                        Debug.Log("스폰");
                     }
-
                     spawnedEnemyCount += spawnCount;
+
                 }
                 yield return new WaitForSeconds(spawnDelay);
             }
