@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class UI_Char : MonoBehaviour
 {
-    
+    //폐기
 
 
     public RectTransform rect;
     public Vector2 OriginPos;
-    public Image image;
+    //public Image image;
    // public Tween tween;
 
 
