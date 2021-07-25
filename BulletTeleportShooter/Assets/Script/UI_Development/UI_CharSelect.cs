@@ -8,17 +8,18 @@ using UnityEngine.UI;
 public class UI_CharSelect : MonoBehaviour
 {
     public float time = 0.5f;
-    public float scaleVar;
-    public float distance;
+    //public float scaleVar;
+    public float distance1,distance2;
 
     public RectTransform rectTransform;
     public RectTransform[] node;
     public int uiTargetedIndex = 1;
+    public GameObject Stn, Selectbtn;
 
 
     Sequence animSequence;
 
-    public void BuildAnimation(int _index)
+    public void BuildAnimation(int _index) //캐릭터창 좌우 이동
     {
         if (0 <= _index && _index < node.Length)
         {
@@ -26,90 +27,195 @@ public class UI_CharSelect : MonoBehaviour
             animSequence = DOTween.Sequence();
             animSequence.
                 Append(
-                rectTransform.DOAnchorPosX(distance * (uiTargetedIndex > _index ? 1 : -1), time).SetRelative(true));
+                rectTransform.DOAnchorPosX(distance1 * (uiTargetedIndex > _index ? 1 : -1), time).SetRelative(true));
             if (0 <= _index - 1 && _index - 1 < node.Length) animSequence.
                     Join(node[_index - 1].DOScale(Vector3.one, time)); // 왼쪽의 노드 애니메이션 들어갈 부분
             if (0 <= _index && _index < node.Length) animSequence.
-                    Join(node[_index].DOScale(Vector3.one * scaleVar, time)); // 중앙의 노드 애니메이션 들어갈 부분
+                    Join(node[_index].DOScale(Vector3.one , time)); // 중앙의 노드 애니메이션 들어갈 부분
             if (0 <= _index + 1 && _index + 1 < node.Length) animSequence.
                     Join(node[_index + 1].DOScale(Vector3.one, time)); // 오른쪽의 노드 애니메이션 들어갈 부분
             animSequence.OnComplete(() => uiTargetedIndex = _index);
         }
     }
 
-    /*public void Focus(int _index)
+    public void Focus(int _index, Vector2 Originps) //여러 개의 캐릭터 창 중 중심 점 잡기
     {
-        for (int i = 0; i < node.Length; ++i)
+        /*for (int i = 0; i < node.Length; ++i)
         {
-            //Debug.Log(node[i].anchoredPosition);
+            Debug.Log(node[i].anchoredPosition);
         }
+        */
 
         if (0 <= _index && _index < node.Length)
         {
-            node[_index].localScale = Vector3.one * scaleVar;
-            rectTransform.anchoredPosition = new Vector2(0, 0); //node[_index].anchoredPosition
+            
+            rectTransform.anchoredPosition = (new Vector2 (Originps.x - node[_index].anchoredPosition.x, Originps.y));
+            
+            for (int i = 0; i < node.Length; ++i)
+            {
+                if (_index != i)
+                    node[i].gameObject.SetActive(false);
+            }
+
         }
     }
 
-    */
-    public void OnClick_SelectBack()
-    {
-        if (uiTargetedIndex == 1)
-        {
-            node[uiTargetedIndex + 1].gameObject.SetActive(false);
-            node[uiTargetedIndex - 1].gameObject.SetActive(false);
-        }
+    
 
-        if (uiTargetedIndex == 0)
-        {
-            node[uiTargetedIndex + 1].gameObject.SetActive(false);
-            node[uiTargetedIndex + 2].gameObject.SetActive(false);
-        }
+    public void OnClick_SelectBack() // 캐릭터 창을 닫을 때 나머지 애들 잠금
+    {
         
-        if (uiTargetedIndex == 2)
+        for (int i = 0 ;i < node.Length;++i)
         {
-            node[uiTargetedIndex - 2].gameObject.SetActive(false);
-            node[uiTargetedIndex - 1].gameObject.SetActive(false);
-        }
-
+            if (uiTargetedIndex != i)
+                node[i].gameObject.SetActive(false);
+        }     
+                
     }
 
-    public void OnClick_Select()
+    public void OnClick_Select() //캐릭터 창을 열 때 나머지 애들 열기
     {
-        if (uiTargetedIndex == 1)
+        for (int i = 0; i < node.Length; ++i)
         {
-            node[uiTargetedIndex + 1].gameObject.SetActive(true);
-            node[uiTargetedIndex - 1].gameObject.SetActive(true);
-        }
-
-        if (uiTargetedIndex == 0)
-        {
-            node[uiTargetedIndex + 1].gameObject.SetActive(true);
-            node[uiTargetedIndex + 2].gameObject.SetActive(true);
-        }
-
-        if (uiTargetedIndex == 2)
-        {
-            node[uiTargetedIndex - 2].gameObject.SetActive(true);
-            node[uiTargetedIndex - 1].gameObject.SetActive(true);
-        }
+            if (uiTargetedIndex != i)
+                node[i].gameObject.SetActive(true);
+        }        
     }
 
-    public void OnClick_Left()
+    public void OnClick_Left() //좌 화살표 클릭시 이동 애니메이션 
     {
-        if (!animSequence.IsActive())
+        
+        if (!animSequence.IsActive() && !anim.IsActive())
         {
             BuildAnimation(uiTargetedIndex - 1);
+            
+            Button btn1 = Stn.GetComponent<Button>();
+            Button btn2 = Selectbtn.GetComponent<Button>();
+
+            btn1.enabled = false;
+            btn2.enabled = false;
+            Invoke("OnInvoke", time + 0.1f);
+
         }
     }
 
-    public void OnClick_Right()
+    /*void Update()
     {
-        if (!animSequence.IsActive())
+        if(anim.IsActive())
+        {
+            Debug.Log("Active");
+        }
+    }*/ // 애니메이션 작동 확인용
+
+
+
+
+
+    public void OnClick_Right() //우 화살표 클릭시 이동 애니메이션
+    {
+        
+        if (!animSequence.IsActive() && !anim.IsActive())
         {
             BuildAnimation(uiTargetedIndex + 1);
+            
+            Button btn1 = Stn.GetComponent<Button>();
+            Button btn2 = Selectbtn.GetComponent<Button>();
+
+            btn1.enabled = false;
+            btn2.enabled = false;
+            Invoke("OnInvoke", time + 0.1f);
         }
     }
 
+    void OnInvoke() // 캐릭터 창 좌우 이동시 start 버튼과 selectback 버튼 잠금 -> 누를 수 있는 모든 버튼 잠그기
+    {
+        Button btn1 = Stn.GetComponent<Button>();
+        Button btn2 = Selectbtn.GetComponent<Button>();
+        
+        btn1.enabled = true;
+        btn2.enabled = true;
+    }
+    
+    //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡui_char
 
+    public RectTransform rect; 
+    public Vector2 OriginPos;
+    //public Image image;
+    // public Tween tween;
+
+    Sequence anim;
+
+
+    private void Start() // 중심 캐릭터창의 좌표 넣기
+    {
+        //image.DOFade(0f, 0f);
+        OriginPos = rect.anchoredPosition;
+        Debug.Log(OriginPos);
+        Focus(uiTargetedIndex, OriginPos);
+    }
+
+
+
+
+    public void OnClick() // 캐릭터 틀을 화면 중심으로 이동하는 버튼
+    {
+
+        anim = DOTween.Sequence();
+
+        anim.
+            Append(rect.DOScale(2f, 1));//scale을 2로
+
+
+       
+
+        for(int i = 0; i < node.Length; ++i )
+        {
+            if (uiTargetedIndex == i)
+            {
+                anim.
+                    Join(rect.DOAnchorPos(new Vector2(- node[i].anchoredPosition.x * 2, 0), 1, false)); // 기존 위치 x2로 이동
+
+
+            }
+        }
+        
+            
+            
+            
+            
+            
+
+        
+        //tween = image.DOFade(1f, 1f);
+    }
+
+
+
+    public void OffClick() //되돌리기
+    {
+        anim = DOTween.Sequence();
+
+        anim.
+            Append(rect.DOScale(1f, 1));
+        //1배 1초
+
+        for (int i = 0; i < node.Length; ++i)
+        {
+            if (uiTargetedIndex == i)
+            {
+                anim.
+                    Join(rect.DOAnchorPos(new Vector2(OriginPos.x - node[uiTargetedIndex].anchoredPosition.x, OriginPos.y), 1, false)); // 기존 위치로 이동
+
+
+            }
+        }
+
+
+
+
+
+       
+        //tween = image.DOFade(0f, 1f);
+
+    }
 }
