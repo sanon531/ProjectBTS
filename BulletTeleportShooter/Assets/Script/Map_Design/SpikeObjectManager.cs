@@ -50,6 +50,7 @@ public class SpikeObjectManager : MonoBehaviour
     private bool IsPuase = true;
     public float spike_timer = 0f;
     public float spike_speed = 1f;
+    
 
     // Update is called once per frame
     void Update()

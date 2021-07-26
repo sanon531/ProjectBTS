@@ -35,6 +35,21 @@ public class FifthMapSpikeContainer : MonoBehaviour
         }
     }
 
+    public void Plus_Controller(int a)
+    {
+        for (int i = 0; i<Spike_List.Count; i++)
+        {
+            Spike_List[i].animator.SetInteger("controller", a);
+        }
+    }
+    public void Minus_Controller(int a)
+    {
+        for (int i = 0; i < Spike_List.Count; i++)
+        {
+            Spike_List[i].animator.SetInteger("controller", a);
+        }
+    }
+
     public void Change_SpikeSpeed(float spike_speed)
     {
         for (int i = 0; i < Spike_List.Count; i++)
