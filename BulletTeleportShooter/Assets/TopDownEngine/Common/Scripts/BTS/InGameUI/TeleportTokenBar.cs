@@ -7,11 +7,20 @@ namespace MoreMountains.TopDownEngine
     {
         private GameObject Player;
         private BTS_CharacterManager _characterManager;
-        private int nowTokenBar;
-        private GameObject[] TokenBars;
+        private int nowTokenNum;
+        private GameObject[] Tokens;
 
-        public Sprite FilledBarSprite;
-        public Sprite BlankBarSprite;
+        [Header("Teleport Token UI Setting")]
+        public GameObject TeleportTokensUI;
+        public Sprite FilledTokenSprite;
+        public Sprite BlankTokenSprite;
+
+        [Header("Teleport Token Bar UI Setting")]
+        public GameObject TeleportTokenBarUI;
+        public GameObject FilledBarUI;
+        public float BarBaseWidth = 1.0f;
+        public float BarBaseHeight = 1.0f;
+       
 
         private void Awake()
         {
@@ -25,51 +34,63 @@ namespace MoreMountains.TopDownEngine
         }
         private void Initialization()
         {
-            nowTokenBar = _characterManager.MaxTeleportToken;
-            TokenBars = new GameObject[transform.childCount];
-            for (int i = 0; i < transform.childCount; i++)
+            nowTokenNum = _characterManager.MaxTeleportToken;
+            Tokens = new GameObject[TeleportTokensUI.transform.childCount];
+
+            for (int i = 0; i < TeleportTokensUI.transform.childCount; i++)
             {
-                TokenBars[i] = transform.GetChild(i).gameObject;
+                Tokens[i] = TeleportTokensUI.transform.GetChild(i).gameObject;
+                Tokens[i].SetActive(false);
             }
 
-            for (int i = 0; i < nowTokenBar; i++)
+            for (int i = 0; i < nowTokenNum; i++)
             {
-                TokenBars[i].SetActive(true);
+                Tokens[i].SetActive(true);
             }
+
+            SetTokenBar();
         }
 
-        public void RemoveTokenBar(int tokenAmount)
+        public void RemoveToken(int tokenAmount)
         {
             for (int i = 0; i < tokenAmount; i++)
             {
                 if (!isTokenZero())
                 {
-                    TokenBars[nowTokenBar - 1].GetComponent<Image>().sprite = BlankBarSprite;
-                    nowTokenBar--;
+                    Tokens[nowTokenNum - 1].GetComponent<Image>().sprite = BlankTokenSprite;
+                    nowTokenNum--;
                 }
             }
         }
 
-        public void MakeTokenBar(int tokenAmount)
+        public void MakeToken(int tokenAmount)
         {
             for (int i = 0; i < tokenAmount; i++)
             {
                 if (!isTokenMax())
                 {
-                    TokenBars[nowTokenBar].GetComponent<Image>().sprite = FilledBarSprite;
-                    nowTokenBar++;
+                    Tokens[nowTokenNum].GetComponent<Image>().sprite = FilledTokenSprite;
+                    nowTokenNum++;
                 }
             }        
         }
 
+        private void SetTokenBar()
+        {
+            TeleportTokenBarUI.GetComponent<RectTransform>().localScale = new Vector3(_characterManager.MaxTeleportToken * BarBaseWidth, BarBaseHeight, 1);
+            TeleportTokenBarUI.SetActive(true);
+            
+            
+        } 
+
         private bool isTokenMax()
         {
-            return nowTokenBar >= _characterManager.MaxTeleportToken;
+            return nowTokenNum >= _characterManager.MaxTeleportToken;
         }
 
         private bool isTokenZero()
         {
-            return nowTokenBar <= 0;
+            return nowTokenNum <= 0;
         }
     }
 }

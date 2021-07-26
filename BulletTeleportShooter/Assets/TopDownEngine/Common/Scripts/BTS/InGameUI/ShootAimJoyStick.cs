@@ -1,12 +1,10 @@
 ﻿using MoreMountains.TopDownEngine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace MoreMountains.Tools
 {
-    public class ShootAimJoystick : MMTouchJoystick
+    public class ShootAimJoyStick : MMTouchJoystick
     {
 		public enum ShootAimJoystickModes { OnDrag, EndDrag }
 		

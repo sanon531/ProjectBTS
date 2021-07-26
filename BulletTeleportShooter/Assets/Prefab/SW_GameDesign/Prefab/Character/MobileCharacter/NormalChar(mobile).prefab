@@ -16703,6 +16703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannotTeleportMMFeedback
       objectReference: {fileID: 0}
+    - target: {fileID: 3781932252399229870, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cd60d1466d83254eb7f575495dc632c, type: 3}
 --- !u!4 &4782270472107390260 stripped

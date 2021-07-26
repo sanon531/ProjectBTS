@@ -26,9 +26,11 @@ namespace MoreMountains.TopDownEngine
             nowHealth = _characterManager.InitialHealth;
             maxHealth = _characterManager.MaximumHealth;
             HealthBars = new GameObject[transform.childCount];
+
             for (int i = 0; i < transform.childCount; i++)
             {
                 HealthBars[i] = transform.GetChild(i).gameObject;
+                HealthBars[i].SetActive(false);
             }
             
             for (int i = 0; i < nowHealth; i++)
