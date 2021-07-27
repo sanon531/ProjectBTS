@@ -12,9 +12,6 @@ public class AIActionBoomReady : AIAction
     [Header("- Area")]
     [SerializeField] private Transform boomArea;
     [SerializeField] private Transform boomReadyArea;
-    [SerializeField] private float range;
-    [Header("- Time")]
-    [SerializeField] private float readyTime;
     [Header("- Checker")]
     [SerializeField] private AIDecisionCheck checker;
 
@@ -38,16 +35,17 @@ public class AIActionBoomReady : AIAction
     public override void OnEnterState()
     {
         base.OnEnterState();
-        readyTime = enemy.BoomDelay;
+        float delay = enemy.BoomDelay;
+        float radius = enemy.BoomRadius;
 
         boomArea.gameObject.SetActive(true);
-        boomArea.localScale = new Vector3(range * 2, range * 2, 1);
+        boomArea.localScale = new Vector3(radius * 2, radius * 2, 1);
         boomReadyArea.localScale = new Vector3(0, 0, 1);
 
         readySequence = DOTween.Sequence();
         readySequence.
-            Append(boomReadyArea.DOScaleX(1, readyTime)).
-            Join(boomReadyArea.DOScaleY(1, readyTime)).
+            Append(boomReadyArea.DOScaleX(1, delay)).
+            Join(boomReadyArea.DOScaleY(1, delay)).
             SetEase(Ease.Linear).
             OnComplete(() => checker.checker = true);
     }

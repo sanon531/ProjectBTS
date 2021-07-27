@@ -20,6 +20,8 @@ public class PathManager : MonoBehaviour
     }
 
 
+
+
     public static PathManager Instance { get; private set; } = null;
     [SerializeField] private Grid grid;
     [Header("- Border")]
