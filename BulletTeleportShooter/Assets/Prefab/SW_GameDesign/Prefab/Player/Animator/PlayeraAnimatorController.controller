@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KoalaAnimatorController
+  m_Name: PlayeraAnimatorController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Idle
@@ -466,7 +466,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 86652de73d0844e44ace0ad75dc8f25c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1f1ad40a85d666249bee7380791c4a9e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -520,7 +520,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c048a8d9edbf48f429f3b6982a5b7f35, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2c509ee552e357f41ba78633977a927e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -627,7 +627,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8def5bfa5f4089944ac33cf802ff680c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1f1ad40a85d666249bee7380791c4a9e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -650,10 +650,10 @@ AnimatorStateMachine:
     m_Position: {x: -12, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102180825059610636}
-    m_Position: {x: -12, y: 288, z: 0}
+    m_Position: {x: -10, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102104543012280688}
-    m_Position: {x: -12, y: 336, z: 0}
+    m_Position: {x: -10, y: 340, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102459617596482224}
     m_Position: {x: -12, y: 384, z: 0}
