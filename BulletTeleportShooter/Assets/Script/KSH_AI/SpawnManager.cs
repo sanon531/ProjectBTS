@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class SpawnManager : MonoBehaviour
 {
-    private static int MAX_OBJECT_COUNT = 5;
+    private static int MAX_OBJECT_COUNT = 200;
     public static SpawnManager Instance { get; private set; } = null;
     [Header("- Spawn Points")]
     [SerializeField] private Transform[] spawnPoints;
@@ -153,12 +153,17 @@ public class SpawnManager : MonoBehaviour
                         newEnemy.MaxHP += currentPowerUpHP;
                         newEnemy.Speed += currentPowerUpSPD;
                         newEnemy.onDeath += () => 
-                        { 
-                            spawnedEnemyCount--;
-                            objectPool[objectIndex[newEnemy.GetType()]].Enqueue(newEnemy.SetActive(false));
-                            Debug.Log(newEnemy.name + " DEAD"); 
+                        {
+                            Sequence sequence = DOTween.Sequence();
+                            sequence.
+                            AppendInterval(2f).
+                            AppendCallback(() =>
+                            {
+                                spawnedEnemyCount--;
+                                objectPool[objectIndex[newEnemy.GetType()]].Enqueue(newEnemy.SetActive(false));
+                                Debug.Log(newEnemy.name + " DEAD");
+                            });
                         };
-                        Debug.Log("스폰");
                     }
                     spawnedEnemyCount += spawnCount;
 

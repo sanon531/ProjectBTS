@@ -1015,7 +1015,7 @@ MonoBehaviour:
   DelayBeforeDestruction: 0
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
-  DisableControllerOnDeath: 0
+  DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 1
   DisableChildCollisionsOnDeath: 1
@@ -1329,6 +1329,7 @@ MonoBehaviour:
   movement: {fileID: 8333848381844967037}
   run: {fileID: 8333736830786402893}
   character: {fileID: 8333222989616544781}
+  collider: {fileID: 3183220265915272727}
   defaultHP: 5
   defaultAttack: 1
   defaultSpeed: 4

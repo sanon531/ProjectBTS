@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected CharacterMovement movement;
     [SerializeField] protected CharacterRun run;
     [SerializeField] protected Character character;
+    [SerializeField] protected new Collider2D collider;
 
     [Header("- Default Status")]
     [SerializeField] private int defaultHP;
@@ -22,6 +23,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float defaultSpeed;
 
     public Action onDeath;
+
+    public Collider2D Collider { get => collider; }
 
     public int DefaultHP
     {

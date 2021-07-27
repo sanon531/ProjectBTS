@@ -9,22 +9,39 @@ public class AIActionPathfinderToTarget2D : AIAction
     [Tooltip("각 위치에 도달하는 것을 판정하는 최소 거리")]
     public float MinimumDistance = .1f;
 
-    private static float UPDATE_PATH_DELAY = .1f;
+    private static float UPDATE_PATH_DELAY = .5f;
 
-    protected Collider2D _collider;
+    protected Enemy _enemy;
+    protected CircleCollider2D _collider;
     protected CharacterMovement _characterMovement;
     protected Queue<Vector3> _movePoint;
+    protected Vector3 _destination;
     protected float _updatePathDelay;
 
     protected override void Initialization()
     {
         _movePoint = new Queue<Vector3>();
-        _collider = this.gameObject.GetComponentInParent<Collider2D>();
+        _enemy = gameObject.GetComponentInParent<Enemy>();
+        _collider = (CircleCollider2D)_enemy.Collider;
         _characterMovement = this.gameObject.GetComponentInParent<Character>()?.FindAbility<CharacterMovement>();
     }
     public override void PerformAction()
     {
         Move();
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (PathManager.Instance.IsDebugMode && _movePoint != null && _movePoint.Count > 0)
+        {
+            Vector3[] points = _movePoint.ToArray();
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(this.transform.position, points[0]);
+            for (int i = 1; i < points.Length; ++i)
+            {
+                Gizmos.DrawLine(points[i - 1], points[i]);
+            }
+        }
     }
 
     protected virtual void Move()
@@ -37,67 +54,35 @@ public class AIActionPathfinderToTarget2D : AIAction
         {
             _updatePathDelay = UPDATE_PATH_DELAY;
             _movePoint.Clear();
-
-            Vector2 direction = _brain.Target.position - _collider.bounds.center;
-            RaycastHit2D hit = Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0f, direction.normalized, direction.magnitude, LayerMask.GetMask("Obstacles"));
-            if (!hit)
+            List<Vector3> pathData = PathManager.Instance.FindPath(this.transform.position, _brain.Target.position);
+            for (int i = 0; i < pathData.Count; ++i)
             {
-                _movePoint.Enqueue(_brain.Target.position);
-            }
-            else
-            {
-                List<Vector3> pathData = PathManager.Instance.FindPath(this.transform.position, _brain.Target.position);
-                if (pathData != null)
+                _movePoint.Enqueue(pathData[i]);
+                if (i < pathData.Count - 2)
                 {
-                    if (pathData.Count > 1)
+                    Vector2 _direction = _brain.Target.position - pathData[i];
+                    RaycastHit2D hit = Physics2D.CircleCast(pathData[i], _collider.radius, _direction.normalized, _direction.magnitude, LayerMask.GetMask("Obstacles"));
+                    if (!hit)
                     {
-                        // 백워킹 방지용 보정
-                        float firstPointLength = Vector3.SqrMagnitude(pathData[1] - pathData[0]);
-                        float nowPointLength = Vector3.SqrMagnitude(pathData[1] - this.transform.position);
-                        if (nowPointLength < firstPointLength)
-                        {
-                            pathData.RemoveAt(0);
-                        }
-                    }
-
-                    for (int i = 0; i < pathData.Count; ++i)
-                    {
-                        _movePoint.Enqueue(pathData[i]);
+                        _movePoint.Enqueue(_brain.Target.position);
+                        break;
                     }
                 }
             }
+            _destination = _movePoint.Peek();
         }
 
-        if (_movePoint.Count <= 0) return;
+        _characterMovement.SetMovement((_destination - this.transform.position).normalized);
 
-        Vector3 destination = _movePoint.Peek();
         int checkStatus = 0;
 
-        if (this.transform.position.x < destination.x)
-        {
-            _characterMovement.SetHorizontalMovement(1f);
-        }
-        else
-        {
-            _characterMovement.SetHorizontalMovement(-1f);
-        }
-
-        if (this.transform.position.y < destination.y)
-        {
-            _characterMovement.SetVerticalMovement(1f);
-        }
-        else
-        {
-            _characterMovement.SetVerticalMovement(-1f);
-        }
-
-        if (Mathf.Abs(this.transform.position.x - destination.x) < MinimumDistance)
+        if (Mathf.Abs(this.transform.position.x - _destination.x) < MinimumDistance)
         {
             _characterMovement.SetHorizontalMovement(0f);
             checkStatus += 1;
         }
 
-        if (Mathf.Abs(this.transform.position.y - destination.y) < MinimumDistance)
+        if (Mathf.Abs(this.transform.position.y - _destination.y) < MinimumDistance)
         {
             _characterMovement.SetVerticalMovement(0f);
             checkStatus += 1;
@@ -106,7 +91,11 @@ public class AIActionPathfinderToTarget2D : AIAction
         if(checkStatus >= 2)
         {
             checkStatus = 0;
-            _movePoint.Dequeue();
+            if(_movePoint.Count > 1)
+            {
+                _movePoint.Dequeue();
+                _destination = _movePoint.Peek();
+            }
         }
     }
 
