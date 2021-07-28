@@ -75,18 +75,21 @@ public class SpawnManager : MonoBehaviour
                     {
                         priorityHP += 2;
                         prioritySPD += 2;
+                        UIManager.Instance.MakeNotice("적이 강해졌습니다! ATK++", 2f);
                         currentPowerUpATK += powerUpATK;
                     }
                     else if (priorityATK < random && random <= priorityATK + priorityHP)
                     {
                         priorityATK += 2;
                         prioritySPD += 2;
+                        UIManager.Instance.MakeNotice("적이 강해졌습니다! HP++", 2f);
                         currentPowerUpHP += powerUpHP;
                     }
                     else if (priorityATK + priorityHP < random && random <= priorityATK + priorityHP + prioritySPD)
                     {
                         priorityATK += 2;
                         priorityHP += 2;
+                        UIManager.Instance.MakeNotice("적이 강해졌습니다! SPD++", 2f);
                         currentPowerUpSPD += powerUpSPD;
                     }
                 }).
