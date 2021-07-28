@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class SpawnManager : MonoBehaviour
 {
-    private static int MAX_OBJECT_COUNT = 5;
+    private static int MAX_OBJECT_COUNT = 200;
     public static SpawnManager Instance { get; private set; } = null;
     [Header("- Spawn Points")]
     [SerializeField] private Transform[] spawnPoints;
@@ -75,18 +75,21 @@ public class SpawnManager : MonoBehaviour
                     {
                         priorityHP += 2;
                         prioritySPD += 2;
+                        UIManager.Instance.MakeNotice("적이 강해졌습니다! ATK++", 2f);
                         currentPowerUpATK += powerUpATK;
                     }
                     else if (priorityATK < random && random <= priorityATK + priorityHP)
                     {
                         priorityATK += 2;
                         prioritySPD += 2;
+                        UIManager.Instance.MakeNotice("적이 강해졌습니다! HP++", 2f);
                         currentPowerUpHP += powerUpHP;
                     }
                     else if (priorityATK + priorityHP < random && random <= priorityATK + priorityHP + prioritySPD)
                     {
                         priorityATK += 2;
                         priorityHP += 2;
+                        UIManager.Instance.MakeNotice("적이 강해졌습니다! SPD++", 2f);
                         currentPowerUpSPD += powerUpSPD;
                     }
                 }).
@@ -153,12 +156,17 @@ public class SpawnManager : MonoBehaviour
                         newEnemy.MaxHP += currentPowerUpHP;
                         newEnemy.Speed += currentPowerUpSPD;
                         newEnemy.onDeath += () => 
-                        { 
-                            spawnedEnemyCount--;
-                            objectPool[objectIndex[newEnemy.GetType()]].Enqueue(newEnemy.SetActive(false));
-                            Debug.Log(newEnemy.name + " DEAD"); 
+                        {
+                            Sequence sequence = DOTween.Sequence();
+                            sequence.
+                            AppendInterval(2f).
+                            AppendCallback(() =>
+                            {
+                                spawnedEnemyCount--;
+                                objectPool[objectIndex[newEnemy.GetType()]].Enqueue(newEnemy.SetActive(false));
+                                Debug.Log(newEnemy.name + " DEAD");
+                            });
                         };
-                        Debug.Log("스폰");
                     }
                     spawnedEnemyCount += spawnCount;
 

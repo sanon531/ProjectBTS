@@ -5326,7 +5326,7 @@ MonoBehaviour:
   DelayBeforeDestruction: 0
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
-  DisableControllerOnDeath: 0
+  DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 1
   DisableChildCollisionsOnDeath: 1
@@ -5583,6 +5583,7 @@ MonoBehaviour:
   movement: {fileID: 160766214113533083}
   run: {fileID: 160880032914778283}
   character: {fileID: 160265775427104491}
+  collider: {fileID: 6751457694562786545}
   defaultHP: 1
   defaultAttack: 1
   defaultSpeed: 4
@@ -10762,7 +10763,7 @@ MonoBehaviour:
       - Decision: {fileID: 2462671820962159582}
         TrueState: 
         FalseState: Idle
-      - Decision: {fileID: 0}
+      - Decision: {fileID: 9069209049287667499}
         TrueState: Knockback
         FalseState: 
   - StateName: Knockback
