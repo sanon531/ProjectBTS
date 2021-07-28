@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 8286332852656435273}
   - component: {fileID: 8167514766176705119}
   m_Layer: 13
-  m_Name: NinjaModel
+  m_Name: RobotModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,12 +190,10 @@ Transform:
   m_GameObject: {fileID: 8073028389689187689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.625, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8072075090472029423}
-  - {fileID: 8077823307053394407}
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_Children: []
   m_Father: {fileID: 8077809985637388017}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8286332852656435273
 SpriteRenderer:
@@ -236,7 +234,8 @@ SpriteRenderer:
   m_SortingLayerID: 47421343
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aba7b5c63d9ec304b89edc574d32d4bd, type: 3}
+  m_Sprite: {fileID: -8478989428076032340, guid: 6c957d7fd2ce50545ae785928351cae2,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -257,10 +256,10 @@ Animator:
   m_GameObject: {fileID: 8073028389689187689}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: d7409d88ace7ca245b60e0240311dba4, type: 2}
+  m_Controller: {fileID: 22100000, guid: 07eea17fddc4dce438df033cceea9bdc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -291,12 +290,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8074034960356483979}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.38, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.24499989, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8071722833878348483}
-  m_RootOrder: 0
+  m_Father: {fileID: 8077809985637388017}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &8271062340922847945
 ParticleSystem:
@@ -5125,12 +5124,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8074679862607013041}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8071722833878348483}
-  m_RootOrder: 1
+  m_Father: {fileID: 8077809985637388017}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &8270899726806049231
 ParticleSystem:
@@ -9991,7 +9990,7 @@ GameObject:
   - component: {fileID: 3919243506396292869}
   - component: {fileID: 903099011861520729}
   m_Layer: 13
-  m_Name: Enemy_Dash 1
+  m_Name: Enemy_Dash_new
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10012,6 +10011,8 @@ Transform:
   - {fileID: 7378868711809492352}
   - {fileID: 8333414538552665193}
   - {fileID: 8071953292078027743}
+  - {fileID: 8072075090472029423}
+  - {fileID: 8077823307053394407}
   - {fileID: 8071722833878348483}
   - {fileID: 8321220341050198720}
   - {fileID: 1440459049352144193}
@@ -10135,7 +10136,7 @@ MonoBehaviour:
   SendStateChangeEvents: 1
   SendStateUpdateEvents: 1
   AdditionalAbilityNodes: []
-  CharacterBrain: {fileID: 0}
+  CharacterBrain: {fileID: 8333414538552665186}
   OptimizeForMobile: 1
 --- !u!114 &8186551861311145643
 MonoBehaviour:
@@ -10266,18 +10267,18 @@ MonoBehaviour:
   MaximumHealth: 30
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 4699081747714962823}
-  DestroyOnDeath: 1
-  DelayBeforeDestruction: 1.5
+  DestroyOnDeath: 0
+  DelayBeforeDestruction: 0
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 1
   DisableChildCollisionsOnDeath: 1
-  ChangeLayerOnDeath: 1
+  ChangeLayerOnDeath: 0
   ChangeLayersRecursivelyOnDeath: 0
   LayerOnDeath:
-    _layerIndex: 2
+    _layerIndex: 0
   DeathMMFeedbacks: {fileID: 6062399599875246186}
 --- !u!114 &8187428227701967431
 MonoBehaviour:
@@ -10583,10 +10584,12 @@ MonoBehaviour:
   damageOnTouch: {fileID: 8187428227701967431}
   movement: {fileID: 8186722081899539411}
   run: {fileID: 8186897434689822691}
+  character: {fileID: 8187364356830583203}
+  collider: {fileID: 3321338058738428857}
   defaultHP: 1
   defaultAttack: 1
   defaultSpeed: 4
-  defaultReadyTime: 0.7
+  defaultReadyTime: 1.5
   defaultDashDelay: 0.7
   currentMaxHP: 0
   currentAttack: 0
@@ -10916,7 +10919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8077809985637388017}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6062399599875246186
 MonoBehaviour:
@@ -11074,7 +11077,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8077809985637388017}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4699081747714962823
 MonoBehaviour:

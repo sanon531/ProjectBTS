@@ -226,7 +226,6 @@ namespace MoreMountains.TopDownEngine
             {
                 return;
             }
-
             if (ModelRotationSpeed > 0f)
             {
                 _character.CharacterModel.transform.localEulerAngles = Vector3.Lerp(_character.CharacterModel.transform.localEulerAngles, _targetModelRotation, Time.deltaTime * ModelRotationSpeed);
@@ -234,6 +233,8 @@ namespace MoreMountains.TopDownEngine
             else
             {
                 _character.CharacterModel.transform.localEulerAngles = _targetModelRotation;
+                Debug.Log(_character.CharacterModel.transform.name + "rrr"+ _targetModelRotation);
+
             }
         }
 

@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 269117827106863545}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2848460855075421986
 MonoBehaviour:
@@ -230,12 +230,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263806731490431993}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 261975655213860235}
-  m_RootOrder: 1
+  m_Father: {fileID: 269117827106863545}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &103054082554369671
 ParticleSystem:
@@ -5048,7 +5048,7 @@ GameObject:
   - component: {fileID: 160735756857834461}
   - component: {fileID: 8796143037880317390}
   m_Layer: 13
-  m_Name: Enemy_Track 1
+  m_Name: Enemy_Track_new
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5068,6 +5068,8 @@ Transform:
   - {fileID: 262109993952458911}
   - {fileID: 8821010080995468483}
   - {fileID: 262170430888207511}
+  - {fileID: 262327910729628583}
+  - {fileID: 269104514280267439}
   - {fileID: 261975655213860235}
   - {fileID: 62159315173490056}
   - {fileID: 6943342817188598281}
@@ -5322,18 +5324,18 @@ MonoBehaviour:
   MaximumHealth: 30
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 3643484310993535695}
-  DestroyOnDeath: 1
-  DelayBeforeDestruction: 1.5
+  DestroyOnDeath: 0
+  DelayBeforeDestruction: 0
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 1
   DisableChildCollisionsOnDeath: 1
-  ChangeLayerOnDeath: 1
+  ChangeLayerOnDeath: 0
   ChangeLayersRecursivelyOnDeath: 0
   LayerOnDeath:
-    _layerIndex: 2
+    _layerIndex: 0
   DeathMMFeedbacks: {fileID: 2848460855075421986}
 --- !u!114 &160347031314267407
 MonoBehaviour:
@@ -5582,9 +5584,11 @@ MonoBehaviour:
   damageOnTouch: {fileID: 160347031314267407}
   movement: {fileID: 160766214113533083}
   run: {fileID: 160880032914778283}
+  character: {fileID: 160265775427104491}
+  collider: {fileID: 6751457694562786545}
   defaultHP: 1
   defaultAttack: 1
-  defaultSpeed: 1
+  defaultSpeed: 4
   currentMaxHP: 0
   currentAttack: 0
   currentSpeed: 0
@@ -5613,12 +5617,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264164652564010179}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.38, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.245, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 261975655213860235}
-  m_RootOrder: 0
+  m_Father: {fileID: 269117827106863545}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &103172940613928321
 ParticleSystem:
@@ -10434,7 +10438,7 @@ GameObject:
   - component: {fileID: 97051199501797121}
   - component: {fileID: 215868452237258007}
   m_Layer: 13
-  m_Name: NinjaModel
+  m_Name: RobotModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10449,12 +10453,10 @@ Transform:
   m_GameObject: {fileID: 265453797755169313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.625, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 262327910729628583}
-  - {fileID: 269104514280267439}
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_Children: []
   m_Father: {fileID: 269117827106863545}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &97051199501797121
 SpriteRenderer:
@@ -10495,7 +10497,8 @@ SpriteRenderer:
   m_SortingLayerID: 47421343
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aba7b5c63d9ec304b89edc574d32d4bd, type: 3}
+  m_Sprite: {fileID: -8478989428076032340, guid: 6c957d7fd2ce50545ae785928351cae2,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10516,10 +10519,10 @@ Animator:
   m_GameObject: {fileID: 265453797755169313}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: d7409d88ace7ca245b60e0240311dba4, type: 2}
+  m_Controller: {fileID: 22100000, guid: 07eea17fddc4dce438df033cceea9bdc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -10556,7 +10559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 269117827106863545}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3643484310993535695
 MonoBehaviour:
@@ -10761,7 +10764,7 @@ MonoBehaviour:
       - Decision: {fileID: 2462671820962159582}
         TrueState: 
         FalseState: Idle
-      - Decision: {fileID: 0}
+      - Decision: {fileID: 9069209049287667499}
         TrueState: Knockback
         FalseState: 
   - StateName: Knockback

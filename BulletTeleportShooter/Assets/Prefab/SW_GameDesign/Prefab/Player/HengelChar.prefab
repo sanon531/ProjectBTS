@@ -122,7 +122,7 @@ Animator:
   m_GameObject: {fileID: 1091568468121617925}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 88899b9f7e642ff4687600b49d71b969, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14588,7 +14588,7 @@ GameObject:
   - component: {fileID: 548378012184792397}
   - component: {fileID: 8161973739256479228}
   m_Layer: 10
-  m_Name: NormalCharWithNew
+  m_Name: HengelChar
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14619,6 +14619,7 @@ Transform:
   - {fileID: 1093742878412516563}
   - {fileID: 1095490316661374989}
   - {fileID: 1093320396149820925}
+  - {fileID: 3998580489590411793}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15072,7 +15073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89c3e7e4163ef4a94ba1fc552bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeapon: {fileID: 7619283110440395837, guid: e58d3936d7a3f144ea803b234fe15eca,
+  initialWeapon: {fileID: 7619283110440395837, guid: 9c5d258288f8f494cb6c512d60a8cc31,
     type: 3}
   MaximumHealth: 6
   InitialHealth: 6
@@ -15108,6 +15109,7 @@ MonoBehaviour:
   TokenRechargeAmount: 1
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
+  CannotTeleportFeedback: {fileID: 7654861724968688376}
 --- !u!114 &8161973739256479228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16465,6 +16467,93 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   DebugActive: 0
+--- !u!1001 &3867763776832884301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1093499316876790649}
+    m_Modifications:
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781932252399229870, guid: 4cd60d1466d83254eb7f575495dc632c,
+        type: 3}
+      propertyPath: m_Name
+      value: CannotTeleportMMFeedback
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4cd60d1466d83254eb7f575495dc632c, type: 3}
+--- !u!4 &3998580489590411793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3867763776832884301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7654861724968688376 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6887840595163829429, guid: 4cd60d1466d83254eb7f575495dc632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3867763776832884301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841b72de2996c5c40bfb394f3d0e0a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3908566705428718183
 PrefabInstance:
   m_ObjectHideFlags: 0
