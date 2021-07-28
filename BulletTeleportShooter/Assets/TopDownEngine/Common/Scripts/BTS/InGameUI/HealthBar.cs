@@ -11,14 +11,10 @@ namespace MoreMountains.TopDownEngine
         private int maxHealth;
         private GameObject[] HealthBars;
 
-        private void Awake()
+        private void Start()
         {
             Player = LevelManager.Instance.PlayerPrefabs[0].gameObject;
             _characterManager = Player.GetComponent<BTS_CharacterManager>();
-        }
-
-        private void Start()
-        {
             Initialization();
         }
         private void Initialization()
@@ -26,9 +22,11 @@ namespace MoreMountains.TopDownEngine
             nowHealth = _characterManager.InitialHealth;
             maxHealth = _characterManager.MaximumHealth;
             HealthBars = new GameObject[transform.childCount];
+
             for (int i = 0; i < transform.childCount; i++)
             {
                 HealthBars[i] = transform.GetChild(i).gameObject;
+                HealthBars[i].SetActive(false);
             }
             
             for (int i = 0; i < nowHealth; i++)

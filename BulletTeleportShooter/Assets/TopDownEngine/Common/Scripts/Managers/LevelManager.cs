@@ -120,7 +120,7 @@ namespace MoreMountains.TopDownEngine
         {
             BoundsCollider = _collider;
             InstantiatePlayableCharacters();
-
+            
             if (UseLevelBounds)
             {
                 MMCameraEvent.Trigger(MMCameraEventTypes.SetConfiner, null, BoundsCollider);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
 using System.Collections;
+using UnityEngine.UI;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -21,31 +22,39 @@ namespace MoreMountains.TopDownEngine
         [Tooltip("텔레포트 1회당 토큰 사용량")]
         public int UseTokenAmount = 1;
         [Tooltip("토큰 충전 시간 간격")]
-        public float TokenRechargeDelay = 2;
+        public float TokenRechargeDelay = 2.0f;
         [Tooltip("1회 토큰 충전량")]
         public int TokenRechargeAmount = 1;
 
         private int nowToken;
         private int MaxTeleportToken;
+        private float nowDelay;
 
-        private TeleportTokenBar teleportTokenBar;
+        private TeleportTokenBar _teleportTokenBar;
+        private Image TeleportTokenBarImage;
 
         [Header("Teleport Effect")]
         [Tooltip("the feedback to play when Teleport")]
         public MMFeedbacks TeleportFeedback;
         public MMObjectPooler ObjectPooler;
 
+        [Tooltip("the feedback to play when Teleport Cannot Work")]
+        public MMFeedbacks CannotTeleportFeedback;
 
-        protected override void PreInitialization()
+
+        protected override void Initialization()
         {
-            base.PreInitialization();
+            base.Initialization();
             _bulletTeleportManager = BulletTeleportManager.Instance;
             bulletStack = _bulletTeleportManager.BulletStack;
             _characterManager = GetComponent<BTS_CharacterManager>();
             _health = GetComponent<Health>();
             MaxTeleportToken = _characterManager.MaxTeleportToken;
             nowToken = MaxTeleportToken;
-            teleportTokenBar = GUIManager.Instance.TeleportTokenBar;
+            _teleportTokenBar = GUIManager.Instance.TeleportTokenBar;
+            TeleportTokenBarImage = _teleportTokenBar.FilledBarUI.GetComponent<Image>();
+            CannotTeleportFeedback.GetComponent<MMFeedbackPosition>().AnimatePositionTarget = GUIManager.Instance.TeleportTokenBar.gameObject;
+            CannotTeleportFeedback.GetComponent<MMFeedbackCanvasGroup>().TargetCanvasGroup = GUIManager.Instance.TeleportTokenBar.GetComponent<CanvasGroup>();
         }
 
         protected override void HandleInput()     //점멸 조작키 설정
@@ -58,16 +67,25 @@ namespace MoreMountains.TopDownEngine
             }
             if (_inputManager.SecondaryShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
             {
-                if (isTeleportEnable())
-                {
-                    TeleportStart();
-                }
+                TeleportTry();
+            }
+        }
+
+        public void TeleportTry()
+        {
+            if (isTeleportEnable())
+            {
+                TeleportStart();
+            }
+            else
+            {
+                CannotTeleportFeedback?.PlayFeedbacks();
             }
         }
 
         private void TeleportStart()
         {
-            if (bulletStack.Count == 0)
+            if (bulletStack == null || bulletStack.Count == 0)
             {
                 TargetBullet = null;
             }
@@ -77,7 +95,6 @@ namespace MoreMountains.TopDownEngine
 
                 StopCoroutine("TokenRechargeCoroutine");
                 StartCoroutine("TokenRechargeCoroutine");
-                
 
                 RemoveBullet();
                 transform.position = TargetBullet.transform.position;
@@ -92,7 +109,7 @@ namespace MoreMountains.TopDownEngine
                     SpawnCrack();
                 }
 
-                Invoke("InvulnerDelay", InvulnerTime);       //데미지 입힌 후 1.5초 뒤 무적 해제
+                Invoke("InvulnerDelay", InvulnerTime);      //데미지 입힌 후 1.5초 뒤 무적 해제
             }
         }
 
@@ -112,7 +129,7 @@ namespace MoreMountains.TopDownEngine
         {
             nowToken -= useAmount;
 
-            teleportTokenBar.RemoveTokenBar(useAmount); 
+            _teleportTokenBar.RemoveToken(useAmount); 
         }
 
         public void TeleportTokenCharge(int chargeAmount)
@@ -125,12 +142,21 @@ namespace MoreMountains.TopDownEngine
             }
 
 
-            teleportTokenBar.MakeTokenBar(chargeAmount);
+            _teleportTokenBar.MakeToken(chargeAmount);
         }
 
         IEnumerator TokenRechargeCoroutine()
         {
-            yield return new WaitForSeconds(TokenRechargeDelay);
+            nowDelay = TokenRechargeDelay;
+
+            while (nowDelay > 0)
+            {
+                nowDelay -= Time.deltaTime;
+                TeleportTokenBarImage.fillAmount = (1 - nowDelay / TokenRechargeDelay);
+
+                yield return new WaitForFixedUpdate();
+            }
+            //yield return new WaitForSeconds(TokenRechargeDelay);
 
             nowToken += TokenRechargeAmount;
 
@@ -139,7 +165,8 @@ namespace MoreMountains.TopDownEngine
                 nowToken = MaxTeleportToken;
             }
 
-            teleportTokenBar.MakeTokenBar(TokenRechargeAmount);
+            _teleportTokenBar.MakeToken(TokenRechargeAmount);
+            TeleportTokenBarImage.fillAmount = 0;
 
             if (!isTokenMax())
             {

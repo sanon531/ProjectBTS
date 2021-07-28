@@ -513,5 +513,10 @@ namespace MoreMountains.TopDownEngine
         public virtual void SwitchCharacterButtonDown() { SwitchCharacterButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
         public virtual void SwitchCharacterButtonPressed() { SwitchCharacterButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
         public virtual void SwitchCharacterButtonUp() { SwitchCharacterButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
-    }
+
+		public virtual void TeleportButtonDown()
+        {
+			InputManager.Instance.SecondaryShootButton.State.ChangeState(MMInput.ButtonStates.ButtonDown);
+		}
+	}
 }

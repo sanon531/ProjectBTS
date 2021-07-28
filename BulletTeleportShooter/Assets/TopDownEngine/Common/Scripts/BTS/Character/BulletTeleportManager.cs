@@ -6,7 +6,6 @@ namespace MoreMountains.TopDownEngine
 {
     public class BulletTeleportManager : MMSingleton<BulletTeleportManager>
     {
-        
         public LinkedList<GameObject> BulletStack = new LinkedList<GameObject>();
 
         public void printStack()
