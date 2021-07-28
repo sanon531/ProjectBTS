@@ -233,7 +233,6 @@ namespace MoreMountains.TopDownEngine
             else
             {
                 _character.CharacterModel.transform.localEulerAngles = _targetModelRotation;
-                Debug.Log(_character.CharacterModel.transform.name + "rrr"+ _targetModelRotation);
 
             }
         }
