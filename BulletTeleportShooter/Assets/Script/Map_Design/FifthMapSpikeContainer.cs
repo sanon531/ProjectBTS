@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class FifthMapSpikeContainer : MonoBehaviour
 {
 
@@ -9,7 +10,6 @@ public class FifthMapSpikeContainer : MonoBehaviour
     public static FifthMapSpikeContainer SecondContainer;
 
     public Animator animator;
-
     public int number = 1;
 
     [SerializeField]
@@ -18,6 +18,15 @@ public class FifthMapSpikeContainer : MonoBehaviour
     public void AddSpike(FifthMapData data)
     {
         Spike_List.Add(data);
+    }
+
+    public void Reset_Spike()
+    {
+        GameObject.Find("Spike").GetComponent<FifthMapSpikeManage>().spike_speed = 1;
+        for (int i = 0; i < Spike_List.Count; i++)
+        {
+            Spike_List[i].animator.SetFloat("spikeupd", 1);
+        }
     }
 
     public void Change_Speed_z()

@@ -5,8 +5,9 @@ using UnityEngine;
 public class SpikeObjectManager : MonoBehaviour
 {
 
-    [SerializeField]
+    /*[SerializeField]
     List<BTS_Object_Data> OnOffBlockList = new List<BTS_Object_Data>();
+    */
     [SerializeField]
     List<BTS_Spikes_Data> SpikeList = new List<BTS_Spikes_Data>();
 
@@ -18,15 +19,25 @@ public class SpikeObjectManager : MonoBehaviour
     {
         Instance = this;
     }
-
+    /*
     public void AddOnOff(BTS_Object_Data data)
     {
         OnOffBlockList.Add(data);
     }
-
+    */
     public void AddSpike(BTS_Spikes_Data data)
     {
         SpikeList.Add(data);
+    }
+
+    public void OnClickSpike_Reset()
+    {
+        spike_speed = 1;
+        for (int i = 0; i < SpikeList.Count; i++)
+        {
+            SpikeList[i].animator.SetFloat("spikeupd", 1);
+        }
+
     }
 
     public void SpikeStop()

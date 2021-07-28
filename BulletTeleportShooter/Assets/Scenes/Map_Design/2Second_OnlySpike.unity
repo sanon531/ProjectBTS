@@ -192,7 +192,15 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 250615924}
     m_ColliderPaths:
-    - - X: 340000100
+    - - X: 319999900
+        Y: -389999959
+      - X: 319999900
+        Y: -400000041
+      - X: 319999959
+        Y: -400000100
+      - X: 340000041
+        Y: -400000100
+      - X: 340000100
         Y: -400000041
       - X: 340000100
         Y: -400000000
@@ -234,14 +242,6 @@ CompositeCollider2D:
         Y: -389999900
       - X: 319999959
         Y: -389999900
-      - X: 319999900
-        Y: -389999959
-      - X: 319999900
-        Y: -400000041
-      - X: 319999959
-        Y: -400000100
-      - X: 340000041
-        Y: -400000100
   m_CompositePaths:
     m_Paths:
     - - {x: 31.99999, y: -39.999973}
@@ -333,7 +333,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 23
+      m_TileSpriteIndex: 30
       m_TileMatrixIndex: 1
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -11262,8 +11262,8 @@ Tilemap:
     m_Data: {fileID: 21300050, guid: e447093ef558f8a4ba40ac962b9d54ff, type: 3}
   - m_RefCount: 49
     m_Data: {fileID: 21300054, guid: e447093ef558f8a4ba40ac962b9d54ff, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300016, guid: e447093ef558f8a4ba40ac962b9d54ff, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 32
     m_Data: {fileID: 21300046, guid: f289ba8994ad88e42b73769365155321, type: 3}
   - m_RefCount: 7
@@ -11276,7 +11276,7 @@ Tilemap:
     m_Data: {fileID: 21300038, guid: f289ba8994ad88e42b73769365155321, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300052, guid: 50ccc12bd9c9c0d4e8d307d96587cb54, type: 3}
-  - m_RefCount: 6
+  - m_RefCount: 7
     m_Data: {fileID: 21300000, guid: e447093ef558f8a4ba40ac962b9d54ff, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 30
@@ -13036,7 +13036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128217b6cf9e4cc448451ab95da422f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnOffBlockList: []
+  SpikeList: []
   animator: {fileID: 0}
   spike_timer: 0
   spike_speed: 1
@@ -16896,8 +16896,8 @@ MonoBehaviour:
   ButtonPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: XPressed
+      - m_Target: {fileID: 8164676406526413355}
+        m_MethodName: OnClickSpike_Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21610,8 +21610,8 @@ MonoBehaviour:
   ButtonPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: XPressed
+      - m_Target: {fileID: 8164179902084725017}
+        m_MethodName: OnClickSpike_Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23450,7 +23450,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.8107417, y: 1}
+    m_SensorSize: {x: 1.3205882, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -25925,6 +25925,7 @@ GameObject:
   - component: {fileID: 8133201439279751852}
   - component: {fileID: 8133231831523192998}
   - component: {fileID: 8133190925917609370}
+  - component: {fileID: 8164179902084725017}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -25932,6 +25933,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8164179902084725017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164179902084725016}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128217b6cf9e4cc448451ab95da422f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpikeList: []
+  animator: {fileID: 0}
+  spike_timer: 0
+  spike_speed: 1
 --- !u!1 &8164204460154586932
 GameObject:
   m_ObjectHideFlags: 0
@@ -27099,6 +27116,7 @@ GameObject:
   - component: {fileID: 8132856384541844438}
   - component: {fileID: 8133396722250859216}
   - component: {fileID: 8133365896538461558}
+  - component: {fileID: 8164676406526413355}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -27106,6 +27124,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8164676406526413355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164676406526413354}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128217b6cf9e4cc448451ab95da422f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpikeList: []
+  animator: {fileID: 0}
+  spike_timer: 0
+  spike_speed: 1
 --- !u!1 &8164703610178533428
 GameObject:
   m_ObjectHideFlags: 0
