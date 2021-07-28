@@ -111,6 +111,7 @@ namespace MoreMountains.TopDownEngine
 			base.Awake();
             _collider = this.GetComponent<Collider>();
             _initialSpawnPointPosition = (InitialSpawnPoint == null) ? Vector3.zero : InitialSpawnPoint.transform.position;
+            PlayerPrefabs[0] = GameManager.Instance.PlayerPrefabs[GameManager.Instance.NowSelectedPlayerNum];
         }
 
         /// <summary>
@@ -120,7 +121,7 @@ namespace MoreMountains.TopDownEngine
         {
             BoundsCollider = _collider;
             InstantiatePlayableCharacters();
-
+            
             if (UseLevelBounds)
             {
                 MMCameraEvent.Trigger(MMCameraEventTypes.SetConfiner, null, BoundsCollider);

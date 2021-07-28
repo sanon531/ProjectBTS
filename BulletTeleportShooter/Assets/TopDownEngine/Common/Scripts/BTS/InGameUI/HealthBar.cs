@@ -11,14 +11,10 @@ namespace MoreMountains.TopDownEngine
         private int maxHealth;
         private GameObject[] HealthBars;
 
-        private void Awake()
+        private void Start()
         {
             Player = LevelManager.Instance.PlayerPrefabs[0].gameObject;
             _characterManager = Player.GetComponent<BTS_CharacterManager>();
-        }
-
-        private void Start()
-        {
             Initialization();
         }
         private void Initialization()

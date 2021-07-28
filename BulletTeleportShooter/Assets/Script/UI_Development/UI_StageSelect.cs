@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using MoreMountains.TopDownEngine;
 
 public class UI_StageSelect : MonoBehaviour
 {
@@ -92,6 +93,7 @@ public class UI_StageSelect : MonoBehaviour
     public void SceneLoad()
     {
         SceneManager.LoadScene(SceneList[ImmediateIndex]);
+        DontDestroyOnLoad(GameManager.Instance);
     }
 
 
