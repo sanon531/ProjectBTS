@@ -5329,7 +5329,7 @@ MonoBehaviour:
   DisableControllerOnDeath: 1
   DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 1
-  DisableChildCollisionsOnDeath: 0
+  DisableChildCollisionsOnDeath: 1
   ChangeLayerOnDeath: 0
   ChangeLayersRecursivelyOnDeath: 0
   LayerOnDeath:
@@ -5582,9 +5582,14 @@ MonoBehaviour:
   damageOnTouch: {fileID: 160347031314267407}
   movement: {fileID: 160766214113533083}
   run: {fileID: 160880032914778283}
-  defaultHP: 10
+  character: {fileID: 160265775427104491}
+  collider: {fileID: 6751457694562786545}
+  defaultHP: 1
   defaultAttack: 1
-  defaultSpeed: 5
+  defaultSpeed: 4
+  currentMaxHP: 0
+  currentAttack: 0
+  currentSpeed: 0
 --- !u!1 &264164652564010179
 GameObject:
   m_ObjectHideFlags: 0
@@ -10698,8 +10703,8 @@ GameObject:
   - component: {fileID: 7233243621499249782}
   - component: {fileID: 7849782189796610301}
   - component: {fileID: 2462671820962159582}
-  - component: {fileID: 4825302659741732783}
   - component: {fileID: 6635725573722500023}
+  - component: {fileID: 9069209049287667499}
   m_Layer: 13
   m_Name: AIBrain
   m_TagString: Untagged
@@ -10758,7 +10763,7 @@ MonoBehaviour:
       - Decision: {fileID: 2462671820962159582}
         TrueState: 
         FalseState: Idle
-      - Decision: {fileID: 4825302659741732783}
+      - Decision: {fileID: 9069209049287667499}
         TrueState: Knockback
         FalseState: 
   - StateName: Knockback
@@ -10776,7 +10781,7 @@ MonoBehaviour:
       - {fileID: 4291526058972119672}
     Transitions:
       array:
-      - Decision: {fileID: 4825302659741732783}
+      - Decision: {fileID: 9069209049287667499}
         TrueState: Knockback
         FalseState: 
       - Decision: {fileID: 2462671820962159582}
@@ -10878,20 +10883,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: IsPlayerAlive
---- !u!114 &4825302659741732783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3781252761658402462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cecd41409ea0af54481893fe71065025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Label: IsHit
-  NumberOfHits: 1
 --- !u!114 &6635725573722500023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10907,3 +10898,17 @@ MonoBehaviour:
   Label: KnockbackTime
   AfterTimeMin: 2
   AfterTimeMax: 2
+--- !u!114 &9069209049287667499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781252761658402462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275f296f375ac2a4ab7a9d6250fd6f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: IsHit
+  NumberOfHits: 1

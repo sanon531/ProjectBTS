@@ -9,7 +9,7 @@ public class AIActionBoom : AIAction
 {
     private Enemy_Boom enemy;
     [SerializeField]
-    private DamageOnTouch boom;
+    private LayerMask layermask;
 
     protected override void Initialization()
     {
@@ -18,16 +18,19 @@ public class AIActionBoom : AIAction
 
     public override void OnEnterState()
     {
-        boom.DamageCaused = enemy.BoomDamage;
-        boom.gameObject.SetActive(true);
-        StartCoroutine(_Routine());
-        enemy.Kill();
-        IEnumerator _Routine()
+        Collider2D[] col = Physics2D.OverlapCircleAll(enemy.transform.position, enemy.BoomRadius, layermask);
+        for (int i = 0; i < col.Length; ++i)
         {
-            yield return new WaitForSeconds(0.1f);
-            boom.GetComponent<Health>().Kill();
+            Health health = col[i].GetComponentInParent<Health>();
+            if (health != null)
+            {
+                health.Damage(enemy.Attack * 3, enemy.gameObject, 0, 0, col[i].transform.position - enemy.transform.position);
+            }
         }
+        enemy.Kill();
     }
+
+
     public override void PerformAction()
     {
 
