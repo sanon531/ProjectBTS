@@ -13,6 +13,8 @@ public class AIActionDashReady : AIAction
     [SerializeField] private Transform dashArea;
     [SerializeField] private Transform dashReadyArea;
     [SerializeField] private float range;
+    [Header("- Alarm")]
+    [SerializeField] private GameObject alarm;
     [Header("- Checker")]
     [SerializeField] private AIDecisionCheck checker;
     [Header("- Dash AI")]
@@ -38,6 +40,7 @@ public class AIActionDashReady : AIAction
     public override void OnEnterState()
     {
         base.OnEnterState();
+        alarm.SetActive(true);
         dashArea.gameObject.SetActive(true);
         dash.destination = _brain.Target.position;
         dashArea.rotation = Quaternion.Euler(
@@ -56,6 +59,7 @@ public class AIActionDashReady : AIAction
     {
         base.OnExitState();
         dashTweener = null;
+        alarm.SetActive(false);
         dashArea.gameObject.SetActive(false);
     }
 }
