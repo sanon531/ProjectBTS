@@ -75,7 +75,7 @@ namespace MoreMountains.TopDownEngine
 		{
 			base.Initialization();            
 			_weaponAim = GetComponent<WeaponAim> ();
-            _bulletTeleportManager = GameObject.Find("TeleportManager").GetComponent<BulletTeleportManager>();
+            _bulletTeleportManager = BulletTeleportManager.Instance;
             bulletStack = _bulletTeleportManager.BulletStack;
             
 
