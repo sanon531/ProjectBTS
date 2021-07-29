@@ -55,6 +55,8 @@ namespace MoreMountains.TopDownEngine
             TeleportTokenBarImage = _teleportTokenBar.FilledBarUI.GetComponent<Image>();
             CannotTeleportFeedback.GetComponent<MMFeedbackPosition>().AnimatePositionTarget = GUIManager.Instance.TeleportTokenBar.gameObject;
             CannotTeleportFeedback.GetComponent<MMFeedbackCanvasGroup>().TargetCanvasGroup = GUIManager.Instance.TeleportTokenBar.GetComponent<CanvasGroup>();
+
+
         }
 
         protected override void HandleInput()     //점멸 조작키 설정
@@ -91,6 +93,7 @@ namespace MoreMountains.TopDownEngine
             }
             else
             {
+                
                 UseTeleportToken(UseTokenAmount);
 
                 StopCoroutine("TokenRechargeCoroutine");
@@ -107,15 +110,24 @@ namespace MoreMountains.TopDownEngine
                 if (ObjectPooler != null)
                 {
                     SpawnCrack();
+                    if (_movement.CurrentState != CharacterStates.MovementStates.Teleporting)
+                    {
+                        _movement.ChangeState(CharacterStates.MovementStates.Teleporting);
+                        //Debug.Log("tt");
+                    }
                 }
-
                 Invoke("InvulnerDelay", InvulnerTime);      //데미지 입힌 후 1.5초 뒤 무적 해제
+                Invoke("AnimationDelay", 0.1f);
             }
         }
 
         private void InvulnerDelay()
         {
             _health.DamageEnabled();
+        }
+        private void AnimationDelay()
+        {
+            _movement.ChangeState(CharacterStates.MovementStates.Idle);
         }
 
         private void RemoveBullet()

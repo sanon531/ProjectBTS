@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float defaultSpeed;
 
     public Action onDeath;
-
+    
     public Collider2D Collider { get => collider; }
 
     public int DefaultHP
