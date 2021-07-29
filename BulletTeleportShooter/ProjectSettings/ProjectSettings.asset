@@ -255,8 +255,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: "F:/Dropbox/Documents \xE0 conserver/Android Keystore/reuno.keystore"
-  AndroidKeyaliasName: reuno
+  AndroidKeystoreName: D:/BTSGame/BTSuser.keystore
+  AndroidKeyaliasName: btsgame
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

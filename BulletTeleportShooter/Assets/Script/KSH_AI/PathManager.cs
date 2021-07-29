@@ -385,7 +385,7 @@ public class PathManager : MonoBehaviour
             {
                 for (int y = 0; y < nodeData[x].Count; ++y)
                 {
-                    Handles.Label(nodeData[x][y].pos, indexData[nodeData[x][y].area], style);
+                    //Handles.Label(nodeData[x][y].pos, indexData[nodeData[x][y].area], style);
                 }
             }
 
