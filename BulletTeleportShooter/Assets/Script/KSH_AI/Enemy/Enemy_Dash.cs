@@ -4,35 +4,31 @@ using UnityEngine;
 
 public class Enemy_Dash : Enemy
 {
-    private Timer timer;
+    [SerializeField] private float defaultReadyTime;
+    [SerializeField] private float defaultDashDelay;
+    [Header("- Current Status")]
+    [SerializeField] private int currentMaxHP;
+    [SerializeField] private int currentAttack;
+    [SerializeField] private float currentSpeed;
+    [SerializeField] private float currentReadyTime;
+    [SerializeField] private float currentDashDelay;
+
+    public float DashReady { get; private set; }
+    public float DashDelay { get; private set; }
+
     public override Enemy Init()
     {
-        timer = FindObjectOfType<Timer>();
-        if (timer != null && timer.GameTime > 60f)
-        {
-            float buffValue = (timer.GameTime - 60f) * .1f;
-            this.MaxHP = (int)(this.DefaultHP * (1 + buffValue));
-            this.Attack = (int)(this.DefaultAttack *  (1 +buffValue));
-            this.Speed = this.DefaultSpeed * (1 + buffValue);
-        }
+        DashReady = defaultReadyTime;
+        DashDelay = defaultDashDelay;
         return base.Init();
-    }
-    private void Start()
-    {
-        if (IsInit == false)
-        {
-            Init();
-        }
     }
 
     private void Update()
     {
-        if (timer != null && timer.GameTime > 60f)
-        {
-            float buffValue = (timer.GameTime - 60f) * .1f;
-            this.MaxHP = (int)(this.DefaultHP * (1 + buffValue));
-            this.Attack = (int)(this.DefaultAttack * (1 + buffValue));
-            this.Speed = this.DefaultSpeed * (1 + buffValue);
-        }
+        currentMaxHP = MaxHP;
+        currentAttack = Attack;
+        currentSpeed = Speed;
+        currentReadyTime = DashReady;
+        currentDashDelay = DashDelay;
     }
 }

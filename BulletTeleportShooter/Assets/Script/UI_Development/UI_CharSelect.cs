@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using MoreMountains.TopDownEngine;
 
 
 public class UI_CharSelect : MonoBehaviour
@@ -134,6 +135,8 @@ public class UI_CharSelect : MonoBehaviour
         
         btn1.enabled = true;
         btn2.enabled = true;
+
+        GameManager.Instance.NowSelectedPlayerNum = uiTargetedIndex;
     }
     
     //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡui_char

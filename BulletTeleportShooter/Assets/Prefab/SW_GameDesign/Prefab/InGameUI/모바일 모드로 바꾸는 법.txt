@@ -1,0 +1,11 @@
+1) CharacterUICameras -> KoalaUICamera 인스펙터 창의 Input Manager에서 Input Forced Mode를 'Mobile'로 바꾼다.
+
+2) Managers -> LevelManager 인스펙터 창의 Level Manager에서 Player Prefabs Element0의 캐릭터 Prefab을 모바일 용 Prefab으로 변경해준다.
+(캐릭터 무기만 모바일 용으로 변경해줘도 상관없음)
+
+ + PC 버전으로 다시 바꾸고 싶을 때는 위의 과정을 반대로 해주면 된다.
+: Mobile -> Desktop
+: 모바일 용 캐릭터 Prefab -> 일반 캐릭터 Prefab
+
++ 총 발사 조이스틱의 모드를 변경하고 싶으면
+CharacterUICameras -> KoalaUICamera -> Canvas -> HUD -> ShootAimJoystick -> JoystickKnob 인스펙터 창의 Shoot Aim Joystick에서 맨아래 Shoot Aim Joystick Mode를 변경해주면 된다.
