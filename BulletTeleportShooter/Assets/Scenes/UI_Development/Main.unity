@@ -481,7 +481,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -679,7 +679,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC635\uC158"
+  m_Text: 
 --- !u!222 &1061357529
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -950,7 +950,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC2DC\uC791\uD558\uAE30"
+  m_Text: 
 --- !u!222 &1358355561
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1111,7 +1111,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD06C\uB808\uB527"
+  m_Text: 
 --- !u!222 &1488604602
 CanvasRenderer:
   m_ObjectHideFlags: 0
