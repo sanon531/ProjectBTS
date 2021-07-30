@@ -28,7 +28,7 @@ public class Main : MonoBehaviour
         image.DOFade(0f, 1f);
         Button btn = GetComponent<Button>();
         btn.enabled = false;
-        rectTransform.DOAnchorPosY(250f, 1f).SetEase(current_Ease);
+        rectTransform.DOAnchorPosY(200f, 1f).SetEase(current_Ease);
 
 
         MainMenuSet();   
@@ -48,7 +48,7 @@ public class Main : MonoBehaviour
 
 
        
-        rects.DOAnchorPosY(-300f,1f).SetDelay(1.5f);
+        rects.DOAnchorPosY(-280f,1f).SetDelay(1.5f);
 
 
 
