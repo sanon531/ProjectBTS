@@ -118,7 +118,7 @@ public class FifthMapSpikeManage : MonoBehaviour
 
 
 
-        if (spike_timer > 30f)
+        if (spike_timer > 3f)
         { 
             spike_speed++;
             for (int i = 0; i < FifthMapSpikeContainer.FirstContainer.Counting(); i++)

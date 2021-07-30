@@ -327,11 +327,11 @@ MonoBehaviour:
   uiTargetedIndex: 0
   ImmediateIndex: 0
   SceneList:
-  - 1First_Spike
+  - First_Spike
   - 2Second_OnlySpike
   - 3Third_Hole_and_Spike
   - 4FourthMap
-  - Fifth_Map
+  - 5Fifth_Map
 --- !u!1 &173240456
 GameObject:
   m_ObjectHideFlags: 0

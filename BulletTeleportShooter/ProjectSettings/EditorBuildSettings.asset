@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SW_Scene/DungeonForPractice.unity
     guid: 41c24ea721831ae4c8683c99a8fd01c9
   - enabled: 1
-    path: Assets/Scenes/Map_Design/1First_Spike.unity
+    path: Assets/Scenes/Map_Design/First_Spike.unity
     guid: 79c9a068c5715164a846efd5a0b003d1
   - enabled: 1
     path: Assets/Scenes/Map_Design/Scond_Empty.unity
@@ -37,10 +37,16 @@ EditorBuildSettings:
     guid: 9fa7964b6074bf54abeffb1137615613
   - enabled: 1
     path: Assets/Scenes/Map_Design/3Third_Hole_and_Spike.unity
-    guid: e6a80d83e84131841b8759177758c639
+    guid: eb4abfe35330d87409cd90ce2ed6eef9
   - enabled: 1
     path: Assets/Scenes/Map_Design/4FourthMap.unity
-    guid: 5183fa9f59d45cf41aea0ade5fdaea7a
+    guid: 1321aa19ad651b2489cc2e84143a6cff
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Map_Design/5Fifth_Map.unity
     guid: 5eaaf026fa9cf6843a1418b118c08bce
