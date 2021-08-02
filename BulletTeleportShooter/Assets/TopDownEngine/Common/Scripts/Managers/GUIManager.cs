@@ -42,6 +42,7 @@ namespace MoreMountains.TopDownEngine
 		/// The mobile movement joystick
 		[Tooltip("The mobile movement joystick")]
 		public CanvasGroup Joystick;
+		public CanvasGroup SecondJoystick;
 		/// the points counter
 		[Tooltip("the points counter")]
 		public Text PointsText;
@@ -49,8 +50,12 @@ namespace MoreMountains.TopDownEngine
         [Tooltip("the pattern to apply to format the display of points")]
         public string PointsTextPattern = "000000";
 
+		[Header("BTS Project")]
+		public HealthBar btsHealthBar;
+		public TeleportTokenBar TeleportTokenBar;
 
-        protected float _initialJoystickAlpha;
+
+		protected float _initialJoystickAlpha;
 		protected float _initialButtonsAlpha;
         protected bool _initialized = false;
 
@@ -141,6 +146,20 @@ namespace MoreMountains.TopDownEngine
 				{
 					Joystick.alpha=0;
 					Joystick.gameObject.SetActive (false);
+				}
+			}
+
+			if (SecondJoystick != null)
+			{
+				SecondJoystick.gameObject.SetActive(state);
+				if (state && movementControl == InputManager.MovementControls.Joystick)
+				{
+					SecondJoystick.alpha = _initialJoystickAlpha;
+				}
+				else
+				{
+					SecondJoystick.alpha = 0;
+					SecondJoystick.gameObject.SetActive(false);
 				}
 			}
 

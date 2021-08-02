@@ -179,7 +179,12 @@ namespace MoreMountains.TopDownEngine
         /// the stored selected character
         public Character StoredCharacter { get; set; }
 
-        // storage
+		[Header("Characters")]
+		public Character[] PlayerPrefabs;
+		public int NowSelectedPlayerNum;
+
+
+		// storage
 		protected bool _inventoryOpen = false;
 		protected bool _pauseMenuOpen = false;
 		protected InventoryInputManager _inventoryInputManager;
