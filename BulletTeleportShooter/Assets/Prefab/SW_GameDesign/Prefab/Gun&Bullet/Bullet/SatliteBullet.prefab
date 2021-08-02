@@ -4825,7 +4825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundsBasedOn: 1
-  LifeTime: 200
+  LifeTime: 100
   FaceDirection: 1
   Speed: 10
   Acceleration: 0
@@ -4973,7 +4973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ec6fb2988b429488e5d24aafe93d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoRotate: {fileID: 0}
+  autoRotate: {fileID: 7462540502622376177}
 --- !u!114 &7462540502622376177
 MonoBehaviour:
   m_ObjectHideFlags: 0
