@@ -9690,9 +9690,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnOffBlockList: []
+  SpikeList: []
   animator: {fileID: 3799334469299427241, guid: c5d8db20d66c92a4f858b713439fa4d8,
     type: 3}
-  timer: 0
   spike_timer: 0
   spike_speed: 1
 --- !u!1001 &1458379709
