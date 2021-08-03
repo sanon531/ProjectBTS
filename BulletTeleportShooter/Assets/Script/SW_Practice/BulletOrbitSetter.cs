@@ -9,6 +9,11 @@ public class BulletOrbitSetter : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     MMAutoRotate autoRotate;
+    void Reset()
+    {
+        autoRotate = GetComponent<MMAutoRotate>();
+    }
+
     void Start()
     {
         autoRotate = GetComponent<MMAutoRotate>();
