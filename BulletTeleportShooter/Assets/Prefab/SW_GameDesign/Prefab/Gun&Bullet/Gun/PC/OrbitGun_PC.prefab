@@ -19931,7 +19931,7 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 0.2
+  TimeBetweenUses: 0.7
   TimeBetweenUsesReleaseInterruption: 0
   MagazineBased: 0
   MagazineSize: 30
@@ -19982,7 +19982,7 @@ MonoBehaviour:
   RotateWeaponOnSpread: 1
   RandomSpread: 1
   SpawnPosition: {x: 1.85, y: 0.07, z: 0}
-  projectileDamage: 2
+  projectileDamage: 1
   TestShootButton: 0
 --- !u!114 &7619665233687444759
 MonoBehaviour:
@@ -20020,7 +20020,7 @@ MonoBehaviour:
   MinimumAngle: -180
   MaximumAngle: 180
   MinimumMagnitude: 0
-  ReticleType: 0
+  ReticleType: 2
   Reticle: {fileID: 1373789777524232, guid: f31b518c2b50cc2479370c46d4485485, type: 3}
   ReticleDistance: 1
   ReticleHeight: 0

@@ -14590,7 +14590,7 @@ GameObject:
   - component: {fileID: 548378012184792397}
   - component: {fileID: 8161973739256479228}
   m_Layer: 10
-  m_Name: M_Fat_Char
+  m_Name: PC_Fat_Char
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15047,7 +15047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89c3e7e4163ef4a94ba1fc552bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeapon: {fileID: 7619283110440395837, guid: bfa020d447803824c9934e2bcf4a1e27,
+  initialWeapon: {fileID: 7619283110440395837, guid: b791bc67c347f8042a7e1b6ee2bc2fe8,
     type: 3}
   MaximumHealth: 10
   InitialHealth: 10

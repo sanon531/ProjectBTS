@@ -14589,7 +14589,7 @@ GameObject:
   - component: {fileID: 8161973739256479228}
   - component: {fileID: 6030325423174998917}
   m_Layer: 10
-  m_Name: SateliteGunner
+  m_Name: M_Orbit_Gunner
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15078,7 +15078,7 @@ MonoBehaviour:
   MaximumHealth: 6
   InitialHealth: 6
   AttackDMG: 1
-  ShootDelay: 0.7
+  ShootDelay: 0.4
   WalkSpeed: 6
   MaxTeleportToken: 6
   FlashDMG: 3
