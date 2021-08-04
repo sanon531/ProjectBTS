@@ -11,9 +11,9 @@ namespace MoreMountains.Tools
 		[Header("BTS Joystick Mode")]
 		public ShootAimJoystickModes ShootAimJoystickMod;
 
-		public override void OnDrag(PointerEventData eventData)
+		public override void OnDragKnob(PointerEventData eventData)
         {
-			base.OnDrag(eventData);
+			base.OnDragKnob(eventData);
 
 			if (ShootAimJoystickMod == ShootAimJoystickModes.OnDrag)
             {
@@ -21,9 +21,9 @@ namespace MoreMountains.Tools
 			}
         }
 
-		public override void OnEndDrag(PointerEventData eventData)
+		public override void OnEndDragKnob(PointerEventData eventData)
 		{
-			base.OnEndDrag(eventData);
+			base.OnEndDragKnob(eventData);
 
 			if (ShootAimJoystickMod == ShootAimJoystickModes.OnDrag)
             {

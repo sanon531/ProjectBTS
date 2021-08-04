@@ -111,7 +111,10 @@ namespace MoreMountains.TopDownEngine
 			base.Awake();
             _collider = this.GetComponent<Collider>();
             _initialSpawnPointPosition = (InitialSpawnPoint == null) ? Vector3.zero : InitialSpawnPoint.transform.position;
-            PlayerPrefabs[0] = GameManager.Instance.PlayerPrefabs[GameManager.Instance.NowSelectedPlayerNum];
+            if (!GameManager.Instance.isTest)
+            {
+                PlayerPrefabs[0] = GameManager.Instance.PlayerPrefabs[GameManager.Instance.NowSelectedPlayerNum];
+            }
         }
 
         /// <summary>

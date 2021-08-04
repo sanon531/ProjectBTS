@@ -97,6 +97,11 @@ namespace MoreMountains.Tools
 			_knobTransform = newTransform;
 		}
 
+		public virtual void SetKnobPosition(Vector3 newPosition)
+        {
+			_knobTransform.position = newPosition;
+        }
+
 		/// <summary>
 		/// On Update we check for an orientation change if needed, and send our input values.
 		/// </summary>
@@ -129,6 +134,11 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public virtual void OnDrag(PointerEventData eventData)
 		{
+			OnDragKnob(eventData);
+		}
+
+		public virtual void OnDragKnob(PointerEventData eventData)
+        {
 			_canvasGroup.alpha = PressedOpacity;
 
 			// if we're in "screen space - camera" render mode
@@ -170,6 +180,11 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public virtual void OnEndDrag(PointerEventData eventData)
 		{
+			OnEndDragKnob(eventData);
+		}
+
+		public virtual void OnEndDragKnob(PointerEventData eventData)
+        {
 			// we reset the stick's position
 			_newJoystickPosition = _neutralPosition;
 			_newJoystickPosition.z = _initialZPosition;
@@ -178,7 +193,7 @@ namespace MoreMountains.Tools
 			_joystickValue.y = 0f;
 
 			// we set its opacity back
-			_canvasGroup.alpha=_initialOpacity;
+			_canvasGroup.alpha = _initialOpacity;
 		}
 
 		/// <summary>
