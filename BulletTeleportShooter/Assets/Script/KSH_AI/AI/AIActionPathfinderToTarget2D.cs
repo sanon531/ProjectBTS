@@ -32,7 +32,7 @@ public class AIActionPathfinderToTarget2D : AIAction
 
     private void OnDrawGizmos()
     {
-        if (PathManager.Instance.IsDebugMode && _movePoint != null && _movePoint.Count > 0)
+        if (PathManager.Instance != null && PathManager.Instance.IsDebugMode && _movePoint != null && _movePoint.Count > 0)
         {
             Vector3[] points = _movePoint.ToArray();
             Gizmos.color = Color.green;
