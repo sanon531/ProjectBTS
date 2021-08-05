@@ -9,7 +9,7 @@ public class HoleObjectManager : MonoBehaviour
     [SerializeField]
     List<BTS_HoleObjectContainer> HoleContainerList = new List<BTS_HoleObjectContainer>();
     [SerializeField]
-    List<BrokenObjectData> BrokenList = new List<BrokenObjectData>();
+    List<BrokenObjectContainer> BrokenContainerList = new List <BrokenObjectContainer>();
 
     public float firstfall;
     public float secondfall;
@@ -35,7 +35,7 @@ public class HoleObjectManager : MonoBehaviour
     IEnumerator FallTile(float time, int num)
     {
         yield return new WaitForSeconds(time-5);
-        BrokenList[num].Play_Broken();
+        BrokenContainerList[num].Play_Broken();
         yield return new WaitForSeconds(5);
         Destroy(HoleContainerList[num].gameObject);
     }

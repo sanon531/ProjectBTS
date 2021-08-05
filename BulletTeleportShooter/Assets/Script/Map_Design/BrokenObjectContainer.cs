@@ -8,12 +8,19 @@ public class BrokenObjectContainer : MonoBehaviour
     public static BrokenObjectContainer Second_Container;
     public static BrokenObjectContainer Third_Container;
 
-    public int number = 1;
+    public int number = 0;
 
     [SerializeField]
     List<BrokenObjectData> BrokenList = new List <BrokenObjectData>();
     public ParticleSystem BrokenFX;
 
+    public void Play_Broken()
+    {
+        for (int i = 0; i<BrokenList.Count; i++)
+        {
+            BrokenList[i].BrokenFX.Play();
+        }
+    }
     public void AddBrokenEffect(BrokenObjectData data)
     {
         BrokenList.Add(data);
@@ -22,11 +29,11 @@ public class BrokenObjectContainer : MonoBehaviour
 
     void Awake()
     {
-        if (number == 1)
+        if (number == 0)
         {
             First_Container = this;
         }
-        else if (number == 2)
+        else if (number == 1)
         {
             Second_Container = this;
         }
