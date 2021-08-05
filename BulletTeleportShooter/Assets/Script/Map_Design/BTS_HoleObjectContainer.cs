@@ -8,7 +8,7 @@ public class BTS_HoleObjectContainer : MonoBehaviour
     public static BTS_HoleObjectContainer SecondContainer;
     public static BTS_HoleObjectContainer ThirdContainer;
 
-    public int number = 1;
+    public int number = 0;
 
     [SerializeField]
     List<BTS_HoleObjectData> HoleList = new List<BTS_HoleObjectData>();
@@ -22,11 +22,11 @@ public class BTS_HoleObjectContainer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if (number == 1)
+        if (number == 0)
         {
             FirstContainer = this;
         }
-        else if (number == 2)
+        else if (number == 1)
         {
             SecondContainer = this;
         }
