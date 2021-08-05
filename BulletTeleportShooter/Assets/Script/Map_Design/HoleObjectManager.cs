@@ -8,10 +8,13 @@ public class HoleObjectManager : MonoBehaviour
 
     [SerializeField]
     List<BTS_HoleObjectContainer> HoleContainerList = new List<BTS_HoleObjectContainer>();
+    [SerializeField]
+    List<BrokenObjectData> BrokenList = new List<BrokenObjectData>();
 
-    
-
-
+    public float firstfall;
+    public float secondfall;
+    public float thirdfall;
+    Coroutine coroutine;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,17 +22,21 @@ public class HoleObjectManager : MonoBehaviour
     }
     private void Start()
     {
-        Destroy(BTS_HoleObjectContainer.FirstContainer.gameObject, 30f);
-        Destroy(BTS_HoleObjectContainer.SecondContainer.gameObject, 60f);
-        Destroy(BTS_HoleObjectContainer.ThirdContainer.gameObject, 90f);
+        StartCoroutine(FallTile(firstfall, 0));
+        StartCoroutine(FallTile(secondfall, 1));
+        StartCoroutine(FallTile(thirdfall, 2));
     }
     // Update is called once per frame
     void Update()
+    { 
+
+    }
+
+    IEnumerator FallTile(float time, int num)
     {
-
-        
-
-
-
+        yield return new WaitForSeconds(time-5);
+        BrokenList[num].Play_Broken();
+        yield return new WaitForSeconds(5);
+        Destroy(HoleContainerList[num].gameObject);
     }
 }

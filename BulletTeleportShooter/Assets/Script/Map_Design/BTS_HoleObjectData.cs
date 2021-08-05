@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class BTS_HoleObjectData : MonoBehaviour
 {
-    public int number= 1;
+    public int number= 0;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        if (number == 1)
+        if (number == 0)
         {
             BTS_HoleObjectContainer.FirstContainer.AddHole(this);
         }
-        else if (number == 2)
+        else if (number == 1)
         {
             BTS_HoleObjectContainer.SecondContainer.AddHole(this);
         }
