@@ -16,6 +16,9 @@ public class AIActionBoomReady : AIAction
     [SerializeField] private GameObject alarm;
     [Header("- Checker")]
     [SerializeField] private AIDecisionCheck checker;
+    protected Character _character;
+    protected CharacterDash2D _characterDamageDash2D; //
+
 
     public override void PerformAction()
     {
@@ -33,6 +36,8 @@ public class AIActionBoomReady : AIAction
     protected override void Initialization()
     {
         enemy = GetComponentInParent<Enemy_Boom>();
+        _character = GetComponentInParent<Character>();
+        _characterDamageDash2D = _character?.FindAbility<CharacterDash2D>();
     }
 
     public override void OnEnterState()
@@ -41,6 +46,7 @@ public class AIActionBoomReady : AIAction
         float delay = enemy.BoomDelay;
         float radius = enemy.BoomRadius;
 
+        //_characterDamageDash2D.ChangeMovementDash();
         alarm.SetActive(true);
         boomArea.gameObject.SetActive(true);
         boomArea.localScale = new Vector3(radius * 2, radius * 2, 1);

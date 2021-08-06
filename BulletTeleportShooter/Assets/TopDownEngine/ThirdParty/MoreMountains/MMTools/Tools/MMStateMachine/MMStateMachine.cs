@@ -101,7 +101,7 @@ namespace MoreMountains.Tools
 			// we store our previous character movement state
 			PreviousState = CurrentState;
 			CurrentState = newState;
-
+            Debug.Log("Changed!"+ newState.ToString());
             OnStateChange?.Invoke();
 
             if (TriggerEvents)

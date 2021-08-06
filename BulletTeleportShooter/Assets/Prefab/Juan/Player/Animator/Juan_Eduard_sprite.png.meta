@@ -321,9 +321,9 @@ TextureImporter:
       name: Juan_Eduard_sprite_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 183
         y: 480
-        width: 32
+        width: 9
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -762,9 +762,9 @@ TextureImporter:
       name: Juan_Eduard_sprite_26
       rect:
         serializedVersion: 2
-        x: 192
+        x: 215
         y: 480
-        width: 32
+        width: 9
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -783,9 +783,9 @@ TextureImporter:
       name: Juan_Eduard_sprite_27
       rect:
         serializedVersion: 2
-        x: 224
+        x: 247
         y: 480
-        width: 32
+        width: 9
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -804,9 +804,9 @@ TextureImporter:
       name: Juan_Eduard_sprite_28
       rect:
         serializedVersion: 2
-        x: 256
+        x: 277
         y: 480
-        width: 32
+        width: 11
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -825,9 +825,9 @@ TextureImporter:
       name: Juan_Eduard_sprite_29
       rect:
         serializedVersion: 2
-        x: 288
+        x: 304
         y: 480
-        width: 32
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -998,7 +998,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

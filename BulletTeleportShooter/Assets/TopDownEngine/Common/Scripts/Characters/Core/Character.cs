@@ -503,7 +503,8 @@ namespace MoreMountains.TopDownEngine
                 MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _yVelocityAnimationParameter, _controller.Velocity.y, _animatorParameters, PerformAnimatorSanityChecks);
                 MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _zVelocityAnimationParameter, _controller.Velocity.z, _animatorParameters, PerformAnimatorSanityChecks);
                 MMAnimatorExtensions.UpdateAnimatorBool(_animator, _teleportAnimationParameter, (MovementState.CurrentState == CharacterStates.MovementStates.Teleporting), _animatorParameters, PerformAnimatorSanityChecks);
-
+                //MMAnimatorExtensions.UpdateAnimatorBool(_animator, _dashAnimationParameter, (MovementState.CurrentState == CharacterStates.MovementStates.Dashing), _animatorParameters, PerformAnimatorSanityChecks);
+                //Debug.Log(MovementState.CurrentState+"+"+transform.parent.name);
                 foreach (CharacterAbility ability in _characterAbilities)
 				{
 					if (ability.enabled && ability.AbilityInitialized)
