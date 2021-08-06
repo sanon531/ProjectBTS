@@ -27,6 +27,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int priorityHP;
     [SerializeField] private int priorityATK;
     [SerializeField] private int prioritySPD;
+    private int priority { get => priorityATK + priorityHP + prioritySPD; }
     [Header("- Current Power Up Status")]
     [SerializeField] private int currentPowerUpHP;
     [SerializeField] private int currentPowerUpATK;
@@ -70,7 +71,7 @@ public class SpawnManager : MonoBehaviour
                 powerUpSequence = DOTween.Sequence();
                 powerUpSequence.AppendCallback(() =>
                 {
-                    int random = Random.Range(0, priorityATK + priorityHP + prioritySPD) + 1;
+                    int random = Random.Range(0, priority) + 1;
                     if (1 <= random && random <= priorityATK)
                     {
                         priorityHP += 2;
@@ -155,7 +156,7 @@ public class SpawnManager : MonoBehaviour
                         newEnemy.Attack += currentPowerUpATK;
                         newEnemy.MaxHP += currentPowerUpHP;
                         newEnemy.Speed += currentPowerUpSPD;
-                        newEnemy.onDeath += () => 
+                        newEnemy.onDeath += () =>
                         {
                             Sequence sequence = DOTween.Sequence();
                             sequence.
@@ -167,6 +168,32 @@ public class SpawnManager : MonoBehaviour
                                 Debug.Log(newEnemy.name + " DEAD");
                             });
                         };
+                        Color outlineColor = Color.white;
+                        if (0 <= priority && priority < 7)
+                        {
+                            outlineColor = Color.white;
+                        }
+                        else if(7 <= priority && priority < 10)
+                        {
+                            outlineColor = new Color(0.5f, 0.75f, 0.27f, 1f);
+                        }
+                        else if(10 <= priority && priority < 14)
+                        {
+                            outlineColor = Color.green;
+                        }
+                        else if(14 <= priority && priority < 18)
+                        {
+                            outlineColor = Color.blue;
+                        }
+                        else if(18 <= priority && priority < 22)
+                        {
+                            outlineColor = Color.magenta;
+                        }
+                        else if(22 <= priority)
+                        {
+                            outlineColor = Color.red;
+                        }
+                        newEnemy.Outline.color = outlineColor;
                     }
                     spawnedEnemyCount += spawnCount;
 
