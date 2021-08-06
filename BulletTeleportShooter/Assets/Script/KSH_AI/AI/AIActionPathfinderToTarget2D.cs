@@ -32,7 +32,7 @@ public class AIActionPathfinderToTarget2D : AIAction
 
     private void OnDrawGizmos()
     {
-        if (PathManager.Instance.IsDebugMode && _movePoint != null && _movePoint.Count > 0)
+        if (PathManager.Instance != null && PathManager.Instance.IsDebugMode && _movePoint != null && _movePoint.Count > 0)
         {
             Vector3[] points = _movePoint.ToArray();
             Gizmos.color = Color.green;
@@ -55,21 +55,25 @@ public class AIActionPathfinderToTarget2D : AIAction
             _updatePathDelay = UPDATE_PATH_DELAY;
             _movePoint.Clear();
             List<Vector3> pathData = PathManager.Instance.FindPath(this.transform.position, _brain.Target.position);
-            for (int i = 0; i < pathData.Count; ++i)
+            if (pathData != null)
             {
-                _movePoint.Enqueue(pathData[i]);
-                if (i < pathData.Count - 2)
+                for (int i = 0; i < pathData.Count; ++i)
                 {
-                    Vector2 _direction = _brain.Target.position - pathData[i];
-                    RaycastHit2D hit = Physics2D.CircleCast(pathData[i], _collider.radius, _direction.normalized, _direction.magnitude, LayerMask.GetMask("Obstacles"));
-                    if (!hit)
+                    _movePoint.Enqueue(pathData[i]);
+                    if (i < pathData.Count - 2)
                     {
-                        _movePoint.Enqueue(_brain.Target.position);
-                        break;
+                        Vector2 _direction = _brain.Target.position - pathData[i];
+                        RaycastHit2D hit = Physics2D.CircleCast(pathData[i], _collider.radius, _direction.normalized, _direction.magnitude, LayerMask.GetMask("Obstacles"));
+                        if (!hit)
+                        {
+                            _movePoint.Enqueue(_brain.Target.position);
+                            break;
+                        }
                     }
                 }
+                _destination = _movePoint.Peek();
             }
-            _destination = _movePoint.Peek();
+            else _destination = transform.position;
         }
 
         _characterMovement.SetMovement((_destination - this.transform.position).normalized);

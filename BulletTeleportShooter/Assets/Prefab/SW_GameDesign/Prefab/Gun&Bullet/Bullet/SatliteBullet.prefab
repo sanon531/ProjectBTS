@@ -4825,7 +4825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundsBasedOn: 1
-  LifeTime: 200
+  LifeTime: 100
   FaceDirection: 1
   Speed: 10
   Acceleration: 0
@@ -4881,9 +4881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetLayerMask:
     serializedVersion: 2
-    m_Bits: 8960
+    m_Bits: 0
   PerfectImpact: 0
-  DamageCaused: 10
+  DamageCaused: 1
   DamageCausedKnockbackType: 1
   DamageCausedKnockbackDirection: 0
   DamageCausedKnockbackForce: {x: 400, y: 0, z: 0}
@@ -4911,7 +4911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 8448
+    m_Bits: 0
   SkinWidth: 0.1
   RepositionRigidbody: 1
 --- !u!61 &61214810784111820
@@ -4973,7 +4973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ec6fb2988b429488e5d24aafe93d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoRotate: {fileID: 0}
+  autoRotate: {fileID: 7462540502622376177}
 --- !u!114 &7462540502622376177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4995,9 +4995,9 @@ MonoBehaviour:
   OrbitCenterTransform: {fileID: 0}
   OrbitCenterOffset: {x: 0, y: 0, z: 0}
   OrbitRotationAxis: {x: 0, y: 0, z: 1}
-  OrbitRotationSpeed: 1000
+  OrbitRotationSpeed: 100
   OrbitRadius: 3
-  OrbitCorrectionSpeed: 100
+  OrbitCorrectionSpeed: 6000
   DrawGizmos: 1
   OrbitPlaneColor: {r: 54, g: 169, b: 225, a: 0.02}
   OrbitLineColor: {r: 225, g: 225, b: 225, a: 0.1}

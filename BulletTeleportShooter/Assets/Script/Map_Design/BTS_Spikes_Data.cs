@@ -11,8 +11,7 @@ public class BTS_Spikes_Data : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        MapObjectManager.Instance.AddSpike(this);
-
+        SpikeObjectManager.Instance.AddSpike(this);
     }
     
     
