@@ -174,6 +174,12 @@ namespace MoreMountains.TopDownEngine
             }
         }
 
+        public void ResetTokenToMaxToken()
+        {
+            nowToken = MaxTeleportToken;
+            _teleportTokenBar.Initialization();
+        }
+
         private bool isTeleportEnable()
         {
             return nowToken >= UseTokenAmount;
