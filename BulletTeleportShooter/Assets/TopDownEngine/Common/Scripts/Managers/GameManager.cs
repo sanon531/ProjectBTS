@@ -180,8 +180,10 @@ namespace MoreMountains.TopDownEngine
         public Character StoredCharacter { get; set; }
 
 		[Header("Characters")]
+		public bool isTest = false;
 		public Character[] PlayerPrefabs;
 		public int NowSelectedPlayerNum;
+		
 
 
 		// storage
