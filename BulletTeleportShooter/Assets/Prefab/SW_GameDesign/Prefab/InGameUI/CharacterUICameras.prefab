@@ -216,7 +216,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.4101382, y: 1}
+    m_SensorSize: {x: 1.9572072, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3160,6 +3160,7 @@ GameObject:
   - component: {fileID: 547901772968546498}
   - component: {fileID: 553225534024632100}
   - component: {fileID: 367532713409033848}
+  - component: {fileID: 6715727794326465696}
   m_Layer: 0
   m_Name: MovementJoystick
   m_TagString: Untagged
@@ -3236,6 +3237,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6715727794326465696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326974872257248238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71242313e8e846041933683664362cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &326993947529512068
 GameObject:
   m_ObjectHideFlags: 0
@@ -11527,7 +11540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327799588548431462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.53, y: -25.95, z: -25.06}
+  m_LocalPosition: {x: 44.3, y: -21.67, z: -13.559999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 324283404110492756}
@@ -14615,6 +14628,7 @@ GameObject:
   - component: {fileID: 1398909921772328706}
   - component: {fileID: 7038591668671465950}
   - component: {fileID: 9147787312273001100}
+  - component: {fileID: 1335872592425756211}
   m_Layer: 0
   m_Name: ShootAimJoystick
   m_TagString: Untagged
@@ -14691,6 +14705,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1335872592425756211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935972720756416662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71242313e8e846041933683664362cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7674096891104319812
 GameObject:
   m_ObjectHideFlags: 0
