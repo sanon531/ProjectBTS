@@ -185,10 +185,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4903704596743531519}
-  - {fileID: 776095209449401475}
-  - {fileID: 3995801756506229183}
+  m_Children: []
   m_Father: {fileID: 269117827106863545}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -205,9 +202,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
+  m_Offset: {x: 0, y: 1.0752189}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.8704586
 --- !u!1 &263819155384378971
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +250,9 @@ Transform:
   - {fileID: 262170430888207511}
   - {fileID: 62159315173490056}
   - {fileID: 6943342817188598281}
+  - {fileID: 4903704596743531519}
+  - {fileID: 776095209449401475}
+  - {fileID: 3995801756506229183}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1044,8 +1044,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
-  m_Father: {fileID: 262109993952458911}
-  m_RootOrder: 0
+  m_Father: {fileID: 269117827106863545}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6285360799381717068
 SpriteRenderer:
@@ -1384,8 +1384,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 262109993952458911}
-  m_RootOrder: 2
+  m_Father: {fileID: 269117827106863545}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1667147777616626558
 ParticleSystem:
@@ -6204,8 +6204,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 262109993952458911}
-  m_RootOrder: 1
+  m_Father: {fileID: 269117827106863545}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &4638751225515814074
 ParticleSystem:
