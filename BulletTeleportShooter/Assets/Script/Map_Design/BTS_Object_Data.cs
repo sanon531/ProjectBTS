@@ -11,7 +11,7 @@ public class BTS_Object_Data : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        MapObjectManager.Instance.AddOnOff(this);
+        //SpikeObjectManager.Instance.AddOnOff(this);
         _boxColider2D = GetComponent<BoxCollider2D>();
     }
 

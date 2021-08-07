@@ -100,7 +100,7 @@ namespace MoreMountains.TopDownEngine
                 StartCoroutine("TokenRechargeCoroutine");
 
                 RemoveBullet();
-                transform.position = TargetBullet.transform.position;
+                transform.position = new Vector2 (TargetBullet.transform.position.x, TargetBullet.transform.position.y);
 
                 _health.DamageDisabled();                //점멸 후 플레이어 잠시 무적
                 TeleportFeedback?.PlayFeedbacks(this.transform.position);
