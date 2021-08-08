@@ -20,6 +20,12 @@ namespace MoreMountains.TopDownEngine
             _btsHealthBar.MakeHealthBar(health);
         }
 
+        public override void ResetHealthToMaxHealth()
+        {
+            base.ResetHealthToMaxHealth();
+            _btsHealthBar.Initialization();
+        }
+
         public override void Damage(int damage, GameObject instigator, float flickerDuration, float invincibilityDuration, Vector3 damageDirection)
         {
             if (Invulnerable)
