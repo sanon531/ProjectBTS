@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace MoreMountains.Tools
 {
-    public class JoystickUpgrade : MonoBehaviour, IDragHandler, IEndDragHandler
+    public class JoystickUpgrade : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
     {
         private MMTouchJoystick _mmTouchJoystick;
         private ShootAimJoyStick _shootAimJoyStick;
@@ -18,7 +18,7 @@ namespace MoreMountains.Tools
 
         public void OnDrag(PointerEventData eventData)
         {
-            if(_shootAimJoyStick == null)
+            if (_shootAimJoyStick == null)
             {
                 _mmTouchJoystick.OnDragKnob(eventData);
             }
@@ -30,6 +30,32 @@ namespace MoreMountains.Tools
         }
 
         public void OnEndDrag(PointerEventData eventData)
+        {
+            if (_shootAimJoyStick == null)
+            {
+                _mmTouchJoystick.OnEndDragKnob(eventData);
+            }
+
+            else
+            {
+                _shootAimJoyStick.OnEndDragKnob(eventData);
+            }
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            if (_shootAimJoyStick == null)
+            {
+                _mmTouchJoystick.OnDragKnob(eventData);
+            }
+
+            else
+            {
+                _shootAimJoyStick.OnDragKnob(eventData);
+            }
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
         {
             if (_shootAimJoyStick == null)
             {
