@@ -5504,7 +5504,7 @@ GameObject:
   - component: {fileID: 3772083122680840875}
   - component: {fileID: 8313510402440595366}
   m_Layer: 13
-  m_Name: Enemy_Boom
+  m_Name: Enemy_Boom_PRAC
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6152,12 +6152,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.86675453}
+  m_Offset: {x: 0, y: 1.0153918}
   serializedVersion: 2
-  m_Radius: 0.86675453
+  m_Radius: 1.0153918
 --- !u!1 &8230098666565662511
 GameObject:
   m_ObjectHideFlags: 0
