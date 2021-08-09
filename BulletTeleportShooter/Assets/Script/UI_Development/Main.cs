@@ -18,13 +18,15 @@ public class Main : MonoBehaviour
     public Ease cur_Ease = Ease.InQuad;
 
 
-
-
-
+    void Start()
+    {
+        index[3].SetActive(false);
+    }
 
 
     public void Press()
     {
+        
         image.DOFade(0f, 1f);
         Button btn = GetComponent<Button>();
         btn.enabled = false;
@@ -45,6 +47,7 @@ public class Main : MonoBehaviour
         node[0].DOFade(1f, 1f).SetDelay(1.5f);
         node[1].DOFade(1f, 1f).SetDelay(1.5f);
         node[2].DOFade(1f, 1f).SetDelay(1.5f);
+        node[3].DOFade(1f, 1f).SetDelay(1.5f);
 
 
        
@@ -58,7 +61,7 @@ public class Main : MonoBehaviour
 
 
 
-        Invoke("OnInvoke", 2.0f);
+        Invoke("OnInvoke", 2.5f);
 
     }
    
@@ -67,10 +70,12 @@ public class Main : MonoBehaviour
         Button btn0 = index[0].GetComponent<Button>();
         Button btn1 = index[1].GetComponent<Button>();
         Button btn2 = index[2].GetComponent<Button>();
+        index[3].SetActive(true);
 
         btn0.enabled = true;
         btn1.enabled = true;
         btn2.enabled = true;
+        
     }
 
 

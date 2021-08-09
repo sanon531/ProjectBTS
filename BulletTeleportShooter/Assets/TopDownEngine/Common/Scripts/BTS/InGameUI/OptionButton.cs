@@ -22,5 +22,13 @@ namespace MoreMountains.TopDownEngine
         {
             GUIManager.Instance.PauseScreen.SetActive(false);
         }
+        public void MainOpen()
+        {
+            GUIManager.Instance.MainScreen.SetActive(true);
+        }
+        public void MainClose()
+        {
+            GUIManager.Instance.MainScreen.SetActive(false);
+        }
     }
 }
