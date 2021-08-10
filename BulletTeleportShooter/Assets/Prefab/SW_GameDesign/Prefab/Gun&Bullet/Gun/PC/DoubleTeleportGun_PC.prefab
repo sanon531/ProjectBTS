@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 7619314974964333145}
   - component: {fileID: 7619778563359303303}
   m_Layer: 0
-  m_Name: ElectricGun_PC
+  m_Name: BTSArmGun_PC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MutualizeWaitingPools: 1
   NestWaitingPool: 1
-  GameObjectToPool: {fileID: 1579859513670320, guid: a98374b770039f54c81a3eb59c60710f,
+  GameObjectToPool: {fileID: 1579859513670320, guid: 8e5efa8a4dc179947ad69083fb64b00f,
     type: 3}
   PoolSize: 20
   PoolCanExpand: 1
@@ -650,18 +650,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &561269229842991386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7913951801649254347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a04854b913322f48a5017d8e7122672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8992853837440175705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -729,20 +717,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModelContainer (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1436017692087737544, guid: f7aa95383a40c5d42bd1a48ee6eae30c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d9569644e8c6a1d4583a30d15fcb3a1e,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7aa95383a40c5d42bd1a48ee6eae30c, type: 3}
---- !u!1 &7913951801649254347 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1232026764494799250, guid: f7aa95383a40c5d42bd1a48ee6eae30c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8992853837440175705}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7908898433284513591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1229207629527535982, guid: f7aa95383a40c5d42bd1a48ee6eae30c,
