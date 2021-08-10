@@ -9791,7 +9791,7 @@ GameObject:
   - component: {fileID: 50614525472420450}
   - component: {fileID: 8652130142629035444}
   m_Layer: 18
-  m_Name: KoalaGunBullet 1
+  m_Name: KoalaGunBullet_reflect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9906,7 +9906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 8448
+    m_Bits: 16785664
   SkinWidth: 0.1
   RepositionRigidbody: 1
 --- !u!61 &61374952899877022
@@ -9982,7 +9982,7 @@ MonoBehaviour:
   BounceRaycastLength: 1
   BounceLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 16777472
   BounceFeedback: {fileID: 0}
   AmountOfBounces: {x: 5, y: 5}
   SpeedModifier: {x: 0.9, y: 0.9}

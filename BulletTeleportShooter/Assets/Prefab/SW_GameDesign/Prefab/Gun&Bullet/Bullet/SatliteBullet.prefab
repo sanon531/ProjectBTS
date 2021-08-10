@@ -4988,15 +4988,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotating: 0
   RotationSpace: 1
-  UpdateMode: 0
+  UpdateMode: 2
   RotationSpeed: {x: 0, y: 0, z: 100}
   Orbiting: 1
   AdditiveOrbitRotation: 0
   OrbitCenterTransform: {fileID: 0}
   OrbitCenterOffset: {x: 0, y: 0, z: 0}
   OrbitRotationAxis: {x: 0, y: 0, z: 1}
-  OrbitRotationSpeed: 100
-  OrbitRadius: 3
+  OrbitRotationSpeed: 300
+  OrbitRadius: 4
   OrbitCorrectionSpeed: 6000
   DrawGizmos: 1
   OrbitPlaneColor: {r: 54, g: 169, b: 225, a: 0.02}

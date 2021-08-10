@@ -162,6 +162,7 @@ namespace MoreMountains.TopDownEngine
         [MMReadOnly]
 		[Tooltip("the current number of game points")]
 		public int Points;
+		public int TimeCount;
 
         [Header("Pause")]
 		/// if this is true, the game will automatically pause when opening an inventory
@@ -180,10 +181,9 @@ namespace MoreMountains.TopDownEngine
         public Character StoredCharacter { get; set; }
 
 		[Header("Characters")]
-		public bool isTest = false;
+		public bool DoNotUseLevelManager = false;
 		public Character[] PlayerPrefabs;
 		public int NowSelectedPlayerNum;
-		
 
 
 		// storage
@@ -218,6 +218,7 @@ namespace MoreMountains.TopDownEngine
 		public virtual void Reset()
 		{
 			Points = 0;
+			TimeCount = 0;
 			Time.timeScale = 1f;
 			Paused = false;
 		}

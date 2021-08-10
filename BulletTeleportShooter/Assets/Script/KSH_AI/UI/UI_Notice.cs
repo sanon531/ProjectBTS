@@ -19,6 +19,7 @@ public class UI_Notice : MonoBehaviour
 
     public void MakeNotice(string _content, float _time)
     {
+        Debug.Log("Called");
         if (noticeSequence.IsActive())
         {
             noticeSequence.Kill();

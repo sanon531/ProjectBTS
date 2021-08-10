@@ -11,7 +11,7 @@ public class BommerangBullet : MonoBehaviour
     Projectile projectile;
     [SerializeField]
     Event triggerEvent;
-    [SerializeField]
+
     Coroutine GetTargetCoroutine;
 
     void Reset()
