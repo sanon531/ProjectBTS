@@ -40,6 +40,9 @@ namespace MoreMountains.TopDownEngine
 
         [Tooltip("the feedback to play when Teleport Cannot Work")]
         public MMFeedbacks CannotTeleportFeedback;
+        [Tooltip("the radius to our Teleport Target ")]
+        public float Radius = 3f;
+        protected bool _init = false;
 
 
         protected override void Initialization()
@@ -55,7 +58,8 @@ namespace MoreMountains.TopDownEngine
             TeleportTokenBarImage = _teleportTokenBar.FilledBarUI.GetComponent<Image>();
             CannotTeleportFeedback.GetComponent<MMFeedbackPosition>().AnimatePositionTarget = GUIManager.Instance.TeleportTokenBar.gameObject;
             CannotTeleportFeedback.GetComponent<MMFeedbackCanvasGroup>().TargetCanvasGroup = GUIManager.Instance.TeleportTokenBar.GetComponent<CanvasGroup>();
-
+            Radius = _characterManager.FlashRange;
+            _init = true;
 
         }
 
@@ -95,6 +99,7 @@ namespace MoreMountains.TopDownEngine
             {
                 
                 UseTeleportToken(UseTokenAmount);
+
 
                 StopCoroutine("TokenRechargeCoroutine");
                 StartCoroutine("TokenRechargeCoroutine");
@@ -209,7 +214,10 @@ namespace MoreMountains.TopDownEngine
             // mandatory checks
             if (nextGameObject == null) { return; }
 
-            nextGameObject.GetComponent<ParticleSystem>().Play();
+            nextGameObject.transform.localScale = new Vector3 (Radius, Radius, Radius) ;
+
+            ParticleSystem temptParticle = nextGameObject.GetComponent<ParticleSystem>();
+            temptParticle.Play();
 
             // we position the object
             nextGameObject.transform.position = transform.position + new Vector3(0, 0, -3f); 
@@ -224,5 +232,23 @@ namespace MoreMountains.TopDownEngine
             base.OnDisable();
             StopAllCoroutines();
         }
+        protected virtual void OnDrawGizmosSelected()
+        {
+
+            Gizmos.color = Color.blue;
+
+            Color _gizmoColor = Gizmos.color;
+
+            Gizmos.DrawWireSphere(transform.position, Radius);
+
+            if (_init)
+            {
+                _gizmoColor.a = 0.25f;
+                Gizmos.color = _gizmoColor;
+                Gizmos.DrawSphere(transform.position, Radius);
+            }
+        }
+
+
     }
 }
