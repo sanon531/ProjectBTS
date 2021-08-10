@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1accbd8c4602d4794563e383dd5e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
   outlineSize: 1
 --- !u!1 &6044140078704165315
 GameObject:
@@ -6100,6 +6100,7 @@ MonoBehaviour:
   run: {fileID: 8333736830786402893}
   character: {fileID: 8333222989616544781}
   collider: {fileID: 3183220265915272727}
+  spriteOutline: {fileID: 2776729802519046195}
   defaultHP: 5
   defaultAttack: 1
   defaultSpeed: 4
