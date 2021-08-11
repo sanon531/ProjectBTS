@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomPropertyDrawer(typeof(StringStringDictionary))]
+[CustomPropertyDrawer(typeof(pracDictionary))]
 [CustomPropertyDrawer(typeof(ObjectColorDictionary))]
 [CustomPropertyDrawer(typeof(StringColorArrayDictionary))]
 public class AnySerializableDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer {}

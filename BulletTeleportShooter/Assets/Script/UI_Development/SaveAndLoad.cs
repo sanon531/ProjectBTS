@@ -6,8 +6,13 @@ using System;
 
 
 
+
 public class SaveAndLoad : MonoBehaviour
 {
+
+    
+    
+
     [SerializeField]
     private SaveData saveData = new SaveData();
 
@@ -22,26 +27,44 @@ public class SaveAndLoad : MonoBehaviour
             Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
     }
 
-    public void SaveData()
+    public void Save()
     {
         string jsonData = JsonUtility.ToJson(saveData);
         //string path = Path.Combine(SAVE_DATA_DIRECTORY, SAVE_FILENAME);
         File.WriteAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME, jsonData);
 
+
+
         Debug.Log("저장 완료");
         Debug.Log(jsonData);
     }
 
+    public void Load()
+    {
+        if(File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME))
+        {
+            string loadJson = File.ReadAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME);
+            saveData = JsonUtility.FromJson<SaveData>(loadJson);
+
+
+            Debug.Log(saveData);
+        }
+    }
 
 
 }
 
-
 [System.Serializable]
+
 public class SaveData
 {
-    public string name;
-    public int points;
-    public int gold;
+    
 
+    
+
+    
+    
+   
+
+    public int gold;
 }

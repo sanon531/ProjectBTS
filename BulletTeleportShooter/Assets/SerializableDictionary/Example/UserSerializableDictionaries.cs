@@ -7,6 +7,9 @@ using UnityEngine;
 public class StringStringDictionary : SerializableDictionary<string, string> {}
 
 [Serializable]
+public class pracDictionary : SerializableDictionary<string, string> {}
+
+[Serializable]
 public class ObjectColorDictionary : SerializableDictionary<UnityEngine.Object, Color> {}
 
 [Serializable]
