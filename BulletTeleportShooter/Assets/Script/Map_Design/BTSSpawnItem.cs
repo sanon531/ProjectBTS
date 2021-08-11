@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class BTSSpawnItem : MonoBehaviour
 {
+
+    /*
+     * 
+     * 
    // 이 친구는 뭐지
     public static BTSSpawnItem Instance { get; private set; } = null;
 
@@ -121,7 +124,7 @@ public class BTSSpawnItem : MonoBehaviour
                                 spawnedItemCount--;
                                 objectPool[objectIndex[newEnemy.GetType()]].Enqueue(newEnemy.SetActive(false));
                             });
-                        };*/
+                        };
                         //objectPool[objectIndex[newItem.GetType()]].Enqueue(newItem.SetActive(false));
 
                     }
@@ -133,4 +136,6 @@ public class BTSSpawnItem : MonoBehaviour
             else yield return null;
         }
     }
+
+            */
 }
