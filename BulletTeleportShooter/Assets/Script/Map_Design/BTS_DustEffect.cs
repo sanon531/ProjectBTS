@@ -23,7 +23,7 @@ public class BTS_DustEffect : MonoBehaviour
 
     IEnumerator DustStart(float time)
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(time-5);
         DustFX.Play();
     }
 }
