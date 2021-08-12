@@ -12,11 +12,13 @@ public class AIActionBoomReady : AIAction
     [Header("- Area")]
     [SerializeField] private Transform boomArea;
     [SerializeField] private Transform boomReadyArea;
-    [SerializeField] private float range;
-    [Header("- Time")]
-    [SerializeField] private float readyTime;
+    [Header("- Alarm")]
+    [SerializeField] private GameObject alarm;
     [Header("- Checker")]
     [SerializeField] private AIDecisionCheck checker;
+    protected Character _character;
+    protected CharacterDash2D _characterDamageDash2D; //
+
 
     public override void PerformAction()
     {
@@ -25,6 +27,7 @@ public class AIActionBoomReady : AIAction
             if (readySequence.IsActive())
             {
                 readySequence.Kill();
+                alarm.SetActive(false);
                 boomArea.gameObject.SetActive(false);
             }
         }
@@ -33,21 +36,26 @@ public class AIActionBoomReady : AIAction
     protected override void Initialization()
     {
         enemy = GetComponentInParent<Enemy_Boom>();
+        _character = GetComponentInParent<Character>();
+        _characterDamageDash2D = _character?.FindAbility<CharacterDash2D>();
     }
 
     public override void OnEnterState()
     {
         base.OnEnterState();
-        readyTime = enemy.BoomDelay;
+        float delay = enemy.BoomDelay;
+        float radius = enemy.BoomRadius;
 
+        //_characterDamageDash2D.ChangeMovementDash();
+        alarm.SetActive(true);
         boomArea.gameObject.SetActive(true);
-        boomArea.localScale = new Vector3(range * 2, range * 2, 1);
+        boomArea.localScale = new Vector3(radius * 2, radius * 2, 1);
         boomReadyArea.localScale = new Vector3(0, 0, 1);
 
         readySequence = DOTween.Sequence();
         readySequence.
-            Append(boomReadyArea.DOScaleX(1, readyTime)).
-            Join(boomReadyArea.DOScaleY(1, readyTime)).
+            Append(boomReadyArea.DOScaleX(1, delay)).
+            Join(boomReadyArea.DOScaleY(1, delay)).
             SetEase(Ease.Linear).
             OnComplete(() => checker.checker = true);
     }
@@ -59,6 +67,7 @@ public class AIActionBoomReady : AIAction
         {
             readySequence.Kill();
         }
+        alarm.SetActive(false);
         boomArea.gameObject.SetActive(false);
     }
 }

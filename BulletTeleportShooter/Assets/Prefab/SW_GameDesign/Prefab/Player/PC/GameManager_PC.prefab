@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2901210735494222220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2901210735494222222}
+  - component: {fileID: 2901210735494222221}
+  m_Layer: 0
+  m_Name: GameManager_PC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2901210735494222222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901210735494222220}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -144.25963, y: 26.774057, z: 99.63167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2901210735494222221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2901210735494222220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfad200c8782a3449dfd49ea310c909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFrameRate: 300
+  MaximumLives: 0
+  CurrentLives: 0
+  GameOverScene: 
+  Points: 0
+  TimeCount: 0
+  PauseGameWhenInventoryOpens: 1
+  DoNotUseLevelManager: 0
+  PlayerPrefabs:
+  - {fileID: 1061382757069794329, guid: eea70074ba592d242984a873ee2bf192, type: 3}
+  - {fileID: 1061382757069794329, guid: f5a7ffcfb4a259642bfc66698dad58f5, type: 3}
+  - {fileID: 1061382757069794329, guid: 21b40218343459044b8127f9aed0e15e, type: 3}
+  - {fileID: 1061382757069794329, guid: d1b7a7fbd612e6e41a331bb4827436a9, type: 3}
+  - {fileID: 1061382757069794329, guid: 86481b142047dbe49b7c428c533e8aca, type: 3}
+  - {fileID: 1061382757069794329, guid: 80663fb8f85cb6446a3cd06d4ceb6761, type: 3}
+  - {fileID: 1061382757069794329, guid: 5ddf7d79acb964044b75f8b71da2fc12, type: 3}
+  NowSelectedPlayerNum: 0

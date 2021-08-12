@@ -33,6 +33,7 @@ public class ButtonFunctions : MonoBehaviour
     public RectTransform arg_RectTransform;
     public Ease current_Ease = Ease.InBounce;
     public Vector3 ShowPos, HidePos;
+    public string LoadSceneName = "UIScene";
 
 
     public void Start()
@@ -65,7 +66,7 @@ public class ButtonFunctions : MonoBehaviour
             case BtnType.None:
                 break;
             case BtnType.Start:
-                SceneManager.LoadScene("UIScene");
+                SceneManager.LoadScene(LoadSceneName);
                 break;
 
         }

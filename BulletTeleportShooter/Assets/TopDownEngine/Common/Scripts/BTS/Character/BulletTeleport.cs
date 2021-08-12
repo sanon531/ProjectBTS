@@ -40,6 +40,9 @@ namespace MoreMountains.TopDownEngine
 
         [Tooltip("the feedback to play when Teleport Cannot Work")]
         public MMFeedbacks CannotTeleportFeedback;
+        [Tooltip("the radius to our Teleport Target ")]
+        public float Radius = 3f;
+        protected bool _init = false;
 
 
         protected override void Initialization()
@@ -55,6 +58,9 @@ namespace MoreMountains.TopDownEngine
             TeleportTokenBarImage = _teleportTokenBar.FilledBarUI.GetComponent<Image>();
             CannotTeleportFeedback.GetComponent<MMFeedbackPosition>().AnimatePositionTarget = GUIManager.Instance.TeleportTokenBar.gameObject;
             CannotTeleportFeedback.GetComponent<MMFeedbackCanvasGroup>().TargetCanvasGroup = GUIManager.Instance.TeleportTokenBar.GetComponent<CanvasGroup>();
+            Radius = _characterManager.FlashRange;
+            _init = true;
+
         }
 
         protected override void HandleInput()     //점멸 조작키 설정
@@ -91,13 +97,15 @@ namespace MoreMountains.TopDownEngine
             }
             else
             {
+                
                 UseTeleportToken(UseTokenAmount);
+
 
                 StopCoroutine("TokenRechargeCoroutine");
                 StartCoroutine("TokenRechargeCoroutine");
 
                 RemoveBullet();
-                transform.position = TargetBullet.transform.position;
+                transform.position = new Vector2 (TargetBullet.transform.position.x, TargetBullet.transform.position.y);
 
                 _health.DamageDisabled();                //점멸 후 플레이어 잠시 무적
                 TeleportFeedback?.PlayFeedbacks(this.transform.position);
@@ -107,15 +115,24 @@ namespace MoreMountains.TopDownEngine
                 if (ObjectPooler != null)
                 {
                     SpawnCrack();
+                    if (_movement.CurrentState != CharacterStates.MovementStates.Teleporting)
+                    {
+                        _movement.ChangeState(CharacterStates.MovementStates.Teleporting);
+                        //Debug.Log("tt");
+                    }
                 }
-
                 Invoke("InvulnerDelay", InvulnerTime);      //데미지 입힌 후 1.5초 뒤 무적 해제
+                Invoke("AnimationDelay", 0.1f);
             }
         }
 
         private void InvulnerDelay()
         {
             _health.DamageEnabled();
+        }
+        private void AnimationDelay()
+        {
+            _movement.ChangeState(CharacterStates.MovementStates.Idle);
         }
 
         private void RemoveBullet()
@@ -197,10 +214,13 @@ namespace MoreMountains.TopDownEngine
             // mandatory checks
             if (nextGameObject == null) { return; }
 
-            nextGameObject.GetComponent<ParticleSystem>().Play();
+            nextGameObject.transform.localScale = new Vector3 (Radius, Radius, Radius) ;
+
+            ParticleSystem temptParticle = nextGameObject.GetComponent<ParticleSystem>();
+            temptParticle.Play();
 
             // we position the object
-            nextGameObject.transform.position = transform.position;
+            nextGameObject.transform.position = transform.position + new Vector3(0, 0, -3f); 
 
             // we activate the object
             nextGameObject.gameObject.SetActive(true);
@@ -212,5 +232,23 @@ namespace MoreMountains.TopDownEngine
             base.OnDisable();
             StopAllCoroutines();
         }
+        protected virtual void OnDrawGizmosSelected()
+        {
+
+            Gizmos.color = Color.blue;
+
+            Color _gizmoColor = Gizmos.color;
+
+            Gizmos.DrawWireSphere(transform.position, Radius);
+
+            if (_init)
+            {
+                _gizmoColor.a = 0.25f;
+                Gizmos.color = _gizmoColor;
+                Gizmos.DrawSphere(transform.position, Radius);
+            }
+        }
+
+
     }
 }

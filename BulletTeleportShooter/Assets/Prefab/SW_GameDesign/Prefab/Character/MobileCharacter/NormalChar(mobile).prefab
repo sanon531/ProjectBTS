@@ -15301,8 +15301,8 @@ MonoBehaviour:
   DelayBeforeDestruction: 0
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
-  DisableControllerOnDeath: 0
-  DisableModelOnDeath: 0
+  DisableControllerOnDeath: 1
+  DisableModelOnDeath: 1
   DisableCollisionsOnDeath: 0
   DisableChildCollisionsOnDeath: 0
   ChangeLayerOnDeath: 0
