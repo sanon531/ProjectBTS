@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[SerializableField]
-pracDictionary Dictionary;
+
 
 
 public class Item
@@ -32,6 +31,9 @@ public class Item
 
 public class practice : MonoBehaviour
 {
+    
+
+
     Dictionary<string, Item> itemMap;
 
     void Start()

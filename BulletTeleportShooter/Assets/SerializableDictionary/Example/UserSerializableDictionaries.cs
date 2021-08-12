@@ -7,7 +7,17 @@ using UnityEngine;
 public class StringStringDictionary : SerializableDictionary<string, string> {}
 
 [Serializable]
-public class pracDictionary : SerializableDictionary<string, string> {}
+public class MapLock : SerializableDictionary<string, bool> {}
+
+[Serializable]
+public class GunLock : SerializableDictionary<string, bool> {}
+
+[Serializable]
+public class MapHigh : SerializableDictionary<string, Vector2> {}
+
+[Serializable]
+public class GunHigh : SerializableDictionary<string, Vector2> {}
+
 
 [Serializable]
 public class ObjectColorDictionary : SerializableDictionary<UnityEngine.Object, Color> {}

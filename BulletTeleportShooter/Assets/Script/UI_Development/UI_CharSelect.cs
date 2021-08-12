@@ -124,7 +124,7 @@ public class UI_CharSelect : MonoBehaviour
 
             btn1.enabled = false;
             btn2.enabled = false;
-            Invoke("OnInvoke", time + 0.1f);
+            Invoke("OnInvoke", time + 0.5f);
         }
     }
 
@@ -222,3 +222,6 @@ public class UI_CharSelect : MonoBehaviour
 
     }
 }
+
+
+// 캐릭터 창이 커지는 거는 애니메이션에 포함되어있지 않음

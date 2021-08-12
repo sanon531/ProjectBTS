@@ -17,17 +17,25 @@ public class UI_StageSelect : MonoBehaviour
     public int uiTargetedIndex = 0;
     public int ImmediateIndex = 0;
     public List<string> SceneList;
+    
+    
+    public int gold = 0;
+    public GameObject selectButton;
+    public int[] limitGold;
 
 
+    
+    
     Sequence animSequence;
-
-
 
     public void BuildAnimation(int _index)
     {
         if (0 <= _index && _index < node.Length)
         {
+
+            selectButton.SetActive(true);
             ImmediateIndex = _index;
+            LimitedSelect();
             animSequence = DOTween.Sequence();
             animSequence.
                 Append(
@@ -42,13 +50,45 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
-    public void Focus(int _index)
+    public void LimitedSelect()
     {
-        for(int i = 0; i < node.Length; ++i)
+        for(int i = 0; i<limitGold.Length; i++)
         {
-            //Debug.Log(node[i].anchoredPosition);
+            if(ImmediateIndex == i && gold < limitGold[i])
+            {
+                selectButton.SetActive(false);
+                Debug.Log("골드가 부족합니다.");
+                Debug.Log(ImmediateIndex);
+                Debug.Log(limitGold);
+
+            }
+        }           
+            
+    }
+
+    public void UnlimitedSelect()
+    {
+        for (int i = 0; i < limitGold.Length; i++)
+        {
+            if (uiTargetedIndex == i && gold >= limitGold[i])
+            {
+                selectButton.SetActive(true);
+                Debug.Log(uiTargetedIndex);
+
+                Debug.Log("해금되었습니다.");
+                
+                Debug.Log(gold);
+
+            }
         }
 
+    }
+
+
+
+
+    public void Focus(int _index)
+    {       
         if (0 <= _index && _index < node.Length)
         {
             node[_index].localScale = Vector3.one * scaleVar;
@@ -59,8 +99,25 @@ public class UI_StageSelect : MonoBehaviour
     private void Start()
     {
         Focus(uiTargetedIndex);
+        UnlimitedSelect();
+        
     }
 
+   /* private void Update()
+    {
+        for (int i = 0; i < limit.Length; i++)
+        {
+            if (ImmediateIndex == i && gold < limit[i])
+            {
+                Button btn = selectButton.GetComponent<Button>();
+                btn.enabled = false;
+            }
+        }
+        
+        Button btn1 = selectButton.GetComponent<Button>();
+        btn1.enabled = true;
+    }
+   */
     public void OnClick_Left()
     {
         if (!animSequence.IsActive())
@@ -78,18 +135,15 @@ public class UI_StageSelect : MonoBehaviour
     }
 
     
+    
     public void OnClick_Stn()
     {
         if(!animSequence.IsActive())
         {                      
             SceneLoad();
         }
-    }
-    
-    
-    
-    
-    
+    }          
+        
     public void SceneLoad()
     {
         SceneManager.LoadScene(SceneList[ImmediateIndex]);

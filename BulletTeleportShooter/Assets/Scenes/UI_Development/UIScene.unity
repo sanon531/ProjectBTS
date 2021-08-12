@@ -407,6 +407,9 @@ MonoBehaviour:
   - 3Third_Hole_and_Spike
   - 4FourthMap
   - 5Fifth_Map
+  gold: 0
+  selectButton: {fileID: 1098273287}
+  limitGold: 0000000001000000020000000300000004000000
 --- !u!1 &173240456
 GameObject:
   m_ObjectHideFlags: 0

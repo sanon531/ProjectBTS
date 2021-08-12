@@ -58,13 +58,17 @@ public class SaveAndLoad : MonoBehaviour
 
 public class SaveData
 {
-    
+    [SerializeField]
+    MapLock mapLock;
 
-    
+    [SerializeField]
+    GunLock gunLock;
 
-    
-    
-   
+    [SerializeField]
+    MapHigh mapHigh;
+
+    [SerializeField]
+    GunHigh gunHigh;
 
     public int gold;
 }

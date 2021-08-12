@@ -229,7 +229,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508563882}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d89c74e36ba00940815cd76a743c884, type: 3}
   m_Name: 
@@ -688,7 +688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2076272807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,7 +702,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveData:
-    gold: 0
+    mapLock:
+      m_keys:
+      - none
+      m_values: 01
+    gunLock:
+      m_keys:
+      - none
+      m_values: 01
+    mapHigh:
+      m_keys:
+      - 2002
+      m_values:
+      - {x: 7, y: 11}
+    gunHigh:
+      m_keys:
+      - 2005
+      m_values:
+      - {x: 7, y: 15}
+    gold: 10000
 --- !u!114 &2076272808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,7 +765,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2076272807}
-        m_MethodName: SaveData
+        m_MethodName: Save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
