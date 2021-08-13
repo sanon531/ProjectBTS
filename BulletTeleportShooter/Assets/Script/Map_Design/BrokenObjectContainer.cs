@@ -16,10 +16,10 @@ public class BrokenObjectContainer : MonoBehaviour
 
     public void Play_Broken()
     {
-        for (int i = 0; i<BrokenList.Count; i++)
-        {
-            BrokenList[i].BrokenFX.Play();
-        }
+        gameObject.SetActive(false);
+        //성능 문제 때문에 잠시 킵해두겠습니다.
+        //for (int i = 0; i<BrokenList.Count; i++)
+            //BrokenList[i].BrokenFX.Play();
     }
     public void AddBrokenEffect(BrokenObjectData data)
     {

@@ -15052,7 +15052,7 @@ MonoBehaviour:
   MaximumHealth: 6
   InitialHealth: 4
   AttackDMG: 1
-  ShootDelay: 0.1
+  ShootDelay: 0.2
   WalkSpeed: 0
   MaxTeleportToken: 3
   FlashDMG: 1

@@ -12,7 +12,7 @@ public class BTS_DustEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DustStart(t));
+        coroutine = StartCoroutine(DustStart(t));
     }
 
     // Update is called once per frame
