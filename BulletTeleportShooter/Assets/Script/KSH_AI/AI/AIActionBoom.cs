@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using MoreMountains.Tools;
+using MoreMountains.Feedbacks;
 using MoreMountains.TopDownEngine;
 
 public class AIActionBoom : AIAction
@@ -27,7 +28,9 @@ public class AIActionBoom : AIAction
                 health.Damage(enemy.Attack * 3, enemy.gameObject, 0, 0, col[i].transform.position - enemy.transform.position);
             }
         }
+        enemy.BoomFeedback?.PlayFeedbacks(enemy.transform.position);
         enemy.Kill();
+        
     }
 
 
