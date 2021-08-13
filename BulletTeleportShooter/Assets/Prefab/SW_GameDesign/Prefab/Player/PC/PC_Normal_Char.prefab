@@ -15055,7 +15055,7 @@ MonoBehaviour:
   ShootDelay: 0.2
   WalkSpeed: 0
   MaxTeleportToken: 6
-  FlashDMG: 3
+  FlashDMG: 8
   FlashRange: 2
 --- !u!114 &548378012184792397
 MonoBehaviour:
@@ -15084,6 +15084,7 @@ MonoBehaviour:
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
   CannotTeleportFeedback: {fileID: 4892520447385055338}
+  Radius: 3
 --- !u!114 &8161973739256479228
 MonoBehaviour:
   m_ObjectHideFlags: 0

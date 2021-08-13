@@ -533,7 +533,7 @@ MonoBehaviour:
   RotateWeaponOnSpread: 1
   RandomSpread: 1
   SpawnPosition: {x: 1.85, y: 0.07, z: 0}
-  projectileDamage: 2
+  projectileDamage: 4
   TestShootButton: 0
 --- !u!114 &7619665233687444759
 MonoBehaviour:

@@ -528,7 +528,7 @@ MonoBehaviour:
   Interruptable: 0
   Flipped: 0
   ProjectileSpawnOffset: {x: 1.85, y: 0.07, z: 0}
-  ProjectilesPerShot: 3
+  ProjectilesPerShot: 2
   Spread: {x: 0, y: 0, z: 40}
   RotateWeaponOnSpread: 1
   RandomSpread: 1

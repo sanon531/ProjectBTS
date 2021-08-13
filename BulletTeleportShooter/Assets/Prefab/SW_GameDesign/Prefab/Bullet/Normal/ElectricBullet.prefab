@@ -9764,7 +9764,7 @@ MonoBehaviour:
   BoundsBasedOn: 1
   LifeTime: 2
   FaceDirection: 1
-  Speed: 1500
+  Speed: 1000
   Acceleration: 0
   Direction: {x: -1, y: 0, z: 0}
   DirectionCanBeChangedBySpawner: 1
@@ -9787,12 +9787,12 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 5
-  MaximumHealth: 5
+  InitialHealth: 12
+  MaximumHealth: 12
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 0}
   DestroyOnDeath: 1
-  DelayBeforeDestruction: 1
+  DelayBeforeDestruction: 0.25
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1
@@ -9820,17 +9820,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   PerfectImpact: 0
-  DamageCaused: 10
+  DamageCaused: 1
   DamageCausedKnockbackType: 1
   DamageCausedKnockbackDirection: 0
   DamageCausedKnockbackForce: {x: 400, y: 0, z: 0}
-  InvincibilityDuration: 0.1
+  InvincibilityDuration: 0.5
   DamageTakenEveryTime: 1
-  DamageTakenDamageable: 1
+  DamageTakenDamageable: 2
   DamageTakenNonDamageable: 1
   DamageTakenKnockbackType: 0
   DamageTakenKnockbackForce: {x: 0, y: 0, z: 0}
-  DamageTakenInvincibilityDuration: 0.5
+  DamageTakenInvincibilityDuration: 0.1
   HitDamageableFeedback: {fileID: 7290944616940831735}
   HitNonDamageableFeedback: {fileID: 5666555167326870288}
   Owner: {fileID: 0}
@@ -9888,7 +9888,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 9198646494910855096}
   StartPosition: {x: 0, y: 0, z: 0}
   EndPosition: {x: 0, y: 0, z: 0}
-  Generations: 6
+  Generations: 5
   Duration: 0.05
   ChaosFactor: 0.15
   ManualMode: 0
@@ -9933,12 +9933,12 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 961700441
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 10, y: 10, z: 1}
+  - {x: 1, y: 1, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 4
@@ -20002,6 +20002,22 @@ PrefabInstance:
     - target: {fileID: 492326, guid: 2fdf7cc78a679914fa6457537ceaa2df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19845902, guid: 2fdf7cc78a679914fa6457537ceaa2df, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19845902, guid: 2fdf7cc78a679914fa6457537ceaa2df, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 19989872, guid: 2fdf7cc78a679914fa6457537ceaa2df, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19989872, guid: 2fdf7cc78a679914fa6457537ceaa2df, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 961700441
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fdf7cc78a679914fa6457537ceaa2df, type: 3}
