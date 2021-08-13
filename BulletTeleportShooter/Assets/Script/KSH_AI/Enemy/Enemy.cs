@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected CharacterRun run;
     [SerializeField] protected Character character;
     [SerializeField] protected new Collider2D collider;
+    [SerializeField] protected SpriteOutline spriteOutline;
 
     [Header("- Default Status")]
     [SerializeField] private int defaultHP;
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
     public Action onDeath;
     
     public Collider2D Collider { get => collider; }
+    public SpriteOutline Outline { get => spriteOutline; }
 
     public int DefaultHP
     {

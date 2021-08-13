@@ -173,7 +173,7 @@ namespace MoreMountains.TopDownEngine
             if (DirectionCanBeChangedBySpawner)
 			{
 				Direction = newDirection;
-			}
+            }
 			if (ProjectileIsFacingRight != spawnerIsFacingRight)
 			{
 				Flip ();
@@ -182,12 +182,12 @@ namespace MoreMountains.TopDownEngine
 			{
 				transform.rotation = newRotation;
 			}
-		}
+        }
 
-		/// <summary>
-		/// Flip the projectile
-		/// </summary>
-		protected virtual void Flip()
+        /// <summary>
+        /// Flip the projectile
+        /// </summary>
+        protected virtual void Flip()
 		{
 			if (_spriteRenderer != null)
 			{

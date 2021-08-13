@@ -17,7 +17,7 @@ namespace MoreMountains.TopDownEngine
             _characterManager = Player.GetComponent<BTS_CharacterManager>();
             Initialization();
         }
-        private void Initialization()
+        public void Initialization()
         {
             nowHealth = _characterManager.InitialHealth;
             maxHealth = _characterManager.MaximumHealth;

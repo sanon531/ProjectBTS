@@ -279,7 +279,8 @@ namespace MoreMountains.TopDownEngine
             
 			// if we're walking and not moving anymore, we go back to the Idle state
 			if ((_movement.CurrentState == CharacterStates.MovementStates.Walking) 
-				&& (_controller.CurrentMovement.magnitude <= IdleThreshold))
+				&& (_controller.CurrentMovement.magnitude <= IdleThreshold) 
+                && _movement.CurrentState != CharacterStates.MovementStates.Dashing)
 			{
                 _movement.ChangeState(CharacterStates.MovementStates.Idle);
 				PlayAbilityStopSfx();
@@ -375,7 +376,7 @@ namespace MoreMountains.TopDownEngine
 			// if the character just got grounded
 			if (_controller.JustGotGrounded)
 			{
-                _movement.ChangeState(CharacterStates.MovementStates.Idle);
+                //_movement.ChangeState(CharacterStates.MovementStates.Idle);
 			}
 		}
 

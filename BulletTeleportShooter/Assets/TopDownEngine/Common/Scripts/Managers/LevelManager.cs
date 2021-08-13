@@ -111,8 +111,10 @@ namespace MoreMountains.TopDownEngine
 			base.Awake();
             _collider = this.GetComponent<Collider>();
             _initialSpawnPointPosition = (InitialSpawnPoint == null) ? Vector3.zero : InitialSpawnPoint.transform.position;
-            if(GameManager.Instance.PlayerPrefabs.Count<Character>() != 0)
+            if (!GameManager.Instance.DoNotUseLevelManager)
+            {
                 PlayerPrefabs[0] = GameManager.Instance.PlayerPrefabs[GameManager.Instance.NowSelectedPlayerNum];
+            }
         }
 
         /// <summary>
@@ -359,6 +361,21 @@ namespace MoreMountains.TopDownEngine
             yield return new WaitForSeconds(DelayBeforeDeathScreen);
 
             GUIManager.Instance.SetDeathScreen(true);
+            GameManager.Instance.Pause(PauseMethods.NoPauseMenu);
+
+            if (GUIManager.Instance.DeathScreen_Score)
+            {
+                GUIManager.Instance.DeathScreen_Score.text = GameManager.Instance.Points.ToString();
+            }
+            if (GUIManager.Instance.DeathScreen_Timer)
+            {
+                GUIManager.Instance.DeathScreen_Timer.text = GameManager.Instance.TimeCount.ToString();
+            }
+            if (GUIManager.Instance.DeathScreen_NewRecord)
+            {
+                //새로운 기록이면
+                GUIManager.Instance.DeathScreen_NewRecord.SetActive(true);
+            }
         }
 
         /// <summary>
@@ -387,7 +404,7 @@ namespace MoreMountains.TopDownEngine
             if (GameManager.Instance.MaximumLives > 0)
             {
                 // we lose a life
-                GameManager.Instance.LoseLife();
+                //GameManager.Instance.LoseLife();
                 // if we're out of lives, we check if we have an exit scene, and move there
                 if (GameManager.Instance.CurrentLives <= 0)
                 {

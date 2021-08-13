@@ -28,7 +28,7 @@ namespace MoreMountains.TopDownEngine
             _characterManager = Player.GetComponent<BTS_CharacterManager>();
             Initialization();
         }
-        private void Initialization()
+        public void Initialization()
         {
             nowTokenNum = _characterManager.MaxTeleportToken;
             Tokens = new GameObject[TeleportTokensUI.transform.childCount];

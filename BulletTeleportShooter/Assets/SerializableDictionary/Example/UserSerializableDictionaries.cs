@@ -10,6 +10,10 @@ public class StringStringDictionary : SerializableDictionary<string, string> {}
 public class ObjectColorDictionary : SerializableDictionary<UnityEngine.Object, Color> {}
 
 [Serializable]
+public class  OSWDictionary : SerializableDictionary<string, Color> { }
+
+
+[Serializable]
 public class ColorArrayStorage : SerializableDictionary.Storage<Color[]> {}
 
 [Serializable]

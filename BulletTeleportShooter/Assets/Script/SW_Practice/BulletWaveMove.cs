@@ -13,14 +13,36 @@ public class BulletWaveMove : MonoBehaviour
     [SerializeField]
     float timerFotConstantWave = 0;
     // Start is called before the first frame update
+    Coroutine GetTargetCoroutine;
+
+
+    void Start()
+    {
+        
+    }
+
     void OnEnable()
+    {
+        GetTargetCoroutine = StartCoroutine(targetCheckCoroutine());
+    }
+
+    public void SetDirr()
     {
         dir = GetComponent<Projectile>().Direction;
         LeftDirr = (Quaternion.AngleAxis(90, new Vector3(0, 0, 1)) * dir).normalized;
     }
+
+    IEnumerator targetCheckCoroutine()
+    {
+        yield return new WaitForEndOfFrame();
+        SetDirr();
+    }
+
+
     private void OnDisable()
     {
         timerFotConstantWave = 0;
+        StopCoroutine(GetTargetCoroutine);
     }
     // Update is called once per frame
     void Update()

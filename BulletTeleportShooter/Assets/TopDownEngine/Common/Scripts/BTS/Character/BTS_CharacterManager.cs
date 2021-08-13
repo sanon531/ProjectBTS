@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MoreMountains.Tools;
+using UnityEngine;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -7,10 +8,12 @@ namespace MoreMountains.TopDownEngine
         public Weapon initialWeapon;
         private CharacterHandleWeapon _characterHandleWeapon;
         private Explosion _explosion;
-        private Health _health;
+        private btsHealth _health;
         private ProjectileWeapon _projectileWeapon;
         private Weapon _weapon;
         private CharacterMovement _characterMovement;
+
+        private BulletTeleport _bulletTeleport;
 
         [Header("Health")]
         [Tooltip("캐릭터 최대 체력")]
@@ -45,12 +48,13 @@ namespace MoreMountains.TopDownEngine
             _characterHandleWeapon = GetComponent<CharacterHandleWeapon>();
             _characterHandleWeapon.InitialWeapon = initialWeapon;
 
-            _health = GetComponent<Health>();
+            _health = GetComponent<btsHealth>();
             _projectileWeapon = initialWeapon.GetComponent<ProjectileWeapon>();
             _weapon = initialWeapon;
             _characterMovement = GetComponent<CharacterMovement>();
             _explosion = GetComponent<Explosion>();
 
+            _bulletTeleport = GetComponent<BulletTeleport>();
 
             //기존 스크립트와 스텟 연결
             _health.InitialHealth = InitialHealth;
@@ -60,6 +64,6 @@ namespace MoreMountains.TopDownEngine
             _weapon.TimeBetweenUsesReleaseInterruption = false;
             _characterMovement.WalkSpeed = WalkSpeed;
             _explosion.Radius = FlashRange;
-        }     
+        }
     }
 }
