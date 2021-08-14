@@ -3277,7 +3277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -640, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 590.97644, y: 388.2683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227142369
@@ -3614,9 +3614,12 @@ MonoBehaviour:
   - {fileID: 267510516}
   - {fileID: 516601657}
   - {fileID: 1111782726}
-  uiTargetedIndex: 6
+  uiTargetedIndex: 0
+  ImmediateIndex: 0
   Stn: {fileID: 1641256964}
   Selectbtn: {fileID: 203362531}
+  gold: 0
+  limitGold: 000000000100000002000000030000000400000005000000
   rect: {fileID: 1435153302}
   OriginPos: {x: 0, y: 0}
 --- !u!1 &1436041819

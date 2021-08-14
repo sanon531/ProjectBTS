@@ -130,7 +130,7 @@ namespace MoreMountains.Tools
 					SetOpacity (IdleOpacity);
 					if ((_image != null) && (ReturnToInitialSpriteAutomatically))
 					{
-						_image.color = _initialColor;
+						//_image.color = _initialColor;
 						_image.sprite = _initialSprite;
 					}
 					if (_selectable != null)
