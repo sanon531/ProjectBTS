@@ -399,7 +399,7 @@ MonoBehaviour:
   - {fileID: 641825745}
   - {fileID: 913007527}
   - {fileID: 173240457}
-  uiTargetedIndex: 0
+  uiTargetedIndex: 1
   ImmediateIndex: 0
   SceneList:
   - First_Spike
@@ -407,7 +407,7 @@ MonoBehaviour:
   - 3Third_Hole_and_Spike
   - 4FourthMap
   - 5Fifth_Map
-  gold: 0
+  gold: 1
   selectButton: {fileID: 1098273287}
   limitGold: 0000000001000000020000000300000004000000
 --- !u!1 &173240456

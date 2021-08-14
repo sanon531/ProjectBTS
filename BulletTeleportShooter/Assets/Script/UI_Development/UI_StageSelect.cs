@@ -32,10 +32,9 @@ public class UI_StageSelect : MonoBehaviour
     {
         if (0 <= _index && _index < node.Length)
         {
-
-            selectButton.SetActive(true);
+                        
             ImmediateIndex = _index;
-            LimitedSelect();
+            
             animSequence = DOTween.Sequence();
             animSequence.
                 Append(
@@ -56,7 +55,10 @@ public class UI_StageSelect : MonoBehaviour
         {
             if(ImmediateIndex == i && gold < limitGold[i])
             {
-                selectButton.SetActive(false);
+
+                Button btn = selectButton.GetComponent<Button>();
+                btn.enabled = false;
+                //selectButton.SetActive(false);
                 Debug.Log("골드가 부족합니다.");
                 Debug.Log(ImmediateIndex);
                 Debug.Log(limitGold);
@@ -72,7 +74,10 @@ public class UI_StageSelect : MonoBehaviour
         {
             if (uiTargetedIndex == i && gold >= limitGold[i])
             {
-                selectButton.SetActive(true);
+
+                Button btn = selectButton.GetComponent<Button>();
+                btn.enabled = true;
+                //selectButton.SetActive(true);
                 Debug.Log(uiTargetedIndex);
 
                 Debug.Log("해금되었습니다.");
@@ -103,26 +108,18 @@ public class UI_StageSelect : MonoBehaviour
         
     }
 
-   /* private void Update()
-    {
-        for (int i = 0; i < limit.Length; i++)
-        {
-            if (ImmediateIndex == i && gold < limit[i])
-            {
-                Button btn = selectButton.GetComponent<Button>();
-                btn.enabled = false;
-            }
-        }
-        
-        Button btn1 = selectButton.GetComponent<Button>();
-        btn1.enabled = true;
-    }
-   */
+   
     public void OnClick_Left()
     {
         if (!animSequence.IsActive())
         {
             BuildAnimation(uiTargetedIndex - 1);
+            
+            Button btn = selectButton.GetComponent<Button>();
+            
+            btn.enabled = false;
+            
+            Invoke("OnInvoke", time + 0.1f);
         }
     }
 
@@ -131,9 +128,20 @@ public class UI_StageSelect : MonoBehaviour
         if (!animSequence.IsActive())
         {
             BuildAnimation(uiTargetedIndex + 1);
+            
+            Button btn = selectButton.GetComponent<Button>();
+            
+            btn.enabled = false;
+
+            Invoke("OnInvoke", time + 0.1f);
         }
     }
 
+    void OnInvoke()
+    {
+        LimitedSelect();
+        UnlimitedSelect();
+    }
     
     
     public void OnClick_Stn()

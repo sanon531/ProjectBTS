@@ -15,7 +15,10 @@ public class UI_CharSelect : MonoBehaviour
     public RectTransform rectTransform;
     public RectTransform[] node;
     public int uiTargetedIndex = 1;
+    public int ImmediateIndex = 0;
     public GameObject Stn, Selectbtn;
+    public int gold = 0;
+    public int[] limitGold;
 
 
     Sequence animSequence;
@@ -24,7 +27,7 @@ public class UI_CharSelect : MonoBehaviour
     {
         if (0 <= _index && _index < node.Length)
         {
-
+            ImmediateIndex = _index;
             animSequence = DOTween.Sequence();
             animSequence.
                 Append(
@@ -37,6 +40,45 @@ public class UI_CharSelect : MonoBehaviour
                     Join(node[_index + 1].DOScale(Vector3.one, time)); // 오른쪽의 노드 애니메이션 들어갈 부분
             animSequence.OnComplete(() => uiTargetedIndex = _index);
         }
+    }
+
+    public void LimitedStn()
+    {
+        for (int i = 0; i < limitGold.Length; i++)
+        {
+            if (ImmediateIndex == i && gold < limitGold[i])
+            {
+                Button btn = Stn.GetComponent<Button>();
+                btn.enabled = false;
+                //selectButton.SetActive(false);
+                Debug.Log("골드가 부족합니다.");
+                Debug.Log(ImmediateIndex);
+                Debug.Log(limitGold);
+
+            }
+        }
+
+    }
+
+    public void UnlimitedStn()
+    {
+        for (int i = 0; i < limitGold.Length; i++)
+        {
+            if (uiTargetedIndex == i && gold >= limitGold[i])
+            {
+
+                Button btn = Stn.GetComponent<Button>();
+                btn.enabled = true;
+                //selectButton.SetActive(true);
+                Debug.Log(uiTargetedIndex);
+
+                Debug.Log("해금되었습니다.");
+
+                Debug.Log(gold);
+
+            }
+        }
+
     }
 
     public void Focus(int _index, Vector2 Originps) //여러 개의 캐릭터 창 중 중심 점 잡기
@@ -95,23 +137,12 @@ public class UI_CharSelect : MonoBehaviour
 
             btn1.enabled = false;
             btn2.enabled = false;
-            Invoke("OnInvoke", time + 0.1f);
-
+            Invoke("OnInvoke", time + 0.2f);
+            
         }
     }
 
-    /*void Update()
-    {
-        if(anim.IsActive())
-        {
-            Debug.Log("Active");
-        }
-    }*/ // 애니메이션 작동 확인용
-
-
-
-
-
+    
     public void OnClick_Right() //우 화살표 클릭시 이동 애니메이션
     {
         
@@ -124,17 +155,17 @@ public class UI_CharSelect : MonoBehaviour
 
             btn1.enabled = false;
             btn2.enabled = false;
-            Invoke("OnInvoke", time + 0.5f);
+            Invoke("OnInvoke", time + 0.2f);
+            
         }
     }
 
     void OnInvoke() // 캐릭터 창 좌우 이동시 start 버튼과 selectback 버튼 잠금 -> 누를 수 있는 모든 버튼 잠그기
     {
-        Button btn1 = Stn.GetComponent<Button>();
         Button btn2 = Selectbtn.GetComponent<Button>();
-        
-        btn1.enabled = true;
         btn2.enabled = true;
+        LimitedStn();
+        UnlimitedStn();
 
         GameManager.Instance.NowSelectedPlayerNum = uiTargetedIndex;
     }
@@ -162,14 +193,13 @@ public class UI_CharSelect : MonoBehaviour
 
     public void OnClick() // 캐릭터 틀을 화면 중심으로 이동하는 버튼
     {
-
+        Invoke("OnInvoke", time);
         anim = DOTween.Sequence();
 
         anim.
             Append(rect.DOScale(2f, 1));//scale을 2로
 
-
-       
+              
 
         for(int i = 0; i < node.Length; ++i )
         {
@@ -178,17 +208,8 @@ public class UI_CharSelect : MonoBehaviour
                 anim.
                     Join(rect.DOAnchorPos(new Vector2(- node[i].anchoredPosition.x * 2, 0), 1, false)); // 기존 위치 x2로 이동
 
-
             }
-        }
-        
-            
-            
-            
-            
-            
-
-        
+        }                       
         //tween = image.DOFade(1f, 1f);
     }
 
