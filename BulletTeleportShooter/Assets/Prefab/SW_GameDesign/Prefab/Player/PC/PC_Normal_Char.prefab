@@ -15676,7 +15676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 1
-  Label: Sound
+  Label: RandomSound
   Chance: 100
   Timing:
     TimescaleMode: 0
@@ -15696,16 +15696,22 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: 6f10d771e7aa4234c90db4da16c32b0d, type: 3}
-  RandomSfx: []
+  Sfx: {fileID: 8300000, guid: 166a7464fcc816f48942253fe0ffe5f0, type: 3}
+  RandomSfx:
+  - {fileID: 8300000, guid: 4c76e59d1b5007849850960b7a29f2d1, type: 3}
+  - {fileID: 8300000, guid: 166a7464fcc816f48942253fe0ffe5f0, type: 3}
+  - {fileID: 8300000, guid: 4c55863becbfcf642b29ffa8eaf0ebff, type: 3}
+  - {fileID: 8300000, guid: 4279b97c7d5ac194abb80e9315203062, type: 3}
+  - {fileID: 8300000, guid: c9ceee355454f1d4e953d3e7cbaca1d8, type: 3}
+  - {fileID: 8300000, guid: 6692b8890edf4b34583864f80d31350d, type: 3}
   TestButton: 0
   TestStopButton: 0
   PlayMethod: 0
   PoolSize: 10
-  MinVolume: 1
-  MaxVolume: 1
-  MinPitch: 1
-  MaxPitch: 1
+  MinVolume: 0.2
+  MaxVolume: 0.2
+  MinPitch: 0.9
+  MaxPitch: 0.9
   SfxAudioMixerGroup: {fileID: 0}
 --- !u!114 &9063338914406428093
 MonoBehaviour:
