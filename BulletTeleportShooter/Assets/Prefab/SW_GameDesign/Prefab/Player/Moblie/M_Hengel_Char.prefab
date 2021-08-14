@@ -15092,8 +15092,8 @@ MonoBehaviour:
   MaximumHealth: 6
   InitialHealth: 6
   AttackDMG: 2
-  ShootDelay: 0.2
-  WalkSpeed: 0
+  ShootDelay: 0.3
+  WalkSpeed: 10
   MaxTeleportToken: 6
   FlashDMG: 3
   FlashRange: 2
@@ -15124,6 +15124,7 @@ MonoBehaviour:
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
   CannotTeleportFeedback: {fileID: 7654861724968688376}
+  Radius: 3
 --- !u!114 &8161973739256479228
 MonoBehaviour:
   m_ObjectHideFlags: 0
