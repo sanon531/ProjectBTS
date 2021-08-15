@@ -17,27 +17,18 @@ public class Main : MonoBehaviour
     public Ease current_Ease = Ease.InQuad;
     public Ease cur_Ease = Ease.InQuad;
 
-
-
-
-
-
+        
 
     public void Press()
     {
+        
         image.DOFade(0f, 1f);
         Button btn = GetComponent<Button>();
         btn.enabled = false;
-        rectTransform.DOAnchorPosY(250f, 1f).SetEase(current_Ease);
+        rectTransform.DOAnchorPosY(200f, 1f).SetEase(current_Ease);
 
 
-        MainMenuSet();   
-        
-
-    
-       
-       
-
+        MainMenuSet(); 
     }
 
     void MainMenuSet()
@@ -45,32 +36,26 @@ public class Main : MonoBehaviour
         node[0].DOFade(1f, 1f).SetDelay(1.5f);
         node[1].DOFade(1f, 1f).SetDelay(1.5f);
         node[2].DOFade(1f, 1f).SetDelay(1.5f);
-
-
-       
-        rects.DOAnchorPosY(-300f,1f).SetDelay(1.5f);
-
-
-
-
-
         
+               
+        rects.DOAnchorPosY(-280f,1f).SetDelay(1.5f);
+              
 
-
-
-        Invoke("OnInvoke", 2.0f);
+        Invoke("OnInvoke", 2.5f);
 
     }
    
     void OnInvoke()
     {
         Button btn0 = index[0].GetComponent<Button>();
-        Button btn1 = index[1].GetComponent<Button>();
+        
         Button btn2 = index[2].GetComponent<Button>();
+        
 
         btn0.enabled = true;
-        btn1.enabled = true;
+        
         btn2.enabled = true;
+        
     }
 
 

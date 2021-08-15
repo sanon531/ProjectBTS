@@ -57,6 +57,7 @@ namespace MoreMountains.TopDownEngine
 		public Text DeathScreen_Score;
 		public Text DeathScreen_Timer;
 		public GameObject DeathScreen_NewRecord;
+		public GameObject MainScreen;
 
 
 		protected float _initialJoystickAlpha;

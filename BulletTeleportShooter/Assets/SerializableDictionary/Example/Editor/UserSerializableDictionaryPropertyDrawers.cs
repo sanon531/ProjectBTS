@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomPropertyDrawer(typeof(StringStringDictionary))]
+[CustomPropertyDrawer(typeof(MapLock))]
+[CustomPropertyDrawer(typeof(GunLock))]
+[CustomPropertyDrawer(typeof(MapHigh))]
+[CustomPropertyDrawer(typeof(GunHigh))]
 [CustomPropertyDrawer(typeof(ObjectColorDictionary))]
 [CustomPropertyDrawer(typeof(OSWDictionary))]
 
