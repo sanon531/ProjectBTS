@@ -19,33 +19,61 @@ public class CutSceneController : MonoBehaviour
         Instance = this;
     }
 
-    // 리스트 만든 다음 씬을 하나하나 연결 시키고 
-    public void CallCutScene(KeyCode keyCode)
-    {
-        switch (keyCode)
-        {
-            case KeyCode.A:
-                cutSceneDatas[0].isActive = true;
-                cutSceneDatas[0].rectTransform.DOAnchorPos(cutSceneDatas[0].ShowPos, 0.5f).
-                    OnComplete(() => cutSceneDatas[0].isActive = false).
-                    SetEase(Ease.OutBack).SetLoops(2, LoopType.Yoyo);
-                break;
-            case KeyCode.S:
-                cutSceneDatas[1].isActive = true;
-                cutSceneDatas[1].rectTransform.DOAnchorPos(cutSceneDatas[2].ShowPos, 0.5f).
-                    OnComplete(() => cutSceneDatas[0].isActive = false).
-                    SetEase(Ease.OutBack).SetLoops(2, LoopType.Yoyo);
-                break;
-            case KeyCode.D:
-                cutSceneDatas[2].isActive = true;
-                cutSceneDatas[2].rectTransform.DOAnchorPos(cutSceneDatas[2].ShowPos, 0.5f).
-                    OnComplete(() => cutSceneDatas[0].isActive = false).
-                    SetEase(Ease.OutBack).SetLoops(2, LoopType.Yoyo);
-                break;
 
-            default:
-                break;
+
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+            CallCutScene();
+    }
+    public float ShowTime = 3f;
+    // 리스트 만든 다음 씬을 하나하나 연결 시키고 
+    public void CallCutScene()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (!cutSceneDatas[0].isActive)
+            {
+                cutSceneDatas[0].isActive = true;
+                cutSceneDatas[0].rectTransform.DOAnchorPos(cutSceneDatas[0].ShowPos, ShowTime).
+                SetEase(Ease.OutBack);
+            }
+            else
+            {
+                cutSceneDatas[0].isActive = false;
+                cutSceneDatas[0].rectTransform.DOAnchorPos(cutSceneDatas[0].HidePos, ShowTime).
+                SetEase(Ease.OutBack);
+
+            }
+
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (!cutSceneDatas[0].isActive)
+            {
+                cutSceneDatas[1].isActive = true;
+                cutSceneDatas[1].rectTransform.DOAnchorPos(cutSceneDatas[1].ShowPos, ShowTime).
+                SetEase(Ease.OutBack);
+            }
+            else
+            {
+                cutSceneDatas[1].isActive = true;
+                cutSceneDatas[1].rectTransform.DOAnchorPos(cutSceneDatas[1].ShowPos, ShowTime).
+                SetEase(Ease.OutBack);
+
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            cutSceneDatas[2].isActive = true;
+            cutSceneDatas[2].rectTransform.DOAnchorPos(cutSceneDatas[2].ShowPos, ShowTime).
+                OnComplete(() => cutSceneDatas[2].isActive = false).
+                SetEase(Ease.OutBack);
+
+        }
+
 
     }
 

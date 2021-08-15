@@ -503,7 +503,7 @@ MonoBehaviour:
   MovementMultiplier: 0.5
   PreventAllMovementWhileInUse: 0
   PreventAllAimWhileInUse: 0
-  RecoilForce: 10
+  RecoilForce: -500
   Animators:
   - {fileID: 7600563388184833339}
   WeaponAnimationID: 0

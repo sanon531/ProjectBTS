@@ -147,10 +147,10 @@ namespace MoreMountains.TopDownEngine
             }
 		}
 
-		/*protected virtual void FixedUpdate()
+		protected virtual void FixedUpdate()
 		{
 			HandleMovement();			
-		}*/
+		}
 
 		/// <summary>
 		/// Sets the horizontal move value.
@@ -246,8 +246,8 @@ namespace MoreMountains.TopDownEngine
 
             if (MovementForbidden)
             {
-                _horizontalMovement = 0f;
-                _verticalMovement = 0f;
+                //_horizontalMovement = 0f;
+                //_verticalMovement = 0f;
             }
 
             // if the character is not grounded, but currently idle or walking, we change its state to Falling
@@ -316,7 +316,7 @@ namespace MoreMountains.TopDownEngine
 
 			_currentInput.x = _horizontalMovement;
 			_currentInput.y = _verticalMovement;
-            
+
             _normalizedInput = _currentInput.normalized;
 
 			if ((Acceleration == 0) || (Deceleration == 0))

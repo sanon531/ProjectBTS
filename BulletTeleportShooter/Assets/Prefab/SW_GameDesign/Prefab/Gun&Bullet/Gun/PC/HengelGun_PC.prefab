@@ -503,7 +503,7 @@ MonoBehaviour:
   MovementMultiplier: 0.5
   PreventAllMovementWhileInUse: 0
   PreventAllAimWhileInUse: 0
-  RecoilForce: 10
+  RecoilForce: -500
   Animators:
   - {fileID: 7600563388184833339}
   WeaponAnimationID: 0
@@ -527,13 +527,13 @@ MonoBehaviour:
   InitializeOnStart: 1
   Interruptable: 0
   Flipped: 0
-  ProjectileSpawnOffset: {x: 1.85, y: 0.07, z: 0}
+  ProjectileSpawnOffset: {x: -0.46, y: 0.07, z: 0}
   ProjectilesPerShot: 1
   Spread: {x: 0, y: 0, z: 0}
   RotateWeaponOnSpread: 1
   RandomSpread: 1
-  SpawnPosition: {x: 1.85, y: 0.07, z: 0}
-  projectileDamage: 2
+  SpawnPosition: {x: -0.46, y: 0.07, z: 0}
+  projectileDamage: 4
   TestShootButton: 0
 --- !u!114 &7619665233687444759
 MonoBehaviour:

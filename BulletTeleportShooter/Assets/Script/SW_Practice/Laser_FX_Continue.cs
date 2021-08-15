@@ -82,6 +82,9 @@ public class Laser_FX_Continue : MonoBehaviour
 
     private void SetCollider()
     {
+        if (StartObject == null)
+            return;
+
         Vector3 SPosition = StartObject.transform.position;
         Vector3 EPosition = EndObject.transform.position;
 

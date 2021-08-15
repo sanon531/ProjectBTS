@@ -8,13 +8,28 @@ using DG.Tweening;
 public class Credit : MonoBehaviour
 {
     public RectTransform MainMenu;
-    public float time = 0.5f;
-    
-    
-    
+    [SerializeField]
+    private float time = 0.5f;
+    [SerializeField]
+    private float XPos = 2000;
+    [SerializeField]
+    private Vector3 targetPos;
+
+
+    public void Start()
+    {
+        if (GetComponent<Button>() != null)
+            GetComponent<Button>().onClick.AddListener(() => OnClick());
+    }
+    public void OnClick()
+    {
+        MainMenu.DOAnchorPos(targetPos,time);
+    }
+
+
     public void OnCredit()
     {
-        MainMenu.DOAnchorPosX(2000,time);
+        MainMenu.DOAnchorPosX(XPos, time);
        
     }
 }

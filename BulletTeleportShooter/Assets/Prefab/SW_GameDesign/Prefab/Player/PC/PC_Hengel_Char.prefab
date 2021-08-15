@@ -14590,6 +14590,7 @@ GameObject:
   - component: {fileID: 8435117288371552787}
   - component: {fileID: 548378012184792397}
   - component: {fileID: 8161973739256479228}
+  - component: {fileID: 67078736892919105}
   m_Layer: 10
   m_Name: PC_Hengel_Char
   m_TagString: Player
@@ -15079,7 +15080,7 @@ MonoBehaviour:
   InitialHealth: 6
   AttackDMG: 4
   ShootDelay: 0.2
-  WalkSpeed: 6
+  WalkSpeed: 0
   MaxTeleportToken: 6
   FlashDMG: 3
   FlashRange: 2
@@ -15129,6 +15130,18 @@ MonoBehaviour:
   LayerToHit:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &67078736892919105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091990951591210651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5bcc4e5739926642959b6a196e955f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1807285990177781547
 GameObject:
   m_ObjectHideFlags: 0
