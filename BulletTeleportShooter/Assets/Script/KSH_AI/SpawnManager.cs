@@ -327,7 +327,7 @@ public class SpawnManager : MonoBehaviour
                 {
                     spawnedEnemyCount--;
                     objectPool[newEnemy.GetType()].Enqueue(newEnemy.SetActive(false));
-                    Debug.Log(newEnemy.name + " DEAD");
+                    //Debug.Log(newEnemy.name + " DEAD");
                 });
             };
             Color outlineColor = Color.white;

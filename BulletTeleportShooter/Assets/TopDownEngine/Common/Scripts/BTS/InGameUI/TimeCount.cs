@@ -20,6 +20,7 @@ namespace MoreMountains.TopDownEngine
         {
             yield return new WaitForSeconds(1.0f);
             timeCount++;
+            GameManager.Instance.TimeCount = timeCount;
             _text.text = timeCount.ToString();
             StartCoroutine("TimeCoroutine");
         }

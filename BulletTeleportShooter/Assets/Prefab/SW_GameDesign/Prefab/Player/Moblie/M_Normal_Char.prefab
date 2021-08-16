@@ -14590,7 +14590,7 @@ GameObject:
   - component: {fileID: 548378012184792397}
   - component: {fileID: 8161973739256479228}
   m_Layer: 10
-  m_Name: NormalCharWithNew
+  m_Name: M_Normal_Char
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15049,14 +15049,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialWeapon: {fileID: 7619283110440395837, guid: e58d3936d7a3f144ea803b234fe15eca,
     type: 3}
-  MaximumHealth: 6
+  MaximumHealth: 10
   InitialHealth: 6
-  AttackDMG: 2
+  AttackDMG: 4
   ShootDelay: 0.2
-  WalkSpeed: 6
+  WalkSpeed: 0
   MaxTeleportToken: 6
-  FlashDMG: 3
-  FlashRange: 2
+  FlashDMG: 5
+  FlashRange: 3
 --- !u!114 &548378012184792397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15079,7 +15079,7 @@ MonoBehaviour:
   BlockingConditionStates: 
   InvulnerTime: 0.5
   UseTokenAmount: 1
-  TokenRechargeDelay: 1.5
+  TokenRechargeDelay: 1
   TokenRechargeAmount: 1
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 1093730920777731553}
   - component: {fileID: 995354783886735875}
   - component: {fileID: 1040597577345483071}
+  - component: {fileID: 2216495226125712517}
   m_Layer: 10
   m_Name: KoalaModel
   m_TagString: Untagged
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a097c40116b174c4cbf221fa1454d2c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,6 +132,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2216495226125712517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091568468121617925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1accbd8c4602d4794563e383dd5e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.051886797, g: 1, b: 0.2714389, a: 1}
+  outlineSize: 1
 --- !u!1 &1091646059747661503
 GameObject:
   m_ObjectHideFlags: 0
@@ -16505,12 +16520,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cd60d1466d83254eb7f575495dc632c, type: 3}
---- !u!4 &2499513416566996576 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2333092588794094140}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9220638505177872009 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6887840595163829429, guid: 4cd60d1466d83254eb7f575495dc632c,
@@ -16523,6 +16532,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b72de2996c5c40bfb394f3d0e0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2499513416566996576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 202874656035134556, guid: 4cd60d1466d83254eb7f575495dc632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2333092588794094140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3908566705428718183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16679,6 +16694,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc7ec6d18fa795c43bc31bd7cede8b97, type: 3}
+--- !u!4 &1384915063973370281 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6680459694233259135, guid: fc7ec6d18fa795c43bc31bd7cede8b97,
+    type: 3}
+  m_PrefabInstance: {fileID: 5732508772542109142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1177889337055231525 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6905498477372599283, guid: fc7ec6d18fa795c43bc31bd7cede8b97,
@@ -16691,9 +16712,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b72de2996c5c40bfb394f3d0e0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1384915063973370281 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6680459694233259135, guid: fc7ec6d18fa795c43bc31bd7cede8b97,
-    type: 3}
-  m_PrefabInstance: {fileID: 5732508772542109142}
-  m_PrefabAsset: {fileID: 0}

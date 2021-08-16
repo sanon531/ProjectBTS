@@ -15075,14 +15075,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialWeapon: {fileID: 7619283110440395837, guid: 37c6f88217752c4469eb94e1f0852384,
     type: 3}
-  MaximumHealth: 6
+  MaximumHealth: 10
   InitialHealth: 6
-  AttackDMG: 1
-  ShootDelay: 0.4
-  WalkSpeed: 6
+  AttackDMG: 0
+  ShootDelay: 0.3
+  WalkSpeed: 0
   MaxTeleportToken: 6
-  FlashDMG: 3
-  FlashRange: 2
+  FlashDMG: 4
+  FlashRange: 4
 --- !u!114 &548378012184792397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15103,7 +15103,7 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  InvulnerTime: 0
+  InvulnerTime: 0.5
   UseTokenAmount: 1
   TokenRechargeDelay: 0.1
   TokenRechargeAmount: 1

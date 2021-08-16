@@ -34,27 +34,45 @@ namespace MoreMountains.TopDownEngine
 		    }
 	    }
 
+		public void GotoLevel_NoLoading()
+        {
+			GameManager.Instance.Reset();
+			GameManager.Instance.UnPause();
+			SceneManager.LoadScene(LevelName);
+        }
+
+
         /// <summary>
         /// Restarts the current level, without reloading the whole scene
         /// </summary>
-        public virtual void RestartLevel()
+        public virtual void ReviveLevel()
         {
-            if (GameManager.Instance.Paused)
+			int PointSave = GameManager.Instance.Points;
+
+			if (GameManager.Instance.Paused)
             {
                 TopDownEngineEvent.Trigger(TopDownEngineEventTypes.UnPause, null);
-            }            
+            }
             TopDownEngineEvent.Trigger(TopDownEngineEventTypes.RespawnStarted, null);
-        }
+
+			GameManager.Instance.SetPoints(PointSave);
+		}
 
 		/// <summary>
 		/// Reloads the current level
 		/// </summary>
-	    public virtual void ReloadLevel()
+		public virtual void ReloadLevel()
 		{
 			// we trigger an unPause event for the GameManager (and potentially other classes)
 			TopDownEngineEvent.Trigger(TopDownEngineEventTypes.UnPause, null);
 			MMSceneLoadingManager.LoadScene(SceneManager.GetActiveScene().name);
 	    }
+
+		public virtual void ReloadLevel_NoLoading()
+        {
+			TopDownEngineEvent.Trigger(TopDownEngineEventTypes.UnPause, null);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		}
 		
 	}
 }

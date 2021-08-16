@@ -61,7 +61,7 @@ namespace MoreMountains.Tools
 		public virtual void TriggerOnSpawnComplete()
 		{
             OnSpawnComplete?.Invoke();
-            Debug.Log("Triggerd");
+            //Debug.Log("Triggerd");
         }
 	}
 }

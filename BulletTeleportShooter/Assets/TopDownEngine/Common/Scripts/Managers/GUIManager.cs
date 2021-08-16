@@ -53,6 +53,11 @@ namespace MoreMountains.TopDownEngine
 		[Header("BTS Project")]
 		public HealthBar btsHealthBar;
 		public TeleportTokenBar TeleportTokenBar;
+		public GameObject OptionScreen;
+		public Text DeathScreen_Score;
+		public Text DeathScreen_Timer;
+		public GameObject DeathScreen_NewRecord;
+		public GameObject MainScreen;
 
 
 		protected float _initialJoystickAlpha;
