@@ -14839,7 +14839,7 @@ GameObject:
   - component: {fileID: 2009487050464134223}
   - component: {fileID: 2129696741425890675}
   - component: {fileID: 7364969874211348651}
-  - component: {fileID: 1487900410602483701}
+  - component: {fileID: 2297805477017756952}
   - component: {fileID: 7097401093851995972}
   m_Layer: 10
   m_Name: NormalChar(mobile)
@@ -15356,12 +15356,12 @@ MonoBehaviour:
   MaximumHealth: 6
   InitialHealth: 6
   AttackDMG: 2
-  ShootDelay: 0.35
+  ShootDelay: 0.3
   WalkSpeed: 6
   MaxTeleportToken: 5
   FlashDMG: 3
   FlashRange: 1
---- !u!114 &1487900410602483701
+--- !u!114 &2297805477017756952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15370,7 +15370,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025960760433069091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2775f40df184d942933cfc80f3d8a1e, type: 3}
+  m_Script: {fileID: 11500000, guid: c82a0bc07e692aa4d87501b85c0172e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityStartSfx: {fileID: 0}
@@ -15381,13 +15381,14 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  InvulnerTime: 1.5
+  InvulnerTime: 2
   UseTokenAmount: 1
   TokenRechargeDelay: 2
   TokenRechargeAmount: 1
   TeleportFeedback: {fileID: 243928251243895965}
   ObjectPooler: {fileID: 1872553597762077779}
   CannotTeleportFeedback: {fileID: 2240626867296730589}
+  Radius: 3
 --- !u!114 &7097401093851995972
 MonoBehaviour:
   m_ObjectHideFlags: 0
