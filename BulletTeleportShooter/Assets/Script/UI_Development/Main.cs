@@ -47,7 +47,12 @@ public class Main : MonoBehaviour
    
     void OnInvoke()
     {
-        Button btn0 = index[0].GetComponent<Button>();
+        index[3].SetActive(false);
+        
+        
+        
+        
+        /*Button btn0 = index[0].GetComponent<Button>();
         
         Button btn2 = index[2].GetComponent<Button>();
         
@@ -55,7 +60,7 @@ public class Main : MonoBehaviour
         btn0.enabled = true;
         
         btn2.enabled = true;
-        
+        */
     }
 
 

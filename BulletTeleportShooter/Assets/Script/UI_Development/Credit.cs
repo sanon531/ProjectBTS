@@ -17,4 +17,9 @@ public class Credit : MonoBehaviour
         MainMenu.DOAnchorPosX(2000,time);
        
     }
+
+    public void OffCredit()
+    {
+        MainMenu.DOAnchorPosX(0, time);
+    }
 }

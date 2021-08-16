@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -409,6 +409,9 @@ MonoBehaviour:
   - 3Third_Hole_and_Spike
   - 4FourthMap
   - 5Fifth_Map
+  gold: 0
+  selectButton: {fileID: 1098273287}
+  limitGold: 0000000001000000020000000300000004000000
 --- !u!1 &108173102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,7 +1945,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -4542,8 +4545,11 @@ MonoBehaviour:
   - {fileID: 516601657}
   - {fileID: 1111782726}
   uiTargetedIndex: 0
+  ImmediateIndex: 0
   Stn: {fileID: 1641256964}
   Selectbtn: {fileID: 203362531}
+  gold: 0
+  limitGold: 00000000010000000200000003000000040000000500000006000000
   rect: {fileID: 1435153302}
   OriginPos: {x: 0, y: 0}
 --- !u!1 &1444857000
@@ -5347,7 +5353,7 @@ MonoBehaviour:
   current_Ease: 29
   ShowPos: {x: 0, y: 0, z: 0}
   HidePos: {x: 0, y: 0, z: 0}
-  LoadSceneName: UIScene
+  LoadSceneName: 
 --- !u!1 &1715148093
 GameObject:
   m_ObjectHideFlags: 0
@@ -6489,8 +6495,9 @@ MonoBehaviour:
   CurrentLives: 0
   GameOverScene: 
   Points: 0
+  TimeCount: 0
   PauseGameWhenInventoryOpens: 1
-  isTest: 0
+  DoNotUseLevelManager: 0
   PlayerPrefabs:
   - {fileID: 1061382757069794329, guid: ff1358da72020504fb8497ba81487d6e, type: 3}
   - {fileID: 1061382757069794329, guid: 30735b13cfec27d4ea08672970a775e2, type: 3}
