@@ -147,10 +147,10 @@ namespace MoreMountains.TopDownEngine
             }
 		}
 
-		/*protected virtual void FixedUpdate()
+		protected virtual void FixedUpdate()
 		{
 			HandleMovement();			
-		}*/
+		}
 
 		/// <summary>
 		/// Sets the horizontal move value.
@@ -246,8 +246,8 @@ namespace MoreMountains.TopDownEngine
 
             if (MovementForbidden)
             {
-                _horizontalMovement = 0f;
-                _verticalMovement = 0f;
+                //_horizontalMovement = 0f;
+                //_verticalMovement = 0f;
             }
 
             // if the character is not grounded, but currently idle or walking, we change its state to Falling
@@ -279,7 +279,8 @@ namespace MoreMountains.TopDownEngine
             
 			// if we're walking and not moving anymore, we go back to the Idle state
 			if ((_movement.CurrentState == CharacterStates.MovementStates.Walking) 
-				&& (_controller.CurrentMovement.magnitude <= IdleThreshold))
+				&& (_controller.CurrentMovement.magnitude <= IdleThreshold) 
+                && _movement.CurrentState != CharacterStates.MovementStates.Dashing)
 			{
                 _movement.ChangeState(CharacterStates.MovementStates.Idle);
 				PlayAbilityStopSfx();
@@ -315,7 +316,7 @@ namespace MoreMountains.TopDownEngine
 
 			_currentInput.x = _horizontalMovement;
 			_currentInput.y = _verticalMovement;
-            
+
             _normalizedInput = _currentInput.normalized;
 
 			if ((Acceleration == 0) || (Deceleration == 0))
@@ -375,7 +376,7 @@ namespace MoreMountains.TopDownEngine
 			// if the character just got grounded
 			if (_controller.JustGotGrounded)
 			{
-                _movement.ChangeState(CharacterStates.MovementStates.Idle);
+                //_movement.ChangeState(CharacterStates.MovementStates.Idle);
 			}
 		}
 

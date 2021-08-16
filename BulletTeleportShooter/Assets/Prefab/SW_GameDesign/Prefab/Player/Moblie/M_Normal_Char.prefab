@@ -15047,16 +15047,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89c3e7e4163ef4a94ba1fc552bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeapon: {fileID: 7619283110440395837, guid: e58d3936d7a3f144ea803b234fe15eca,
+  initialWeapon: {fileID: 7619283110440395837, guid: 4581e75d6d4249940859396d2425d15e,
     type: 3}
-  MaximumHealth: 6
+  MaximumHealth: 10
   InitialHealth: 6
-  AttackDMG: 2
+  AttackDMG: 4
   ShootDelay: 0.2
-  WalkSpeed: 6
+  WalkSpeed: 0
   MaxTeleportToken: 6
-  FlashDMG: 3
-  FlashRange: 2
+  FlashDMG: 5
+  FlashRange: 3
 --- !u!114 &548378012184792397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15079,11 +15079,12 @@ MonoBehaviour:
   BlockingConditionStates: 
   InvulnerTime: 0.5
   UseTokenAmount: 1
-  TokenRechargeDelay: 1.5
+  TokenRechargeDelay: 1
   TokenRechargeAmount: 1
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
   CannotTeleportFeedback: {fileID: 4892520447385055338}
+  Radius: 3
 --- !u!114 &8161973739256479228
 MonoBehaviour:
   m_ObjectHideFlags: 0

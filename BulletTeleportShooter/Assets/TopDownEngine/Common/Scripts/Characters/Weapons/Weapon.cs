@@ -651,7 +651,7 @@ namespace MoreMountains.TopDownEngine
         public virtual void WeaponUse()
         {
             // apply recoil
-            if ((RecoilForce > 0f) && (_controller != null))
+            if ( (_controller != null))
             {
                 if (Owner != null)
                 {

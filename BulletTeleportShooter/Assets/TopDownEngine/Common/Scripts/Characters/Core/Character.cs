@@ -125,6 +125,7 @@ namespace MoreMountains.TopDownEngine
         protected const string _zVelocityAnimationParameterName = "zVelocity";
         protected const string _idleAnimationParameterName = "Idle";
         protected const string _teleportAnimationParameterName = "Teleport";
+        protected const string _dashAnimationParameterName = "Dash";
         protected const string _randomAnimationParameterName = "Random";
         protected const string _randomConstantAnimationParameterName = "RandomConstant";
         protected int _groundedAnimationParameter;
@@ -138,6 +139,7 @@ namespace MoreMountains.TopDownEngine
         protected int _zVelocityAnimationParameter;
         protected int _idleAnimationParameter;
         protected int _teleportAnimationParameter;
+        protected int _dashAnimationParameter;
         protected int _randomAnimationParameter;
         protected int _randomConstantAnimationParameter;
         protected bool _animatorInitialized = false;
@@ -327,6 +329,7 @@ namespace MoreMountains.TopDownEngine
             MMAnimatorExtensions.AddAnimatorParameterIfExists(_animator, _yVelocityAnimationParameterName, out _yVelocityAnimationParameter, AnimatorControllerParameterType.Float, _animatorParameters);
             MMAnimatorExtensions.AddAnimatorParameterIfExists(_animator, _zVelocityAnimationParameterName, out _zVelocityAnimationParameter, AnimatorControllerParameterType.Float, _animatorParameters);
             MMAnimatorExtensions.AddAnimatorParameterIfExists(_animator, _teleportAnimationParameterName, out _teleportAnimationParameter, AnimatorControllerParameterType.Bool, _animatorParameters);
+            MMAnimatorExtensions.AddAnimatorParameterIfExists(_animator, _dashAnimationParameterName, out _dashAnimationParameter, AnimatorControllerParameterType.Bool, _animatorParameters);
 
 
 
@@ -500,7 +503,8 @@ namespace MoreMountains.TopDownEngine
                 MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _yVelocityAnimationParameter, _controller.Velocity.y, _animatorParameters, PerformAnimatorSanityChecks);
                 MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _zVelocityAnimationParameter, _controller.Velocity.z, _animatorParameters, PerformAnimatorSanityChecks);
                 MMAnimatorExtensions.UpdateAnimatorBool(_animator, _teleportAnimationParameter, (MovementState.CurrentState == CharacterStates.MovementStates.Teleporting), _animatorParameters, PerformAnimatorSanityChecks);
-
+                //MMAnimatorExtensions.UpdateAnimatorBool(_animator, _dashAnimationParameter, (MovementState.CurrentState == CharacterStates.MovementStates.Dashing), _animatorParameters, PerformAnimatorSanityChecks);
+                //Debug.Log(MovementState.CurrentState+"+"+transform.parent.name);
                 foreach (CharacterAbility ability in _characterAbilities)
 				{
 					if (ability.enabled && ability.AbilityInitialized)

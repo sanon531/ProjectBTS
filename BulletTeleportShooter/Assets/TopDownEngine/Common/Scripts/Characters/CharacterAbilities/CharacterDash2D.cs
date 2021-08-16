@@ -61,7 +61,7 @@ namespace MoreMountains.TopDownEngine
 		protected Vector3 _dashAngle = Vector3.zero;
         protected Vector3 _inputPosition;
         protected Camera _mainCamera;
-        protected const string _dashingAnimationParameterName = "Dashing";
+        protected const string _dashingAnimationParameterName = "Dash";
         protected const string _dashingDirectionXAnimationParameterName = "DashingDirectionX";
         protected const string _dashingDirectionYAnimationParameterName = "DashingDirectionY";
         protected int _dashingAnimationParameter;
@@ -142,6 +142,13 @@ namespace MoreMountains.TopDownEngine
                     break;
             }            
         }
+        public void ChangeMovementDash()
+        {
+            _movement.ChangeState(CharacterStates.MovementStates.Dashing);
+            _dashing = true;
+            _dashTimer = 0f;
+            //Debug.Log("Dash"+ DashDuration+"+"+ _dashTimer);
+        }
 
         /// <summary>
         /// Stops the dash
@@ -152,7 +159,7 @@ namespace MoreMountains.TopDownEngine
 
             StopStartFeedbacks();
             PlayAbilityStopFeedbacks();
-
+            //Debug.Log("Stop");
             _movement.ChangeState(CharacterStates.MovementStates.Idle);
             _dashing = false;
             _controller.FreeMovement = true;
@@ -209,6 +216,9 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public override void UpdateAnimator()
 		{
+            
+            
+
             MMAnimatorExtensions.UpdateAnimatorBool(_animator, _dashingAnimationParameter, (_movement.CurrentState == CharacterStates.MovementStates.Dashing),_character._animatorParameters, _character.PerformAnimatorSanityChecks);
             MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _dashingDirectionXAnimationParameter, _dashAnimParameterDirection.x, _character._animatorParameters, _character.PerformAnimatorSanityChecks);
             MMAnimatorExtensions.UpdateAnimatorFloat(_animator, _dashingDirectionYAnimationParameter, _dashAnimParameterDirection.y, _character._animatorParameters, _character.PerformAnimatorSanityChecks);

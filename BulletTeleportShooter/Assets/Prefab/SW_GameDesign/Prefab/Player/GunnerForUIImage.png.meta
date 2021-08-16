@@ -1,0 +1,1670 @@
+fileFormatVersion: 2
+guid: b7b8f1342219d364f978b4b2deeb8965
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3902101246754150395
+    second: Juan_Eduard_sprite_0
+  - first:
+      213: 4773414424750607489
+    second: Juan_Eduard_sprite_1
+  - first:
+      213: 1426851325896408380
+    second: Juan_Eduard_sprite_2
+  - first:
+      213: 1935747955099287535
+    second: Juan_Eduard_sprite_3
+  - first:
+      213: 20198186914077514
+    second: Juan_Eduard_sprite_4
+  - first:
+      213: 7593128539817149215
+    second: Juan_Eduard_sprite_5
+  - first:
+      213: 1047674309966784491
+    second: Juan_Eduard_sprite_6
+  - first:
+      213: -8416836606967014265
+    second: Juan_Eduard_sprite_7
+  - first:
+      213: -3908186640497199664
+    second: Juan_Eduard_sprite_8
+  - first:
+      213: -3425812300908975450
+    second: Juan_Eduard_sprite_9
+  - first:
+      213: 7742009103432335929
+    second: Juan_Eduard_sprite_10
+  - first:
+      213: 8895549843033915237
+    second: Juan_Eduard_sprite_11
+  - first:
+      213: -1686995724432050641
+    second: Juan_Eduard_sprite_12
+  - first:
+      213: 1398526622671397697
+    second: Juan_Eduard_sprite_13
+  - first:
+      213: -5802754907711624427
+    second: Juan_Eduard_sprite_14
+  - first:
+      213: 7963677399787905487
+    second: Juan_Eduard_sprite_15
+  - first:
+      213: -3235330664424332999
+    second: Juan_Eduard_sprite_16
+  - first:
+      213: 6257227551784482354
+    second: Juan_Eduard_sprite_17
+  - first:
+      213: 7072312242235739935
+    second: Juan_Eduard_sprite_18
+  - first:
+      213: -4157182365998504063
+    second: Juan_Eduard_sprite_19
+  - first:
+      213: -5805693468788290165
+    second: Juan_Eduard_sprite_20
+  - first:
+      213: 1992760744511526353
+    second: Juan_Eduard_sprite_21
+  - first:
+      213: -7886135953828218147
+    second: Juan_Eduard_sprite_22
+  - first:
+      213: -6449768432932710926
+    second: Juan_Eduard_sprite_23
+  - first:
+      213: 1120091661001963349
+    second: Juan_Eduard_sprite_24
+  - first:
+      213: -7377561700923903514
+    second: Juan_Eduard_sprite_25
+  - first:
+      213: 5784937363734135641
+    second: Juan_Eduard_sprite_26
+  - first:
+      213: -4930553128778039927
+    second: Juan_Eduard_sprite_27
+  - first:
+      213: -5792100591024638711
+    second: Juan_Eduard_sprite_28
+  - first:
+      213: 1898020810125493138
+    second: Juan_Eduard_sprite_29
+  - first:
+      213: 4134593651673739837
+    second: Juan_Eduard_sprite_30
+  - first:
+      213: -8215541951821143472
+    second: Juan_Eduard_sprite_31
+  - first:
+      213: 5635455123874538793
+    second: Juan_Eduard_sprite_32
+  - first:
+      213: 1800665353343624707
+    second: Juan_Eduard_sprite_33
+  - first:
+      213: -5019432293982653177
+    second: Juan_Eduard_sprite_34
+  - first:
+      213: -7915737097577673776
+    second: Juan_Eduard_sprite_35
+  - first:
+      213: 9080475252209455536
+    second: Juan_Eduard_sprite_36
+  - first:
+      213: -3210049698012305866
+    second: Empty
+  - first:
+      213: -4045249999036894987
+    second: GunnerForUIImage_0
+  - first:
+      213: -2847232843935145174
+    second: GunnerForUIImage_1
+  - first:
+      213: -6085172570028696021
+    second: GunnerForUIImage_2
+  - first:
+      213: 9111420628277511544
+    second: GunnerForUIImage_3
+  - first:
+      213: -8416556186174297281
+    second: GunnerForUIImage_4
+  - first:
+      213: -3922179241754597717
+    second: GunnerForUIImage_5
+  - first:
+      213: -2966126941895739323
+    second: GunnerForUIImage_6
+  - first:
+      213: 1752646025767491459
+    second: GunnerForUIImage_7
+  - first:
+      213: -1210858521229423959
+    second: GunnerForUIImage_8
+  - first:
+      213: -7215953230348856920
+    second: GunnerForUIImage_9
+  - first:
+      213: -7064981273873702312
+    second: GunnerForUIImage_10
+  - first:
+      213: -5655859311640634304
+    second: GunnerForUIImage_11
+  - first:
+      213: 1829693909589672077
+    second: GunnerForUIImage_12
+  - first:
+      213: -2259060332094240248
+    second: GunnerForUIImage_13
+  - first:
+      213: 2182066866028295208
+    second: GunnerForUIImage_14
+  - first:
+      213: 8300380704743835233
+    second: GunnerForUIImage_15
+  - first:
+      213: 5890660549408530366
+    second: GunnerForUIImage_16
+  - first:
+      213: 7478810898734458362
+    second: GunnerForUIImage_17
+  - first:
+      213: -1832923664172928988
+    second: GunnerForUIImage_18
+  - first:
+      213: 5120489452120261986
+    second: GunnerForUIImage_19
+  - first:
+      213: -7137566785180940083
+    second: GunnerForUIImage_20
+  - first:
+      213: 4128562982196008677
+    second: GunnerForUIImage_21
+  - first:
+      213: 8539350142740218776
+    second: GunnerForUIImage_22
+  - first:
+      213: 8372597107721803841
+    second: GunnerForUIImage_23
+  - first:
+      213: -5121410047436594312
+    second: GunnerForUIImage_24
+  - first:
+      213: -6871628153109265310
+    second: GunnerForUIImage_25
+  - first:
+      213: -3268633738526839411
+    second: GunnerForUIImage_26
+  - first:
+      213: 1390535344124166823
+    second: GunnerForUIImage_27
+  - first:
+      213: -3754947417163235406
+    second: GunnerForUIImage_28
+  - first:
+      213: 7651800685653266980
+    second: GunnerForUIImage_29
+  - first:
+      213: -5337293732942406387
+    second: GunnerForUIImage_30
+  - first:
+      213: 7346712783725374979
+    second: GunnerForUIImage_31
+  - first:
+      213: 7898091051263381084
+    second: GunnerForUIImage_32
+  - first:
+      213: 2357470380763265988
+    second: GunnerForUIImage_33
+  - first:
+      213: -2242273130883447406
+    second: GunnerForUIImage_34
+  - first:
+      213: 6301370742854809999
+    second: GunnerForUIImage_35
+  - first:
+      213: -6214598469981277357
+    second: GunnerForUIImage_36
+  - first:
+      213: -166006953004027910
+    second: GunnerForUIImage_37
+  - first:
+      213: -7922997807675043629
+    second: GunnerForUIImage_38
+  - first:
+      213: 2353332031605910759
+    second: GunnerForUIImage_39
+  - first:
+      213: -8327462305420068052
+    second: GunnerForUIImage_40
+  - first:
+      213: -69121985876154405
+    second: GunnerForUIImage_41
+  - first:
+      213: -6207040578842153471
+    second: GunnerForUIImage_42
+  - first:
+      213: -2124244624597831474
+    second: GunnerForUIImage_43
+  - first:
+      213: -1908334552437443817
+    second: GunnerForUIImage_44
+  - first:
+      213: -1083857485309481989
+    second: GunnerForUIImage_45
+  - first:
+      213: -2543094255620373321
+    second: GunnerForUIImage_46
+  - first:
+      213: 2818101543856955090
+    second: GunnerForUIImage_47
+  - first:
+      213: 4121355129732771709
+    second: GunnerForUIImage_48
+  - first:
+      213: 3067238649441079183
+    second: GunnerForUIImage_49
+  - first:
+      213: -7319138820786433327
+    second: GunnerForUIImage_50
+  - first:
+      213: -8223030927218544112
+    second: GunnerForUIImage_51
+  - first:
+      213: -1275053849069090815
+    second: GunnerForUIImage_52
+  - first:
+      213: -1797816021336062605
+    second: GunnerForUIImage_53
+  - first:
+      213: -4814659090320299608
+    second: GunnerForUIImage_54
+  - first:
+      213: 6090825427510824959
+    second: GunnerForUIImage_55
+  - first:
+      213: 5976807489124324494
+    second: GunnerForUIImage_56
+  - first:
+      213: 5093579421499312664
+    second: GunnerForUIImage_57
+  - first:
+      213: -6335649530814198519
+    second: GunnerForUIImage_58
+  - first:
+      213: -7165960547504603231
+    second: GunnerForUIImage_59
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GunnerForUIImage_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 482
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0b1cbfe826cd7c0800000000000000
+      internalID: -4045249999036894987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 482
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a23ab6050d89c78d0800000000000000
+      internalID: -2847232843935145174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 482
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e1d76c9cf1d8ba0800000000000000
+      internalID: -6085172570028696021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 482
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875c5ab79c4427e70800000000000000
+      internalID: 9111420628277511544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 490
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3be6f2ddb2623b80800000000000000
+      internalID: -8416556186174297281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_5
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 494
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba66ecd92ce9199c0800000000000000
+      internalID: -3922179241754597717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_6
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 494
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548b695f24336d6d0800000000000000
+      internalID: -2966126941895739323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_7
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 494
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3871fd64646a25810800000000000000
+      internalID: 1752646025767491459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_8
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 494
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa8dd0279a223fe0800000000000000
+      internalID: -1210858521229423959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_9
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 490
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a1593dc4c8cbdb90800000000000000
+      internalID: -7215953230348856920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_10
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 480
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 852a8f996f424fd90800000000000000
+      internalID: -7064981273873702312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_11
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 480
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c131e0ce95281b0800000000000000
+      internalID: -5655859311640634304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 418
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80c9c8aae0646910800000000000000
+      internalID: 1829693909589672077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_13
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 450
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ac853d89436a0e0800000000000000
+      internalID: -2259060332094240248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 418
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82434c9e042484e10800000000000000
+      internalID: 2182066866028295208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_15
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 450
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16643ce0640e03370800000000000000
+      internalID: 8300380704743835233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 418
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf17e34f84dfb150800000000000000
+      internalID: 5890660549408530366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_17
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 450
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5236153e21ac760800000000000000
+      internalID: 7478810898734458362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 418
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420b09083a52096e0800000000000000
+      internalID: -1832923664172928988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_19
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 432
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26543c5f602af0740800000000000000
+      internalID: 5120489452120261986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_20
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 433
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8c9a843d442fc90800000000000000
+      internalID: -7137566785180940083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_21
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 433
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e6de92882a9b4930800000000000000
+      internalID: 4128562982196008677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_22
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 436
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89346be16bdd18670800000000000000
+      internalID: 8539350142740218776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_23
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 391
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1489835a5b0713470800000000000000
+      internalID: 8372597107721803841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_24
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 390
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 873ec6d32b81de8b0800000000000000
+      internalID: -5121410047436594312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_25
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 390
+        width: 34
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26449592a9213a0a0800000000000000
+      internalID: -6871628153109265310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_26
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 389
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d204aceea73a2d0800000000000000
+      internalID: -3268633738526839411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_27
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 389
+        width: 35
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a28522378c2c4310800000000000000
+      internalID: 1390535344124166823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_28
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 387
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bff6b9f73fb3ebc0800000000000000
+      internalID: -3754947417163235406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_29
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 391
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4221470ce28a03a60800000000000000
+      internalID: 7651800685653266980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_30
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 386
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d9c0ac0af1ee5b0800000000000000
+      internalID: -5337293732942406387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_31
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 389
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ea5cc2a54c4f560800000000000000
+      internalID: 7346712783725374979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_32
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 389
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ece3a17f7ab9d60800000000000000
+      internalID: 7898091051263381084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_33
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 371
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb36e522da67b020800000000000000
+      internalID: 2357470380763265988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_34
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 387
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2950a40b778d1e0e0800000000000000
+      internalID: -2242273130883447406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_35
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 385
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8976e5fd47f27750800000000000000
+      internalID: 6301370742854809999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_36
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 374
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353741f2e9f41c9a0800000000000000
+      internalID: -6214598469981277357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_37
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 383
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff23f74e8932bdf0800000000000000
+      internalID: -166006953004027910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_38
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 383
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d09455c87bdb0290800000000000000
+      internalID: -7922997807675043629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_39
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 375
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec2b66a307b8a020800000000000000
+      internalID: 2353332031605910759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_40
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 370
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b3bfc6729ee6c80800000000000000
+      internalID: -8327462305420068052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_41
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 375
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7aea98bed6a0ff0800000000000000
+      internalID: -69121985876154405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_42
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 376
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10eada7da792cd9a0800000000000000
+      internalID: -6207040578842153471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_43
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 374
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec030d6c4ca2582e0800000000000000
+      internalID: -2124244624597831474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_44
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 373
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713bc59d5db3485e0800000000000000
+      internalID: -1908334552437443817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_45
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 375
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbeaf01c5d55f0f0800000000000000
+      internalID: -1083857485309481989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_46
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 373
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b449679f3d15bcd0800000000000000
+      internalID: -2543094255620373321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_47
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 372
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ded2965c68eb1720800000000000000
+      internalID: 2818101543856955090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_48
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 374
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7fa4f497aef13930800000000000000
+      internalID: 4121355129732771709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_49
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 371
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8fc84dfc45019a20800000000000000
+      internalID: 3067238649441079183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_50
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 370
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2d04d55023d6a90800000000000000
+      internalID: -7319138820786433327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_51
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 368
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012761e60fce1ed80800000000000000
+      internalID: -8223030927218544112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_52
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 370
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1080eb0a7491e4ee0800000000000000
+      internalID: -1275053849069090815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_53
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 368
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37502c49adfdc07e0800000000000000
+      internalID: -1797816021336062605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_54
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 370
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a96ad60115ee2db0800000000000000
+      internalID: -4814659090320299608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_55
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 371
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fff03bba475f68450800000000000000
+      internalID: 6090825427510824959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_56
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 368
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e845620beb2e1f250800000000000000
+      internalID: 5976807489124324494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_57
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 367
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ac4b53f7700b640800000000000000
+      internalID: 5093579421499312664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_58
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 323
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d0376c1504318a0800000000000000
+      internalID: -6335649530814198519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GunnerForUIImage_59
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 323
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af368359d46d8c90800000000000000
+      internalID: -7165960547504603231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
