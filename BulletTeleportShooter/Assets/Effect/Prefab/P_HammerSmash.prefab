@@ -4823,6 +4823,7 @@ GameObject:
   - component: {fileID: 6307258495509287900}
   - component: {fileID: 6340370201439754370}
   - component: {fileID: -474514522212550878}
+  - component: {fileID: 811755105487944780}
   m_Layer: 0
   m_Name: P_HammerSmash
   m_TagString: Untagged
@@ -9648,6 +9649,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BoundsBasedOn: 2
   LifeTime: 2
+--- !u!114 &811755105487944780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142623082912645922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f97ace8fada17408c38d1d147c83d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 4518874108184290380}
 --- !u!1001 &8804709766004503737
 PrefabInstance:
   m_ObjectHideFlags: 0
