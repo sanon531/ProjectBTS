@@ -46,7 +46,6 @@ public class AIActionBoomReady : AIAction
         float delay = enemy.BoomDelay;
         float radius = enemy.BoomRadius;
 
-        //_characterDamageDash2D.ChangeMovementDash();
         alarm.SetActive(true);
         boomArea.gameObject.SetActive(true);
         boomArea.localScale = new Vector3(radius * 2, radius * 2, 1);

@@ -19,6 +19,7 @@ public class AIActionBoom : AIAction
 
     public override void OnEnterState()
     {
+        base.OnEnterState();
         Collider2D[] col = Physics2D.OverlapCircleAll(enemy.transform.position, enemy.BoomRadius, layermask);
         for (int i = 0; i < col.Length; ++i)
         {
