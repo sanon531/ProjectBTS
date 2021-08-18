@@ -58,9 +58,18 @@ namespace MoreMountains.TopDownEngine
             TeleportTokenBarImage = _teleportTokenBar.FilledBarUI.GetComponent<Image>();
             CannotTeleportFeedback.GetComponent<MMFeedbackPosition>().AnimatePositionTarget = GUIManager.Instance.TeleportTokenBar.gameObject;
             CannotTeleportFeedback.GetComponent<MMFeedbackCanvasGroup>().TargetCanvasGroup = GUIManager.Instance.TeleportTokenBar.GetComponent<CanvasGroup>();
+            CannotTeleportFeedback.GetComponent<MMFeedbackImage>().BoundImage = GUIManager.Instance.TeleportTokenBar.GetComponent<TeleportTokenBar>().TokenWarning.GetComponent<Image>();
             Radius = _characterManager.FlashRange;
             _init = true;
 
+        }
+
+        private void Update()
+        {
+            if (!CannotTeleportFeedback.IsPlaying)
+            {
+                GUIManager.Instance.TeleportTokenBar.GetComponent<TeleportTokenBar>().TokenWarning.SetActive(false);
+            }
         }
 
         protected override void HandleInput()     //점멸 조작키 설정
@@ -85,7 +94,8 @@ namespace MoreMountains.TopDownEngine
             }
             else
             {
-                CannotTeleportFeedback?.PlayFeedbacks();
+                GUIManager.Instance.TeleportTokenBar.GetComponent<TeleportTokenBar>().TokenWarning.SetActive(true);
+                CannotTeleportFeedback?.PlayFeedbacks();              
             }
         }
 
@@ -248,7 +258,5 @@ namespace MoreMountains.TopDownEngine
                 Gizmos.DrawSphere(transform.position, Radius);
             }
         }
-
-
     }
 }

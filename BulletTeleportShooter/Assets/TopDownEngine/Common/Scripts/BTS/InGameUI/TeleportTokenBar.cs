@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace MoreMountains.TopDownEngine
@@ -20,7 +21,10 @@ namespace MoreMountains.TopDownEngine
         public GameObject FilledBarUI;
         public float BarBaseWidth = 1.0f;
         public float BarBaseHeight = 1.0f;
-       
+
+        [Header("Teleport Warning UI")]
+        public GameObject TokenWarning;
+
 
         private void Start()
         {
@@ -43,6 +47,8 @@ namespace MoreMountains.TopDownEngine
             {
                 Tokens[i].SetActive(true);
             }
+
+            StartCoroutine(SetWarningPosition());
 
             SetTokenBar();
         }
@@ -68,16 +74,14 @@ namespace MoreMountains.TopDownEngine
                     Tokens[nowTokenNum].GetComponent<Image>().sprite = FilledTokenSprite;
                     nowTokenNum++;
                 }
-            }        
+            }
         }
 
         private void SetTokenBar()
         {
             TeleportTokenBarUI.GetComponent<RectTransform>().localScale = new Vector3(_characterManager.MaxTeleportToken * BarBaseWidth, BarBaseHeight, 1);
             TeleportTokenBarUI.SetActive(true);
-            
-            
-        } 
+        }
 
         private bool isTokenMax()
         {
@@ -87,6 +91,16 @@ namespace MoreMountains.TopDownEngine
         private bool isTokenZero()
         {
             return nowTokenNum <= 0;
+        }
+
+        private IEnumerator SetWarningPosition()
+        {
+            yield return new WaitForEndOfFrame();
+
+            RectTransform r = TokenWarning.GetComponent<RectTransform>();
+            RectTransform t = Tokens[nowTokenNum - 1].GetComponent<RectTransform>();
+
+            r.anchoredPosition = new Vector2(t.anchoredPosition.x, t.anchoredPosition.y);
         }
     }
 }
