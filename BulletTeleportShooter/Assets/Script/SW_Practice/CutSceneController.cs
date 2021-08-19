@@ -58,7 +58,7 @@ public class CutSceneController : MonoBehaviour
             else
             {
                 cutSceneDatas[1].isActive = true;
-                cutSceneDatas[1].rectTransform.DOAnchorPos(cutSceneDatas[1].ShowPos, ShowTime).
+                cutSceneDatas[1].rectTransform.DOAnchorPos(cutSceneDatas[1].HidePos, ShowTime).
                 SetEase(Ease.OutBack);
 
             }
