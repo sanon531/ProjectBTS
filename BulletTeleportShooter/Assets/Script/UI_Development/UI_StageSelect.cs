@@ -19,10 +19,10 @@ public class UI_StageSelect : MonoBehaviour
     public List<string> SceneList;
     
     
-    public int gold = 0;
+    /*public int gold = 0;
     public GameObject selectButton;
     public int[] limitGold;
-
+    */
 
     
     
@@ -49,7 +49,7 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
-    public void LimitedSelect()
+    /*public void LimitedSelect()
     {
         for(int i = 0; i<limitGold.Length; i++)
         {
@@ -88,7 +88,7 @@ public class UI_StageSelect : MonoBehaviour
         }
 
     }
-
+    */
 
 
 
@@ -104,7 +104,7 @@ public class UI_StageSelect : MonoBehaviour
     private void Start()
     {
         Focus(uiTargetedIndex);
-        UnlimitedSelect();
+        //UnlimitedSelect();
         
     }
 
@@ -115,11 +115,12 @@ public class UI_StageSelect : MonoBehaviour
         {
             BuildAnimation(uiTargetedIndex - 1);
             
-            Button btn = selectButton.GetComponent<Button>();
+            /*Button btn = selectButton.GetComponent<Button>();
             
             btn.enabled = false;
             
             Invoke("OnInvoke", time + 0.1f);
+            */
         }
     }
 
@@ -129,20 +130,21 @@ public class UI_StageSelect : MonoBehaviour
         {
             BuildAnimation(uiTargetedIndex + 1);
             
-            Button btn = selectButton.GetComponent<Button>();
+            /*Button btn = selectButton.GetComponent<Button>();
             
             btn.enabled = false;
 
             Invoke("OnInvoke", time + 0.1f);
+            */
         }
     }
 
-    void OnInvoke()
+    /*void OnInvoke()
     {
         LimitedSelect();
         UnlimitedSelect();
     }
-    
+    */
     
     public void OnClick_Stn()
     {
@@ -161,3 +163,5 @@ public class UI_StageSelect : MonoBehaviour
 
 
 }
+
+

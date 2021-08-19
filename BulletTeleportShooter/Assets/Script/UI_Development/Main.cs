@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using MoreMountains.Tools;
 
 
 
@@ -15,7 +16,7 @@ public class Main : MonoBehaviour
     public GameObject[] index;
     public RectTransform rects;
     public Ease current_Ease = Ease.InQuad;
-    public Ease cur_Ease = Ease.InQuad;
+    
 
         
 
@@ -39,7 +40,9 @@ public class Main : MonoBehaviour
         
                
         rects.DOAnchorPosY(-280f,1f).SetDelay(1.5f);
-              
+
+        index[1].SetActive(true);
+
 
         Invoke("OnInvoke", 2.5f);
 
@@ -47,20 +50,16 @@ public class Main : MonoBehaviour
    
     void OnInvoke()
     {
-        index[3].SetActive(false);
-        
-        
-        
-        
-        /*Button btn0 = index[0].GetComponent<Button>();
-        
+                
+        Button btn0 = index[0].GetComponent<Button>();
+        index[1].GetComponent<MMTouchButton>().enabled = true;
         Button btn2 = index[2].GetComponent<Button>();
         
 
         btn0.enabled = true;
         
         btn2.enabled = true;
-        */
+        
     }
 
 

@@ -701,11 +701,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dc6ff4b2fac3c4b813092f2d17d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapName: []
+  images: []
+  selectButton: {fileID: 0}
   saveData:
     mapLock:
       m_keys:
-      - none
-      m_values: 01
+      - First_Spike_SW
+      - 2Second_OnlySpike
+      - 3Third_Hole_and_Spike
+      - 4FourthMap
+      - 5Fifth_Map
+      m_values: 0100000000
     gunLock:
       m_keys:
       - none
@@ -766,6 +773,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076272807}
         m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2076272807}
+        m_MethodName: Practice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

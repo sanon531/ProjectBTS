@@ -17,9 +17,10 @@ public class UI_CharSelect : MonoBehaviour
     public int uiTargetedIndex = 1;
     public int ImmediateIndex = 0;
     public GameObject Stn, Selectbtn;
+    /*
     public int gold = 0;
     public int[] limitGold;
-
+    */
 
     Sequence animSequence;
 
@@ -42,7 +43,7 @@ public class UI_CharSelect : MonoBehaviour
         }
     }
 
-    public void LimitedStn()
+    /*public void LimitedStn()
     {
         for (int i = 0; i < limitGold.Length; i++)
         {
@@ -59,8 +60,9 @@ public class UI_CharSelect : MonoBehaviour
         }
 
     }
+    */
 
-    public void UnlimitedStn()
+    /*public void UnlimitedStn()
     {
         for (int i = 0; i < limitGold.Length; i++)
         {
@@ -80,7 +82,7 @@ public class UI_CharSelect : MonoBehaviour
         }
 
     }
-
+    */
     public void Focus(int _index, Vector2 Originps) //여러 개의 캐릭터 창 중 중심 점 잡기
     {
         /*for (int i = 0; i < node.Length; ++i)
@@ -162,11 +164,14 @@ public class UI_CharSelect : MonoBehaviour
 
     void OnInvoke() // 캐릭터 창 좌우 이동시 start 버튼과 selectback 버튼 잠금 -> 누를 수 있는 모든 버튼 잠그기
     {
+        Button btn1 = Stn.GetComponent<Button>();
+        btn1.enabled = true;
+
         Button btn2 = Selectbtn.GetComponent<Button>();
         btn2.enabled = true;
-        LimitedStn();
+        /*LimitedStn();
         UnlimitedStn();
-
+        */
         GameManager.Instance.NowSelectedPlayerNum = uiTargetedIndex;
     }
     
@@ -193,7 +198,10 @@ public class UI_CharSelect : MonoBehaviour
 
     public void OnClick() // 캐릭터 틀을 화면 중심으로 이동하는 버튼
     {
-        Invoke("OnInvoke", time);
+        Button btn1 = Stn.GetComponent<Button>();
+        btn1.enabled = false;
+
+        Invoke("OnInvoke", time + 0.2f);
         anim = DOTween.Sequence();
 
         anim.
@@ -217,6 +225,8 @@ public class UI_CharSelect : MonoBehaviour
 
     public void OffClick() //되돌리기
     {
+        
+
         anim = DOTween.Sequence();
 
         anim.
