@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
+using UnityEngine.UI;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -234,6 +235,10 @@ namespace MoreMountains.TopDownEngine
         protected int _aliveAnimationParameter;
         protected int _comboInProgressAnimationParameter;
 
+        //BTS
+        private Image ShootDelayImage;
+
+
         /// <summary>
         /// On start we initialize our weapon
         /// </summary>
@@ -264,7 +269,9 @@ namespace MoreMountains.TopDownEngine
             {
                 CurrentAmmoLoaded = MagazineSize;
             }
-            InitializeFeedbacks();       
+            InitializeFeedbacks();
+
+            ShootDelayImage = GUIManager.Instance.ShootDelayCircle.GetComponent<Image>();
         }
 
         protected virtual void InitializeFeedbacks()
@@ -486,8 +493,16 @@ namespace MoreMountains.TopDownEngine
         public virtual void CaseWeaponDelayBetweenUses()
         {
             _delayBetweenUsesCounter -= Time.deltaTime;
+
+            if (GUIManager.Instance.ShootDelayCircle != null)
+            {
+                ShootDelayImage.fillAmount = 1 - _delayBetweenUsesCounter / TimeBetweenUses;
+            }
+
             if (_delayBetweenUsesCounter <= 0)
             {
+                ShootDelayImage.fillAmount = 1.0f;
+
                 if ((TriggerMode == TriggerModes.Auto) && !_triggerReleased)
                 {
                     ShootRequest();

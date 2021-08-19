@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -86,6 +84,5 @@ namespace MoreMountains.TopDownEngine
                 Kill();
             }
         }
-
     }
 }
