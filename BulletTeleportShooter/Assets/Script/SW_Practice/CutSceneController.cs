@@ -49,17 +49,18 @@ public class CutSceneController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (!cutSceneDatas[0].isActive)
+            if (!cutSceneDatas[1].isActive)
             {
-                cutSceneDatas[1].isActive = true;
                 cutSceneDatas[1].rectTransform.DOAnchorPos(cutSceneDatas[1].ShowPos, ShowTime).
                 SetEase(Ease.OutBack);
+                cutSceneDatas[1].isActive = true;
+
             }
             else
             {
-                cutSceneDatas[1].isActive = true;
                 cutSceneDatas[1].rectTransform.DOAnchorPos(cutSceneDatas[1].HidePos, ShowTime).
                 SetEase(Ease.OutBack);
+                cutSceneDatas[1].isActive = false;
 
             }
 
