@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091124699631698021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18310547, y: 0.3149414, z: 0}
+  m_LocalPosition: {x: -0.224, y: 0.647, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093499316876790649}
@@ -14605,6 +14605,7 @@ GameObject:
   - component: {fileID: 8435117288371552787}
   - component: {fileID: 548378012184792397}
   - component: {fileID: 8161973739256479228}
+  - component: {fileID: 8894607336412591743}
   m_Layer: 10
   m_Name: M_Hengel_Char
   m_TagString: Player
@@ -15087,13 +15088,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89c3e7e4163ef4a94ba1fc552bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeapon: {fileID: 7619283110440395837, guid: 9c5d258288f8f494cb6c512d60a8cc31,
+  initialWeapon: {fileID: 7619283110440395837, guid: d388fda2266682744b452fb05a1aaff2,
     type: 3}
   MaximumHealth: 6
   InitialHealth: 6
   AttackDMG: 2
   ShootDelay: 0.3
-  WalkSpeed: 10
+  WalkSpeed: 3
   MaxTeleportToken: 6
   FlashDMG: 3
   FlashRange: 2
@@ -15143,6 +15144,18 @@ MonoBehaviour:
   LayerToHit:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &8894607336412591743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091990951591210651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5bcc4e5739926642959b6a196e955f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1807285990177781547
 GameObject:
   m_ObjectHideFlags: 0

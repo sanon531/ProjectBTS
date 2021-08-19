@@ -8,7 +8,8 @@ public enum SpawnType
     BREAK = 0,
     NORMAL,
     WAVE,
-    BOSS
+    BOSS,
+    REWARD
 }
 
 
@@ -20,6 +21,7 @@ public class SpawnSequence
     public int spawnCount;
     public Transform[] spawnPoint;
     public Enemy[] spawnEnemy;
+    public string rewardString;
 }
 public class SpawnManager : MonoBehaviour
 {
@@ -278,6 +280,14 @@ public class SpawnManager : MonoBehaviour
                         }
                         break;
                     }
+                case SpawnType.REWARD:
+                    if (currentSequence.time > 0)
+                    {
+                        yield return new WaitForSeconds(currentSequence.time);
+                    }
+                    Debug.Log("reward Get");
+                    break;
+
             }
 
             if (powerUpToken > 0)
@@ -327,7 +337,7 @@ public class SpawnManager : MonoBehaviour
                 {
                     spawnedEnemyCount--;
                     objectPool[newEnemy.GetType()].Enqueue(newEnemy.SetActive(false));
-                    Debug.Log(newEnemy.name + " DEAD");
+                    //Debug.Log(newEnemy.name + " DEAD");
                 });
             };
             Color outlineColor = Color.white;

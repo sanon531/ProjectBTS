@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1accbd8c4602d4794563e383dd5e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0.051886797, g: 1, b: 0.2714389, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
   outlineSize: 1
 --- !u!1 &1091646059747661503
 GameObject:
@@ -15087,7 +15087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89c3e7e4163ef4a94ba1fc552bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeapon: {fileID: 7619283110440395837, guid: 600617e4725b89746868eaa5d5ae16d8,
+  initialWeapon: {fileID: 7619283110440395837, guid: c428e632914626e49aab94bcd4c48f33,
     type: 3}
   MaximumHealth: 10
   InitialHealth: 10
@@ -15124,6 +15124,7 @@ MonoBehaviour:
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
   CannotTeleportFeedback: {fileID: 9220638505177872009}
+  Radius: 3
 --- !u!114 &8161973739256479228
 MonoBehaviour:
   m_ObjectHideFlags: 0
