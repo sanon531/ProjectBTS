@@ -429,11 +429,11 @@ MonoBehaviour:
   - 4FourthMap
   - 5Fifth_Map
   images:
-  - {fileID: 702620876}
-  - {fileID: 1397873063}
-  - {fileID: 610978600}
-  - {fileID: 1640016988}
-  - {fileID: 1406452757}
+  - {fileID: 702620874}
+  - {fileID: 1397873060}
+  - {fileID: 610978597}
+  - {fileID: 1640016985}
+  - {fileID: 1406452754}
   selectButton: {fileID: 1098273287}
   saveData:
     mapLock:
@@ -3517,17 +3517,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1435153304}
         m_MethodName: OnClick_Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 78918887}
-        m_MethodName: Practice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
