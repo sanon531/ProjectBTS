@@ -29,6 +29,7 @@ namespace MoreMountains.TopDownEngine
         private int nowToken;
         private int MaxTeleportToken;
         private float nowDelay;
+        private Vector2 TargetPos;
 
         private TeleportTokenBar _teleportTokenBar;
         private Image TeleportTokenBarImage;
@@ -107,15 +108,14 @@ namespace MoreMountains.TopDownEngine
             }
             else
             {
-                
                 UseTeleportToken(UseTokenAmount);
-
 
                 StopCoroutine("TokenRechargeCoroutine");
                 StartCoroutine("TokenRechargeCoroutine");
 
                 RemoveBullet();
-                transform.position = new Vector2 (TargetBullet.transform.position.x, TargetBullet.transform.position.y);
+                SetTargetPos();
+                transform.position = new Vector2 (TargetPos.x, TargetPos.y);
 
                 _health.DamageDisabled();                //점멸 후 플레이어 잠시 무적
                 TeleportFeedback?.PlayFeedbacks(this.transform.position);
@@ -170,6 +170,13 @@ namespace MoreMountains.TopDownEngine
 
 
             _teleportTokenBar.MakeToken(chargeAmount);
+        }
+
+        private void SetTargetPos()
+        {
+            TargetPos = new Vector2(TargetBullet.transform.position.x, TargetBullet.transform.position.y);
+            TargetPos.x = Mathf.Clamp(TargetPos.x, _bulletTeleportManager.leftDown.position.x, _bulletTeleportManager.rightUp.position.x);
+            TargetPos.y = Mathf.Clamp(TargetPos.y, _bulletTeleportManager.leftDown.position.y, _bulletTeleportManager.rightUp.position.y);
         }
 
         IEnumerator TokenRechargeCoroutine()
