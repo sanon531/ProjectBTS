@@ -9688,7 +9688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091808829679056853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.39892578, y: 0.42895508, z: 0}
+  m_LocalPosition: {x: -0.224, y: 0.647, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093499316876790649}
@@ -15063,7 +15063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89c3e7e4163ef4a94ba1fc552bed0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeapon: {fileID: 7619283110440395837, guid: 9490925f3fea2234eb1eae0d9f1d994c,
+  initialWeapon: {fileID: 7619283110440395837, guid: 0e8ce30139ad9014490a97c248dc7c52,
     type: 3}
   MaximumHealth: 6
   InitialHealth: 6
@@ -15100,6 +15100,7 @@ MonoBehaviour:
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
   CannotTeleportFeedback: {fileID: 4892520447385055338}
+  Radius: 3
 --- !u!114 &8161973739256479228
 MonoBehaviour:
   m_ObjectHideFlags: 0

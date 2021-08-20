@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using MoreMountains.Tools;
 using UnityEngine.EventSystems;
 
@@ -53,10 +52,12 @@ namespace MoreMountains.TopDownEngine
 		[Header("BTS Project")]
 		public HealthBar btsHealthBar;
 		public TeleportTokenBar TeleportTokenBar;
+		public GameObject ShootDelayCircle;
 		public GameObject OptionScreen;
 		public Text DeathScreen_Score;
 		public Text DeathScreen_Timer;
 		public GameObject DeathScreen_NewRecord;
+		public GameObject MainScreen;
 
 
 		protected float _initialJoystickAlpha;
@@ -300,7 +301,6 @@ namespace MoreMountains.TopDownEngine
 					healthBar.UpdateBar(currentHealth,minHealth,maxHealth);
 				}
 	    	}
-
 	    }
 
 	    /// <summary>

@@ -1,5 +1,7 @@
-﻿using MoreMountains.Tools;
+﻿using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -13,8 +15,6 @@ namespace MoreMountains.TopDownEngine
         private Weapon _weapon;
         private CharacterMovement _characterMovement;
 
-        private BulletTeleport _bulletTeleport;
-
         [Header("Health")]
         [Tooltip("캐릭터 최대 체력")]
         public int MaximumHealth;
@@ -24,7 +24,7 @@ namespace MoreMountains.TopDownEngine
         [Header("Attack Stat")]
         [Tooltip("캐릭터 무기 공격 데미지")]
         //-1이면, 기본 데미지로 적용 (Projectile.cs -> DamageCaused = 10)
-        public int AttackDMG;             
+        public int AttackDMG;
         [Tooltip("캐릭터 연사 딜레이 시간 (연사 속도)")]
         //기본 : 1f (1초마다)
         public float ShootDelay;
@@ -42,8 +42,7 @@ namespace MoreMountains.TopDownEngine
         [Tooltip("과부하 범위")]
         public int FlashRange;
 
-
-        void Awake()
+        private void Awake()
         {
             _characterHandleWeapon = GetComponent<CharacterHandleWeapon>();
             _characterHandleWeapon.InitialWeapon = initialWeapon;
@@ -53,8 +52,6 @@ namespace MoreMountains.TopDownEngine
             _weapon = initialWeapon;
             _characterMovement = GetComponent<CharacterMovement>();
             _explosion = GetComponent<Explosion>();
-
-            _bulletTeleport = GetComponent<BulletTeleport>();
 
             //기존 스크립트와 스텟 연결
             _health.InitialHealth = InitialHealth;

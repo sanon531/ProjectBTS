@@ -492,7 +492,7 @@ MonoBehaviour:
   AutoDestroyWhenEmpty: 0
   AutoDestroyWhenEmptyDelay: 1
   CurrentAmmoLoaded: 0
-  WeaponAttachmentOffset: {x: -0.05, y: 0.29, z: 0}
+  WeaponAttachmentOffset: {x: 0, y: 0, z: 0}
   FlipWeaponOnCharacterFlip: 1
   RightFacingFlipValue: {x: 1, y: 1, z: 1}
   LeftFacingFlipValue: {x: -1, y: 1, z: 1}
@@ -665,12 +665,12 @@ PrefabInstance:
     - target: {fileID: 1229207629527535982, guid: f7aa95383a40c5d42bd1a48ee6eae30c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.013
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1229207629527535982, guid: f7aa95383a40c5d42bd1a48ee6eae30c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.086
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1229207629527535982, guid: f7aa95383a40c5d42bd1a48ee6eae30c,
         type: 3}
@@ -716,6 +716,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModelContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436017692087737544, guid: f7aa95383a40c5d42bd1a48ee6eae30c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3712096731632134101, guid: c3bf2fb1f08c99d409c3b99b9bdac27b,
+        type: 3}
+    - target: {fileID: 6170062398037563278, guid: f7aa95383a40c5d42bd1a48ee6eae30c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7aa95383a40c5d42bd1a48ee6eae30c, type: 3}
