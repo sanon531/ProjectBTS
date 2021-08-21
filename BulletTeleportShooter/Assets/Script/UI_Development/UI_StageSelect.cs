@@ -17,15 +17,36 @@ public class UI_StageSelect : MonoBehaviour
     public int uiTargetedIndex = 0;
     public int ImmediateIndex = 0;
     public List<string> SceneList;
-    
-    
-    /*public int gold = 0;
-    public GameObject selectButton;
-    public int[] limitGold;
-    */
 
+
+    public GameObject[] images;
+    public GameObject selectButton;
     
-    
+    public void ButtonLocker()
+    {
+        
+        for (int i = 0; i < images.Length; i++)
+        {
+            if (ImmediateIndex == i)
+            {
+                if (images[i].activeSelf == true)
+                {
+                    selectButton.GetComponent<Button>().enabled = false;
+                    Debug.Log("잠김");
+                }
+                else
+                {
+                    selectButton.GetComponent<Button>().enabled = true;
+                    Debug.Log("열림");
+                }
+            }
+            
+            
+        }
+    }
+
+
+
     Sequence animSequence;
 
     public void BuildAnimation(int _index)

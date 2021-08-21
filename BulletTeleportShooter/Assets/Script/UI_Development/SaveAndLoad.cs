@@ -80,7 +80,7 @@ public class SaveAndLoad : MonoBehaviour
     void Start()
     {
         
-        Practice();
+        MapLocker();
         
     }
 
@@ -109,7 +109,7 @@ public class SaveAndLoad : MonoBehaviour
     }
 
   
-    public void Practice()
+    public void MapLocker()
     {
               
         MapLock mapLock = saveData.mapLock;
@@ -124,34 +124,41 @@ public class SaveAndLoad : MonoBehaviour
                     if (keyValuePair.Value)
                     {
                         //selectButton.GetComponent<Button>().enabled = true;
-                        images[i].SetActive(true);
+                        images[i].SetActive(false);
                         
                     }
                     else
                     {
                         //selectButton.GetComponent<Button>().enabled = false;
-                        images[i].SetActive(false);
+                        images[i].SetActive(true);
                         
                     }
                 }
 
             }
 
-        }
-        Debug.Log(saveData.gold);
-        /*m_objectColorDictionary = new ObjectColorDictionary() {
-            {gameObject,Color.blue },{this,Color.red } };
-        */
-        //StringStringDictionary = new Dictionary<string, string>() { { "first key", "value A" } };
-
-        /*foreach(KeyValuePair<string,string> keyValuePair in StringStringDictionary)
-        {
-            Debug.Log(keyValuePair.Key);
-        }*/
+        }     
 
 
     }
+    /*public void Prac()
+    {
+       for(int i =0; i< images.Length; i++)
+        {
+            if (images[i] == true)
+            {
+                Debug.Log(i);
+                Debug.Log("액티브함");
+            }
 
+            else
+            {
+                Debug.Log(i);
+                Debug.Log("언액티브함");
+            }
+                
+        }
+    }*/
 
 }
 
