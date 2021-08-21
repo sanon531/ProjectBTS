@@ -17,15 +17,36 @@ public class UI_StageSelect : MonoBehaviour
     public int uiTargetedIndex = 0;
     public int ImmediateIndex = 0;
     public List<string> SceneList;
-    
-    
-    public int gold = 0;
+
+
+    public GameObject[] images;
     public GameObject selectButton;
-    public int[] limitGold;
+    
+    public void ButtonLocker()
+    {
+        
+        for (int i = 0; i < images.Length; i++)
+        {
+            if (ImmediateIndex == i)
+            {
+                if (images[i].activeSelf == true)
+                {
+                    selectButton.GetComponent<Button>().enabled = false;
+                    Debug.Log("잠김");
+                }
+                else
+                {
+                    selectButton.GetComponent<Button>().enabled = true;
+                    Debug.Log("열림");
+                }
+            }
+            
+            
+        }
+    }
 
 
-    
-    
+
     Sequence animSequence;
 
     public void BuildAnimation(int _index)
@@ -49,7 +70,7 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
-    public void LimitedSelect()
+    /*public void LimitedSelect()
     {
         for(int i = 0; i<limitGold.Length; i++)
         {
@@ -88,7 +109,7 @@ public class UI_StageSelect : MonoBehaviour
         }
 
     }
-
+    */
 
 
 
@@ -104,7 +125,7 @@ public class UI_StageSelect : MonoBehaviour
     private void Start()
     {
         Focus(uiTargetedIndex);
-        UnlimitedSelect();
+        //UnlimitedSelect();
         
     }
 
@@ -115,11 +136,12 @@ public class UI_StageSelect : MonoBehaviour
         {
             BuildAnimation(uiTargetedIndex - 1);
             
-            Button btn = selectButton.GetComponent<Button>();
+            /*Button btn = selectButton.GetComponent<Button>();
             
             btn.enabled = false;
             
             Invoke("OnInvoke", time + 0.1f);
+            */
         }
     }
 
@@ -129,20 +151,21 @@ public class UI_StageSelect : MonoBehaviour
         {
             BuildAnimation(uiTargetedIndex + 1);
             
-            Button btn = selectButton.GetComponent<Button>();
+            /*Button btn = selectButton.GetComponent<Button>();
             
             btn.enabled = false;
 
             Invoke("OnInvoke", time + 0.1f);
+            */
         }
     }
 
-    void OnInvoke()
+    /*void OnInvoke()
     {
         LimitedSelect();
         UnlimitedSelect();
     }
-    
+    */
     
     public void OnClick_Stn()
     {
@@ -161,3 +184,5 @@ public class UI_StageSelect : MonoBehaviour
 
 
 }
+
+

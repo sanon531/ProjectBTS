@@ -21,6 +21,7 @@ public class SpawnSequence
     public int spawnCount;
     public Transform[] spawnPoint;
     public Enemy[] spawnEnemy;
+    public bool rewardisGun = true;
     public string rewardString;
 }
 public class SpawnManager : MonoBehaviour
@@ -286,7 +287,21 @@ public class SpawnManager : MonoBehaviour
                         break;
                     }
                 case SpawnType.REWARD:
-                    UIManager.Instance.MakeTitle($"{currentSequence.rewardString}총을 획득했습니다.", 2f);
+
+                    if (currentSequence.rewardisGun)
+                    {
+                        UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 총을 해금했습니다.", 2f);
+                        // 여기는 총을 해금 합니다
+                    }
+                    else
+                    {
+                        UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 맵을 해금했습니다.", 2f);
+                        // 여기는 맵을 해금 합니다낭낭 하게 해주세요
+
+
+                    }
+
+
                     if (currentSequence.time > 0)
                     {
                         yield return new WaitForSeconds(currentSequence.time);
@@ -373,6 +388,5 @@ public class SpawnManager : MonoBehaviour
             }
             newEnemy.Outline.color = outlineColor;
         }
-
     }
 }
