@@ -9,12 +9,14 @@ namespace MoreMountains.TopDownEngine
         public LinkedList<GameObject> BulletStack = new LinkedList<GameObject>();
 
         [SerializeField] private bool UseTargetBulletIcon = false;
-
         [SerializeField] private GameObject TargetIcon;
         [Range(0, 2)]
         [SerializeField] private float TargetIconSize = 1f;
 
-        
+        [Header("Border")]
+        public Transform leftDown;
+        public Transform rightUp;
+
 
         protected override void Awake()
         {
@@ -23,8 +25,7 @@ namespace MoreMountains.TopDownEngine
             if (UseTargetBulletIcon)
             {
                 TargetIcon.transform.localScale *= TargetIconSize;
-            }
-            
+            }   
         }
 
         private void Update()
