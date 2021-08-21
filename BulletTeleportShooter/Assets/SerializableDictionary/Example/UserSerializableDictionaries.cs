@@ -23,6 +23,10 @@ public class GunHigh : SerializableDictionary<string, Vector2> {}
 public class ObjectColorDictionary : SerializableDictionary<UnityEngine.Object, Color> {}
 
 [Serializable]
+public class  OSWDictionary : SerializableDictionary<string, Color> { }
+
+
+[Serializable]
 public class ColorArrayStorage : SerializableDictionary.Storage<Color[]> {}
 
 [Serializable]

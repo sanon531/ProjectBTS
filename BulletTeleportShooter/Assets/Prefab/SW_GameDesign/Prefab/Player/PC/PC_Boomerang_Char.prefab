@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091124699631698021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18310547, y: 0.3149414, z: 0}
+  m_LocalPosition: {x: -0.23, y: 0.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093499316876790649}
@@ -125,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 1091568468121617925}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ac72ad6bcff1e69428a02badee53d73f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4e7e53593c55d7c419cd5974431f7cfb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -14582,7 +14582,6 @@ GameObject:
   - component: {fileID: 1059514213277285759}
   - component: {fileID: 1060000814476499745}
   - component: {fileID: 1059525259817703105}
-  - component: {fileID: 1061372736230732227}
   - component: {fileID: 1059921064399868293}
   - component: {fileID: 1060516053291275765}
   - component: {fileID: 637557025523312375}
@@ -14932,31 +14931,6 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   FallingFeedback: {fileID: 3890971029913355219}
---- !u!114 &1061372736230732227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091990951591210651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c86c96e06d6ae44b822a6ab24e1b8fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AbilityStartSfx: {fileID: 0}
-  AbilityInProgressSfx: {fileID: 0}
-  AbilityStopSfx: {fileID: 0}
-  AbilityStartFeedbacks: {fileID: 0}
-  AbilityStopFeedbacks: {fileID: 0}
-  AbilityPermitted: 1
-  BlockingMovementStates: 
-  BlockingConditionStates: 
-  JumpDuration: 0.5
-  JumpProportionalToPress: 1
-  MinimumPressTime: 0.5
-  JumpStartFeedback: {fileID: 1546419639018573960}
-  JumpStopFeedback: {fileID: 0}
 --- !u!114 &1059921064399868293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15052,9 +15026,9 @@ MonoBehaviour:
     type: 3}
   MaximumHealth: 6
   InitialHealth: 6
-  AttackDMG: 2
+  AttackDMG: 4
   ShootDelay: 0.2
-  WalkSpeed: 6
+  WalkSpeed: 0
   MaxTeleportToken: 6
   FlashDMG: 3
   FlashRange: 2
@@ -15085,6 +15059,7 @@ MonoBehaviour:
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
   CannotTeleportFeedback: {fileID: 4892520447385055338}
+  Radius: 3
 --- !u!114 &8161973739256479228
 MonoBehaviour:
   m_ObjectHideFlags: 0

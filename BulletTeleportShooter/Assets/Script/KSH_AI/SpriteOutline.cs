@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 
 [ExecuteInEditMode]
@@ -10,16 +11,22 @@ public class SpriteOutline : MonoBehaviour
     public int outlineSize = 1;
 
     private SpriteRenderer spriteRenderer;
+    private Sequence glowSequence;
 
     void OnEnable()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        glowSequence = DOTween.Sequence();
+        glowSequence.
+            Append(DOTween.ToAlpha(() => color, x => color = x, 0, 1f).SetEase(Ease.Linear)).
+            Append(DOTween.ToAlpha(() => color, x => color = x, 1, 1f).SetEase(Ease.Linear)).
+            SetLoops(-1);
         UpdateOutline(true);
     }
 
     void OnDisable()
     {
+        glowSequence.Kill();
         UpdateOutline(false);
     }
 

@@ -1307,7 +1307,8 @@ MonoBehaviour:
   run: {fileID: 3048486958579360473}
   character: {fileID: 3047962688155165849}
   collider: {fileID: 8485932016936687235}
-  defaultHP: 1
+  spriteOutline: {fileID: 7252430902042939335}
+  defaultHP: 4
   defaultAttack: 1
   defaultSpeed: 4
   defaultReadyTime: 1.5

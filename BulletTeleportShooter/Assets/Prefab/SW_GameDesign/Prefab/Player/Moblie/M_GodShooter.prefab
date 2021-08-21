@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091124699631698021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18310547, y: 0.3149414, z: 0}
+  m_LocalPosition: {x: -0.224, y: 0.647, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093499316876790649}
@@ -14590,7 +14590,7 @@ GameObject:
   - component: {fileID: 548378012184792397}
   - component: {fileID: 8161973739256479228}
   m_Layer: 10
-  m_Name: GodShooter
+  m_Name: M_GodShooter
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15053,7 +15053,7 @@ MonoBehaviour:
   InitialHealth: 10
   AttackDMG: 10
   ShootDelay: 0.1
-  WalkSpeed: 6
+  WalkSpeed: 0
   MaxTeleportToken: 6
   FlashDMG: 30
   FlashRange: 5
@@ -15084,6 +15084,7 @@ MonoBehaviour:
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
   CannotTeleportFeedback: {fileID: 4892520447385055338}
+  Radius: 3
 --- !u!114 &8161973739256479228
 MonoBehaviour:
   m_ObjectHideFlags: 0

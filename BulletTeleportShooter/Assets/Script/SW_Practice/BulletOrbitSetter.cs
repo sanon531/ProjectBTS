@@ -18,6 +18,7 @@ public class BulletOrbitSetter : MonoBehaviour
     {
         autoRotate = GetComponent<MMAutoRotate>();
         autoRotate.OrbitCenterTransform = PlayerOrbitSetter.instance.transform;
+        transform.SetParent(PlayerOrbitSetter.instance.transform);
     }
 
     // Update is called once per frame

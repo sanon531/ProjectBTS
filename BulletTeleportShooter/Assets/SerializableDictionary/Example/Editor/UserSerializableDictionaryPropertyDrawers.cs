@@ -9,7 +9,10 @@ using UnityEditor;
 [CustomPropertyDrawer(typeof(MapHigh))]
 [CustomPropertyDrawer(typeof(GunHigh))]
 [CustomPropertyDrawer(typeof(ObjectColorDictionary))]
+[CustomPropertyDrawer(typeof(OSWDictionary))]
+
 [CustomPropertyDrawer(typeof(StringColorArrayDictionary))]
+
 public class AnySerializableDictionaryPropertyDrawer : SerializableDictionaryPropertyDrawer {}
 
 [CustomPropertyDrawer(typeof(ColorArrayStorage))]

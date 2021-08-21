@@ -3,17 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+public enum SpawnType
+{
+    BREAK = 0,
+    NORMAL,
+    WAVE,
+    BOSS,
+    REWARD
+}
+
+
+[System.Serializable]
+public class SpawnSequence
+{
+    public SpawnType spawnType;
+    public float time;
+    public int spawnCount;
+    public Transform[] spawnPoint;
+    public Enemy[] spawnEnemy;
+    public bool rewardisGun = true;
+    public string rewardString;
+}
 public class SpawnManager : MonoBehaviour
 {
     private static int MAX_OBJECT_COUNT = 200;
     public static SpawnManager Instance { get; private set; } = null;
-    [Header("- Spawn Points")]
-    [SerializeField] private Transform[] spawnPoints;
-    [Header("- Spawn Enemies")]
-    [SerializeField] private Enemy[] spawnEnemies;
+    [Header("- Spawn Sequence")]
+    [SerializeField] private bool isLoop;
+    [SerializeField] private SpawnSequence[] spawnSequence;
     [Header("- Properties")]
     [SerializeField] private float spawnDelay;
-    [SerializeField] private int MAX_ENEMY_COUNT;
     [SerializeField] private float minDistance;
     [SerializeField] private float maxDistance;
     [Header("- Power Up Properties")]
@@ -27,16 +46,19 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int priorityHP;
     [SerializeField] private int priorityATK;
     [SerializeField] private int prioritySPD;
+    private int priority { get => priorityATK + priorityHP + prioritySPD; }
     [Header("- Current Power Up Status")]
     [SerializeField] private int currentPowerUpHP;
     [SerializeField] private int currentPowerUpATK;
     [SerializeField] private float currentPowerUpSPD;
 
     [SerializeField] private int spawnedEnemyCount;
+
     private Transform playerTransform;
     private Sequence powerUpSequence;
-    private List<Queue<Enemy>> objectPool;
-    private Dictionary<System.Type, int> objectIndex;
+    private int powerUpToken;
+    private Dictionary<System.Type, Queue<Enemy>> objectPool;
+    
 
     private void Awake()
     {
@@ -45,53 +67,41 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        objectPool = new List<Queue<Enemy>>(spawnEnemies.Length);
-        objectIndex = new Dictionary<System.Type, int>(spawnEnemies.Length);
-        int objectCount = Mathf.Min(MAX_OBJECT_COUNT, (int)(MAX_ENEMY_COUNT * 1.5f));
-        for (int i = 0; i < spawnEnemies.Length; ++i)
+        objectPool = new Dictionary<System.Type, Queue<Enemy>>();
+        HashSet<System.Type> objectPoolChecker = new HashSet<System.Type>();
+        for(int i = 0; i < spawnSequence.Length; ++i)
         {
-            objectIndex.Add(spawnEnemies[i].GetType(), i);
-            Queue<Enemy> newQueue = new Queue<Enemy>(objectCount);
-            for(int j = 0; j < objectCount; ++j)
+            Enemy[] spawnableEnemy = spawnSequence[i].spawnEnemy;
+            for(int j = 0; j < spawnableEnemy.Length; ++j)
             {
-                newQueue.Enqueue(Instantiate(spawnEnemies[i], Vector3.zero, Quaternion.identity, transform).SetActive(false));
+                System.Type enemyType = spawnableEnemy[j].GetType();
+                if (objectPoolChecker.Add(enemyType))
+                {
+                    Queue<Enemy> newQueue = new Queue<Enemy>(MAX_OBJECT_COUNT);
+                    for (int k = 0; k < MAX_OBJECT_COUNT; ++k)
+                    {
+                        newQueue.Enqueue(Instantiate(spawnableEnemy[j], Vector3.zero, Quaternion.identity, transform).SetActive(false));
+                    }
+                    objectPool.Add(enemyType, newQueue);
+                }
             }
-            objectPool.Add(newQueue);
         }
 
         spawnedEnemyCount = 0;
-
-
-        Sequence waitSequence = DOTween.Sequence();
-        waitSequence.
+        
+        Sequence tokenSequence = DOTween.Sequence();
+        tokenSequence.
+            OnStart(() =>
+            {
+                powerUpToken = 0;
+            }).
             AppendInterval(defaultTime).
             AppendCallback(() =>
             {
                 powerUpSequence = DOTween.Sequence();
                 powerUpSequence.AppendCallback(() =>
                 {
-                    int random = Random.Range(0, priorityATK + priorityHP + prioritySPD) + 1;
-                    if (1 <= random && random <= priorityATK)
-                    {
-                        priorityHP += 2;
-                        prioritySPD += 2;
-                        UIManager.Instance.MakeNotice("적이 강해졌습니다! ATK++", 2f);
-                        currentPowerUpATK += powerUpATK;
-                    }
-                    else if (priorityATK < random && random <= priorityATK + priorityHP)
-                    {
-                        priorityATK += 2;
-                        prioritySPD += 2;
-                        UIManager.Instance.MakeNotice("적이 강해졌습니다! HP++", 2f);
-                        currentPowerUpHP += powerUpHP;
-                    }
-                    else if (priorityATK + priorityHP < random && random <= priorityATK + priorityHP + prioritySPD)
-                    {
-                        priorityATK += 2;
-                        priorityHP += 2;
-                        UIManager.Instance.MakeNotice("적이 강해졌습니다! SPD++", 2f);
-                        currentPowerUpSPD += powerUpSPD;
-                    }
+                    powerUpToken++;
                 }).
                 AppendInterval(powerUpDelay).
                 SetLoops(-1);
@@ -109,53 +119,119 @@ public class SpawnManager : MonoBehaviour
             }
             yield return null;
         }
-        while (true)
+
+        float currentTime;
+        SpawnSequence currentSequence;
+
+        for (int sequenceIndex = 0; sequenceIndex < spawnSequence.Length - 1; )
         {
-            if (spawnedEnemyCount < MAX_ENEMY_COUNT)
+            currentSequence = spawnSequence[sequenceIndex];
+            currentTime = 0f;
+            float waitTime = currentSequence.time / (float)currentSequence.spawnCount;
+
+            switch (currentSequence.spawnType)
             {
-                // 위치 기반 스폰 포인트 선별
-                float min = minDistance * minDistance;
-                float max = maxDistance * maxDistance;
-                List<Vector3> spawnPos = new List<Vector3>();
-                for (int i = 0; i < spawnPoints.Length; ++i)
-                {
-                    float sqrDistance = (playerTransform.position - spawnPoints[i].position).sqrMagnitude;
-                    if (min <= sqrDistance && sqrDistance <= max)
+                case SpawnType.NORMAL:
+                    UIManager.Instance.MakeTitle($"일반적으로 스폰 됩니다.", 2f);
+
                     {
-                        spawnPos.Add(spawnPoints[i].position);
+                        for (int currentSpawnCount = 0; currentSpawnCount < currentSequence.spawnCount; ++currentSpawnCount)
+                        {
+                            currentTime = 0f;
+
+                            // 위치 기반 스폰 포인트 선별
+                            float min = minDistance * minDistance;
+                            float max = maxDistance * maxDistance;
+                            List<Vector3> spawnPos = new List<Vector3>();
+                            for (int i = 0; i < currentSequence.spawnPoint.Length; ++i)
+                            {
+                                float sqrDistance = (playerTransform.position - currentSequence.spawnPoint[i].position).sqrMagnitude;
+                                if (min <= sqrDistance && sqrDistance <= max)
+                                {
+                                    spawnPos.Add(currentSequence.spawnPoint[i].position);
+                                }
+                            }
+
+                            if (spawnPos.Count > 0)
+                            {
+                                // 몇 마리를 스폰할 지 랜덤으로 결정
+                                int spawnCount = Random.Range(0, spawnPos.Count / 2) + 1;
+                                if (spawnedEnemyCount + spawnCount > MAX_OBJECT_COUNT) spawnCount = MAX_OBJECT_COUNT - spawnedEnemyCount;
+
+                                // 어느 곳에 스폰할 지 랜덤으로 결정 (중복 불가)
+                                int[] spawnPointIndex = new int[spawnPos.Count];
+                                for (int i = 0; i < spawnPointIndex.Length; ++i) spawnPointIndex[i] = i;
+                                for (int i = 0; i < spawnPointIndex.Length - 1; ++i)
+                                {
+                                    int randIndex = Random.Range(0, spawnPointIndex.Length);
+                                    int tempValue = spawnPointIndex[i];
+                                    spawnPointIndex[i] = spawnPointIndex[randIndex];
+                                    spawnPointIndex[randIndex] = tempValue;
+                                }
+
+                                // 어떤 적을 스폰할 지 랜덤으로 결정 (중복 가능)
+                                int[] spawnEnemyIndex = new int[spawnCount];
+                                for (int i = 0; i < spawnCount; ++i) spawnEnemyIndex[i] = Random.Range(0, currentSequence.spawnEnemy.Length);
+
+                                for (int i = 0; i < spawnCount; ++i)
+                                {
+                                    SpawnEnemy(currentSequence.spawnEnemy[spawnEnemyIndex[i]], spawnPos[spawnPointIndex[i]]);
+                                }
+                                spawnedEnemyCount += spawnCount; 
+                                
+                                while(currentTime < waitTime)
+                                {
+                                    if (spawnedEnemyCount <= 0) break;
+                                    currentTime += Time.deltaTime;
+                                    yield return null;
+                                }
+                            }
+                            else yield return null;
+                        }
+                        break;
                     }
-                }
-
-                if (spawnPos.Count > 0)
-                {
-                    // 몇 마리를 스폰할 지 랜덤으로 결정
-                    int spawnCount = Random.Range(0, spawnPos.Count) + 1;
-                    if (spawnedEnemyCount + spawnCount > MAX_ENEMY_COUNT) spawnCount = MAX_ENEMY_COUNT - spawnedEnemyCount;
-
-                    // 어느 곳에 스폰할 지 랜덤으로 결정 (중복 불가)
-                    int[] spawnPointIndex = new int[spawnPos.Count];
-                    for (int i = 0; i < spawnPointIndex.Length; ++i) spawnPointIndex[i] = i;
-                    for (int i = 0; i < spawnPointIndex.Length - 1; ++i)
+                case SpawnType.WAVE:
+                    UIManager.Instance.MakeTitle($"적들이 한꺼번에 밀려옵니다.", 2f);
                     {
-                        int randIndex = Random.Range(0, spawnPointIndex.Length);
-                        int tempValue = spawnPointIndex[i];
-                        spawnPointIndex[i] = spawnPointIndex[randIndex];
-                        spawnPointIndex[randIndex] = tempValue;
+                        for (int currentSpawnCount = 0; currentSpawnCount < currentSequence.spawnCount; ++currentSpawnCount)
+                        {
+                            currentTime = 0f;
+
+                            List<Vector3> spawnPos = new List<Vector3>();
+                            for (int i = 0; i < currentSequence.spawnPoint.Length; ++i)
+                            {
+                                spawnPos.Add(currentSequence.spawnPoint[i].position);
+                            }
+
+                            if (spawnPos.Count > 0)
+                            {
+                                for (int i = 0; i < spawnPos.Count; ++i)
+                                {
+                                    SpawnEnemy(currentSequence.spawnEnemy[Random.Range(0, currentSequence.spawnEnemy.Length)], spawnPos[i]);
+                                }
+                                spawnedEnemyCount += spawnPos.Count;
+                                while (currentTime < waitTime)
+                                {
+                                    if (spawnedEnemyCount <= 0) break;
+                                    currentTime += Time.deltaTime;
+                                    yield return null;
+                                }
+                            }
+                            else yield return null;
+                        }
+                        break;
                     }
+                case SpawnType.BOSS:
+                    UIManager.Instance.MakeTitle($"관리자가 등장했습니다.", 2f);
 
-                    // 어떤 적을 스폰할 지 랜덤으로 결정 (중복 가능)
-                    int[] spawnEnemyIndex = new int[spawnCount];
-                    for (int i = 0; i < spawnCount; ++i) spawnEnemyIndex[i] = Random.Range(0, spawnEnemies.Length);
-
-                    // 적을 스폰
-                    for (int i = 0; i < spawnCount; ++i)
                     {
-                        //Enemy newEnemy = Instantiate(spawnEnemies[spawnEnemyIndex[i]], spawnPos[spawnPointIndex[i]], Quaternion.identity, transform).Init();
-                        Enemy newEnemy = objectPool[spawnEnemyIndex[i]].Dequeue().SetActive(true).SetPosition(spawnPos[spawnPointIndex[i]]).Init();
+                        currentTime = 0f;
+
+                        Enemy newEnemy = Instantiate(currentSequence.spawnEnemy[0], currentSequence.spawnPoint[0].position, Quaternion.identity).Init();
                         newEnemy.Attack += currentPowerUpATK;
                         newEnemy.MaxHP += currentPowerUpHP;
                         newEnemy.Speed += currentPowerUpSPD;
-                        newEnemy.onDeath += () => 
+                        newEnemy.onDeath += () =>
                         {
                             Sequence sequence = DOTween.Sequence();
                             sequence.
@@ -163,18 +239,154 @@ public class SpawnManager : MonoBehaviour
                             AppendCallback(() =>
                             {
                                 spawnedEnemyCount--;
-                                objectPool[objectIndex[newEnemy.GetType()]].Enqueue(newEnemy.SetActive(false));
                                 Debug.Log(newEnemy.name + " DEAD");
                             });
                         };
+                        Color outlineColor = Color.white;
+                        if (0 <= priority && priority < 7)
+                        {
+                            outlineColor = Color.white;
+                        }
+                        else if (7 <= priority && priority < 10)
+                        {
+                            outlineColor = new Color(0.5f, 0.75f, 0.27f, 1f);
+                        }
+                        else if (10 <= priority && priority < 14)
+                        {
+                            outlineColor = Color.green;
+                        }
+                        else if (14 <= priority && priority < 18)
+                        {
+                            outlineColor = Color.blue;
+                        }
+                        else if (18 <= priority && priority < 22)
+                        {
+                            outlineColor = Color.magenta;
+                        }
+                        else if (22 <= priority)
+                        {
+                            outlineColor = Color.red;
+                        }
+                        newEnemy.Outline.color = outlineColor;
+                        spawnedEnemyCount++;
+                        while (currentTime < waitTime)
+                        {
+                            if (spawnedEnemyCount <= 0) break;
+                            currentTime += Time.deltaTime;
+                            yield return null;
+                        }
+                        break;
                     }
-                    spawnedEnemyCount += spawnCount;
+                case SpawnType.BREAK:
+                    UIManager.Instance.MakeTitle($"잠시 쉬어갑니다.", 2f);
+                    {
+                        if (currentSequence.time > 0)
+                        {
+                            yield return new WaitForSeconds(currentSequence.time);
+                        }
+                        break;
+                    }
+                case SpawnType.REWARD:
 
-                }
-                yield return new WaitForSeconds(spawnDelay);
+                    if (currentSequence.rewardisGun)
+                    {
+                        UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 총을 해금했습니다.", 2f);
+                        // 여기는 총을 해금 합니다
+                    }
+                    else
+                    {
+                        UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 맵을 해금했습니다.", 2f);
+                        // 여기는 맵을 해금 합니다낭낭 하게 해주세요
+
+
+                    }
+
+
+                    if (currentSequence.time > 0)
+                    {
+                        yield return new WaitForSeconds(currentSequence.time);
+                    }
+                    Debug.Log("reward Get");
+                    break;
+
             }
-            else yield return null;
+
+            if (powerUpToken > 0)
+            {
+                for (; powerUpToken > 0; --powerUpToken)
+                {
+                    int random = Random.Range(0, priority) + 1;
+                    if (1 <= random && random <= priorityATK)
+                    {
+                        priorityHP += 2;
+                        prioritySPD += 2;
+                        currentPowerUpATK += powerUpATK;
+                    }
+                    else if (priorityATK < random && random <= priorityATK + priorityHP)
+                    {
+                        priorityATK += 2;
+                        prioritySPD += 2;
+                        currentPowerUpHP += powerUpHP;
+                    }
+                    else if (priorityATK + priorityHP < random && random <= priorityATK + priorityHP + prioritySPD)
+                    {
+                        priorityATK += 2;
+                        priorityHP += 2;
+                        currentPowerUpSPD += powerUpSPD;
+                    }
+                }
+                UIManager.Instance.MakeNotice($"적이 강해졌습니다!\nATK {currentPowerUpATK / powerUpATK}++ SPD {currentPowerUpSPD / powerUpSPD}++ HP {currentPowerUpHP / powerUpHP}++", 2f);
+            }
+
+            sequenceIndex++;
+            if (isLoop && sequenceIndex >= spawnSequence.Length - 1) sequenceIndex = 0;
+            yield return null;
+        }
+
+        void SpawnEnemy(Enemy _spawnEnemy, Vector3 _position)
+        {
+            Enemy newEnemy = objectPool[_spawnEnemy.GetType()].Dequeue().SetActive(true).SetPosition(_position).Init();
+            newEnemy.Attack += currentPowerUpATK;
+            newEnemy.MaxHP += currentPowerUpHP;
+            newEnemy.Speed += currentPowerUpSPD;
+            newEnemy.onDeath += () =>
+            {
+                Sequence sequence = DOTween.Sequence();
+                sequence.
+                AppendInterval(2f).
+                AppendCallback(() =>
+                {
+                    spawnedEnemyCount--;
+                    objectPool[newEnemy.GetType()].Enqueue(newEnemy.SetActive(false));
+                    //Debug.Log(newEnemy.name + " DEAD");
+                });
+            };
+            Color outlineColor = Color.white;
+            if (0 <= priority && priority < 7)
+            {
+                outlineColor = Color.white;
+            }
+            else if (7 <= priority && priority < 10)
+            {
+                outlineColor = new Color(0.5f, 0.75f, 0.27f, 1f);
+            }
+            else if (10 <= priority && priority < 14)
+            {
+                outlineColor = Color.green;
+            }
+            else if (14 <= priority && priority < 18)
+            {
+                outlineColor = Color.blue;
+            }
+            else if (18 <= priority && priority < 22)
+            {
+                outlineColor = Color.magenta;
+            }
+            else if (22 <= priority)
+            {
+                outlineColor = Color.red;
+            }
+            newEnemy.Outline.color = outlineColor;
         }
     }
-
 }

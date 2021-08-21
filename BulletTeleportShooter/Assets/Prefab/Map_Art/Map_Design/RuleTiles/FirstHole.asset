@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: FirstHole
+  m_EditorClassIdentifier: 
+  m_WeightedSprite: {fileID: 0}
+  m_Weight: 0
+  m_DefaultSprite: {fileID: -7277159080898135269, guid: 75bab445970b05a4f8f669bec5c13bd7,
+    type: 3}
+  m_DefaultGameObject: {fileID: 4799816437003494608, guid: 6f869e47046c1f64dad51f1de27bab12,
+    type: 3}
+  m_DefaultColliderType: 1
+  m_TilingRules:
+  - m_Neighbors: 0000000000000000000000000000000000000000000000000000000000000000
+    m_Sprites:
+    - {fileID: -7277159080898135269, guid: 75bab445970b05a4f8f669bec5c13bd7, type: 3}
+    m_GameObject: {fileID: 4799816437003494608, guid: 6f869e47046c1f64dad51f1de27bab12,
+      type: 3}
+    m_AnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_RuleTransform: 0
+    m_Output: 0
+    m_ColliderType: 1
+    m_RandomTransform: 0
