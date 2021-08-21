@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/UI_Development/Main.unity
     guid: 582cd7fed6d9e894ca6631dfd0b4a9bd
   - enabled: 1
@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/UI_Development/MainScreen.unity
     guid: d5730735450546040aca489f123fab92
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/UI_Development/UIScene.unity
     guid: 09676f9f1955edf4cba30bdd354b78d0
   - enabled: 0
@@ -39,33 +39,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Map_Design/RealFirst.unity
     guid: d703d0e99ae093a49b2dc67a11b886c3
   - enabled: 0
-<<<<<<< HEAD
     path: 
     guid: 00000000000000000000000000000000
-=======
-    path: Assets/Scenes/SW_Scene/Main_SW.unity
-    guid: c41dc592361d30c4fbf26fe24190bf06
->>>>>>> SW_Practice
   - enabled: 0
     path: Assets/Scenes/SW_Scene/CharacterUI.unity
     guid: 46c465fa6c4a3cd4690730b5e1d4cec4
   - enabled: 0
     path: Assets/Scenes/SW_Scene/First_Spike_SW.unity
     guid: 74062896c7b39104bb75db05d8a7ee8b
-<<<<<<< HEAD
   - enabled: 1
-=======
-  - enabled: 0
-    path: Assets/Scenes/SW_Scene/First_Spike_SW_PC.unity
-    guid: 1ac727c29f4b5094f803f4db5b8d12e5
-  - enabled: 0
->>>>>>> SW_Practice
     path: Assets/Scenes/SW_Scene/UIScene_SW.unity
     guid: 10d4bc3843826d4459c5d85174f3bf54
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Map_Design/2Second_OnlySpike.unity
     guid: 9fa7964b6074bf54abeffb1137615613
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Map_Design/3Third_Hole_and_Spike.unity
     guid: eb4abfe35330d87409cd90ce2ed6eef9
   - enabled: 0
@@ -74,7 +62,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Map_Design/5Fifth_Map.unity
     guid: 5eaaf026fa9cf6843a1418b118c08bce
-  - enabled: 1
-    path: Assets/Scenes/SW_Scene/TrailerScene/First_Spike_Trailer.unity
-    guid: ed8b673453eeee44a8d1dbf148c78049
   m_configObjects: {}
