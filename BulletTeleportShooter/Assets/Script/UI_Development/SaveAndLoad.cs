@@ -54,9 +54,11 @@ public class SaveAndLoad : MonoBehaviour
 
     
     public string[] mapName;
-    public GameObject[] images;
+    public string[] gunName;
+    public GameObject[] mapLockImages;
+    public GameObject[] gunLockImages;
     
-    public GameObject selectButton;
+    
 
     [SerializeField]
     private SaveData saveData = new SaveData();
@@ -81,7 +83,9 @@ public class SaveAndLoad : MonoBehaviour
     {
         
         MapLocker();
-        
+        GunLocker();
+
+
     }
 
     public void Save()
@@ -124,13 +128,13 @@ public class SaveAndLoad : MonoBehaviour
                     if (keyValuePair.Value)
                     {
                         //selectButton.GetComponent<Button>().enabled = true;
-                        images[i].SetActive(false);
+                        mapLockImages[i].SetActive(false);
                         
                     }
                     else
                     {
                         //selectButton.GetComponent<Button>().enabled = false;
-                        images[i].SetActive(true);
+                        mapLockImages[i].SetActive(true);
                         
                     }
                 }
@@ -141,6 +145,41 @@ public class SaveAndLoad : MonoBehaviour
 
 
     }
+    
+    public void GunLocker()
+    {
+
+        GunLock gunLock = saveData.gunLock;
+        foreach (var keyValuePair in gunLock)
+        {
+
+            for (int i = 0; i < gunName.Length; i++)
+            {
+
+                if (keyValuePair.Key == gunName[i])
+                {
+                    if (keyValuePair.Value)
+                    {
+                        //selectButton.GetComponent<Button>().enabled = true;
+                        gunLockImages[i].SetActive(false);
+
+                    }
+                    else
+                    {
+                        //selectButton.GetComponent<Button>().enabled = false;
+                        gunLockImages[i].SetActive(true);
+
+                    }
+                }
+
+            }
+
+        }
+
+
+    }
+
+
     /*public void Prac()
     {
        for(int i =0; i< images.Length; i++)

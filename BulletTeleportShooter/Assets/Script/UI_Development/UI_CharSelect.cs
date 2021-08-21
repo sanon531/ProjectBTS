@@ -17,11 +17,30 @@ public class UI_CharSelect : MonoBehaviour
     public int uiTargetedIndex = 1;
     public int ImmediateIndex = 0;
     public GameObject Stn, Selectbtn;
-    /*
-    public int gold = 0;
-    public int[] limitGold;
-    */
+    public GameObject[] images;
 
+    public void ButtonLocker()
+    {
+
+        for (int i = 0; i < images.Length; i++)
+        {
+            if (ImmediateIndex == i)
+            {
+                if (images[i].activeSelf == true)
+                {
+                    Stn.GetComponent<Button>().enabled = false;
+                    Debug.Log("잠김");
+                }
+                else
+                {
+                    Stn.GetComponent<Button>().enabled = true;
+                    Debug.Log("열림");
+                }
+            }
+
+
+        }
+    }
     Sequence animSequence;
 
     public void BuildAnimation(int _index) //캐릭터창 좌우 이동
@@ -164,14 +183,13 @@ public class UI_CharSelect : MonoBehaviour
 
     void OnInvoke() // 캐릭터 창 좌우 이동시 start 버튼과 selectback 버튼 잠금 -> 누를 수 있는 모든 버튼 잠그기
     {
-        Button btn1 = Stn.GetComponent<Button>();
+        /*Button btn1 = Stn.GetComponent<Button>();
         btn1.enabled = true;
 
         Button btn2 = Selectbtn.GetComponent<Button>();
         btn2.enabled = true;
-        /*LimitedStn();
-        UnlimitedStn();
         */
+        ButtonLocker();
         GameManager.Instance.NowSelectedPlayerNum = uiTargetedIndex;
     }
     

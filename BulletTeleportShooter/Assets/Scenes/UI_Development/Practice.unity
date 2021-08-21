@@ -702,7 +702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapName: []
-  images: []
+  gunName: []
+  mapLockImages: []
+  gunLockImages: []
   selectButton: {fileID: 0}
   saveData:
     mapLock:
@@ -715,8 +717,14 @@ MonoBehaviour:
       m_values: 0100000000
     gunLock:
       m_keys:
-      - none
-      m_values: 01
+      - Bounce
+      - HeavyGatle
+      - Spray
+      - ArtificialSatellite
+      - Hansel
+      - Dionysus
+      - Horus
+      m_values: 01000000000000
     mapHigh:
       m_keys:
       - 2002
@@ -773,17 +781,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076272807}
         m_MethodName: Save
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2076272807}
-        m_MethodName: Practice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
