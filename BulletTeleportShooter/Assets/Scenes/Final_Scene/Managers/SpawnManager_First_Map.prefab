@@ -2309,7 +2309,7 @@ MonoBehaviour:
     - {fileID: 903099011861520729, guid: 1d733b0bc4a5f7b438b71b3ff66a008c, type: 3}
     rewardString: "\uC624\uBE57"
   spawnDelay: 0.5
-  minDistance: 3
+  minDistance: 5
   maxDistance: 100
   defaultTime: 15
   powerUpDelay: 15

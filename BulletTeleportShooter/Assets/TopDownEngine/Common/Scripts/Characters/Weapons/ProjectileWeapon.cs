@@ -117,11 +117,11 @@ namespace MoreMountains.TopDownEngine
                 //총알 생성 및 스택에 Vector 저장
                 if (projectileDamage == -1)     //초기값 그대로면 (따로 총알 데미지가 지정되지 않았으면) 
                 {
-                    bulletStack.AddLast(SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, true));
+                    _bulletTeleportManager.AddBullet(SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, true));
                 }
                 else
                 {
-                    bulletStack.AddLast(SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, projectileDamage, true));
+                    _bulletTeleportManager.AddBullet(SpawnProjectile(SpawnPosition, i, ProjectilesPerShot, projectileDamage, true));
                 }
                 
             }
