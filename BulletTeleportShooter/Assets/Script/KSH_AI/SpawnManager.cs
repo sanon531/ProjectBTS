@@ -128,10 +128,11 @@ public class SpawnManager : MonoBehaviour
             currentTime = 0f;
             float waitTime = currentSequence.time / (float)currentSequence.spawnCount;
 
-            UIManager.Instance.MakeTitle($"상황 변경! : {currentSequence.spawnType.ToString()}", 2f);
             switch (currentSequence.spawnType)
             {
                 case SpawnType.NORMAL:
+                    UIManager.Instance.MakeTitle($"일반적으로 스폰 됩니다.", 2f);
+
                     {
                         for (int currentSpawnCount = 0; currentSpawnCount < currentSequence.spawnCount; ++currentSpawnCount)
                         {
@@ -189,6 +190,7 @@ public class SpawnManager : MonoBehaviour
                         break;
                     }
                 case SpawnType.WAVE:
+                    UIManager.Instance.MakeTitle($"적들이 한꺼번에 밀려옵니다.", 2f);
                     {
                         for (int currentSpawnCount = 0; currentSpawnCount < currentSequence.spawnCount; ++currentSpawnCount)
                         {
@@ -219,6 +221,8 @@ public class SpawnManager : MonoBehaviour
                         break;
                     }
                 case SpawnType.BOSS:
+                    UIManager.Instance.MakeTitle($"관리자가 등장했습니다.", 2f);
+
                     {
                         currentTime = 0f;
 
@@ -273,14 +277,16 @@ public class SpawnManager : MonoBehaviour
                         break;
                     }
                 case SpawnType.BREAK:
+                    UIManager.Instance.MakeTitle($"잠시 쉬어갑니다.", 2f);
                     {
-                        if(currentSequence.time > 0)
+                        if (currentSequence.time > 0)
                         {
                             yield return new WaitForSeconds(currentSequence.time);
                         }
                         break;
                     }
                 case SpawnType.REWARD:
+                    UIManager.Instance.MakeTitle($"{currentSequence.rewardString}총을 획득했습니다.", 2f);
                     if (currentSequence.time > 0)
                     {
                         yield return new WaitForSeconds(currentSequence.time);
