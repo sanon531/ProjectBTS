@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2583172141617350350
 Transform:
   m_ObjectHideFlags: 0
@@ -58,11 +58,13 @@ MonoBehaviour:
     - {fileID: 903099011861520729, guid: 519211f4bf49f1346b8940ba82467bab, type: 3}
     - {fileID: 8639437325799735584, guid: fa4f06c02878d954c8407c82f9cbee30, type: 3}
     - {fileID: 8796143037880317390, guid: a0ac8d2a3a9c9824abb9c4c7adff80f4, type: 3}
+    rewardString: 
   - spawnType: 0
     time: 4
     spawnCount: 0
     spawnPoint: []
     spawnEnemy: []
+    rewardString: 
   - spawnType: 2
     time: 12
     spawnCount: 3
@@ -71,28 +73,26 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
     spawnEnemy:
     - {fileID: 8796143037880317390, guid: a0ac8d2a3a9c9824abb9c4c7adff80f4, type: 3}
+    rewardString: 
   - spawnType: 0
     time: 4
     spawnCount: 0
     spawnPoint: []
     spawnEnemy: []
+    rewardString: 
   spawnDelay: 5
   minDistance: 0
   maxDistance: 100
-  defaultTime: 2
-  powerUpDelay: 2
-  powerUpHP: 2
+  defaultTime: 4
+  powerUpDelay: 4
+  powerUpHP: 1
   powerUpATK: 1
   powerUpSPD: 0.5
-  priorityHP: 1
+  priorityHP: 10
   priorityATK: 1
-  prioritySPD: 100
+  prioritySPD: 1
   currentPowerUpHP: 0
   currentPowerUpATK: 0
   currentPowerUpSPD: 0

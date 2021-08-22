@@ -4825,7 +4825,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6585f21f352bd2d428e39c0353cdc7ae, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4896,7 +4895,7 @@ Transform:
   m_GameObject: {fileID: 1112242749468708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4274961161357988}
   m_RootOrder: 1
@@ -4919,7 +4918,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b6fc11d534b7e049a8267efd5722496, type: 2}
+  - {fileID: 2100000, guid: 7f2e5fcfcb70b1e479ed73782440283a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4940,8 +4939,9 @@ SpriteRenderer:
   m_SortingLayerID: 47421343
   m_SortingLayer: 4
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300008, guid: 75df1bb8b302ceb4a9230d70d1b2e97e, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.9905014, a: 1}
+  m_Sprite: {fileID: -7398920399615116625, guid: d617680b163b66c42aec07ddb6e590bf,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9730,7 +9730,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9784,14 +9783,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4274961161357988}
   - component: {fileID: 114960319110273974}
-  - component: {fileID: 6453867002244709680}
   - component: {fileID: 114589826025121120}
   - component: {fileID: 114419784322626702}
   - component: {fileID: 114971816358891350}
   - component: {fileID: 61374952899877022}
   - component: {fileID: 50614525472420450}
+  - component: {fileID: 8652130142629035444}
   m_Layer: 18
-  m_Name: Speed_Bullet
+  m_Name: CookieBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9829,30 +9828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundsBasedOn: 1
-  LifeTime: 0.5
---- !u!114 &6453867002244709680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579859513670320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e1a732e2aa364c569bbb79498af8c5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoundsBasedOn: 1
-  LifeTime: 0
-  FaceDirection: 1
-  Speed: 400
-  Acceleration: 0
-  Direction: {x: -1, y: 0, z: 0}
-  DirectionCanBeChangedBySpawner: 1
-  FlipValue: {x: -1, y: 1, z: 1}
-  ProjectileIsFacingRight: 1
-  InitialInvulnerabilityDuration: 0
-  DamageOwner: 0
+  LifeTime: 5
 --- !u!114 &114589826025121120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9945,7 +9921,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.010682762}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9956,7 +9932,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.27157056}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!50 &50614525472420450
 Rigidbody2D:
@@ -9979,6 +9955,36 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &8652130142629035444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579859513670320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bd7023db6ee1843a9f13e6f22757a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundsBasedOn: 1
+  LifeTime: 5
+  FaceDirection: 1
+  Speed: 0
+  Acceleration: 0
+  Direction: {x: -1, y: 0, z: 0}
+  DirectionCanBeChangedBySpawner: 1
+  FlipValue: {x: -1, y: 1, z: 1}
+  ProjectileIsFacingRight: 1
+  InitialInvulnerabilityDuration: 0
+  DamageOwner: 0
+  BounceRaycastLength: 1
+  BounceLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  BounceFeedback: {fileID: 0}
+  AmountOfBounces: {x: 5, y: 5}
+  SpeedModifier: {x: 0.9, y: 0.9}
 --- !u!1 &1732689920048540
 GameObject:
   m_ObjectHideFlags: 0
@@ -19509,7 +19515,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6b6fc11d534b7e049a8267efd5722496, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

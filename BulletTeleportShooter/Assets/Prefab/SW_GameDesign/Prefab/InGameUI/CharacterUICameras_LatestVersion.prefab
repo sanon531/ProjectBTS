@@ -2519,6 +2519,7 @@ MonoBehaviour:
   DeathScreen_Score: {fileID: 4551203050637005901}
   DeathScreen_Timer: {fileID: 3167260931299551759}
   DeathScreen_NewRecord: {fileID: 5913722892339366535}
+  MainScreen: {fileID: 0}
 --- !u!114 &367237469760211458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10912,7 +10913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324283404110492756}
   m_Layer: 0
-  m_Name: CharacterUICameras
+  m_Name: CharacterUICameras_LatestVersion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11595,7 +11596,7 @@ RectTransform:
   m_GameObject: {fileID: 1380254904343931803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1283, y: 1.1283, z: 1.1283}
   m_Children:
   - {fileID: 1341508402}
   - {fileID: 1477070755}
@@ -11604,7 +11605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: -223}
+  m_AnchoredPosition: {x: 1532, y: 20}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7647506730784111234

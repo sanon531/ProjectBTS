@@ -15052,12 +15052,12 @@ MonoBehaviour:
     type: 3}
   MaximumHealth: 10
   InitialHealth: 6
-  AttackDMG: 4
-  ShootDelay: 0.2
+  AttackDMG: 8
+  ShootDelay: 0.4
   WalkSpeed: 0
   MaxTeleportToken: 6
-  FlashDMG: 3
-  FlashRange: 2
+  FlashDMG: 8
+  FlashRange: 3
 --- !u!114 &548378012184792397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15078,14 +15078,14 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  InvulnerTime: 0
+  InvulnerTime: 1
   UseTokenAmount: 1
   TokenRechargeDelay: 0.5
   TokenRechargeAmount: 2
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
   CannotTeleportFeedback: {fileID: 7654861724968688376}
-  Radius: 2
+  Radius: 3
 --- !u!114 &8161973739256479228
 MonoBehaviour:
   m_ObjectHideFlags: 0

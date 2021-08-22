@@ -312,7 +312,7 @@ namespace MoreMountains.TopDownEngine
 			//추가 : 비활성화될 때, BulletStack에서 빼줌
 			if (bulletStack.Contains(this.gameObject))
 			{
-				bulletStack.Remove(this.gameObject);
+				_bulletTeleportManager.DeleteBullet(this.gameObject);
 			}
 
 		}
