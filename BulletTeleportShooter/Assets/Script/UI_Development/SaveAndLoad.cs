@@ -10,18 +10,7 @@ using System;
 
 public class SaveData
 {
-    /*[SerializeField]
-    public ObjectColorDictionary m_objectColorDictionary;
-
-    [SerializeField]
-    StringStringDictionary m_stringStringDictionary;
-    public IDictionary<string,string> StringStringDictionary
-    {
-        get { return m_stringStringDictionary; }
-        set { m_stringStringDictionary.CopyFrom(value); }
-    }*/
-
-
+   
     [SerializeField]
     public MapLock mapLock;
 
@@ -29,10 +18,10 @@ public class SaveData
     public GunLock gunLock;
 
     [SerializeField]
-    MapHigh mapHigh;
+    public MapHigh mapHigh;
 
     [SerializeField]
-    GunHigh gunHigh;
+    public GunHigh gunHigh;
 
     public int gold;
 }
@@ -41,25 +30,6 @@ public class SaveData
 public class SaveAndLoad : MonoBehaviour
 {
 
-
-
-    /*[SerializeField]
-    StringStringDictionary m_stringStringDictionary;
-    public IDictionary<string, string> StringStringDictionary
-    {
-        get { return m_stringStringDictionary; }
-        set { m_stringStringDictionary.CopyFrom(value); }
-    }
-    */
-
-    
-    public string[] mapName;
-    public string[] gunName;
-    public GameObject[] mapLockImages;
-    public GameObject[] gunLockImages;
-    
-    
-
     [SerializeField]
     private SaveData saveData = new SaveData();
 
@@ -67,7 +37,7 @@ public class SaveAndLoad : MonoBehaviour
 
     private string SAVE_DATA_DIRECTORY;
     private string SAVE_FILENAME = "/SaveFile.txt";
-
+    
     
 
     void Awake()
@@ -77,21 +47,47 @@ public class SaveAndLoad : MonoBehaviour
         if (!Directory.Exists(SAVE_DATA_DIRECTORY))
             Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
 
-        Load();
+        
     }
     void Start()
     {
         
-        MapLocker();
-        GunLocker();
-
-
     }
 
+    public void UnLockByName(bool isgun,string _name)
+    {
+        
+        if (isgun)
+        {
+            if (saveData.gunLock[_name])
+            {
+
+            }
+            else
+            {
+                saveData.gunLock[_name] = true;
+
+            }
+        }
+        else
+        {
+            if (saveData.mapLock[_name])
+            {
+
+            }
+            else
+            {
+                saveData.mapLock[_name] = true;
+
+            }
+        }
+        Save();
+    }
+    
     public void Save()
     {
         string jsonData = JsonUtility.ToJson(saveData);
-        //string path = Path.Combine(SAVE_DATA_DIRECTORY, SAVE_FILENAME);
+        
         File.WriteAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME, jsonData);
 
 
@@ -100,7 +96,7 @@ public class SaveAndLoad : MonoBehaviour
         Debug.Log(jsonData);
     }
 
-    public void Load()
+    public SaveData Load()
     {
         if(File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME))
         {
@@ -109,95 +105,11 @@ public class SaveAndLoad : MonoBehaviour
 
 
             Debug.Log(saveData);
-        }
-    }
-
-  
-    public void MapLocker()
-    {
-              
-        MapLock mapLock = saveData.mapLock;
-        foreach(var keyValuePair in mapLock)
-        {
             
-            for (int i=0;i < mapName.Length; i++)
-            {
-                                
-                if (keyValuePair.Key == mapName[i])
-                {
-                    if (keyValuePair.Value)
-                    {
-                        //selectButton.GetComponent<Button>().enabled = true;
-                        mapLockImages[i].SetActive(false);
-                        
-                    }
-                    else
-                    {
-                        //selectButton.GetComponent<Button>().enabled = false;
-                        mapLockImages[i].SetActive(true);
-                        
-                    }
-                }
-
-            }
-
-        }     
-
-
+        }
+        return saveData;
     }
     
-    public void GunLocker()
-    {
-
-        GunLock gunLock = saveData.gunLock;
-        foreach (var keyValuePair in gunLock)
-        {
-
-            for (int i = 0; i < gunName.Length; i++)
-            {
-
-                if (keyValuePair.Key == gunName[i])
-                {
-                    if (keyValuePair.Value)
-                    {
-                        //selectButton.GetComponent<Button>().enabled = true;
-                        gunLockImages[i].SetActive(false);
-
-                    }
-                    else
-                    {
-                        //selectButton.GetComponent<Button>().enabled = false;
-                        gunLockImages[i].SetActive(true);
-
-                    }
-                }
-
-            }
-
-        }
-
-
-    }
-
-
-    /*public void Prac()
-    {
-       for(int i =0; i< images.Length; i++)
-        {
-            if (images[i] == true)
-            {
-                Debug.Log(i);
-                Debug.Log("액티브함");
-            }
-
-            else
-            {
-                Debug.Log(i);
-                Debug.Log("언액티브함");
-            }
-                
-        }
-    }*/
 
 }
 

@@ -58,7 +58,7 @@ public class SpawnManager : MonoBehaviour
     private Sequence powerUpSequence;
     private int powerUpToken;
     private Dictionary<System.Type, Queue<Enemy>> objectPool;
-    
+    public SaveAndLoad save;
 
     private void Awake()
     {
@@ -291,13 +291,16 @@ public class SpawnManager : MonoBehaviour
                     if (currentSequence.rewardisGun)
                     {
                         UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 총을 해금했습니다.", 2f);
+                        
+                        save.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString);
                         // 여기는 총을 해금 합니다
                     }
                     else
                     {
                         UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 맵을 해금했습니다.", 2f);
+                        save.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString);
+                         
                         // 여기는 맵을 해금 합니다낭낭 하게 해주세요
-
 
                     }
 
