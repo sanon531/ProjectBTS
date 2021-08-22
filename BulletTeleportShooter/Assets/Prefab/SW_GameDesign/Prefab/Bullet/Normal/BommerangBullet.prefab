@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f009572b4d918346b24337ef83f88c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotating: 1
+  Rotating: 0
   RotationSpace: 1
   UpdateMode: 0
   RotationSpeed: {x: 0, y: 0, z: 720}
@@ -242,7 +242,7 @@ MonoBehaviour:
   AdditiveOrbitRotation: 1
   OrbitCenterTransform: {fileID: 0}
   OrbitCenterOffset: {x: 0, y: 0, z: 0}
-  OrbitRotationAxis: {x: 0, y: 1, z: 0.1}
+  OrbitRotationAxis: {x: 0, y: 1, z: 0}
   OrbitRotationSpeed: 300
   OrbitRadius: 6
   OrbitCorrectionSpeed: 100
@@ -5078,7 +5078,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6585f21f352bd2d428e39c0353cdc7ae, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5182,7 +5182,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cbfb1e20c75cc4047b9fc298c9feea34, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9947,7 +9947,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d4cd643376433c14a89d978020e035ec, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: 4c7465464f6cf394ba90e61ed031816f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

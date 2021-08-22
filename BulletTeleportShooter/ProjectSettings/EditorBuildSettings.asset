@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI_Development/Main.unity
     guid: 582cd7fed6d9e894ca6631dfd0b4a9bd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SW_Scene/Main_KJ.unity
     guid: 26ed948ed2dc9c9468c5ea387fa479ac
   - enabled: 0
     path: Assets/Scenes/UI_Development/MainScreen.unity
     guid: d5730735450546040aca489f123fab92
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI_Development/UIScene.unity
     guid: 09676f9f1955edf4cba30bdd354b78d0
   - enabled: 0
@@ -45,15 +45,15 @@ EditorBuildSettings:
     path: Assets/Scenes/SW_Scene/CharacterUI.unity
     guid: 46c465fa6c4a3cd4690730b5e1d4cec4
   - enabled: 0
-    path: Assets/Scenes/SW_Scene/First_Spike_SW.unity
-    guid: 74062896c7b39104bb75db05d8a7ee8b
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/SW_Scene/UIScene_SW.unity
     guid: 10d4bc3843826d4459c5d85174f3bf54
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Map_Design/2Second_OnlySpike.unity
     guid: 9fa7964b6074bf54abeffb1137615613
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Map_Design/3Third_Hole_and_Spike.unity
     guid: eb4abfe35330d87409cd90ce2ed6eef9
   - enabled: 0
@@ -62,4 +62,25 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Map_Design/5Fifth_Map.unity
     guid: 5eaaf026fa9cf6843a1418b118c08bce
+  - enabled: 1
+    path: Assets/Scenes/Final_Scene/PC/Main_Final_PC.unity
+    guid: 89f12ef748d862248a751fe67a303a08
+  - enabled: 1
+    path: Assets/Scenes/Final_Scene/PC/UIScene_Final_PC.unity
+    guid: f87d00196fb6dea41b682ff557c158ba
+  - enabled: 1
+    path: Assets/Scenes/Final_Scene/PC/1First_Spike_Final_PC.unity
+    guid: 9b67f9e594b204c4b8c345b55e92c498
+  - enabled: 1
+    path: Assets/Scenes/Final_Scene/PC/2Second_OnlySpike__Final_PC.unity
+    guid: 4ecbb11ccfc88a047ad9fdcb115a37c4
+  - enabled: 1
+    path: Assets/Scenes/Final_Scene/PC/3Third_Hole_and_Spike_Final_PC.unity
+    guid: 2a32ab8f2c187904fb655c15bb066458
+  - enabled: 1
+    path: Assets/Scenes/Final_Scene/PC/5Fifth_Map_Final_PC.unity
+    guid: 7c5d82a73b6717a4ba2916fe49988277
+  - enabled: 0
+    path: Assets/Scenes/Final_Scene/PC/NO_4FourthMap_Final_PC.unity
+    guid: 4baf2f1ae9a786b468e1ec5ea4439794
   m_configObjects: {}
