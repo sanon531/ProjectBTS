@@ -704,7 +704,7 @@ MonoBehaviour:
   saveData:
     mapLock:
       m_keys:
-      - First_Spike_SW_PC
+      - 1First_Spike_Final_PC
       - Scond_Empty_SW
       - 3Third_Hole_and_Spike
       - 4FourthMap
@@ -718,8 +718,9 @@ MonoBehaviour:
       - ArtificialSatellite
       - Hansel
       - Dionysus
-      - Horus
-      m_values: 01000000000000
+      - Rocket
+      - Thor
+      m_values: 0100000000000001
     mapHigh:
       m_keys:
       - 2002

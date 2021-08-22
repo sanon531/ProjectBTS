@@ -20,7 +20,7 @@ public class UI_CharSelect : MonoBehaviour
     public int ImmediateIndex = 0;
     public GameObject Stn, Selectbtn;
     public GameObject[] images;
-    public SaveData saveData = new SaveData();
+    //public SaveData saveData = new SaveData();
     public string[] gunName;
     public SaveAndLoad save;
 
@@ -31,7 +31,7 @@ public class UI_CharSelect : MonoBehaviour
     public void GunLocker()
     {
 
-        GunLock gunLock = saveData.gunLock;
+        GunLock gunLock = SaveAndLoad.instance.saveData.gunLock;
         foreach (var keyValuePair in gunLock)
         {
 
@@ -210,7 +210,6 @@ public class UI_CharSelect : MonoBehaviour
         if (!Directory.Exists(SAVE_DATA_DIRECTORY))
             Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
 
-        saveData = save.Load();
     }
     
     

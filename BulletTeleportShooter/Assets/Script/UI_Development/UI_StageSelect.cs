@@ -19,23 +19,25 @@ public class UI_StageSelect : MonoBehaviour
     public int uiTargetedIndex = 0;
     public int ImmediateIndex = 0;
     public List<string> SceneList;
-    public SaveAndLoad save;
+    public SaveData save;
 
     public string[] mapName;
     public GameObject[] images;
     public GameObject selectButton;
-    public SaveData saveData = new SaveData();
-    public SaveAndLoad save;
+    //public SaveData saveData = new SaveData();
 
     private string SAVE_DATA_DIRECTORY;
     private string SAVE_FILENAME = "/SaveFile.txt";
 
     public void MapLocker()
     {
-        
-        MapLock mapLock = saveData.mapLock;
-        foreach (var keyValuePair in mapLock)
+        save = SaveAndLoad.instance.saveData;
+
+        Debug.Log("123654..");
+
+        foreach (KeyValuePair<string,bool> keyValuePair in save.mapLock)
         {
+            Debug.Log("123654");
 
             for (int i = 0; i < mapName.Length; i++)
             {
@@ -133,12 +135,6 @@ public class UI_StageSelect : MonoBehaviour
 
         if (!Directory.Exists(SAVE_DATA_DIRECTORY))
             Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
-
-
-        saveData = save.Load();
-       
-
-
     }
 
 
@@ -146,14 +142,19 @@ public class UI_StageSelect : MonoBehaviour
 
     private void Start()
     {
-        
-
         Focus(uiTargetedIndex);
-        MapLocker();
-        
+        StartCoroutine(coco());
     }
 
-   
+    IEnumerator coco()
+    {
+        yield return new WaitForEndOfFrame();
+        MapLocker();
+
+    }
+
+
+
     public void OnClick_Left()
     {
         if (!animSequence.IsActive())
