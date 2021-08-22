@@ -17,7 +17,7 @@ public class UI_StageSelect : MonoBehaviour
     public int uiTargetedIndex = 0;
     public int ImmediateIndex = 0;
     public List<string> SceneList;
-
+    public SaveAndLoad save;
 
     public GameObject[] images;
     public GameObject selectButton;

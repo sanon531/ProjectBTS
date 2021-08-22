@@ -81,20 +81,50 @@ public class SaveAndLoad : MonoBehaviour
     }
     void Start()
     {
-        
         MapLocker();
         GunLocker();
+    }
+    public void UnloockByname(bool isgun, string _name)
+    {
+        if (isgun)
+        {
+            if (saveData.gunLock[_name])
+            {
+                Debug.Log("^^7 이미 열렸네 ㄹㅇㅋㅋ ");
 
+            }
+            else
+            {
+                saveData.gunLock[_name] = true;
+                Debug.Log(_name + "총이 해금되었습니다");
+
+            }
+        }
+        else
+        {
+            if (saveData.mapLock[_name])
+            {
+                Debug.Log("^^7 이미 열렸네 ㄹㅇㅋㅋ ");
+
+            }
+            else
+            {
+                saveData.gunLock[_name] = true;
+                Debug.Log(_name + "맵이 해금되었습니다");
+
+            }
+        }
+
+        Save();
 
     }
+
 
     public void Save()
     {
         string jsonData = JsonUtility.ToJson(saveData);
         //string path = Path.Combine(SAVE_DATA_DIRECTORY, SAVE_FILENAME);
         File.WriteAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME, jsonData);
-
-
 
         Debug.Log("저장 완료");
         Debug.Log(jsonData);
@@ -106,8 +136,6 @@ public class SaveAndLoad : MonoBehaviour
         {
             string loadJson = File.ReadAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME);
             saveData = JsonUtility.FromJson<SaveData>(loadJson);
-
-
             Debug.Log(saveData);
         }
     }
@@ -119,23 +147,19 @@ public class SaveAndLoad : MonoBehaviour
         MapLock mapLock = saveData.mapLock;
         foreach(var keyValuePair in mapLock)
         {
-            
             for (int i=0;i < mapName.Length; i++)
             {
-                                
                 if (keyValuePair.Key == mapName[i])
                 {
                     if (keyValuePair.Value)
                     {
                         //selectButton.GetComponent<Button>().enabled = true;
                         mapLockImages[i].SetActive(false);
-                        
                     }
                     else
                     {
                         //selectButton.GetComponent<Button>().enabled = false;
                         mapLockImages[i].SetActive(true);
-                        
                     }
                 }
 
