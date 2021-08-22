@@ -31,8 +31,9 @@ public class SaveAndLoad : MonoBehaviour
 {
 
     [SerializeField]
-    private SaveData saveData = new SaveData();
+    public SaveData saveData = new SaveData();
 
+    public static SaveAndLoad instance;
     
 
     private string SAVE_DATA_DIRECTORY;
@@ -46,42 +47,46 @@ public class SaveAndLoad : MonoBehaviour
 
         if (!Directory.Exists(SAVE_DATA_DIRECTORY))
             Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
+        if (instance==null)
+            instance = this;
 
-        
     }
     void Start()
     {
-        
+        Load();
+
     }
 
-    public void UnLockByName(bool isgun,string _name)
+    public bool UnLockByName(bool isgun,string _name)
     {
-        
+       
         if (isgun)
         {
             if (saveData.gunLock[_name])
             {
-
+                return false;
             }
             else
             {
                 saveData.gunLock[_name] = true;
+                Save();
 
+                return true;
             }
         }
         else
         {
             if (saveData.mapLock[_name])
             {
-
+                return false;
             }
             else
             {
                 saveData.mapLock[_name] = true;
-
+                Save();
+                return true;
             }
         }
-        Save();
     }
     
     public void Save()
@@ -89,8 +94,6 @@ public class SaveAndLoad : MonoBehaviour
         string jsonData = JsonUtility.ToJson(saveData);
         
         File.WriteAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME, jsonData);
-
-
 
         Debug.Log("저장 완료");
         Debug.Log(jsonData);
@@ -102,8 +105,6 @@ public class SaveAndLoad : MonoBehaviour
         {
             string loadJson = File.ReadAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME);
             saveData = JsonUtility.FromJson<SaveData>(loadJson);
-
-
             Debug.Log(saveData);
             
         }
