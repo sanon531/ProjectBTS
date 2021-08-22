@@ -701,16 +701,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dc6ff4b2fac3c4b813092f2d17d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapName: []
-  gunName: []
-  mapLockImages: []
-  gunLockImages: []
-  selectButton: {fileID: 0}
   saveData:
     mapLock:
       m_keys:
-      - First_Spike_SW
-      - 2Second_OnlySpike
+      - First_Spike_SW_PC
+      - Scond_Empty_SW
       - 3Third_Hole_and_Spike
       - 4FourthMap
       - 5Fifth_Map

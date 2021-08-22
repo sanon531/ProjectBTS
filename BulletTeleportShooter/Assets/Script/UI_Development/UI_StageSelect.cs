@@ -5,6 +5,8 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using MoreMountains.TopDownEngine;
+using System.IO;
+using System;
 
 public class UI_StageSelect : MonoBehaviour
 {
@@ -19,8 +21,48 @@ public class UI_StageSelect : MonoBehaviour
     public List<string> SceneList;
     public SaveAndLoad save;
 
+    public string[] mapName;
     public GameObject[] images;
     public GameObject selectButton;
+    public SaveData saveData = new SaveData();
+    public SaveAndLoad save;
+
+    private string SAVE_DATA_DIRECTORY;
+    private string SAVE_FILENAME = "/SaveFile.txt";
+
+    public void MapLocker()
+    {
+        
+        MapLock mapLock = saveData.mapLock;
+        foreach (var keyValuePair in mapLock)
+        {
+
+            for (int i = 0; i < mapName.Length; i++)
+            {
+
+                if (keyValuePair.Key == mapName[i])
+                {
+                    if (keyValuePair.Value)
+                    {
+                        images[i].SetActive(false);
+                        Debug.Log("123654");
+
+                    }
+                    else
+                    {
+                        images[i].SetActive(true);
+                        Debug.Log("작작동동주주크크");
+
+                    }
+                }
+
+            }
+
+        }
+
+
+    }
+
     
     public void ButtonLocker()
     {
@@ -70,46 +112,7 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
-    /*public void LimitedSelect()
-    {
-        for(int i = 0; i<limitGold.Length; i++)
-        {
-            if(ImmediateIndex == i && gold < limitGold[i])
-            {
-
-                Button btn = selectButton.GetComponent<Button>();
-                btn.enabled = false;
-                //selectButton.SetActive(false);
-                Debug.Log("골드가 부족합니다.");
-                Debug.Log(ImmediateIndex);
-                Debug.Log(limitGold);
-
-            }
-        }           
-            
-    }
-
-    public void UnlimitedSelect()
-    {
-        for (int i = 0; i < limitGold.Length; i++)
-        {
-            if (uiTargetedIndex == i && gold >= limitGold[i])
-            {
-
-                Button btn = selectButton.GetComponent<Button>();
-                btn.enabled = true;
-                //selectButton.SetActive(true);
-                Debug.Log(uiTargetedIndex);
-
-                Debug.Log("해금되었습니다.");
-                
-                Debug.Log(gold);
-
-            }
-        }
-
-    }
-    */
+    
 
 
 
@@ -122,10 +125,31 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
+    
+    
+    private void Awake()
+    {
+        SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
+
+        if (!Directory.Exists(SAVE_DATA_DIRECTORY))
+            Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
+
+
+        saveData = save.Load();
+       
+
+
+    }
+
+
+
+
     private void Start()
     {
+        
+
         Focus(uiTargetedIndex);
-        //UnlimitedSelect();
+        MapLocker();
         
     }
 

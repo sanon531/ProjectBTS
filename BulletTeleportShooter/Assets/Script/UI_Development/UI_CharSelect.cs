@@ -4,6 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using MoreMountains.TopDownEngine;
+using System.IO;
+using System;
 
 
 public class UI_CharSelect : MonoBehaviour
@@ -18,7 +20,45 @@ public class UI_CharSelect : MonoBehaviour
     public int ImmediateIndex = 0;
     public GameObject Stn, Selectbtn;
     public GameObject[] images;
+    public SaveData saveData = new SaveData();
+    public string[] gunName;
+    public SaveAndLoad save;
 
+    private string SAVE_DATA_DIRECTORY;
+    private string SAVE_FILENAME = "/SaveFile.txt";
+
+
+    public void GunLocker()
+    {
+
+        GunLock gunLock = saveData.gunLock;
+        foreach (var keyValuePair in gunLock)
+        {
+
+            for (int i = 0; i < gunName.Length; i++)
+            {
+
+                if (keyValuePair.Key == gunName[i])
+                {
+                    if (keyValuePair.Value)
+                    {
+                        images[i].SetActive(false);
+                        Debug.Log("김준");
+
+                    }
+                    else
+                    {
+                        images[i].SetActive(true);
+
+                    }
+                }
+
+            }
+
+        }
+
+
+    }
     public void ButtonLocker()
     {
 
@@ -62,46 +102,7 @@ public class UI_CharSelect : MonoBehaviour
         }
     }
 
-    /*public void LimitedStn()
-    {
-        for (int i = 0; i < limitGold.Length; i++)
-        {
-            if (ImmediateIndex == i && gold < limitGold[i])
-            {
-                Button btn = Stn.GetComponent<Button>();
-                btn.enabled = false;
-                //selectButton.SetActive(false);
-                Debug.Log("골드가 부족합니다.");
-                Debug.Log(ImmediateIndex);
-                Debug.Log(limitGold);
-
-            }
-        }
-
-    }
-    */
-
-    /*public void UnlimitedStn()
-    {
-        for (int i = 0; i < limitGold.Length; i++)
-        {
-            if (uiTargetedIndex == i && gold >= limitGold[i])
-            {
-
-                Button btn = Stn.GetComponent<Button>();
-                btn.enabled = true;
-                //selectButton.SetActive(true);
-                Debug.Log(uiTargetedIndex);
-
-                Debug.Log("해금되었습니다.");
-
-                Debug.Log(gold);
-
-            }
-        }
-
-    }
-    */
+    
     public void Focus(int _index, Vector2 Originps) //여러 개의 캐릭터 창 중 중심 점 잡기
     {
         /*for (int i = 0; i < node.Length; ++i)
@@ -202,13 +203,25 @@ public class UI_CharSelect : MonoBehaviour
 
     Sequence anim;
 
+    void Awake()
+    {
+        SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
 
+        if (!Directory.Exists(SAVE_DATA_DIRECTORY))
+            Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
+
+        saveData = save.Load();
+    }
+    
+    
+    
     private void Start() // 중심 캐릭터창의 좌표 넣기
     {
         //image.DOFade(0f, 0f);
         OriginPos = rect.anchoredPosition;
         Debug.Log(OriginPos);
         Focus(uiTargetedIndex, OriginPos);
+        GunLocker();
     }
 
 
