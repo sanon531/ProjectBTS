@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 1032295090}
   - component: {fileID: 1032295095}
   - component: {fileID: 1032295094}
+  - component: {fileID: 1032295096}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -492,6 +493,47 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1032295096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032295089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dc6ff4b2fac3c4b813092f2d17d055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveData:
+    mapLock:
+      m_keys:
+      - First_Spike_Final_PC
+      - Scond_Empty_SW
+      - 3Third_Hole_and_Spike
+      - 4FourthMap
+      - 5Fifth_Map
+      m_values: 0100000000
+    gunLock:
+      m_keys:
+      - Bounce
+      - HeavyGatle
+      - Spray
+      - ArtificialSatellite
+      - Hansel
+      - Dionysus
+      - Bommerang
+      - Rocket
+      - Thor
+      m_values: 010000000000000000
+    mapHigh:
+      m_keys: []
+      m_values: []
+    gunHigh:
+      m_keys: []
+      m_values: []
+    gold: 0
+    canLoad: 0
 --- !u!224 &1036779996 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7055905508716588231, guid: 08b93074218a9374ea5696f085900884,

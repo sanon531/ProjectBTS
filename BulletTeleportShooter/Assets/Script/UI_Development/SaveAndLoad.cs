@@ -24,6 +24,8 @@ public class SaveData
     public GunHigh gunHigh;
 
     public int gold;
+
+    
 }
 
 
@@ -34,7 +36,8 @@ public class SaveAndLoad : MonoBehaviour
     public SaveData saveData = new SaveData();
 
     public static SaveAndLoad instance;
-    
+
+    public bool isStart = false;
 
     private string SAVE_DATA_DIRECTORY;
     private string SAVE_FILENAME = "/SaveFile.txt";
@@ -53,8 +56,11 @@ public class SaveAndLoad : MonoBehaviour
     }
     void Start()
     {
-        Load();
-
+       if (File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME) != null)
+        {
+            Load();
+        }
+        
     }
 
     public bool UnLockByName(bool isgun,string _name)

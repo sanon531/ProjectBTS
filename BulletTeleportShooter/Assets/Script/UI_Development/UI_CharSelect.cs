@@ -186,10 +186,10 @@ public class UI_CharSelect : MonoBehaviour
     {
         /*Button btn1 = Stn.GetComponent<Button>();
         btn1.enabled = true;
-
+        */
         Button btn2 = Selectbtn.GetComponent<Button>();
         btn2.enabled = true;
-        */
+        
         ButtonLocker();
         GameManager.Instance.NowSelectedPlayerNum = uiTargetedIndex;
     }

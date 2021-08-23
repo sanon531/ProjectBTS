@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -406,12 +406,32 @@ MonoBehaviour:
   uiTargetedIndex: 0
   ImmediateIndex: 0
   SceneList:
-  - First_Spike_SW_PC
+  - First_Spike_Final_PC
   - Scond_Empty_SW
   - 3Third_Hole_and_Spike
   - 4FourthMap
   - 5Fifth_Map
-  save: {fileID: 78918887}
+  save:
+    mapLock:
+      m_keys: []
+      m_values: 
+    gunLock:
+      m_keys: []
+      m_values: 
+    mapHigh:
+      m_keys: []
+      m_values: []
+    gunHigh:
+      m_keys: []
+      m_values: []
+    gold: 0
+    canLoad: 0
+  mapName:
+  - First_Spike_Final_PC
+  - Scond_Empty_SW
+  - 3Third_Hole_and_Spike
+  - 4FourthMap
+  - 5Fifth_Map
   images:
   - {fileID: 702620874}
   - {fileID: 1397873060}
@@ -431,38 +451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dc6ff4b2fac3c4b813092f2d17d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapName:
-  - 1First_Spike_Final_PC
-  - 2Second_OnlySpike__Final_PC
-  - 3Third_Hole_and_Spike_Final_PC
-  - 5Fifth_Map_Final_PC
-  - 5Fifth_Map
-  gunName:
-  - Bounce
-  - HeavyGatle
-  - Spray
-  - ArtificialSatellite
-  - Hansel
-  - Dionysus
-  - Bommerang
-  - Rocket
-  - Thor
-  mapLockImages:
-  - {fileID: 702620874}
-  - {fileID: 1397873060}
-  - {fileID: 610978597}
-  - {fileID: 1640016985}
-  - {fileID: 1406452754}
-  gunLockImages:
-  - {fileID: 1153906575}
-  - {fileID: 655694691}
-  - {fileID: 650639469}
-  - {fileID: 1082575839}
-  - {fileID: 1606630455}
-  - {fileID: 988197122}
-  - {fileID: 1322721370}
-  - {fileID: 1393474872}
-  - {fileID: 603076868}
   saveData:
     mapLock:
       m_keys: []
@@ -477,6 +465,7 @@ MonoBehaviour:
       m_keys: []
       m_values: []
     gold: 0
+    canLoad: 0
 --- !u!1 &108173102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,10 +1030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dc6ff4b2fac3c4b813092f2d17d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapName: []
-  gunName: []
-  mapLockImages: []
-  gunLockImages: []
   saveData:
     mapLock:
       m_keys: []
@@ -1059,6 +1044,7 @@ MonoBehaviour:
       m_keys: []
       m_values: []
     gold: 0
+    canLoad: 0
 --- !u!114 &199079056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6398,6 +6384,17 @@ MonoBehaviour:
   - {fileID: 1322721370}
   - {fileID: 1393474872}
   - {fileID: 603076868}
+  gunName:
+  - Bounce
+  - HeavyGatle
+  - Spray
+  - ArtificialSatellite
+  - Hansel
+  - Dionysus
+  - Bommerang
+  - Rocket
+  - Thor
+  save: {fileID: 0}
   rect: {fileID: 1435153302}
   OriginPos: {x: 0, y: 0}
 --- !u!1 &1444857000
