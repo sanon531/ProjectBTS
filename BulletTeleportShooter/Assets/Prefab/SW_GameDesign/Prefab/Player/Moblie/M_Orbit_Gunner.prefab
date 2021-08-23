@@ -15082,7 +15082,7 @@ MonoBehaviour:
   WalkSpeed: 0
   MaxTeleportToken: 6
   FlashDMG: 5
-  FlashRange: 2
+  FlashRange: 3
 --- !u!114 &548378012184792397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15105,7 +15105,7 @@ MonoBehaviour:
   BlockingConditionStates: 
   InvulnerTime: 0
   UseTokenAmount: 1
-  TokenRechargeDelay: 0.1
+  TokenRechargeDelay: 0.2
   TokenRechargeAmount: 1
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}

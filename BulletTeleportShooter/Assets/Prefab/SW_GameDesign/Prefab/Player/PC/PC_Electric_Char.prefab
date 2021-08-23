@@ -15025,12 +15025,12 @@ MonoBehaviour:
     type: 3}
   MaximumHealth: 10
   InitialHealth: 6
-  AttackDMG: 2
-  ShootDelay: 1
+  AttackDMG: 1
+  ShootDelay: 1.5
   WalkSpeed: 0
   MaxTeleportToken: 6
   FlashDMG: 3
-  FlashRange: 2
+  FlashRange: 1
 --- !u!114 &548378012184792397
 MonoBehaviour:
   m_ObjectHideFlags: 0

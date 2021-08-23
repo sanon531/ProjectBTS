@@ -309,7 +309,6 @@ public class PathManager : MonoBehaviour
                             {
 
                                 borderNodeData[currentNode.area][compareNode.area].Add(compareNode);
-                                borderNodeData[compareNode.area][currentNode.area].Add(currentNode);
                             }
                         }
                     }

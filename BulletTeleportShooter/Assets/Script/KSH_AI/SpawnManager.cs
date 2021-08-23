@@ -294,11 +294,11 @@ public class SpawnManager : MonoBehaviour
 
                         if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
                         {
-                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 총을 해금했습니다.", 2f);
+                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 총을 해금했습니다.", 4f);
                         }
                         else
                         {
-                            UIManager.Instance.MakeTitle($"이미 해금되었습니다.", 2f);
+                            UIManager.Instance.MakeTitle($"잠시 쉬어갑니다.", 2f);
 
                         }
                         // 여기는 총을 해금 합니다
@@ -307,11 +307,11 @@ public class SpawnManager : MonoBehaviour
                     {
                         if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
                         {
-                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 맵을 해금했습니다.", 2f);
+                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 맵을 해금했습니다.", 4f);
                         }
                         else
                         {
-                            UIManager.Instance.MakeTitle($"이미 해금되었습니다.", 2f);
+                            UIManager.Instance.MakeTitle($"잠시 쉬어갑니다.", 2f);
                         }
                         // 여기는 맵을 해금 합니다낭낭 하게 해주세요
 
