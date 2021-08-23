@@ -10,7 +10,15 @@ using System;
 
 public class SaveData
 {
-   
+    [SerializeField]
+    public bool tutorialOn = true;
+
+    [SerializeField]
+    public int lastPlayedMaps = 0;
+
+    [SerializeField]
+    public int lastUsedGuns  = 0;
+
     [SerializeField]
     public MapLock mapLock;
 
@@ -24,6 +32,8 @@ public class SaveData
     public GunHigh gunHigh;
 
     public int gold;
+
+    
 }
 
 
@@ -34,7 +44,8 @@ public class SaveAndLoad : MonoBehaviour
     public SaveData saveData = new SaveData();
 
     public static SaveAndLoad instance;
-    
+
+    public bool isStart = false;
 
     private string SAVE_DATA_DIRECTORY;
     private string SAVE_FILENAME = "/SaveFile.txt";
@@ -46,16 +57,35 @@ public class SaveAndLoad : MonoBehaviour
         SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
 
         if (!Directory.Exists(SAVE_DATA_DIRECTORY))
+        {
             Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
+        }
         if (instance==null)
             instance = this;
 
     }
     void Start()
     {
-        Load();
+        if (File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME) == true)
+        {
+            Load();
+        }
+    }
+
+    public void InitialSave()
+    {
+        if (File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME) == false)
+        {
+            string jsonData = JsonUtility.ToJson(saveData);
+
+            File.WriteAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME, jsonData);
+
+            Debug.Log(jsonData);
+
+        }
 
     }
+
 
     public bool UnLockByName(bool isgun,string _name)
     {
@@ -110,7 +140,18 @@ public class SaveAndLoad : MonoBehaviour
         }
         return saveData;
     }
-    
+
+    public void SetLastMap(int mapNum)
+    {
+        saveData.lastPlayedMaps = mapNum;
+        Save();
+    }
+    public void SetLastGun(int gunNum)
+    {
+        saveData.lastUsedGuns = gunNum;
+        Save();
+
+    }
 
 }
 

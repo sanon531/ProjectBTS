@@ -4848,8 +4848,8 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 10
-  MaximumHealth: 10
+  InitialHealth: 200
+  MaximumHealth: 200
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 0}
   DestroyOnDeath: 1

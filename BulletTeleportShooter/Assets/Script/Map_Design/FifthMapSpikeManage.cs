@@ -6,8 +6,6 @@ public class FifthMapSpikeManage : MonoBehaviour
 {
     public static FifthMapSpikeManage Instance;
 
-    [SerializeField]
-    List<FifthMapSpikeContainer> SpikeContainerList = new List<FifthMapSpikeContainer>();
 
     // Start is called before the first frame update
     void Awake()

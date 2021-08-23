@@ -30,8 +30,10 @@ public class UI_CharSelect : MonoBehaviour
 
     public void GunLocker()
     {
-
+        uiTargetedIndex = SaveAndLoad.instance.saveData.lastPlayedMaps;
+        ImmediateIndex = uiTargetedIndex;
         GunLock gunLock = SaveAndLoad.instance.saveData.gunLock;
+
         foreach (var keyValuePair in gunLock)
         {
 
@@ -43,20 +45,16 @@ public class UI_CharSelect : MonoBehaviour
                     if (keyValuePair.Value)
                     {
                         images[i].SetActive(false);
-                        Debug.Log("김준");
-
                     }
                     else
                     {
                         images[i].SetActive(true);
-
                     }
                 }
 
             }
 
         }
-
 
     }
     public void ButtonLocker()
@@ -69,7 +67,7 @@ public class UI_CharSelect : MonoBehaviour
                 if (images[i].activeSelf == true)
                 {
                     Stn.GetComponent<Button>().enabled = false;
-                    Debug.Log("잠김");
+                    Debug.Log(i+"잠김");
                 }
                 else
                 {
@@ -99,6 +97,8 @@ public class UI_CharSelect : MonoBehaviour
             if (0 <= _index + 1 && _index + 1 < node.Length) animSequence.
                     Join(node[_index + 1].DOScale(Vector3.one, time)); // 오른쪽의 노드 애니메이션 들어갈 부분
             animSequence.OnComplete(() => uiTargetedIndex = _index);
+
+            SaveAndLoad.instance.SetLastGun(ImmediateIndex);
         }
     }
 
@@ -123,6 +123,9 @@ public class UI_CharSelect : MonoBehaviour
             }
 
         }
+
+
+
     }
 
     
@@ -186,10 +189,10 @@ public class UI_CharSelect : MonoBehaviour
     {
         /*Button btn1 = Stn.GetComponent<Button>();
         btn1.enabled = true;
-
+        */
         Button btn2 = Selectbtn.GetComponent<Button>();
         btn2.enabled = true;
-        */
+        
         ButtonLocker();
         GameManager.Instance.NowSelectedPlayerNum = uiTargetedIndex;
     }
@@ -210,6 +213,8 @@ public class UI_CharSelect : MonoBehaviour
         if (!Directory.Exists(SAVE_DATA_DIRECTORY))
             Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
 
+
+
     }
     
     
@@ -217,8 +222,9 @@ public class UI_CharSelect : MonoBehaviour
     private void Start() // 중심 캐릭터창의 좌표 넣기
     {
         //image.DOFade(0f, 0f);
+        uiTargetedIndex = SaveAndLoad.instance.saveData.lastUsedGuns;
+
         OriginPos = rect.anchoredPosition;
-        Debug.Log(OriginPos);
         Focus(uiTargetedIndex, OriginPos);
         GunLocker();
     }

@@ -9748,7 +9748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundsBasedOn: 1
-  LifeTime: 6
+  LifeTime: 4
 --- !u!114 &6453867002244709680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9762,7 +9762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundsBasedOn: 1
-  LifeTime: 6
+  LifeTime: 4
   FaceDirection: 1
   Speed: 1000
   Acceleration: 0

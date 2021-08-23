@@ -133,7 +133,10 @@ public class SpawnManager : MonoBehaviour
             switch (currentSequence.spawnType)
             {
                 case SpawnType.NORMAL:
-                    UIManager.Instance.MakeTitle($"일반적으로 스폰 됩니다.", 2f);
+                    if(currentSequence.rewardString == "")
+                        UIManager.Instance.MakeTitle($"일반적으로 스폰 됩니다.", 2f);
+                    else
+                        UIManager.Instance.MakeTitle(currentSequence.rewardString, 2f);
 
                     {
                         for (int currentSpawnCount = 0; currentSpawnCount < currentSequence.spawnCount; ++currentSpawnCount)
@@ -192,7 +195,10 @@ public class SpawnManager : MonoBehaviour
                         break;
                     }
                 case SpawnType.WAVE:
-                    UIManager.Instance.MakeTitle($"적들이 한꺼번에 밀려옵니다.", 2f);
+                    if (currentSequence.rewardString == "")
+                        UIManager.Instance.MakeTitle($"적들이 한꺼번에 밀려옵니다.", 2f);
+                    else
+                        UIManager.Instance.MakeTitle(currentSequence.rewardString, 2f);
                     {
                         for (int currentSpawnCount = 0; currentSpawnCount < currentSequence.spawnCount; ++currentSpawnCount)
                         {
@@ -294,11 +300,11 @@ public class SpawnManager : MonoBehaviour
 
                         if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
                         {
-                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 총을 해금했습니다.", 4f);
+                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 총을 해금했습니다.", 10f);
                         }
                         else
                         {
-                            UIManager.Instance.MakeTitle($"잠시 쉬어갑니다.", 2f);
+                            UIManager.Instance.MakeTitle($"이미 획득한 아이템.잠시 쉬어갑니다.", 10f);
 
                         }
                         // 여기는 총을 해금 합니다
@@ -307,11 +313,11 @@ public class SpawnManager : MonoBehaviour
                     {
                         if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
                         {
-                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 맵을 해금했습니다.", 4f);
+                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 맵을 해금했습니다.", 10f);
                         }
                         else
                         {
-                            UIManager.Instance.MakeTitle($"잠시 쉬어갑니다.", 2f);
+                            UIManager.Instance.MakeTitle($"이미 획득한 맵.잠시 쉬어갑니다.", 10f);
                         }
                         // 여기는 맵을 해금 합니다낭낭 하게 해주세요
 

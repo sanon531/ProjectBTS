@@ -9844,8 +9844,8 @@ MonoBehaviour:
   Model: {fileID: 1112242749468708}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 1
-  MaximumHealth: 1
+  InitialHealth: 10
+  MaximumHealth: 10
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 0}
   DestroyOnDeath: 1
@@ -9905,7 +9905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 16785664
+    m_Bits: 16785408
   SkinWidth: 0.1
   RepositionRigidbody: 1
 --- !u!61 &61374952899877022
@@ -9971,7 +9971,7 @@ MonoBehaviour:
   LifeTime: 0
   FaceDirection: 1
   Speed: 0
-  Acceleration: 600
+  Acceleration: 1000
   Direction: {x: -1, y: 0, z: 0}
   DirectionCanBeChangedBySpawner: 1
   FlipValue: {x: -1, y: 1, z: 1}

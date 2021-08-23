@@ -2689,6 +2689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8717958085119239970}
   - component: {fileID: 8717958085119239971}
+  - component: {fileID: 4904485680500762226}
   m_Layer: 0
   m_Name: SpawnManager_Final_First
   m_TagString: Untagged
@@ -2727,7 +2728,7 @@ MonoBehaviour:
   spawnSequence:
   - spawnType: 1
     time: 20
-    spawnCount: 15
+    spawnCount: 10
     spawnPoint:
     - {fileID: 8717958084467077258}
     - {fileID: 8717958084233272107}
@@ -2739,15 +2740,15 @@ MonoBehaviour:
     rewardisGun: 1
     rewardString: 
   - spawnType: 0
-    time: 4
+    time: 5
     spawnCount: 0
     spawnPoint: []
     spawnEnemy: []
     rewardisGun: 1
     rewardString: 
   - spawnType: 2
-    time: 12
-    spawnCount: 2
+    time: 10
+    spawnCount: 1
     spawnPoint:
     - {fileID: 8717958084467077258}
     - {fileID: 8717958084233272107}
@@ -2766,11 +2767,11 @@ MonoBehaviour:
     spawnCount: 0
     spawnPoint: []
     spawnEnemy: []
-    rewardisGun: 1
-    rewardString: "\uC2A4\uD504\uB808\uC774 \uAC74"
+    rewardisGun: 0
+    rewardString: Second_OnlySpike__Final_PC
   - spawnType: 1
-    time: 15
-    spawnCount: 8
+    time: 20
+    spawnCount: 10
     spawnPoint:
     - {fileID: 8717958084467077258}
     - {fileID: 8717958084233272107}
@@ -2784,7 +2785,7 @@ MonoBehaviour:
     rewardisGun: 1
     rewardString: 
   - spawnType: 2
-    time: 12
+    time: 30
     spawnCount: 2
     spawnPoint:
     - {fileID: 8717958084467077258}
@@ -2802,7 +2803,7 @@ MonoBehaviour:
     rewardisGun: 1
     rewardString: 
   - spawnType: 2
-    time: 12
+    time: 15
     spawnCount: 3
     spawnPoint:
     - {fileID: 8717958084467077258}
@@ -2825,9 +2826,9 @@ MonoBehaviour:
     spawnPoint: []
     spawnEnemy: []
     rewardisGun: 1
-    rewardString: 
+    rewardString: HeavyGatle
   - spawnType: 1
-    time: 12
+    time: 30
     spawnCount: 15
     spawnPoint:
     - {fileID: 8717958084467077258}
@@ -2845,7 +2846,7 @@ MonoBehaviour:
     rewardisGun: 1
     rewardString: 
   - spawnType: 2
-    time: 12
+    time: 30
     spawnCount: 4
     spawnPoint:
     - {fileID: 8717958084467077258}
@@ -2864,7 +2865,7 @@ MonoBehaviour:
     rewardString: 
   - spawnType: 1
     time: 12
-    spawnCount: 6
+    spawnCount: 10
     spawnPoint:
     - {fileID: 8717958084467077258}
     - {fileID: 8717958084233272107}
@@ -2897,7 +2898,7 @@ MonoBehaviour:
     - {fileID: 8796143037880317390, guid: 2817acb0158ac904abd5089b3a8fa92a, type: 3}
     - {fileID: 903099011861520729, guid: 1d733b0bc4a5f7b438b71b3ff66a008c, type: 3}
     rewardisGun: 1
-    rewardString: "\uC624\uBE57"
+    rewardString: Spray
   spawnDelay: 0.5
   minDistance: 5
   maxDistance: 100
@@ -2914,6 +2915,36 @@ MonoBehaviour:
   currentPowerUpSPD: 0
   spawnedEnemyCount: 0
   save: {fileID: 0}
+--- !u!114 &4904485680500762226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717958085119239997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96dc6ff4b2fac3c4b813092f2d17d055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveData:
+    tutorialOn: 1
+    lastPlayedMaps: 0
+    lastUsedGuns: 0
+    mapLock:
+      m_keys: []
+      m_values: 
+    gunLock:
+      m_keys: []
+      m_values: 
+    mapHigh:
+      m_keys: []
+      m_values: []
+    gunHigh:
+      m_keys: []
+      m_values: []
+    gold: 0
+  isStart: 0
 --- !u!1 &8717958085317497506
 GameObject:
   m_ObjectHideFlags: 0

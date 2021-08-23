@@ -15077,8 +15077,8 @@ MonoBehaviour:
     type: 3}
   MaximumHealth: 6
   InitialHealth: 6
-  AttackDMG: 1
-  ShootDelay: 0.4
+  AttackDMG: 0
+  ShootDelay: 0.7
   WalkSpeed: 0
   MaxTeleportToken: 6
   FlashDMG: 5
@@ -15103,7 +15103,7 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockingMovementStates: 
   BlockingConditionStates: 
-  InvulnerTime: 0
+  InvulnerTime: 0.5
   UseTokenAmount: 1
   TokenRechargeDelay: 0.2
   TokenRechargeAmount: 1

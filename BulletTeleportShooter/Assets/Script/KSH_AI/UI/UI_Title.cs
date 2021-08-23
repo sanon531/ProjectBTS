@@ -35,4 +35,21 @@ public class UI_Title : MonoBehaviour
             Append(rectTransform.DOMoveY(defaultPos.y + rectTransform.rect.height, 1f)).
             AppendCallback(() => canvasGroup.alpha = 0);
     }
+    public void MakeTitle(string _content, string _Item, float _time)
+    {
+        if (titleSequence.IsActive())
+        {
+            titleSequence.Kill();
+        }
+        canvasGroup.alpha = 1;
+        rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.rect.height);
+        text_Title.SetText(_content);
+
+        titleSequence = DOTween.Sequence();
+        titleSequence.
+            Append(rectTransform.DOMoveY(defaultPos.y, 1f)).
+            AppendInterval(_time).
+            Append(rectTransform.DOMoveY(defaultPos.y + rectTransform.rect.height, 1f)).
+            AppendCallback(() => canvasGroup.alpha = 0);
+    }
 }
