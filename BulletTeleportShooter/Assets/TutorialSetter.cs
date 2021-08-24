@@ -17,7 +17,14 @@ public class TutorialSetter : MonoBehaviour
     }
     public void OnClick()
     {
-        SaveAndLoad.instance.SetTutorial(false);
+        if (SaveAndLoad.instance.saveData.tutorialOn)
+        {
+            SaveAndLoad.instance.SetTutorial(false);
+            functions.OnClick();
+            Debug.Log("asdfasdf d으아 튜토리얼 가즈아ㅏㅏ");
+        }
+
+
     }
 
 
