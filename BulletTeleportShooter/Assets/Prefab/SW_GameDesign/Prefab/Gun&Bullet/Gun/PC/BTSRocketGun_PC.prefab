@@ -375,7 +375,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: 3da2b314bd1a97343bae14188dcc5f30, type: 3}
+  Sfx: {fileID: 8300000, guid: ef17cebb92a4eba4192b1424573c4b59, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   TriggerMode: 1
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 1
-  TimeBetweenUses: 0.2
+  TimeBetweenUses: 0.5
   TimeBetweenUsesReleaseInterruption: 0
   MagazineBased: 0
   MagazineSize: 30
@@ -572,7 +572,7 @@ MonoBehaviour:
   MinimumAngle: -180
   MaximumAngle: 180
   MinimumMagnitude: 0
-  ReticleType: 2
+  ReticleType: 0
   Reticle: {fileID: 1373789777524232, guid: f31b518c2b50cc2479370c46d4485485, type: 3}
   ReticleDistance: 1
   ReticleHeight: 0

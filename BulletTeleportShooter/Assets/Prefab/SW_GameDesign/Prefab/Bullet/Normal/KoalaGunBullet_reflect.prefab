@@ -9767,7 +9767,7 @@ MonoBehaviour:
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 0}
   DestroyOnDeath: 1
-  DelayBeforeDestruction: 1
+  DelayBeforeDestruction: 0.2
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1

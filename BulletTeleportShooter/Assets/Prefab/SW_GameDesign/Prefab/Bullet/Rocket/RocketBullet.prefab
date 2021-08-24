@@ -9828,7 +9828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundsBasedOn: 1
-  LifeTime: 5
+  LifeTime: 3
 --- !u!114 &114589826025121120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9968,7 +9968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundsBasedOn: 1
-  LifeTime: 0
+  LifeTime: 3
   FaceDirection: 1
   Speed: 0
   Acceleration: 1000
@@ -19782,14 +19782,14 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: 84a9746d4ee81e841b689a625e33c590, type: 3}
+  Sfx: {fileID: 8300000, guid: 8bb3c9e2ac8dbb741b0f8a38da0f38b4, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
   PlayMethod: 0
   PoolSize: 10
-  MinVolume: 1
-  MaxVolume: 1
+  MinVolume: 0.5
+  MaxVolume: 0.5
   MinPitch: 1
   MaxPitch: 1
   SfxAudioMixerGroup: {fileID: 0}

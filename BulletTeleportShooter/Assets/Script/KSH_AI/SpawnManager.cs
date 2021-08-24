@@ -59,6 +59,26 @@ public class SpawnManager : MonoBehaviour
     private int powerUpToken;
     private Dictionary<System.Type, Queue<Enemy>> objectPool;
     public SaveAndLoad save;
+    public StringStringDictionary rewardName = new StringStringDictionary()
+    {
+        {"Second_OnlySpike__Final_PC","두번째 스테이지"},
+        {"Third_Hole_and_Spike_Final_PC","세번째 스테이지"},
+        {"Forth_Map_Final_PC","네번째 스테이지"},
+        {"Last_Map_PC","마지막 스테이지"},
+
+
+        {"Bounce","바운스(이게 호출 될리가...)"},
+        {"HeavyGatle","서늘하고 묵직한 헤비 개틀"},
+        {"Spray","혼돈이 담긴 스프레이"},
+        {"ArtificialSatellite","안전하기 그지없는 위성 중계기"},
+        {"Hansel","달콤한 향기가 나는 헨젤"},
+        {"Dionysus","비틀비틀 거리는 디오니소스"},
+        {"Bommerang","돌아올 사랑의 부메랑"},
+        {"Rocket","엉클 샘의 사랑이 담긴 롸켓"},
+        {"Thor","자격이 있으시군요 여기 토르"},
+
+    };
+
 
     private void Awake()
     {
@@ -300,7 +320,7 @@ public class SpawnManager : MonoBehaviour
 
                         if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
                         {
-                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 총을 해금했습니다.", 10f);
+                            UIManager.Instance.MakeTitle($"{rewardName[currentSequence.rewardString]} 총을 해금했습니다.", 10f);
                         }
                         else
                         {
@@ -313,7 +333,7 @@ public class SpawnManager : MonoBehaviour
                     {
                         if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
                         {
-                            UIManager.Instance.MakeTitle($"{currentSequence.rewardString} 맵을 해금했습니다.", 10f);
+                            UIManager.Instance.MakeTitle($"{rewardName[currentSequence.rewardString]}가 열렸습니다.", 10f);
                         }
                         else
                         {
@@ -328,7 +348,6 @@ public class SpawnManager : MonoBehaviour
                     {
                         yield return new WaitForSeconds(currentSequence.time);
                     }
-                    Debug.Log("reward Get");
                     break;
 
             }

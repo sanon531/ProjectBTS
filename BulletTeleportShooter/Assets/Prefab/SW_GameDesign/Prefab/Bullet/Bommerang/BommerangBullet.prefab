@@ -97,8 +97,8 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 3
-  MaximumHealth: 3
+  InitialHealth: 2
+  MaximumHealth: 2
   ImmuneToKnockback: 0
   DamageMMFeedbacks: {fileID: 0}
   DestroyOnDeath: 1
@@ -244,9 +244,9 @@ MonoBehaviour:
   OrbitCenterOffset: {x: 0, y: 0, z: 0}
   OrbitRotationAxis: {x: 0, y: 1, z: 0}
   OrbitRotationSpeed: 300
-  OrbitRadius: 6
+  OrbitRadius: 8
   OrbitCorrectionSpeed: 100
-  DrawGizmos: 1
+  DrawGizmos: 0
   OrbitPlaneColor: {r: 54, g: 169, b: 225, a: 0.02}
   OrbitLineColor: {r: 225, g: 225, b: 225, a: 0.1}
   _orbitCenter: {x: 0, y: 0, z: 0}

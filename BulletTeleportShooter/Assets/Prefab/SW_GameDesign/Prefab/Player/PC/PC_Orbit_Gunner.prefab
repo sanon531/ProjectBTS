@@ -15052,10 +15052,10 @@ MonoBehaviour:
   MaximumHealth: 10
   InitialHealth: 6
   AttackDMG: 0
-  ShootDelay: 0.7
+  ShootDelay: 0.5
   WalkSpeed: 0
   MaxTeleportToken: 6
-  FlashDMG: 4
+  FlashDMG: 5
   FlashRange: 3
 --- !u!114 &548378012184792397
 MonoBehaviour:
@@ -15079,7 +15079,7 @@ MonoBehaviour:
   BlockingConditionStates: 
   InvulnerTime: 0.5
   UseTokenAmount: 1
-  TokenRechargeDelay: 0.2
+  TokenRechargeDelay: 0.5
   TokenRechargeAmount: 1
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}

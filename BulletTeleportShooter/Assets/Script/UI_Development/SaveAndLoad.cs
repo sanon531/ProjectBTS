@@ -152,6 +152,12 @@ public class SaveAndLoad : MonoBehaviour
         Save();
 
     }
+    public void SetTutorial(bool b)
+    {
+        saveData.tutorialOn = b;
+        Save();
+    }
+
 
 }
 
