@@ -86,7 +86,11 @@ public class SaveAndLoad : MonoBehaviour
 
     }
 
-
+    public void HighScore(string _name ,float _score,float _time)
+    {
+        saveData.mapHigh[_name] = new Vector2(_score, _time);
+            Save();
+    }
     public bool UnLockByName(bool isgun,string _name)
     {
        

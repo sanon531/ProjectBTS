@@ -494,7 +494,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1032295096}
-        m_MethodName: InitialSave
+        m_MethodName: Save
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -541,8 +541,18 @@ MonoBehaviour:
       - Thor
       m_values: 010000000000000000
     mapHigh:
-      m_keys: []
-      m_values: []
+      m_keys:
+      - First_Spike_Final_PC
+      - Second_OnlySpike__Final_PC
+      - Third_Hole_and_Spike_Final_PC
+      - Forth_Map_Final_PC
+      - Last_Map_PC
+      m_values:
+      - {x: 0, y: 0}
+      - {x: 0, y: 0}
+      - {x: 0, y: 0}
+      - {x: 0, y: 0}
+      - {x: 0, y: 0}
     gunHigh:
       m_keys: []
       m_values: []
