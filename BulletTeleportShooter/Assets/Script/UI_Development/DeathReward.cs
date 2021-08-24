@@ -12,17 +12,22 @@ public class DeathReward : MonoBehaviour
     private Text isTime;
     private Text isScore;
     public string mapName;
-    
-    
+    public SaveData save;
+
 
     void OnEnable()
     {
+        
+
+
         isScore = score.GetComponent<Text>();
         float a = float.Parse(isScore.text);
 
         isTime = time.GetComponent<Text>();
         float b = float.Parse(isTime.text);
 
+
+        
         SaveAndLoad.instance.HighScore(mapName, a, b);
         Debug.Log(a);
         Debug.Log(b);
