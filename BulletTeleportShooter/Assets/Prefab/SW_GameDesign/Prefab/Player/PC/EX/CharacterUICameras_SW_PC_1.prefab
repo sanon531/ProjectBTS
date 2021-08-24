@@ -15227,7 +15227,6 @@ GameObject:
   - component: {fileID: 5567502285277006600}
   - component: {fileID: 3830893868720391220}
   - component: {fileID: 2260221450521803929}
-  - component: {fileID: 1923124334}
   m_Layer: 5
   m_Name: DeathSplash
   m_TagString: Untagged
@@ -15293,40 +15292,6 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &2260221450521803929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6726001434251545104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196df5bdb5dcdc84da6f2c8d575e6667, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: {fileID: 7478056397289425461}
-  time: {fileID: 7354939542086828811}
-  mapName: First_Spike_Final_PC
-  save:
-    tutorialOn: 1
-    lastPlayedMaps: 0
-    lastUsedGuns: 0
-    mapLock:
-      m_keys: []
-      m_values: 
-    gunLock:
-      m_keys: []
-      m_values: 
-    mapHigh:
-      m_keys: []
-      m_values: []
-    gunHigh:
-      m_keys: []
-      m_values: []
-    gold: 0
-  mapHighIcon: {fileID: 8268595749300220935}
-  TimeHighIcon: {fileID: 458746283195944461}
---- !u!114 &1923124334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
