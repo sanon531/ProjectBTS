@@ -2819,7 +2819,7 @@ MonoBehaviour:
     - {fileID: 8796143037880317390, guid: 2817acb0158ac904abd5089b3a8fa92a, type: 3}
     - {fileID: 903099011861520729, guid: 1d733b0bc4a5f7b438b71b3ff66a008c, type: 3}
     rewardisGun: 1
-    rewardString: 
+    rewardString: "\uC808\uBC18\uC815\uB3C4 \uC9C4\uD589 \uD558\uC600\uC2B5\uB2C8\uB2E4."
   - spawnType: 4
     time: 8
     spawnCount: 0
@@ -2829,7 +2829,7 @@ MonoBehaviour:
     rewardString: HeavyGatle
   - spawnType: 1
     time: 30
-    spawnCount: 10
+    spawnCount: 15
     spawnPoint:
     - {fileID: 8717958084467077258}
     - {fileID: 8717958084233272107}
@@ -2862,7 +2862,7 @@ MonoBehaviour:
     - {fileID: 8796143037880317390, guid: 2817acb0158ac904abd5089b3a8fa92a, type: 3}
     - {fileID: 903099011861520729, guid: 1d733b0bc4a5f7b438b71b3ff66a008c, type: 3}
     rewardisGun: 1
-    rewardString: 
+    rewardString: "\uB9C8\uC9C0\uB9C9 \uBCF4\uC0C1\uC774 \uB208\uC55E\uC5D0 \uC788\uC2B5\uB2C8\uB2E4!"
   - spawnType: 4
     time: 10
     spawnCount: 0
@@ -2881,15 +2881,33 @@ MonoBehaviour:
     - {fileID: 903099011861520729, guid: 1d733b0bc4a5f7b438b71b3ff66a008c, type: 3}
     rewardisGun: 1
     rewardString: Spray
+  - spawnType: 0
+    time: 4
+    spawnCount: 0
+    spawnPoint:
+    - {fileID: 8717958084467077258}
+    - {fileID: 8717958084233272107}
+    - {fileID: 8717958085317497507}
+    - {fileID: 8717958084630669648}
+    - {fileID: 8717958084283164491}
+    - {fileID: 8717958084385003275}
+    - {fileID: 8717958084628160225}
+    - {fileID: 8717958084585383491}
+    - {fileID: 8717958085441349789}
+    spawnEnemy:
+    - {fileID: 8796143037880317390, guid: 2817acb0158ac904abd5089b3a8fa92a, type: 3}
+    - {fileID: 903099011861520729, guid: 1d733b0bc4a5f7b438b71b3ff66a008c, type: 3}
+    rewardisGun: 1
+    rewardString: 0
   spawnDelay: 0.5
   minDistance: 5
   maxDistance: 100
-  defaultTime: 15
-  powerUpDelay: 15
+  defaultTime: 20
+  powerUpDelay: 20
   powerUpHP: 1
   powerUpATK: 1
   powerUpSPD: 0.5
-  priorityHP: 20
+  priorityHP: 1
   priorityATK: 1
   prioritySPD: 1
   currentPowerUpHP: 0
