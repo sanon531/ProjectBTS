@@ -32,6 +32,7 @@ public class UI_StageSelect : MonoBehaviour
     public void MapLocker()
     {
         save = SaveAndLoad.instance.saveData;
+        uiTargetedIndex = save.lastPlayedMaps;
 
         Debug.Log("123654..");
 
@@ -47,22 +48,15 @@ public class UI_StageSelect : MonoBehaviour
                     if (keyValuePair.Value)
                     {
                         images[i].SetActive(false);
-                        Debug.Log("123654");
 
                     }
                     else
                     {
                         images[i].SetActive(true);
-                        Debug.Log("작작동동주주크크");
-
                     }
                 }
-
             }
-
         }
-
-
     }
 
     
@@ -89,8 +83,6 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
-
-
     Sequence animSequence;
 
     public void BuildAnimation(int _index)
@@ -111,11 +103,10 @@ public class UI_StageSelect : MonoBehaviour
             if (0 <= _index + 1 && _index + 1 < node.Length) animSequence.
                     Join(node[_index + 1].DOScale(Vector3.one, time)); // 오른쪽의 노드 애니메이션 들어갈 부분
             animSequence.OnComplete(() => uiTargetedIndex = _index);
+            SaveAndLoad.instance.SetLastMap(_index);
+
         }
     }
-
-    
-
 
 
     public void Focus(int _index)
@@ -125,10 +116,11 @@ public class UI_StageSelect : MonoBehaviour
             node[_index].localScale = Vector3.one * scaleVar;
             rectTransform.anchoredPosition = new Vector2(-node[_index].anchoredPosition.x, rectTransform.anchoredPosition.y); //node[_index].anchoredPosition
         }
+
     }
 
-    
-    
+
+
     private void Awake()
     {
         SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
@@ -142,7 +134,6 @@ public class UI_StageSelect : MonoBehaviour
 
     private void Start()
     {
-        Focus(uiTargetedIndex);
         StartCoroutine(coco());
     }
 
@@ -150,6 +141,7 @@ public class UI_StageSelect : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         MapLocker();
+        Focus(uiTargetedIndex);
 
     }
 

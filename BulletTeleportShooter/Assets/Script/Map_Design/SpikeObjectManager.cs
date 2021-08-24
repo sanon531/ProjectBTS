@@ -12,8 +12,7 @@ public class SpikeObjectManager : MonoBehaviour
     List<BTS_Spikes_Data> SpikeList = new List<BTS_Spikes_Data>();
 
     public static SpikeObjectManager Instance;
-    public Animator animator;
-
+    public float fasttimer;
     // Start is called before the first frame update
     void Awake()
     {
@@ -75,7 +74,7 @@ public class SpikeObjectManager : MonoBehaviour
         
         spike_timer += Time.deltaTime;
         
-        if (spike_timer > 30f)
+        if (spike_timer > fasttimer)
         {
 
             spike_speed += 0.5f;

@@ -855,10 +855,10 @@ TextureImporter:
       name: Juan_Eduard_sprite_30
       rect:
         serializedVersion: 2
-        x: 464
-        y: 496
-        width: 16
-        height: 16
+        x: 448
+        y: 480
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -868,132 +868,6 @@ TextureImporter:
       bones: []
       spriteID: d32399a2507016930800000000000000
       internalID: 4134593651673739837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Juan_Eduard_sprite_31
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 052a1646f188cfd80800000000000000
-      internalID: -8215541951821143472
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Juan_Eduard_sprite_32
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9256236c398253e40800000000000000
-      internalID: 5635455123874538793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Juan_Eduard_sprite_33
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 480
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3066669399f3df810800000000000000
-      internalID: 1800665353343624707
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Juan_Eduard_sprite_34
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 480
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7053a073ce4675ab0800000000000000
-      internalID: -5019432293982653177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Juan_Eduard_sprite_35
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 480
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0db40839c07a52290800000000000000
-      internalID: -7915737097577673776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Juan_Eduard_sprite_36
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 480
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b19ba7a124540e70800000000000000
-      internalID: 9080475252209455536
       vertices: []
       indices: 
       edges: []
