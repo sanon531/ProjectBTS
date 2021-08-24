@@ -13,21 +13,27 @@ public class DeathReward : MonoBehaviour
     private Text isScore;
     public string mapName;
     public SaveData save;
+    public GameObject image;
 
 
     void OnEnable()
     {
-        
-
-
+       
         isScore = score.GetComponent<Text>();
         float a = float.Parse(isScore.text);
 
         isTime = time.GetComponent<Text>();
         float b = float.Parse(isTime.text);
 
+        if (a > SaveAndLoad.instance.saveData.mapHigh[mapName].x)
+        {
+            image.SetActive(true);
+        }
+        else
+        {
+            image.SetActive(false);
+        }
 
-        
         SaveAndLoad.instance.HighScore(mapName, a, b);
         Debug.Log(a);
         Debug.Log(b);

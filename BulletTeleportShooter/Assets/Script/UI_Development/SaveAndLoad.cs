@@ -90,11 +90,11 @@ public class SaveAndLoad : MonoBehaviour
     {
         if(_score > saveData.mapHigh[_name].x)
         {
-            saveData.mapHigh[_name].x = _score;
+            saveData.mapHigh[_name] = new Vector2(_score, saveData.mapHigh[_name].y);
         }
         if(_time > saveData.mapHigh[_name].y)
         {
-            saveData.mapHigh[_name].y = _time;
+            saveData.mapHigh[_name] = new Vector2(saveData.mapHigh[_name].x, _time);
         }
         
         Save();
