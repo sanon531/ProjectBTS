@@ -539,7 +539,7 @@ MonoBehaviour:
       - Bommerang
       - Rocket
       - Thor
-      m_values: 010000000000000000
+      m_values: 010100010001010001
     mapHigh:
       m_keys:
       - First_Spike_Final_PC
@@ -1237,7 +1237,7 @@ PrefabInstance:
     - target: {fileID: 7055905508344667927, guid: 08b93074218a9374ea5696f085900884,
         type: 3}
       propertyPath: m_text
-      value: "Crew\n\n\uAC10\uB3C5, \uAE30\uD68D\n\uC624\uC0C1\uC6D0\n\n\uBAAC\uC2A4\uD130
+      value: "Crew\n\n\uAC10\uB3C5, PM\n\uC624\uC0C1\uC6D0\n\n\uBAAC\uC2A4\uD130
         \uD504\uB85C\uADF8\uB798\uBC0D\n\uAE40\uC218\uD658(AI)\n\nUI \uD504\uB85C\uADF8\uB798\uBC0D\n\uAE40\uC900(\uBA54\uC778),
         \uBC15\uD61C\uC778(\uD50C\uB808\uC774), \uAE40\uC218\uD658(\uC2DC\uD000\uC2A4)\n\n\uCE90\uB9AD\uD130
         \uD504\uB85C\uADF8\uB798\uBC0D\n\uBC15\uD61C\uC778(\uBA54\uC778), \uC624\uC0C1\uC6D0(\uCD1D\uAE30\uB958)\n\n\uB9F5
@@ -1245,7 +1245,8 @@ PrefabInstance:
         \uAE40\uC218\uD658(AI)\n\n\n\nUI \uADF8\uB798\uD53D, \uD29C\uD1A0\uB9AC\uC5BC\n\uAE40\uBA85\uC900
         \n\n\uCE90\uB9AD\uD130, \uCD1D\uAE30 \uADF8\uB798\uD53D\n\uC774\uC601\uC6B0\n\n\uBAAC\uC2A4\uD130,
         \uB9F5 \uADF8\uB798\uD53D  \n\uC784\uC218\uD604\n\n\uC774\uD399\uD2B8 \n\uC774\uC601\uC6B0,
-        \uC624\uC0C1\uC6D0\n"
+        \uC624\uC0C1\uC6D0\n\n\nSpecial Thanks \n\n\uD669\uC81C\uC6C5, \uAD6C\uD0DC\uC131
+        \uADF8\uB9AC\uACE0 CIEN \uD68C\uC6D0 \uBD84\uB4E4"
       objectReference: {fileID: 0}
     - target: {fileID: 7055905508716588230, guid: 08b93074218a9374ea5696f085900884,
         type: 3}
