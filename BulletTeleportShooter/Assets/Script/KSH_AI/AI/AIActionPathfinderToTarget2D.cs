@@ -60,16 +60,6 @@ public class AIActionPathfinderToTarget2D : AIAction
                 for (int i = 0; i < pathData.Count; ++i)
                 {
                     _movePoint.Enqueue(pathData[i]);
-                    if (i < pathData.Count - 2)
-                    {
-                        Vector2 _direction = _brain.Target.position - pathData[i];
-                        RaycastHit2D hit = Physics2D.CircleCast(pathData[i], _collider.radius, _direction.normalized, _direction.magnitude, LayerMask.GetMask("Obstacles"));
-                        if (!hit)
-                        {
-                            _movePoint.Enqueue(_brain.Target.position);
-                            break;
-                        }
-                    }
                 }
                 _destination = _movePoint.Peek();
             }
