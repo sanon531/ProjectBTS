@@ -15097,7 +15097,7 @@ MonoBehaviour:
   WalkSpeed: 0
   MaxTeleportToken: 6
   FlashDMG: 8
-  FlashRange: 3
+  FlashRange: 2
 --- !u!114 &548378012184792397
 MonoBehaviour:
   m_ObjectHideFlags: 0

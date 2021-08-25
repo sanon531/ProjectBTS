@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3116351609419417653}
   - component: {fileID: 5941786211014024610}
   m_Layer: 0
-  m_Name: TeleportTokenChargetem
+  m_Name: TokenChargeItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,6 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3078632147969960999}
   - component: {fileID: 2908136209386613821}
+  - component: {fileID: 3447238367423201325}
   m_Layer: 0
   m_Name: Koala_Coin
   m_TagString: Untagged
@@ -451,7 +452,7 @@ Transform:
   m_GameObject: {fileID: 3075379607619500973}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 3078258643801404281}
   m_RootOrder: 0
@@ -495,14 +496,34 @@ SpriteRenderer:
   m_SortingLayerID: 1603220759
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: b528708a5a8f28343aefa9e1d46670a7, type: 3}
+  m_Sprite: {fileID: 7690782835648468231, guid: 89cc59df546e1f84e9484af449a8409c,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.09, y: 0.14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3447238367423201325
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3075379607619500973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d10f15ede9b62154c9f6830d48691883, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

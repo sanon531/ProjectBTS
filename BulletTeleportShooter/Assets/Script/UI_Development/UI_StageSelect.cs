@@ -5,6 +5,8 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using MoreMountains.TopDownEngine;
+using System.IO;
+using System;
 
 public class UI_StageSelect : MonoBehaviour
 {
@@ -17,10 +19,46 @@ public class UI_StageSelect : MonoBehaviour
     public int uiTargetedIndex = 0;
     public int ImmediateIndex = 0;
     public List<string> SceneList;
-    public SaveAndLoad save;
+    public SaveData save;
 
+    public string[] mapName;
     public GameObject[] images;
     public GameObject selectButton;
+    //public SaveData saveData = new SaveData();
+
+    private string SAVE_DATA_DIRECTORY;
+    private string SAVE_FILENAME = "/SaveFile.txt";
+
+    public void MapLocker()
+    {
+        save = SaveAndLoad.instance.saveData;
+        uiTargetedIndex = save.lastPlayedMaps;
+
+        Debug.Log("123654..");
+
+        foreach (KeyValuePair<string,bool> keyValuePair in save.mapLock)
+        {
+            Debug.Log("123654");
+
+            for (int i = 0; i < mapName.Length; i++)
+            {
+
+                if (keyValuePair.Key == mapName[i])
+                {
+                    if (keyValuePair.Value)
+                    {
+                        images[i].SetActive(false);
+
+                    }
+                    else
+                    {
+                        images[i].SetActive(true);
+                    }
+                }
+            }
+        }
+    }
+
     
     public void ButtonLocker()
     {
@@ -45,8 +83,6 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
-
-
     Sequence animSequence;
 
     public void BuildAnimation(int _index)
@@ -67,50 +103,10 @@ public class UI_StageSelect : MonoBehaviour
             if (0 <= _index + 1 && _index + 1 < node.Length) animSequence.
                     Join(node[_index + 1].DOScale(Vector3.one, time)); // 오른쪽의 노드 애니메이션 들어갈 부분
             animSequence.OnComplete(() => uiTargetedIndex = _index);
+            SaveAndLoad.instance.SetLastMap(_index);
+
         }
     }
-
-    /*public void LimitedSelect()
-    {
-        for(int i = 0; i<limitGold.Length; i++)
-        {
-            if(ImmediateIndex == i && gold < limitGold[i])
-            {
-
-                Button btn = selectButton.GetComponent<Button>();
-                btn.enabled = false;
-                //selectButton.SetActive(false);
-                Debug.Log("골드가 부족합니다.");
-                Debug.Log(ImmediateIndex);
-                Debug.Log(limitGold);
-
-            }
-        }           
-            
-    }
-
-    public void UnlimitedSelect()
-    {
-        for (int i = 0; i < limitGold.Length; i++)
-        {
-            if (uiTargetedIndex == i && gold >= limitGold[i])
-            {
-
-                Button btn = selectButton.GetComponent<Button>();
-                btn.enabled = true;
-                //selectButton.SetActive(true);
-                Debug.Log(uiTargetedIndex);
-
-                Debug.Log("해금되었습니다.");
-                
-                Debug.Log(gold);
-
-            }
-        }
-
-    }
-    */
-
 
 
     public void Focus(int _index)
@@ -120,16 +116,37 @@ public class UI_StageSelect : MonoBehaviour
             node[_index].localScale = Vector3.one * scaleVar;
             rectTransform.anchoredPosition = new Vector2(-node[_index].anchoredPosition.x, rectTransform.anchoredPosition.y); //node[_index].anchoredPosition
         }
+
     }
+
+
+
+    private void Awake()
+    {
+        SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
+
+        if (!Directory.Exists(SAVE_DATA_DIRECTORY))
+            Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
+    }
+
+
+
 
     private void Start()
     {
-        Focus(uiTargetedIndex);
-        //UnlimitedSelect();
-        
+        StartCoroutine(coco());
     }
 
-   
+    IEnumerator coco()
+    {
+        yield return new WaitForEndOfFrame();
+        MapLocker();
+        Focus(uiTargetedIndex);
+
+    }
+
+
+
     public void OnClick_Left()
     {
         if (!animSequence.IsActive())

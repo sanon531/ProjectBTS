@@ -16,6 +16,7 @@ namespace MoreMountains.TopDownEngine
 	    public virtual void PauseButtonAction()
 	    {
             // we trigger a Pause event for the GameManager and other classes that could be listening to it too
+            Debug.Log("asdfasdf");
             StartCoroutine(PauseButtonCo());
 
         }	

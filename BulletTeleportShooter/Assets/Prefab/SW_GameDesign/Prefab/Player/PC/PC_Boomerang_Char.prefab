@@ -15027,7 +15027,7 @@ MonoBehaviour:
   MaximumHealth: 6
   InitialHealth: 6
   AttackDMG: 4
-  ShootDelay: 0.2
+  ShootDelay: 0.4
   WalkSpeed: 0
   MaxTeleportToken: 6
   FlashDMG: 3
@@ -15576,10 +15576,8 @@ GameObject:
   - component: {fileID: 4927380924059679243}
   - component: {fileID: 4032168732176789694}
   - component: {fileID: 9063338914406428093}
-  - component: {fileID: 634224396937971784}
   - component: {fileID: 5180917855804683398}
   - component: {fileID: 8830293993262937374}
-  - component: {fileID: 4133015639508346351}
   m_Layer: 10
   m_Name: DamageFeedback
   m_TagString: Untagged
@@ -15616,10 +15614,8 @@ MonoBehaviour:
   Feedbacks:
   - {fileID: 4032168732176789694}
   - {fileID: 9063338914406428093}
-  - {fileID: 634224396937971784}
   - {fileID: 5180917855804683398}
   - {fileID: 8830293993262937374}
-  - {fileID: 4133015639508346351}
   InitializationMode: 2
   SafeMode: 3
   Direction: 0
@@ -15733,44 +15729,6 @@ MonoBehaviour:
   FlickerDuration: 0.2
   FlickerOctave: 0.04
   FlickerColor: {r: 1, g: 0.078431375, b: 0.078431375, a: 1}
---- !u!114 &634224396937971784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4191286784788933051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf8e1825623fb34b9fc92dbef54ec56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Active: 1
-  Label: Flash
-  Chance: 100
-  Timing:
-    TimescaleMode: 0
-    InitialDelay: 0
-    CooldownDuration: 0
-    NumberOfRepeats: 0
-    RepeatForever: 0
-    DelayBetweenRepeats: 1
-    MMFeedbacksDirectionCondition: 0
-    PlayDirection: 0
-    ConstantIntensity: 0
-    UseIntensityInterval: 0
-    IntensityIntervalMin: 0
-    IntensityIntervalMax: 0
-    Sequence: {fileID: 0}
-    TrackID: 0
-    Quantized: 0
-    TargetBPM: 120
-  DebugActive: 0
-  Channel: 0
-  FlashColor: {r: 0.68235296, g: 0.03137255, b: 0.03137255, a: 1}
-  FlashDuration: 0.2
-  FlashAlpha: 1
-  FlashID: 0
 --- !u!114 &5180917855804683398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15847,184 +15805,6 @@ MonoBehaviour:
     TargetBPM: 120
   DebugActive: 0
   FreezeFrameDuration: 0.1
---- !u!114 &4133015639508346351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4191286784788933051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91416cb6373b43240b06529b626195a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Active: 1
-  Label: Color Grading
-  Chance: 100
-  Timing:
-    TimescaleMode: 0
-    InitialDelay: 0
-    CooldownDuration: 0
-    NumberOfRepeats: 0
-    RepeatForever: 0
-    DelayBetweenRepeats: 1
-    MMFeedbacksDirectionCondition: 0
-    PlayDirection: 0
-    ConstantIntensity: 0
-    UseIntensityInterval: 0
-    IntensityIntervalMin: 0
-    IntensityIntervalMax: 0
-    Sequence: {fileID: 0}
-    TrackID: 0
-    Quantized: 0
-    TargetBPM: 120
-  DebugActive: 0
-  Channel: 0
-  ShakeDuration: 0.2
-  RelativeIntensity: 1
-  ResetShakerValuesAfterShake: 1
-  ResetTargetValuesAfterShake: 1
-  ShakePostExposure:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  RemapPostExposureZero: 0
-  RemapPostExposureOne: 1
-  ShakeHueShift:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  RemapHueShiftZero: 0
-  RemapHueShiftOne: 0
-  ShakeSaturation:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  RemapSaturationZero: 0
-  RemapSaturationOne: -100
-  ShakeContrast:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  RemapContrastZero: 0
-  RemapContrastOne: 100
 --- !u!1 &5863536050069713490
 GameObject:
   m_ObjectHideFlags: 0
@@ -16555,6 +16335,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50455e16f2c254d47b205d60b5c102da, type: 3}
+--- !u!4 &776460803666323178 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4393417882721371277, guid: 50455e16f2c254d47b205d60b5c102da,
+    type: 3}
+  m_PrefabInstance: {fileID: 3908566705428718183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &776460803666323179 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4393417882721371276, guid: 50455e16f2c254d47b205d60b5c102da,
@@ -16567,12 +16353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7277539b95c0d45895792ecc99ce66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &776460803666323178 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4393417882721371277, guid: 50455e16f2c254d47b205d60b5c102da,
-    type: 3}
-  m_PrefabInstance: {fileID: 3908566705428718183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5732508772542109142
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11246,6 +11246,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alarm
       objectReference: {fileID: 0}
+    - target: {fileID: 3792589359721815949, guid: 193631ba664f33644ad5670cf8da9d67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4544338715028996881, guid: 193631ba664f33644ad5670cf8da9d67,
         type: 3}
       propertyPath: m_WasSpriteAssigned
