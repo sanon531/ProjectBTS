@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/UI_Development/Main.unity
-    guid: 582cd7fed6d9e894ca6631dfd0b4a9bd
-  - enabled: 0
     path: Assets/Scenes/SW_Scene/Main_KJ.unity
     guid: 26ed948ed2dc9c9468c5ea387fa479ac
   - enabled: 0
@@ -32,6 +29,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Map_Design/First_Spike.unity
     guid: 79c9a068c5715164a846efd5a0b003d1
+  - enabled: 0
+    path: Assets/Scenes/UI_Development/Main.unity
+    guid: 582cd7fed6d9e894ca6631dfd0b4a9bd
   - enabled: 0
     path: Assets/Scenes/Map_Design/Scond_Empty.unity
     guid: ce2da55d80c9316459ac2ef1d0d9df0d

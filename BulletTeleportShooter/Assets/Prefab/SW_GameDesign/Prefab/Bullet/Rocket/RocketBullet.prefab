@@ -9971,7 +9971,7 @@ MonoBehaviour:
   LifeTime: 3
   FaceDirection: 1
   Speed: 0
-  Acceleration: 1000
+  Acceleration: 1500
   Direction: {x: -1, y: 0, z: 0}
   DirectionCanBeChangedBySpawner: 1
   FlipValue: {x: -1, y: 1, z: 1}

@@ -13,12 +13,11 @@ namespace MoreMountains.TopDownEngine
         private int maxHealth;
         private GameObject[] HealthBars;
 
-        private int EnemyMaxAttack;
         public GameObject HealthWarning;
         public MMFeedbacks HealthWarningFeedback;
 
 
-        private void Start()
+        private void Awake()
         {
             Player = LevelManager.Instance.PlayerPrefabs[0].gameObject;
             _characterManager = Player.GetComponent<BTS_CharacterManager>();
@@ -94,10 +93,6 @@ namespace MoreMountains.TopDownEngine
             return nowHealth <= 0;
         }
 
-        public void SetEnemyAttackDamage(int damage)
-        {
-            EnemyMaxAttack = damage;
-        }
 
         private IEnumerator SetWarning(bool Initial)
         {
