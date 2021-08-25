@@ -30,7 +30,7 @@ public class UI_CharSelect : MonoBehaviour
 
     public void GunLocker()
     {
-        uiTargetedIndex = SaveAndLoad.instance.saveData.lastPlayedMaps;
+        uiTargetedIndex = SaveAndLoad.instance.saveData.lastUsedGuns;
         ImmediateIndex = uiTargetedIndex;
         GunLock gunLock = SaveAndLoad.instance.saveData.gunLock;
 
@@ -145,8 +145,7 @@ public class UI_CharSelect : MonoBehaviour
     {
         for (int i = 0; i < node.Length; ++i)
         {
-            if (uiTargetedIndex != i)
-                node[i].gameObject.SetActive(true);
+             node[i].gameObject.SetActive(true);
         }        
     }
 
@@ -250,7 +249,7 @@ public class UI_CharSelect : MonoBehaviour
             if (uiTargetedIndex == i)
             {
                 anim.
-                    Join(rect.DOAnchorPos(new Vector2(- node[i].anchoredPosition.x * 2, 0), 1, false)); // 기존 위치 x2로 이동
+                    Join(rect.DOAnchorPos(new Vector2(- node[i].anchoredPosition.x * 2 + Screen.width*0.75f, 0), 1, false)); // 기존 위치 x2로 이동
 
             }
         }                       
