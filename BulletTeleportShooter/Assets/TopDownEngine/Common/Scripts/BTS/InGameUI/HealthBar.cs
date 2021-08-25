@@ -79,8 +79,6 @@ namespace MoreMountains.TopDownEngine
                     nowHealth++;
                 }
             }
-
-            StartCoroutine(SetWarning(false));
         }
 
         private bool isHealthMax()

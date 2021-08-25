@@ -70,6 +70,7 @@ namespace MoreMountains.TopDownEngine
 
 		public virtual void ReloadLevel_NoLoading()
         {
+			GameManager.Instance.Reset();
 			TopDownEngineEvent.Trigger(TopDownEngineEventTypes.UnPause, null);
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
