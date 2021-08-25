@@ -704,12 +704,23 @@ MonoBehaviour:
   saveData:
     mapLock:
       m_keys:
-      - none
-      m_values: 01
+      - 1First_Spike_Final_PC
+      - Scond_Empty_SW
+      - 3Third_Hole_and_Spike
+      - 4FourthMap
+      - 5Fifth_Map
+      m_values: 0100000000
     gunLock:
       m_keys:
-      - none
-      m_values: 01
+      - Bounce
+      - HeavyGatle
+      - Spray
+      - ArtificialSatellite
+      - Hansel
+      - Dionysus
+      - Rocket
+      - Thor
+      m_values: 0101010101010101
     mapHigh:
       m_keys:
       - 2002

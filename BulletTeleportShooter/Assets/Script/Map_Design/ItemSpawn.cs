@@ -33,21 +33,16 @@ public class ItemSpawn : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(spawnDelay);
-            int number = Random.Range(0, spawnPoints.Length);
-            int num2 = Random.Range(0, 3);
-            temp = num2;
-            // 이거 한번에 소환하는법 여쭤보기 + 주인공 죽는거 아는법 -> 리셋해야되니까
-            GameObject item = Instantiate(Items[num2], new Vector3(0,0,0) , Quaternion.identity);
-            if (temp == num2)
+            foreach (Transform t in spawnPoints)
             {
-                item.transform.position = spawnPoints[number].transform.position + new Vector3(0, 1, 0);
+                int num2 = Random.Range(0, Items.Count);
+                GameObject item = Instantiate(Items[num2], new Vector3(0, 0, 0), Quaternion.identity);
+                item.transform.position = t.position;
+                Destroy(item, spawnDelay);
+
             }
-            else
-            {
-                item.transform.position = spawnPoints[number].transform.position;
-            }
-            temp = num2;
-            Destroy(item, 40f);
+
+
 
         }
     }

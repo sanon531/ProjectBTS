@@ -21,6 +21,7 @@ public class SpawnSequence
     public int spawnCount;
     public Transform[] spawnPoint;
     public Enemy[] spawnEnemy;
+    public bool rewardisGun = true;
     public string rewardString;
 }
 public class SpawnManager : MonoBehaviour
@@ -57,11 +58,32 @@ public class SpawnManager : MonoBehaviour
     private Sequence powerUpSequence;
     private int powerUpToken;
     private Dictionary<System.Type, Queue<Enemy>> objectPool;
-    
+    public SaveAndLoad save;
+    public StringStringDictionary rewardName = new StringStringDictionary()
+    {
+        {"Second_OnlySpike__Final_PC","두번째 스테이지"},
+        {"Third_Hole_and_Spike_Final_PC","세번째 스테이지"},
+        {"Forth_Map_Final_PC","네번째 스테이지"},
+        {"Last_Map_PC","마지막 스테이지"},
+
+
+        {"Bounce","바운스(이게 호출 될리가...)"},
+        {"HeavyGatle","서늘하고 묵직한 헤비 개틀"},
+        {"Spray","혼돈이 담긴 스프레이"},
+        {"ArtificialSatellite","안전하기 그지없는 위성 중계기"},
+        {"Hansel","달콤한 향기가 나는 헨젤"},
+        {"Dionysus","비틀비틀 거리는 디오니소스"},
+        {"Bommerang","돌아올 사랑의 부메랑"},
+        {"Rocket","엉클 샘의 사랑이 담긴 롸켓"},
+        {"Thor","자격이 있으시군요 여기 토르"},
+
+    };
+
 
     private void Awake()
     {
         Instance = this;
+        
     }
 
     private void Start()
@@ -128,10 +150,14 @@ public class SpawnManager : MonoBehaviour
             currentTime = 0f;
             float waitTime = currentSequence.time / (float)currentSequence.spawnCount;
 
-            UIManager.Instance.MakeTitle($"상황 변경! : {currentSequence.spawnType.ToString()}", 2f);
             switch (currentSequence.spawnType)
             {
                 case SpawnType.NORMAL:
+                    if(currentSequence.rewardString == "")
+                        UIManager.Instance.MakeTitle($"일반적으로 스폰 됩니다.", 2f);
+                    else
+                        UIManager.Instance.MakeTitle(currentSequence.rewardString, 2f);
+
                     {
                         for (int currentSpawnCount = 0; currentSpawnCount < currentSequence.spawnCount; ++currentSpawnCount)
                         {
@@ -189,6 +215,10 @@ public class SpawnManager : MonoBehaviour
                         break;
                     }
                 case SpawnType.WAVE:
+                    if (currentSequence.rewardString == "")
+                        UIManager.Instance.MakeTitle($"적들이 한꺼번에 밀려옵니다.", 2f);
+                    else
+                        UIManager.Instance.MakeTitle(currentSequence.rewardString, 2f);
                     {
                         for (int currentSpawnCount = 0; currentSpawnCount < currentSequence.spawnCount; ++currentSpawnCount)
                         {
@@ -219,6 +249,8 @@ public class SpawnManager : MonoBehaviour
                         break;
                     }
                 case SpawnType.BOSS:
+                    UIManager.Instance.MakeTitle($"관리자가 등장했습니다.", 2f);
+
                     {
                         currentTime = 0f;
 
@@ -273,19 +305,49 @@ public class SpawnManager : MonoBehaviour
                         break;
                     }
                 case SpawnType.BREAK:
+                    UIManager.Instance.MakeTitle($"잠시 쉬어갑니다.", 2f);
                     {
-                        if(currentSequence.time > 0)
+                        if (currentSequence.time > 0)
                         {
                             yield return new WaitForSeconds(currentSequence.time);
                         }
                         break;
                     }
                 case SpawnType.REWARD:
+
+                    if (currentSequence.rewardisGun)
+                    {
+
+                        if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
+                        {
+                            UIManager.Instance.MakeTitle($"{rewardName[currentSequence.rewardString]} 총을 해금했습니다.", 10f);
+                        }
+                        else
+                        {
+                            UIManager.Instance.MakeTitle($"이미 획득한 아이템.잠시 쉬어갑니다.", 10f);
+
+                        }
+                        // 여기는 총을 해금 합니다
+                    }
+                    else
+                    {
+                        if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
+                        {
+                            UIManager.Instance.MakeTitle($"{rewardName[currentSequence.rewardString]}가 열렸습니다.", 10f);
+                        }
+                        else
+                        {
+                            UIManager.Instance.MakeTitle($"이미 획득한 맵.잠시 쉬어갑니다.", 10f);
+                        }
+                        // 여기는 맵을 해금 합니다낭낭 하게 해주세요
+
+                    }
+
+
                     if (currentSequence.time > 0)
                     {
                         yield return new WaitForSeconds(currentSequence.time);
                     }
-                    Debug.Log("reward Get");
                     break;
 
             }
@@ -367,6 +429,5 @@ public class SpawnManager : MonoBehaviour
             }
             newEnemy.Outline.color = outlineColor;
         }
-
     }
 }

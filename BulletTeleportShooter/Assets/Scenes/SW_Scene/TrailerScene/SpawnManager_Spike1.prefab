@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1546880295473199566}
   - component: {fileID: 1546880295473199567}
   m_Layer: 0
-  m_Name: SpawnManager
+  m_Name: SpawnManager_Spike1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +46,8 @@ MonoBehaviour:
   isLoop: 1
   spawnSequence:
   - spawnType: 1
-    time: 15
-    spawnCount: 8
+    time: 20
+    spawnCount: 2
     spawnPoint:
     - {fileID: 0}
     - {fileID: 0}
@@ -56,12 +56,19 @@ MonoBehaviour:
     - {fileID: 0}
     spawnEnemy:
     - {fileID: 8796143037880317390, guid: 2817acb0158ac904abd5089b3a8fa92a, type: 3}
-    - {fileID: 903099011861520729, guid: 1d733b0bc4a5f7b438b71b3ff66a008c, type: 3}
     rewardString: 
   - spawnType: 0
     time: 4
     spawnCount: 0
-    spawnPoint: []
+    spawnPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     spawnEnemy: []
     rewardString: 
   - spawnType: 2
@@ -76,9 +83,9 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 0}
     spawnEnemy:
-    - {fileID: 903099011861520729, guid: 1d733b0bc4a5f7b438b71b3ff66a008c, type: 3}
-    - {fileID: 8313510402440595366, guid: 7c5d08fcf27b82c40a6d207c72c86a0a, type: 3}
+    - {fileID: 8796143037880317390, guid: 2817acb0158ac904abd5089b3a8fa92a, type: 3}
     rewardString: 
   - spawnType: 0
     time: 4
@@ -118,10 +125,10 @@ MonoBehaviour:
     - {fileID: 903099011861520729, guid: 1d733b0bc4a5f7b438b71b3ff66a008c, type: 3}
     rewardString: 
   spawnDelay: 1
-  minDistance: 5
+  minDistance: 3
   maxDistance: 100
-  defaultTime: 4
-  powerUpDelay: 4
+  defaultTime: 6
+  powerUpDelay: 6
   powerUpHP: 2
   powerUpATK: 1
   powerUpSPD: 0.5
