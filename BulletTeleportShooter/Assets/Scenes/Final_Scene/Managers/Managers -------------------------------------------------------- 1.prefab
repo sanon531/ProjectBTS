@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefabs:
-  - {fileID: 1061382757069794329, guid: 80663fb8f85cb6446a3cd06d4ceb6761, type: 3}
+  - {fileID: 1061382757069794329, guid: eea70074ba592d242984a873ee2bf192, type: 3}
   AutoAttributePlayerIDs: 1
   SceneCharacters: []
   InitialSpawnPoint: {fileID: 0}
@@ -103,8 +103,8 @@ MonoBehaviour:
   PointsOfEntry:
   - {fileID: 0}
   - {fileID: 0}
-  IntroFadeDuration: 0.1
-  OutroFadeDuration: 0.1
+  IntroFadeDuration: 1
+  OutroFadeDuration: 1
   FaderID: 0
   FadeCurve:
     MMTweenDefinitionType: 0
@@ -309,7 +309,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965480374061094985}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.331243, y: 3.1303978, z: 5.8295784}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
