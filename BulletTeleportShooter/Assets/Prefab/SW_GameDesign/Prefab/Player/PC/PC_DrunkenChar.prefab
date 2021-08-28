@@ -15049,7 +15049,7 @@ MonoBehaviour:
   initialWeapon: {fileID: 7619283110440395837, guid: 5e99aea554903d14cbd9705164ff470c,
     type: 3}
   MaximumHealth: 10
-  InitialHealth: 5
+  InitialHealth: 6
   AttackDMG: 4
   ShootDelay: 0.2
   WalkSpeed: 0

@@ -15023,8 +15023,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialWeapon: {fileID: 7619283110440395837, guid: e8b652a9a58c0cd4fb29b9251c23f5b2,
     type: 3}
-  MaximumHealth: 4
-  InitialHealth: 4
+  MaximumHealth: 10
+  InitialHealth: 6
   AttackDMG: 2
   ShootDelay: 2
   WalkSpeed: 0

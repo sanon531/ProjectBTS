@@ -249,7 +249,7 @@ public class UI_CharSelect : MonoBehaviour
             if (uiTargetedIndex == i)
             {
                 anim.
-                    Join(rect.DOAnchorPos(new Vector2(- node[i].anchoredPosition.x * 2 + Screen.width*0.75f, 0), 1, false)); // 기존 위치 x2로 이동
+                    Join(rect.DOAnchorPos(new Vector2(- node[i].anchoredPosition.x * 2 , 0), 1, false)); // 기존 위치 x2로 이동
 
             }
         }                       
