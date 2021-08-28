@@ -34,6 +34,7 @@ namespace MoreMountains.TopDownEngine
 
         public void Initialization()
         {
+            Debug.Log(_characterManager.InitialHealth);
             nowHealth = _characterManager.InitialHealth;
             maxHealth = _characterManager.MaximumHealth;
             HealthBars = new GameObject[transform.childCount];

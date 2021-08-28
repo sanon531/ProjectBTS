@@ -15023,10 +15023,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialWeapon: {fileID: 7619283110440395837, guid: 419a2dbd55eb2db40a4e5ed993c3a74a,
     type: 3}
-  MaximumHealth: 6
-  InitialHealth: 4
+  MaximumHealth: 10
+  InitialHealth: 6
   AttackDMG: 1
-  ShootDelay: 0.15
+  ShootDelay: 0.2
   WalkSpeed: 0
   MaxTeleportToken: 6
   FlashDMG: 1
@@ -15054,7 +15054,7 @@ MonoBehaviour:
   InvulnerTime: 0.5
   UseTokenAmount: 1
   TokenRechargeDelay: 2
-  TokenRechargeAmount: 2
+  TokenRechargeAmount: 3
   TeleportFeedback: {fileID: 1177889337055231525}
   ObjectPooler: {fileID: 776460803666323179}
   CannotTeleportFeedback: {fileID: 4892520447385055338}
