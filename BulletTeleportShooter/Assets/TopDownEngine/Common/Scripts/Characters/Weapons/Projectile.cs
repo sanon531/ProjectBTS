@@ -65,7 +65,6 @@ namespace MoreMountains.TopDownEngine
         protected bool _spawnerIsFacingRight;
 
 		protected BulletTeleportManager _bulletTeleportManager;
-		protected LinkedList<GameObject> bulletStack;
 
         /// <summary>
         /// On awake, we store the initial speed of the object 
@@ -86,7 +85,6 @@ namespace MoreMountains.TopDownEngine
 			_initialLocalScale = transform.localScale;
 
 			_bulletTeleportManager = GameObject.Find("TeleportManager").GetComponent<BulletTeleportManager>();
-			bulletStack = _bulletTeleportManager.BulletStack;
 		}
 
 		/// <summary>
@@ -310,11 +308,10 @@ namespace MoreMountains.TopDownEngine
 			}
 
 			//추가 : 비활성화될 때, BulletStack에서 빼줌
-			if (bulletStack.Contains(this.gameObject))
+			if (BulletTeleportManager.Instance.isContain(gameObject)) 
 			{
-				_bulletTeleportManager.DeleteBullet(this.gameObject);
+				BulletTeleportManager.Instance.DeleteBullet(gameObject);
 			}
-
 		}
 	}	
 }

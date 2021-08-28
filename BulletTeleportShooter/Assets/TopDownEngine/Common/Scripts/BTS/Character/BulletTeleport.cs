@@ -148,7 +148,7 @@ namespace MoreMountains.TopDownEngine
         private void RemoveBullet()
         {
             TargetBullet = bulletStack.Last.Value;
-            bulletStack.RemoveLast();
+            BulletTeleportManager.Instance.DeleteBullet(TargetBullet);
             TargetBullet.SetActive(false);
         }
 
