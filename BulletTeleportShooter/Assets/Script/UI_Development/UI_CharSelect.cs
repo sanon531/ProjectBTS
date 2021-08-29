@@ -24,9 +24,6 @@ public class UI_CharSelect : MonoBehaviour
     public string[] gunName;
     public SaveAndLoad save;
 
-    private string SAVE_DATA_DIRECTORY;
-    private string SAVE_FILENAME = "/SaveFile.txt";
-
 
     public void GunLocker()
     {
@@ -205,28 +202,28 @@ public class UI_CharSelect : MonoBehaviour
 
     Sequence anim;
 
-    void Awake()
-    {
-        SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
-
-        if (!Directory.Exists(SAVE_DATA_DIRECTORY))
-            Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
-
-
-
-    }
     
     
     
     private void Start() // 중심 캐릭터창의 좌표 넣기
     {
-        //image.DOFade(0f, 0f);
+        StartCoroutine(coco());
+    
+       //image.DOFade(0f, 0f);
+    }
+
+    IEnumerator coco()
+    {
+        yield return new WaitForEndOfFrame();
         uiTargetedIndex = SaveAndLoad.instance.saveData.lastUsedGuns;
 
         OriginPos = rect.anchoredPosition;
         Focus(uiTargetedIndex, OriginPos);
         GunLocker();
+
     }
+
+
 
 
 

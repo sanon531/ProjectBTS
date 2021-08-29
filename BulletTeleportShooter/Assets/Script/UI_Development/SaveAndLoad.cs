@@ -45,23 +45,22 @@ public class SaveAndLoad : MonoBehaviour
 
     public static SaveAndLoad instance;
 
-    public bool isStart = false;
+    [SerializeField]
+    private bool isMoblie = false;
 
     private string SAVE_DATA_DIRECTORY;
+
     private string SAVE_FILENAME = "/SaveFile.txt";
     
     
 
     void Awake()
     {
-        SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
 
-        if (!Directory.Exists(SAVE_DATA_DIRECTORY))
-        {
-            Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
-        }
-        if (instance==null)
-            instance = this;
+        if (isMoblie)
+            initialLoad_M();
+        else
+            initialLoad_PC();
 
     }
     void Start()
@@ -71,6 +70,31 @@ public class SaveAndLoad : MonoBehaviour
             Load();
         }
     }
+
+
+    void initialLoad_PC()
+    {
+        SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
+
+        if (!Directory.Exists(SAVE_DATA_DIRECTORY))
+        {
+            Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
+        }
+        if (instance == null)
+            instance = this;
+    }
+    void initialLoad_M()
+    {
+        SAVE_DATA_DIRECTORY = Application.persistentDataPath + "/Save/";
+
+        if (!Directory.Exists(SAVE_DATA_DIRECTORY))
+        {
+            Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
+        }
+        if (instance == null)
+            instance = this;
+    }
+
 
     public void InitialSave()
     {
@@ -85,6 +109,13 @@ public class SaveAndLoad : MonoBehaviour
         }
 
     }
+    public void ResetSave()
+    {
+        string jsonData = JsonUtility.ToJson(saveData);
+        File.WriteAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME, jsonData);
+    }
+
+
 
     public void HighScore(string _name ,float _score,float _time)
     {

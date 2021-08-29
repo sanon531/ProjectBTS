@@ -21,13 +21,14 @@ public class UI_StageSelect : MonoBehaviour
     public List<string> SceneList;
     public SaveData save;
 
+
+    [SerializeField]
+    private bool isMoblie = false;
     public string[] mapName;
     public GameObject[] images;
     public GameObject selectButton;
     //public SaveData saveData = new SaveData();
 
-    private string SAVE_DATA_DIRECTORY;
-    private string SAVE_FILENAME = "/SaveFile.txt";
 
     public void MapLocker()
     {
@@ -119,15 +120,6 @@ public class UI_StageSelect : MonoBehaviour
 
     }
 
-
-
-    private void Awake()
-    {
-        SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
-
-        if (!Directory.Exists(SAVE_DATA_DIRECTORY))
-            Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
-    }
 
 
 
