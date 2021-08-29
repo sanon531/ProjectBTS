@@ -33,7 +33,7 @@ namespace MoreMountains.TopDownEngine
             }   
             if (GUIManager.Instance.Buttons != null)
             {
-                TeleportBtTr = GUIManager.Instance.Buttons.GetComponentInChildren<RectTransform>();
+                TeleportBtTr = GUIManager.Instance.Buttons.transform.GetComponentInChildren<RectTransform>();
             }
         }
 
@@ -78,7 +78,7 @@ namespace MoreMountains.TopDownEngine
                 MoveJoystickTr.GetComponentInChildren<MMTouchJoystick>().Initialize();
             }
 
-            if (ShootJoystickTr != null)
+            if (ShootJoystickTr != null && MoveJoystickTr != ShootJoystickTr)
             {
                 ShootJoystickTr.anchoredPosition = new Vector2(-ShootJoystickTr.anchoredPosition.x, ShootJoystickTr.anchoredPosition.y);
                 ShootJoystickTr.GetComponentInChildren<MMTouchJoystick>().Initialize();

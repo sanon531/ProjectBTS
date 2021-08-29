@@ -6,7 +6,7 @@ namespace MoreMountains.TopDownEngine
 {
     public class BulletTeleportManager : MMSingleton<BulletTeleportManager>
     {
-        public LinkedList<GameObject> BulletStack = new LinkedList<GameObject>();
+        public LinkedList<GameObject> BulletStack;
 
         [SerializeField] private bool UseTargetBulletIcon = false;
         [SerializeField] private GameObject TargetIcon;
@@ -21,6 +21,7 @@ namespace MoreMountains.TopDownEngine
         protected override void Awake()
         {
             base.Awake();
+            BulletStack = new LinkedList<GameObject>();
 
             if (UseTargetBulletIcon)
             {
@@ -41,15 +42,19 @@ namespace MoreMountains.TopDownEngine
             BulletStack.AddLast(targetBullet);
         }
 
-
         public void DeleteBullet(GameObject targetBullet)
         {
-            BulletStack.Remove(targetBullet);
+            BulletStack.Remove(BulletStack.Find(targetBullet));
+        }
+
+        public bool isContain(GameObject targetBullet)
+        {
+            return BulletStack.Contains(targetBullet);
         }
 
         private void ResetTargetIcon()
         {
-            if (BulletStack.Last != null)
+            if (BulletStack.Count != 0)
             {
                 TargetIcon.SetActive(true);
                 TargetIcon.transform.position = BulletStack.Last.Value.transform.position;
@@ -64,7 +69,7 @@ namespace MoreMountains.TopDownEngine
         {
             foreach (GameObject i in BulletStack)
             {
-                Debug.Log(i.transform.position);
+                Debug.Log(i);
             }
             Debug.Log("----------------------");
         }
