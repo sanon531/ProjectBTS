@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DeathReward : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class DeathReward : MonoBehaviour
 
     void OnEnable()
     {
+        mapName = SceneManager.GetActiveScene().name;
         StartCoroutine(LateShow());
     }
     IEnumerator LateShow()
