@@ -13,7 +13,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 
     [SerializeField] private RewardedAdsButton _rewardedAdsButton;
 
-    void Awake()
+    void OnEnable()
     {
         InitializeAds();
     }

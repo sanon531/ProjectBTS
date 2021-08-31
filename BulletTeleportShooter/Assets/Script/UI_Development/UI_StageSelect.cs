@@ -21,24 +21,25 @@ public class UI_StageSelect : MonoBehaviour
     public List<string> SceneList;
     public SaveData save;
 
+
+    [SerializeField]
+    private bool isMoblie = false;
     public string[] mapName;
     public GameObject[] images;
     public GameObject selectButton;
     //public SaveData saveData = new SaveData();
 
-    private string SAVE_DATA_DIRECTORY;
-    private string SAVE_FILENAME = "/SaveFile.txt";
 
     public void MapLocker()
     {
         save = SaveAndLoad.instance.saveData;
         uiTargetedIndex = save.lastPlayedMaps;
         ImmediateIndex = uiTargetedIndex;
-        Debug.Log("123654..");
+        //Debug.Log("123654..");
 
         foreach (KeyValuePair<string,bool> keyValuePair in save.mapLock)
         {
-            Debug.Log("123654");
+            //Debug.Log("123654");
 
             for (int i = 0; i < mapName.Length; i++)
             {
@@ -119,15 +120,6 @@ public class UI_StageSelect : MonoBehaviour
 
     }
 
-
-
-    private void Awake()
-    {
-        SAVE_DATA_DIRECTORY = Application.dataPath + "/Save/";
-
-        if (!Directory.Exists(SAVE_DATA_DIRECTORY))
-            Directory.CreateDirectory(SAVE_DATA_DIRECTORY);
-    }
 
 
 

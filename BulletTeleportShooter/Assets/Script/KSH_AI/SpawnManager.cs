@@ -65,6 +65,10 @@ public class SpawnManager : MonoBehaviour
         {"Third_Hole_and_Spike_Final_PC","세번째 스테이지"},
         {"Forth_Map_Final_PC","네번째 스테이지"},
         {"Last_Map_PC","마지막 스테이지"},
+        {"Second_OnlySpike__Final_M","두번째 스테이지"},
+        {"Third_Hole_and_Spike_Final_M","세번째 스테이지"},
+        {"Forth_Map_Final_M","네번째 스테이지"},
+        {"Last_Map_M","마지막 스테이지"},
 
 
         {"Bounce","바운스(이게 호출 될리가...)"},
@@ -320,7 +324,11 @@ public class SpawnManager : MonoBehaviour
 
                         if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
                         {
-                            UIManager.Instance.MakeTitle($"{rewardName[currentSequence.rewardString]} 총을 해금했습니다.", 10f);
+                            if(rewardName[currentSequence.rewardString]!=null)
+                                UIManager.Instance.MakeTitle($"{rewardName[currentSequence.rewardString]}총을 해금했습니다.", 10f);
+                            else
+                                UIManager.Instance.MakeTitle($"{currentSequence.rewardString}총을 해금했습니다.", 10f);
+
                         }
                         else
                         {
@@ -333,6 +341,12 @@ public class SpawnManager : MonoBehaviour
                     {
                         if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
                         {
+                            if (rewardName[currentSequence.rewardString] != null)
+                                UIManager.Instance.MakeTitle($"{rewardName[currentSequence.rewardString]}가 열렸습니다.", 10f);
+                            else
+                                UIManager.Instance.MakeTitle($"{currentSequence.rewardString}가 열렸습니다.", 10f);
+
+
                             UIManager.Instance.MakeTitle($"{rewardName[currentSequence.rewardString]}가 열렸습니다.", 10f);
                         }
                         else

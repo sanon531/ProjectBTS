@@ -522,11 +522,11 @@ MonoBehaviour:
     lastUsedGuns: 0
     mapLock:
       m_keys:
-      - First_Spike_Final_PC
-      - Second_OnlySpike__Final_PC
-      - Third_Hole_and_Spike_Final_PC
-      - Forth_Map_Final_PC
-      - Last_Map_PC
+      - First_Spike_Final_M
+      - Second_OnlySpike__Final_M
+      - Third_Hole_and_Spike_Final_M
+      - Forth_Map_Final_M
+      - Last_Map_M
       m_values: 0100000000
     gunLock:
       m_keys:
@@ -542,11 +542,11 @@ MonoBehaviour:
       m_values: 010000000000000000
     mapHigh:
       m_keys:
-      - First_Spike_Final_PC
-      - Second_OnlySpike__Final_PC
-      - Third_Hole_and_Spike_Final_PC
-      - Forth_Map_Final_PC
-      - Last_Map_PC
+      - First_Spike_Final_M
+      - Second_OnlySpike__Final_M
+      - Third_Hole_and_Spike_Final_M
+      - Forth_Map_Final_M
+      - Last_Map_M
       m_values:
       - {x: 0, y: 0}
       - {x: 0, y: 0}
@@ -557,7 +557,7 @@ MonoBehaviour:
       m_keys: []
       m_values: []
     gold: 0
-  isStart: 0
+  isMoblie: 0
 --- !u!224 &1036779996 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7055905508716588231, guid: 08b93074218a9374ea5696f085900884,

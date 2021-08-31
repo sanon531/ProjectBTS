@@ -1,29 +1,62 @@
 ﻿using System.Collections;
+using MoreMountains.Tools;
+using MoreMountains.TopDownEngine;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DeathReward : MonoBehaviour
 {
-    public GameObject score;
-    public GameObject time;
+    [SerializeField]
+    private GameObject score;
+    [SerializeField]
+    private GameObject time;
     private Text isTime;
     private Text isScore;
-    public string mapName;
-    public SaveData save;
-    public GameObject mapHighIcon;
-    public GameObject TimeHighIcon;
+    [SerializeField]
+    private string mapName;
+    [SerializeField]
+    private GameObject mapHighIcon;
+    [SerializeField]
+    private GameObject TimeHighIcon;
+    [SerializeField]
+    private GameObject AdButtonObj;
+    [SerializeField]
+    MMTouchButton AdButton;
 
+    public bool CanSeeAD = true;
+
+    private void Awake()
+    {
+        CanSeeAD = true;
+        Debug.Log("Death Awaken");
+    }
 
     void OnEnable()
     {
+        mapName = SceneManager.GetActiveScene().name;
+        // 부활은 1회만 가능하도록.
+        if (CanSeeAD)
+        {
+            Color tempt = AdButtonObj.GetComponent<Image>().color;
+            tempt = new Color(tempt.r, tempt.g, tempt.b, 1f);
+            AdButtonObj.GetComponent<Image>().color = tempt;
+        }
+        else
+        {
+            Color tempt = AdButtonObj.GetComponent<Image>().color;
+            tempt = new Color(tempt.r, tempt.g, tempt.b, 0.4f);
+            AdButtonObj.GetComponent<Image>().color = tempt;
+            AdButton.enabled = false;
+        }
         StartCoroutine(LateShow());
+
     }
     IEnumerator LateShow()
     {
-
         yield return new WaitForEndOfFrame();
 
         isScore = score.GetComponent<Text>();
@@ -52,17 +85,15 @@ public class DeathReward : MonoBehaviour
         {
             TimeHighIcon.SetActive(false);
         }
-
-
-
-
-
-
         SaveAndLoad.instance.HighScore(mapName, a, b);
-        Debug.Log(a);
-        Debug.Log(b);
+        
+    }
 
 
+    public void DisableAdButton()
+    {
+        Debug.Log("Disabled");
+        CanSeeAD = false;
     }
 
 }

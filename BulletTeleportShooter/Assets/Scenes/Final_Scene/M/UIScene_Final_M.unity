@@ -637,6 +637,7 @@ MonoBehaviour:
       m_keys: []
       m_values: []
     gold: 0
+  isMoblie: 0
   mapName:
   - First_Spike_Final_M
   - Second_OnlySpike__Final_M
@@ -679,7 +680,7 @@ MonoBehaviour:
       m_keys: []
       m_values: []
     gold: 0
-  isStart: 0
+  isMoblie: 1
 --- !u!1 &108173102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1031,7 @@ MonoBehaviour:
       m_keys: []
       m_values: []
     gold: 0
-  isStart: 0
+  isMoblie: 0
 --- !u!114 &199079056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7459,7 +7460,7 @@ MonoBehaviour:
       m_keys: []
       m_values: []
     gold: 0
-  isStart: 0
+  isMoblie: 1
 --- !u!114 &1435153304
 MonoBehaviour:
   m_ObjectHideFlags: 0
