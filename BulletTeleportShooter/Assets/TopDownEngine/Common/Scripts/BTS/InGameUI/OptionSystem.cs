@@ -10,9 +10,10 @@ namespace MoreMountains.TopDownEngine
     {
         [SerializeField] private Text HandUIText;
         [SerializeField] private GameObject LockIcon;
+        [SerializeField] private Slider SoundSlider;
 
         private enum UIHandStates { RightHand, LeftHand }
-        private UIHandStates UIHandState;
+        private static UIHandStates UIHandState;
         private MMSoundManager SoundManager;
         private RectTransform MoveJoystickTr;
         private RectTransform ShootJoystickTr;
@@ -21,20 +22,6 @@ namespace MoreMountains.TopDownEngine
         private void Awake()
         {
             SoundManager = MMSoundManager.Instance;
-            UIHandState = UIHandStates.RightHand;
-
-            if (GUIManager.Instance.Joystick != null)
-            {
-                MoveJoystickTr = GUIManager.Instance.Joystick.GetComponent<RectTransform>();
-            }
-            if (GUIManager.Instance.SecondJoystick != null)
-            {
-                ShootJoystickTr = GUIManager.Instance.SecondJoystick.GetComponent<RectTransform>();
-            }   
-            if (GUIManager.Instance.Buttons != null)
-            {
-                TeleportBtTr = GUIManager.Instance.Buttons.transform.GetComponentInChildren<RectTransform>();
-            }
         }
 
         private void Start()
@@ -44,11 +31,26 @@ namespace MoreMountains.TopDownEngine
                 HandUIText.text = "";
                 LockIcon.SetActive(true);
             }
+
+            SoundSlider.value = SoundManager.settingsSo.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.Master);
+
+            /* 
+            if (세이브파일 == 오른손)
+            {
+                UIHandState = UIHandStates.RightHand;
+            }
+            else if (세이브파일 == 왼손)
+            {
+                UIHandState = UIHandStates.LeftHand;
+            }
+            */
+
+            SetInitialJoystickUI();
         }
 
         public void SetVolume(float volume)
         {
-            SoundManager.SetVolumeMaster(volume * 2);
+            SoundManager.SetVolumeMaster(volume);
         }
 
         public void UIMoveButton()
@@ -58,35 +60,89 @@ namespace MoreMountains.TopDownEngine
                 if (UIHandState == UIHandStates.RightHand)
                 {
                     UIHandState = UIHandStates.LeftHand;
-                    HandUIText.text = "Left Hand";
-                    ChangeJoystickPos();
+
+                    /*
+                    세이브파일 -> 왼손으로 변경
+                    */
                 }
                 else
                 {
                     UIHandState = UIHandStates.RightHand;
-                    HandUIText.text = "Right Hand";
-                    ChangeJoystickPos();
+
+                    /*
+                    세이브파일 -> 오른손으로 변경
+                    */             
                 }
+
+                SetJoystickUI();
             }
         }
 
-        private void ChangeJoystickPos()
+        public void SetInitialJoystickUI()
         {
-            if (MoveJoystickTr != null)
+            if (GUIManager.Instance.Joystick != null)
             {
-                MoveJoystickTr.anchoredPosition = new Vector2(-MoveJoystickTr.anchoredPosition.x, MoveJoystickTr.anchoredPosition.y);
-                MoveJoystickTr.GetComponentInChildren<MMTouchJoystick>().Initialize();
+                MoveJoystickTr = GUIManager.Instance.Joystick.GetComponent<RectTransform>();
+            }
+            if (GUIManager.Instance.SecondJoystick != null)
+            {
+                ShootJoystickTr = GUIManager.Instance.SecondJoystick.GetComponent<RectTransform>();
+            }
+            if (GUIManager.Instance.Buttons != null)
+            {
+                TeleportBtTr = GUIManager.Instance.Buttons.transform.GetComponentInChildren<RectTransform>();
             }
 
-            if (ShootJoystickTr != null && MoveJoystickTr != ShootJoystickTr)
+            if (InputManager.Instance.InputForcedMode == InputManager.InputForcedModes.Mobile)
             {
-                ShootJoystickTr.anchoredPosition = new Vector2(-ShootJoystickTr.anchoredPosition.x, ShootJoystickTr.anchoredPosition.y);
-                ShootJoystickTr.GetComponentInChildren<MMTouchJoystick>().Initialize();
-            }    
+                SetJoystickUI();
+            }
+        }
 
-            if (TeleportBtTr != null)
+        private void SetJoystickUI()
+        {          
+            if (UIHandState == UIHandStates.RightHand)
             {
-                TeleportBtTr.anchoredPosition = new Vector2(-TeleportBtTr.anchoredPosition.x, TeleportBtTr.anchoredPosition.y);
+                HandUIText.text = "Right Hand";
+
+                if (MoveJoystickTr != null && MoveJoystickTr.anchoredPosition.x > 0)
+                {
+                    MoveJoystickTr.anchoredPosition = new Vector2(-MoveJoystickTr.anchoredPosition.x, MoveJoystickTr.anchoredPosition.y);
+                    MoveJoystickTr.GetComponentInChildren<MMTouchJoystick>().Initialize();
+                }
+
+                if (ShootJoystickTr != null && MoveJoystickTr != ShootJoystickTr && ShootJoystickTr.anchoredPosition.x > 0)
+                {
+                    ShootJoystickTr.anchoredPosition = new Vector2(-ShootJoystickTr.anchoredPosition.x, ShootJoystickTr.anchoredPosition.y);
+                    ShootJoystickTr.GetComponentInChildren<MMTouchJoystick>().Initialize();
+                }
+
+                if (TeleportBtTr != null && TeleportBtTr.anchoredPosition.x < 0)
+                {
+                    TeleportBtTr.anchoredPosition = new Vector2(-TeleportBtTr.anchoredPosition.x, TeleportBtTr.anchoredPosition.y);
+                }
+            }
+
+            else
+            {
+                HandUIText.text = "Left Hand";
+
+                if (MoveJoystickTr != null && MoveJoystickTr.anchoredPosition.x < 0)
+                {
+                    MoveJoystickTr.anchoredPosition = new Vector2(-MoveJoystickTr.anchoredPosition.x, MoveJoystickTr.anchoredPosition.y);
+                    MoveJoystickTr.GetComponentInChildren<MMTouchJoystick>().Initialize();    
+                }
+
+                if (ShootJoystickTr != null && MoveJoystickTr != ShootJoystickTr && ShootJoystickTr.anchoredPosition.x < 0)
+                {
+                    ShootJoystickTr.anchoredPosition = new Vector2(-ShootJoystickTr.anchoredPosition.x, ShootJoystickTr.anchoredPosition.y);
+                    ShootJoystickTr.GetComponentInChildren<MMTouchJoystick>().Initialize();
+                }
+
+                if (TeleportBtTr != null && TeleportBtTr.anchoredPosition.x > 0)
+                {
+                    TeleportBtTr.anchoredPosition = new Vector2(-TeleportBtTr.anchoredPosition.x, TeleportBtTr.anchoredPosition.y);
+                }
             }
         }
     }

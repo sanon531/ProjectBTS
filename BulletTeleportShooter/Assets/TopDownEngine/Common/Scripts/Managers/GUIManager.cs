@@ -101,6 +101,8 @@ namespace MoreMountains.TopDownEngine
 			RefreshPoints();
             SetPauseScreen(false);
             SetDeathScreen(false);
+
+			OptionScreen.GetComponent<OptionSystem>().SetInitialJoystickUI();
 		}
 
 	    /// <summary>
