@@ -35,11 +35,11 @@ public class UI_StageSelect : MonoBehaviour
         save = SaveAndLoad.instance.saveData;
         uiTargetedIndex = save.lastPlayedMaps;
         ImmediateIndex = uiTargetedIndex;
-        Debug.Log("123654..");
+        //Debug.Log("123654..");
 
         foreach (KeyValuePair<string,bool> keyValuePair in save.mapLock)
         {
-            Debug.Log("123654");
+            //Debug.Log("123654");
 
             for (int i = 0; i < mapName.Length; i++)
             {

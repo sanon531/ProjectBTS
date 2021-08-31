@@ -3,14 +3,18 @@ using MoreMountains.TopDownEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
 public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    [SerializeField] Button _showAdButton;
+    [SerializeField] MMTouchButton _showAdButton;
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOsAdUnitId = "Rewarded_iOS";
+    [SerializeField] UnityEvent ADRewardEvent; 
+
     string _adUnitId;
 
     void Awake()
@@ -21,7 +25,14 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
             : _androidAdUnitId;
 
         //Disable button until ad is ready to show
-        _showAdButton.interactable = false;
+        _showAdButton.enabled = false;
+
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("eableed");
+
     }
 
     // Load content to the Ad Unit:
@@ -36,18 +47,19 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
         Debug.Log("Ad Loaded: " + adUnitId);
+        _showAdButton.enabled = true;
 
         if (adUnitId.Equals(_adUnitId))
-        {   
-            _showAdButton.onClick.AddListener(ShowAd);
-            _showAdButton.interactable = true;
+        {
+            _showAdButton.ButtonReleased.AddListener(ShowAd); 
+            _showAdButton.enabled= true;
         }
     }
 
     // Implement a method to execute when the user clicks the button.
     public void ShowAd()
     {
-        _showAdButton.interactable = false;
+        _showAdButton.enabled = true;
 
         GameManager.Instance.Pause();
         MMSoundManager.Instance.PauseAllSounds();
@@ -58,6 +70,8 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     // Implement the Show Listener's OnUnityAdsShowComplete callback method to determine if the user gets a reward:
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
     {
+        Debug.Log("Unity Ads Rewarded Ad Ended");
+
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
@@ -65,9 +79,10 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
             GameManager.Instance.UnPause();
             MMSoundManager.Instance.PlayAllSounds();
 
+            ADRewardEvent.Invoke();
             // 광고 종료 후 보상 들어가는 부분
-
             Advertisement.Load(_adUnitId, this);
+
         }
     }
 
@@ -87,6 +102,6 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
 
     void OnDestroy()
     {
-        _showAdButton.onClick.RemoveAllListeners();
+        _showAdButton.ButtonReleased.RemoveAllListeners();
     }
 }
