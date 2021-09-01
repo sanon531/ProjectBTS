@@ -4,20 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System;
-
-
+using MoreMountains.TopDownEngine;
 [System.Serializable]
-
 public class SaveData
 {
     [SerializeField]
     public bool tutorialOn = true;
 
     [SerializeField]
+    public bool UIRightHand = true;
+
+    [SerializeField]
     public int lastPlayedMaps = 0;
 
     [SerializeField]
-    public int lastUsedGuns  = 0;
+    public int lastUsedGuns = 0;
 
     [SerializeField]
     public MapLock mapLock;
@@ -33,7 +34,7 @@ public class SaveData
 
     public int gold;
 
-    
+
 }
 
 
@@ -46,13 +47,15 @@ public class SaveAndLoad : MonoBehaviour
     public static SaveAndLoad instance;
 
     [SerializeField]
+    private bool isNotDebug = true;
+    [SerializeField]
     private bool isMoblie = false;
 
     private string SAVE_DATA_DIRECTORY;
 
     private string SAVE_FILENAME = "/SaveFile.txt";
-    
-    
+
+
 
     void Awake()
     {
@@ -62,15 +65,17 @@ public class SaveAndLoad : MonoBehaviour
         else
             initialLoad_PC();
 
+
     }
     void Start()
     {
-        if (File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME) == true)
+        if (File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME) == true && isNotDebug)
         {
             Load();
         }
     }
 
+    //inital
 
     void initialLoad_PC()
     {
@@ -94,8 +99,6 @@ public class SaveAndLoad : MonoBehaviour
         if (instance == null)
             instance = this;
     }
-
-
     public void InitialSave()
     {
         if (File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME) == false)
@@ -116,26 +119,41 @@ public class SaveAndLoad : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// save
+    /// <returns></returns>
 
-    public void HighScore(string _name ,float _score,float _time)
+    public void SetUIRightLeft(bool isright)
     {
-        if(_score > saveData.mapHigh[_name].x)
+        saveData.UIRightHand = isright;
+        Save();
+    }
+    public void SetInitialUIRL()
+    {
+        OptionSystem.Instance.SetRightLeftUI(saveData.UIRightHand);
+        Debug.Log("UISetted");
+    }
+
+    public void HighScore(string _name, float _score, float _time)
+    {
+        if (_score > saveData.mapHigh[_name].x)
         {
             saveData.mapHigh[_name] = new Vector2(_score, saveData.mapHigh[_name].y);
         }
-        if(_time > saveData.mapHigh[_name].y)
+        if (_time > saveData.mapHigh[_name].y)
         {
             saveData.mapHigh[_name] = new Vector2(saveData.mapHigh[_name].x, _time);
         }
-        
+
         Save();
     }
 
-    public bool UnLockByName(bool isgun,string _name)
+    public bool UnLockByName(bool isgun, string _name)
     {
-       
+
         if (isgun)
         {
+
             if (saveData.gunLock[_name])
             {
                 return false;
@@ -162,11 +180,11 @@ public class SaveAndLoad : MonoBehaviour
             }
         }
     }
-    
+
     public void Save()
     {
         string jsonData = JsonUtility.ToJson(saveData);
-        
+
         File.WriteAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME, jsonData);
 
         Debug.Log("저장 완료");
@@ -175,12 +193,12 @@ public class SaveAndLoad : MonoBehaviour
 
     public SaveData Load()
     {
-        if(File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME))
+        if (File.Exists(SAVE_DATA_DIRECTORY + SAVE_FILENAME))
         {
             string loadJson = File.ReadAllText(SAVE_DATA_DIRECTORY + SAVE_FILENAME);
             saveData = JsonUtility.FromJson<SaveData>(loadJson);
             Debug.Log(saveData);
-            
+
         }
         return saveData;
     }
@@ -204,6 +222,7 @@ public class SaveAndLoad : MonoBehaviour
 
 
 }
+
 
 
 

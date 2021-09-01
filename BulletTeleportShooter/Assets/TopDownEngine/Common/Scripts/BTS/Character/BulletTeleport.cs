@@ -96,7 +96,7 @@ namespace MoreMountains.TopDownEngine
             else
             {
                 GUIManager.Instance.TeleportTokenBar.GetComponent<TeleportTokenBar>().TokenWarning.SetActive(true);
-                CannotTeleportFeedback?.PlayFeedbacks();              
+                CannotTeleportFeedback?.PlayFeedbacks();
             }
         }
 
@@ -115,7 +115,7 @@ namespace MoreMountains.TopDownEngine
 
                 RemoveBullet();
                 SetTargetPos();
-                transform.position = new Vector2 (TargetPos.x, TargetPos.y);
+                transform.position = new Vector2(TargetPos.x, TargetPos.y);
 
                 _health.DamageDisabled();                //점멸 후 플레이어 잠시 무적
                 TeleportFeedback?.PlayFeedbacks(this.transform.position);
@@ -156,7 +156,7 @@ namespace MoreMountains.TopDownEngine
         {
             nowToken -= useAmount;
 
-            _teleportTokenBar.RemoveToken(useAmount); 
+            _teleportTokenBar.RemoveToken(useAmount);
         }
 
         public void TeleportTokenCharge(int chargeAmount)
@@ -231,13 +231,13 @@ namespace MoreMountains.TopDownEngine
             // mandatory checks
             if (nextGameObject == null) { return; }
 
-            nextGameObject.transform.localScale = new Vector3 (Radius, Radius, Radius) ;
+            nextGameObject.transform.localScale = new Vector3(Radius, Radius, Radius);
 
             ParticleSystem temptParticle = nextGameObject.GetComponent<ParticleSystem>();
             temptParticle.Play();
 
             // we position the object
-            nextGameObject.transform.position = transform.position + new Vector3(0, 0, -3f); 
+            nextGameObject.transform.position = transform.position + new Vector3(0, 0, -3f);
 
             // we activate the object
             nextGameObject.gameObject.SetActive(true);

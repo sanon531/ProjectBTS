@@ -37,7 +37,7 @@ public class UI_StageSelect : MonoBehaviour
         ImmediateIndex = uiTargetedIndex;
         //Debug.Log("123654..");
 
-        foreach (KeyValuePair<string,bool> keyValuePair in save.mapLock)
+        foreach (KeyValuePair<string, bool> keyValuePair in save.mapLock)
         {
             //Debug.Log("123654");
 
@@ -60,10 +60,10 @@ public class UI_StageSelect : MonoBehaviour
         }
     }
 
-    
+
     public void ButtonLocker()
     {
-        
+
         for (int i = 0; i < images.Length; i++)
         {
             if (ImmediateIndex == i)
@@ -79,8 +79,8 @@ public class UI_StageSelect : MonoBehaviour
                     Debug.Log("열림");
                 }
             }
-            
-            
+
+
         }
     }
 
@@ -90,9 +90,9 @@ public class UI_StageSelect : MonoBehaviour
     {
         if (0 <= _index && _index < node.Length)
         {
-                        
+
             ImmediateIndex = _index;
-            
+
             animSequence = DOTween.Sequence();
             animSequence.
                 Append(
@@ -111,7 +111,7 @@ public class UI_StageSelect : MonoBehaviour
 
 
     public void Focus(int _index)
-    {       
+    {
         if (0 <= _index && _index < node.Length)
         {
             node[_index].localScale = Vector3.one * scaleVar;
@@ -144,7 +144,7 @@ public class UI_StageSelect : MonoBehaviour
         if (!animSequence.IsActive())
         {
             BuildAnimation(uiTargetedIndex - 1);
-            
+
             /*Button btn = selectButton.GetComponent<Button>();
             
             btn.enabled = false;
@@ -159,7 +159,7 @@ public class UI_StageSelect : MonoBehaviour
         if (!animSequence.IsActive())
         {
             BuildAnimation(uiTargetedIndex + 1);
-            
+
             /*Button btn = selectButton.GetComponent<Button>();
             
             btn.enabled = false;
@@ -175,15 +175,15 @@ public class UI_StageSelect : MonoBehaviour
         UnlimitedSelect();
     }
     */
-    
+
     public void OnClick_Stn()
     {
-        if(!animSequence.IsActive())
-        {                      
+        if (!animSequence.IsActive())
+        {
             SceneLoad();
         }
-    }          
-        
+    }
+
     public void SceneLoad()
     {
         SceneManager.LoadScene(SceneList[ImmediateIndex]);

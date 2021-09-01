@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using MoreMountains.TopDownEngine;
+
 
 public enum SpawnType
 {
@@ -87,17 +89,17 @@ public class SpawnManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
+
     }
 
     private void Start()
     {
         objectPool = new Dictionary<System.Type, Queue<Enemy>>();
         HashSet<System.Type> objectPoolChecker = new HashSet<System.Type>();
-        for(int i = 0; i < spawnSequence.Length; ++i)
+        for (int i = 0; i < spawnSequence.Length; ++i)
         {
             Enemy[] spawnableEnemy = spawnSequence[i].spawnEnemy;
-            for(int j = 0; j < spawnableEnemy.Length; ++j)
+            for (int j = 0; j < spawnableEnemy.Length; ++j)
             {
                 System.Type enemyType = spawnableEnemy[j].GetType();
                 if (objectPoolChecker.Add(enemyType))
@@ -113,7 +115,7 @@ public class SpawnManager : MonoBehaviour
         }
 
         spawnedEnemyCount = 0;
-        
+
         Sequence tokenSequence = DOTween.Sequence();
         tokenSequence.
             OnStart(() =>
@@ -148,7 +150,7 @@ public class SpawnManager : MonoBehaviour
         float currentTime;
         SpawnSequence currentSequence;
 
-        for (int sequenceIndex = 0; sequenceIndex < spawnSequence.Length - 1; )
+        for (int sequenceIndex = 0; sequenceIndex < spawnSequence.Length - 1;)
         {
             currentSequence = spawnSequence[sequenceIndex];
             currentTime = 0f;
@@ -157,7 +159,7 @@ public class SpawnManager : MonoBehaviour
             switch (currentSequence.spawnType)
             {
                 case SpawnType.NORMAL:
-                    if(currentSequence.rewardString == "")
+                    if (currentSequence.rewardString == "")
                         UIManager.Instance.MakeTitle($"일반적으로 스폰 됩니다.", 2f);
                     else
                         UIManager.Instance.MakeTitle(currentSequence.rewardString, 2f);
@@ -205,9 +207,9 @@ public class SpawnManager : MonoBehaviour
                                 {
                                     SpawnEnemy(currentSequence.spawnEnemy[spawnEnemyIndex[i]], spawnPos[spawnPointIndex[i]]);
                                 }
-                                spawnedEnemyCount += spawnCount; 
-                                
-                                while(currentTime < waitTime)
+                                spawnedEnemyCount += spawnCount;
+
+                                while (currentTime < waitTime)
                                 {
                                     if (spawnedEnemyCount <= 0) break;
                                     currentTime += Time.deltaTime;
@@ -324,7 +326,7 @@ public class SpawnManager : MonoBehaviour
 
                         if (SaveAndLoad.instance.UnLockByName(currentSequence.rewardisGun, currentSequence.rewardString))
                         {
-                            if(rewardName[currentSequence.rewardString]!=null)
+                            if (rewardName[currentSequence.rewardString] != null)
                                 UIManager.Instance.MakeTitle($"{rewardName[currentSequence.rewardString]}총을 해금했습니다.", 10f);
                             else
                                 UIManager.Instance.MakeTitle($"{currentSequence.rewardString}총을 해금했습니다.", 10f);

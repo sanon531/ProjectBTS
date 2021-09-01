@@ -12,7 +12,7 @@ public class UI_CharSelect : MonoBehaviour
 {
     public float time = 0.5f;
     //public float scaleVar;
-    public float distance1,distance2;
+    public float distance1, distance2;
 
     public RectTransform rectTransform;
     public RectTransform[] node;
@@ -64,7 +64,7 @@ public class UI_CharSelect : MonoBehaviour
                 if (images[i].activeSelf == true)
                 {
                     Stn.GetComponent<Button>().enabled = false;
-                    Debug.Log(i+"잠김");
+                    Debug.Log(i + "잠김");
                 }
                 else
                 {
@@ -90,7 +90,7 @@ public class UI_CharSelect : MonoBehaviour
             if (0 <= _index - 1 && _index - 1 < node.Length) animSequence.
                     Join(node[_index - 1].DOScale(Vector3.one, time)); // 왼쪽의 노드 애니메이션 들어갈 부분
             if (0 <= _index && _index < node.Length) animSequence.
-                    Join(node[_index].DOScale(Vector3.one , time)); // 중앙의 노드 애니메이션 들어갈 부분
+                    Join(node[_index].DOScale(Vector3.one, time)); // 중앙의 노드 애니메이션 들어갈 부분
             if (0 <= _index + 1 && _index + 1 < node.Length) animSequence.
                     Join(node[_index + 1].DOScale(Vector3.one, time)); // 오른쪽의 노드 애니메이션 들어갈 부분
             animSequence.OnComplete(() => uiTargetedIndex = _index);
@@ -99,7 +99,7 @@ public class UI_CharSelect : MonoBehaviour
         }
     }
 
-    
+
     public void Focus(int _index, Vector2 Originps) //여러 개의 캐릭터 창 중 중심 점 잡기
     {
         /*for (int i = 0; i < node.Length; ++i)
@@ -110,9 +110,9 @@ public class UI_CharSelect : MonoBehaviour
 
         if (0 <= _index && _index < node.Length)
         {
-            
-            rectTransform.anchoredPosition = (new Vector2 (Originps.x - node[_index].anchoredPosition.x, Originps.y));
-            
+
+            rectTransform.anchoredPosition = (new Vector2(Originps.x - node[_index].anchoredPosition.x, Originps.y));
+
             for (int i = 0; i < node.Length; ++i)
             {
                 if (_index != i)
@@ -125,59 +125,59 @@ public class UI_CharSelect : MonoBehaviour
 
     }
 
-    
+
 
     public void OnClick_SelectBack() // 캐릭터 창을 닫을 때 나머지 애들 잠금
     {
-        
-        for (int i = 0 ;i < node.Length;++i)
+
+        for (int i = 0; i < node.Length; ++i)
         {
             if (uiTargetedIndex != i)
                 node[i].gameObject.SetActive(false);
-        }     
-                
+        }
+
     }
 
     public void OnClick_Select() //캐릭터 창을 열 때 나머지 애들 열기
     {
         for (int i = 0; i < node.Length; ++i)
         {
-             node[i].gameObject.SetActive(true);
-        }        
+            node[i].gameObject.SetActive(true);
+        }
     }
 
     public void OnClick_Left() //좌 화살표 클릭시 이동 애니메이션 
     {
-        
+
         if (!animSequence.IsActive() && !anim.IsActive())
         {
             BuildAnimation(uiTargetedIndex - 1);
-            
+
             Button btn1 = Stn.GetComponent<Button>();
             Button btn2 = Selectbtn.GetComponent<Button>();
 
             btn1.enabled = false;
             btn2.enabled = false;
             Invoke("OnInvoke", time + 0.2f);
-            
+
         }
     }
 
-    
+
     public void OnClick_Right() //우 화살표 클릭시 이동 애니메이션
     {
-        
+
         if (!animSequence.IsActive() && !anim.IsActive())
         {
             BuildAnimation(uiTargetedIndex + 1);
-            
+
             Button btn1 = Stn.GetComponent<Button>();
             Button btn2 = Selectbtn.GetComponent<Button>();
 
             btn1.enabled = false;
             btn2.enabled = false;
             Invoke("OnInvoke", time + 0.2f);
-            
+
         }
     }
 
@@ -188,28 +188,28 @@ public class UI_CharSelect : MonoBehaviour
         */
         Button btn2 = Selectbtn.GetComponent<Button>();
         btn2.enabled = true;
-        
+
         ButtonLocker();
         GameManager.Instance.NowSelectedPlayerNum = uiTargetedIndex;
     }
-    
+
     //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡui_char
 
-    public RectTransform rect; 
+    public RectTransform rect;
     public Vector2 OriginPos;
     //public Image image;
     // public Tween tween;
 
     Sequence anim;
 
-    
-    
-    
+
+
+
     private void Start() // 중심 캐릭터창의 좌표 넣기
     {
         StartCoroutine(coco());
-    
-       //image.DOFade(0f, 0f);
+
+        //image.DOFade(0f, 0f);
     }
 
     IEnumerator coco()
@@ -239,17 +239,17 @@ public class UI_CharSelect : MonoBehaviour
         anim.
             Append(rect.DOScale(2f, 1));//scale을 2로
 
-              
 
-        for(int i = 0; i < node.Length; ++i )
+
+        for (int i = 0; i < node.Length; ++i)
         {
             if (uiTargetedIndex == i)
             {
                 anim.
-                    Join(rect.DOAnchorPos(new Vector2(- node[i].anchoredPosition.x * 2 , 0), 1, false)); // 기존 위치 x2로 이동
+                    Join(rect.DOAnchorPos(new Vector2(-node[i].anchoredPosition.x * 2, 0), 1, false)); // 기존 위치 x2로 이동
 
             }
-        }                       
+        }
         //tween = image.DOFade(1f, 1f);
     }
 
@@ -257,7 +257,7 @@ public class UI_CharSelect : MonoBehaviour
 
     public void OffClick() //되돌리기
     {
-        
+
 
         anim = DOTween.Sequence();
 
@@ -280,7 +280,7 @@ public class UI_CharSelect : MonoBehaviour
 
 
 
-       
+
         //tween = image.DOFade(0f, 1f);
 
     }

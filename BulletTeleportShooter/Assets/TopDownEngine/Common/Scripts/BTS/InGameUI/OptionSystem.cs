@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Events;
 namespace MoreMountains.TopDownEngine
 {
     public class OptionSystem : MonoBehaviour
@@ -11,6 +11,11 @@ namespace MoreMountains.TopDownEngine
         [SerializeField] private Text HandUIText;
         [SerializeField] private GameObject LockIcon;
         [SerializeField] private Slider SoundSlider;
+
+        public UnityEvent ChangeUIDefault;
+        public UnityEvent ChangeUIRight;
+        public UnityEvent ChangeUILeft;
+        public static OptionSystem Instance;
 
         private enum UIHandStates { RightHand, LeftHand }
         private static UIHandStates UIHandState;
@@ -21,6 +26,7 @@ namespace MoreMountains.TopDownEngine
 
         private void Awake()
         {
+            Instance = this;
             SoundManager = MMSoundManager.Instance;
         }
 
@@ -31,21 +37,25 @@ namespace MoreMountains.TopDownEngine
                 HandUIText.text = "";
                 LockIcon.SetActive(true);
             }
-
             SoundSlider.value = SoundManager.settingsSo.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.Master);
+            SetInitialJoystickUI();
+            ChangeUIDefault.Invoke();
+        }
 
-            /* 
-            if (세이브파일 == 오른손)
+
+
+        public void SetRightLeftUI(bool IsRight)
+        {
+
+            if (IsRight)
             {
                 UIHandState = UIHandStates.RightHand;
             }
-            else if (세이브파일 == 왼손)
+            else
             {
                 UIHandState = UIHandStates.LeftHand;
             }
-            */
 
-            SetInitialJoystickUI();
         }
 
         public void SetVolume(float volume)
@@ -60,18 +70,12 @@ namespace MoreMountains.TopDownEngine
                 if (UIHandState == UIHandStates.RightHand)
                 {
                     UIHandState = UIHandStates.LeftHand;
-
-                    /*
-                    세이브파일 -> 왼손으로 변경
-                    */
+                    ChangeUILeft.Invoke();
                 }
                 else
                 {
                     UIHandState = UIHandStates.RightHand;
-
-                    /*
-                    세이브파일 -> 오른손으로 변경
-                    */             
+                    ChangeUIRight.Invoke();
                 }
 
                 SetJoystickUI();

@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 1761466464099011440}
   time: {fileID: 1848558654034002510}
-  mapName: First_Spike_Final_M
+  mapName: Second_OnlySpike__Final_M
   mapHighIcon: {fileID: 939401572175885634}
   TimeHighIcon: {fileID: 8785207405002116936}
   AdButtonObj: {fileID: 8907172911475097322}
@@ -7729,7 +7729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316ab92be1a09414daadf97f5d5d2a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: UIScene_Final_PC
+  LevelName: UIScene_Final_M
   DoNotUseLevelManager: 0
 --- !u!1 &3418715579133997851
 GameObject:
@@ -8544,7 +8544,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7791932, y: 1}
+    m_SensorSize: {x: 2, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13555,7 +13555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6991a3a388a284a9871c87b5be39e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetCamera: {fileID: 0}
+  TargetCamera: {fileID: 3403722509154263987}
   PressedOpacity: 0.5
   HorizontalAxisEnabled: 1
   VerticalAxisEnabled: 1
@@ -16220,6 +16220,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OptionSplash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535438334871626909, guid: d1525297670a2e141b0dbf51459f437a,
+        type: 3}
+      propertyPath: ChangeUILeft.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535438334871626909, guid: d1525297670a2e141b0dbf51459f437a,
+        type: 3}
+      propertyPath: ChangeUIRight.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535438334871626909, guid: d1525297670a2e141b0dbf51459f437a,
+        type: 3}
+      propertyPath: ChangeUILeft.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetUIRightLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535438334871626909, guid: d1525297670a2e141b0dbf51459f437a,
+        type: 3}
+      propertyPath: ChangeUIRight.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetUIRightLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535438334871626909, guid: d1525297670a2e141b0dbf51459f437a,
+        type: 3}
+      propertyPath: ChangeUIRight.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535438334871626909, guid: d1525297670a2e141b0dbf51459f437a,
+        type: 3}
+      propertyPath: ChangeUILeft.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535438334871626909, guid: d1525297670a2e141b0dbf51459f437a,
+        type: 3}
+      propertyPath: ChangeUIRight.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7239191499169473844, guid: d1525297670a2e141b0dbf51459f437a,
         type: 3}
