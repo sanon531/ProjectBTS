@@ -6,7 +6,7 @@
 ## Project BTS(Bullet Teleport shooter)
 
 ## 소속 동아리
-![alt text](https://imgur.com/bEselcn)
+![alt text](https://i.imgur.com/bEselcn.png)
 
 Cien
 (Chung-Ang University IT Entertainment Club)
