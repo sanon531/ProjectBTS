@@ -1931,8 +1931,9 @@ PrefabInstance:
         \uAE40\uC218\uD658(AI)\n\n\n\nUI \uADF8\uB798\uD53D, \uD29C\uD1A0\uB9AC\uC5BC\n\uAE40\uBA85\uC900
         \n\n\uCE90\uB9AD\uD130, \uCD1D\uAE30 \uADF8\uB798\uD53D\nJuan\n\n\uBAAC\uC2A4\uD130,
         \uB9F5 \uADF8\uB798\uD53D  \n\uC784\uC218\uD604\n\n\uC774\uD399\uD2B8 \nJuan,
-        \uC624\uC0C1\uC6D0\n\nSpecial Thanks \n\n\uD669\uC81C\uC6C5, \uAD6C\uD0DC\uC131
-        \uADF8\uB9AC\uACE0 CIEN \uD68C\uC6D0 \uBD84\uB4E4"
+        \uC624\uC0C1\uC6D0\n\nSpecial Thanks \n\n\uD669\uC81C\uC6C5, \uAD6C\uD0DC\uC131,
+        \uC774\uD6A8\uB9BC(IOS \uBE4C\uB4DC) \uADF8\uB9AC\uACE0 CIEN \uD68C\uC6D0
+        \uBD84\uB4E4"
       objectReference: {fileID: 0}
     - target: {fileID: 7055905508344667927, guid: 08b93074218a9374ea5696f085900884,
         type: 3}
@@ -2097,12 +2098,12 @@ PrefabInstance:
     - target: {fileID: 7055905510115544325, guid: 08b93074218a9374ea5696f085900884,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0000060081
+      value: 0.00000047684
       objectReference: {fileID: 0}
     - target: {fileID: 7055905510115544325, guid: 08b93074218a9374ea5696f085900884,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: 0.49706244
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08b93074218a9374ea5696f085900884, type: 3}
